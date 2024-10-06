@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./assets/css/kit.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <!-- header -->
+  <nav class="navbar">
+    <div class="first-half">
+      <div class="logo">
+        <a href="./home.html">
+          <img src="./assets/images/demo-logo.png" class="logo-image" alt="">
+        </a>
+      </div>
+      <div class="links">
+        <ul class="d-flex">
+          <li><a href="">Save More On App</a></li>
+          <li><a href="">Sell On Name</a></li>
+          <li><a href="">Help & Support</a></li>
+          <li class="dropdown">
+            <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
+            <ul class="dropdown-menu">
+              <li class="sub-dropdown">
+                <a href="#" class="subdropdowns">Category 1<i class="bx bx-chevron-left"></i></a>
+                <ul class="sub-menu">
+                  <li><a href="#">Sub Category 1</a></li>
+                  <li><a href="#">Sub Category 2</a></li>
+                </ul>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#" class="subdropdowns">Category 2 <i class="bx bx-chevron-left"></i></a>
+                <ul class="sub-menu">
+                  <li><a href="#">Sub Category 3</a></li>
+                  <li><a href="#">Sub Category 4</a></li>
+                </ul>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#">Category 1</a>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#">Category 1</a>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#">Category 1</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="second-half">
+      <ul class="d-flex">
+        <li>
+          <div class="search-box">
+            <input type="text" class="search-box-input" placeholder="What are you looking for ?">
+            <button class="search-box-btn">
+              <i class="search-box-icon material-icons bx bx-search"></i>
+            </button>
+          </div>
+        </li>
+        <li><a href="./cart.html"><i class="bx bx-cart fs-4"></i></a></li>
+        <li>
+          <div class="dropdown" tab-index="0">
+            <button id="dropdown-btn"></button>
+            <ul class="dropdown-content" id="dropdown-content"></ul>
+          </div>
+        </li>
+        <li>
+          <a href="./login.html">
+            <button class="btn btn-pill btn-login">Log In</button>
+          </a>
+        </li>
+        <li>
+          <a href="./login.html">
+            <button class="btn btn-pill btn-signUp">Sign Up</button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-area">
+    <div class="breadcrumbs-container">
+        <h4>Privacy Policy</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item active">Privacy Policy</li>
+          </ol>
+    </div>
+    <main class="container terms-condition content">
+        <h2 class="heading dotted-square">Consent</h2>
+        <p class="description">
+          By using our website, you hereby consent to our Privacy Policy and
+          agree to its terms.
+        </p>
+        <h2 class="heading dotted-square">Information we collect</h2>
+        <p class="description">
+          The personal information that you are asked to provide, and the
+          reasons why you are asked to provide it, will be made clear to you
+          at the point we ask you to provide your personal information.
+        </p>
+        <p class="description">
+          If you contact us directly, we may receive additional information
+          about you such as your name, email address, phone number, the
+          contents of the message and/or attachments you may send us, and any
+          other information you may choose to provide.
+        </p>
+        <p class="description">
+          When you register for an Account, we may ask for your contact
+          information, including items such as name, company name, address,
+          email address, and telephone number.
+        </p>
+        <h2 class="heading dotted-square">Log Files</h2>
+        <p class="description">
+          Smart Solution follows a standard procedure of using log files. These files
+          log visitors when they visit websites. All hosting companies do this
+          and a part of hosting services' analytics. The information collected
+          by log files include internet protocol (IP) addresses, browser type,
+          Internet Service Provider (ISP), date and time stamp, referring/exit
+          pages, and possibly the number of clicks. These are not linked to
+          any information that is personally identifiable. The purpose of the
+          information is for analyzing trends, administering the site,
+          tracking users' movement on the website, and gathering demographic
+          information.
+        </p>
+        <h2 class="heading dotted-square">Cookies and Web Beacons</h2>
+        <p class="description">
+          Like any other website, Smart Solution uses 'cookies'. These cookies are
+          used to store information including visitors' preferences, and the
+          pages on the website that the visitor accessed or visited. The
+          information is used to optimize the users' experience by customizing
+          our web page content based on visitors' browser type and/or other
+          information.
+        </p>
+    
+        <h2 class="heading dotted-square">Third Party Privacy Policies</h2>
+        <p class="description">
+          Smart Solution's Privacy Policy does not apply to other advertisers or
+          websites. Thus, we are advising you to consult the respective
+          Privacy Policies of these third-party ad servers for more detailed
+          information. It may include their practices and instructions about
+          how to opt-out of certain options.
+        </p>
+        <p class="description">
+          You can choose to disable cookies through your individual browser
+          options. To know more detailed information about cookie management
+          with specific web browsers, it can be found at the browsers'
+          respective websites.
+        </p>
+    
+        <p class="description">
+          CCPA Privacy Rights (Do Not Sell My Personal Information)
+        </p>
+        <p class="description">
+          Under the CCPA, among other rights, California consumers have the
+          right to:
+        </p>
+        <ul class="list">
+          <li>
+            Request that a business that collects a consumer's personal data
+            disclose the categories and specific pieces of personal data that
+            a business has collected about consumers.
+          </li>
+          <li>
+            Request that a business delete any personal data about the
+            consumer that a business has collected.
+          </li>
+          <li>
+            Request that a business that sells a consumer's personal data, not
+            sell the consumer's personal data.
+          </li>
+          <li>
+            If you make a request, we have one month to respond to you. If you
+            would like to exercise any of these rights, please contact us.
+          </li>
+        </ul>
+        <h2 class="heading dotted-square">GDPR Data Protection Rights</h2>
+        <p class="description">
+          We would like to make sure you are fully aware of all of your data
+          protection rights. Every user is entitled to the following:
+        </p>
+        <ul class="list">
+          <li>
+            The right to access – You have the right to request copies of your
+            personal data. We may charge you a small fee for this service.
+          </li>
+          <li>
+            The right to rectification – You have the right to request that we
+            correct any information you believe is inaccurate. You also have
+            the right to request that we complete the information you believe
+            is incomplete.
+          </li>
+          <li>
+            The right to erasure – You have the right to request that we erase
+            your personal data, under certain conditions.
+          </li>
+          <li>
+            The right to restrict processing – You have the right to request
+            that we restrict the processing of your personal data, under
+            certain conditions.
+          </li>
+          <li>
+            The right to object to processing – You have the right to object
+            to our processing of your personal data, under certain conditions.
+          </li>
+          <li>
+            The right to data portability – You have the right to request that
+            we transfer the data that we have collected to another
+            organization, or directly to you, under certain conditions.
+          </li>
+          <li>
+            If you make a request, we have one month to respond to you. If you
+            would like to exercise any of these rights, please contact us.
+          </li>
+        </ul>
+      </main>
+      <!-- CONTENT -->
+</div>
+<div class="phone-call cbh-phone cbh-green cbh-show cbh-static" id="clbh_phone_div">
+  <a id="WhatsApp-button" href="https://wa.me/5521980619913" target="_blank" class="phoneJs"
+    title="WhatsApp 360imagem">
+    <div class="cbh-ph-circle"></div>
+    <div class="cbh-ph-circle-fill"></div>
+    <div class="cbh-ph-img-circle1">
+      <i class='bx bxs-chat' style='color:#ffffff'></i>
+    </div>
+  </a>
+</div>
+<!-- /content -->
+<!-- footer -->
+<footer>
+  <div class="foot-logo">
+      <img src="./assets/images/demo-logo.png">
+  </div>
+  <div class="info d-flex">
+      <div class="links">
+          <h6 class="text-c-white fw-700">Quick Links</h6>
+          <ul>
+              <a href=""><li>Home</li></a>
+              <a href=""><li>About Us</li></a>
+              <a href=""><li>Contact Us</li></a>
+              <a href=""><li>Story</li></a>
+              <a href=""><li>Blogs</li></a>
+          </ul>
+      </div>
+      <div class="links">
+          <h6 class="text-c-white fw-700">Getting Started</h6>
+          <ul>
+              <a href=""><li>Home</li></a>
+              <a href=""><li>About Us</li></a>
+              <a href=""><li>Contact Us</li></a>
+              <a href=""><li>Story</li></a>
+              <a href=""><li>Blogs</li></a>
+          </ul>
+      </div>
+      <div class="links">
+          <h6 class="text-c-white fw-700">Featured</h6>
+          <ul>
+              <a href="./home.html"><li>Home</li></a>
+              <a href="./about-us.html"><li>About Us</li></a>
+              <a href=""><li>Contact Us</li></a>
+              <a href=""><li>Story</li></a>
+              <a href=""><li>Blogs</li></a>
+          </ul>
+      </div>
+      <div class="social-desc">
+          <div class="social-media">
+              <h6 class="text-c-white fw-800">FOLLOW Us On</h6>
+              <ul class="d-flex">
+                  <li><a href=""><i class='bx bxl-facebook'></i></a></li>
+                  <li><a href=""><i class='bx bxl-instagram'></i></a></li>
+                  <li><a href=""><i class='bx bxl-youtube'></i></a></li>
+                  <li><a href=""><i class='bx bxl-twitter' ></i></a></li>
+                  <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
+              </ul>
+          </div>
+          <div class="payment-methods">
+              <h6 class="text-c-white fw-800">Payment Methods</h6>
+              <img class="payment-method-img" src="./assets/images/payment-methods.png" alt="">
+              <img src="./assets/images/payment-method-2.png" alt="" width="60px" height="30px" style="margin-left: 3px;">
+          </div>
+      </div>
+  </div>
+  <hr>
+  <div class="terms-section d-flex">
+  <p>&copy; 2006 Company Name All Rights Reserved</p>
+  <div class="terms">
+      <ul class="d-flex">
+          <li><a href="./terms.html">Terms & Condition</a></li>
+          <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="./refund&exchange.html">Exchange & Return</a></li>
+          <li><a href="./refund-policy.html">Refund Policy</a></li>
+          <li><a href="./shipment-policy.html">Shippment Policy</a></li>
+      </ul>
+  </div>
+</div>
+</footer>
+<!-- /footer -->
+
+<!-- THIRD PARTY JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- scripts -->
+<script>
+  const locales = ["en-GB", "ar-SA", "zh-CN", "de-DE", "es-ES", "fr-FR", "hi-IN", "it-IT", "in-ID", "ja-JP", "ko-KR", "nl-NL", "no-NO", "pl-PL", "pt-BR", "sv-SE", "fi-FI", "th-TH", "tr-TR", "uk-UA", "vi-VN", "ru-RU", "he-IL"];
+
+  function getFlagSrc(countryCode) {
+    return /^[A-Z]{2}$/.test(countryCode)
+      ? `https://flagsapi.com/${countryCode.toUpperCase()}/shiny/64.png`
+      : "";
+  }
+
+  const dropdownBtn = document.getElementById("dropdown-btn");
+  const dropdownContent = document.getElementById("dropdown-content");
+
+  function setSelectedLocale(locale) {
+    const intlLocale = new Intl.Locale(locale);
+    const langName = new Intl.DisplayNames([locale], {
+      type: "language",
+    }).of(intlLocale.language);
+
+    dropdownContent.innerHTML = "";
+
+    const otherLocales = locales.filter((loc) => loc !== locale);
+    otherLocales.forEach((otherLocale) => {
+      const otherIntlLocale = new Intl.Locale(otherLocale);
+      const otherLangName = new Intl.DisplayNames([otherLocale], {
+        type: "language",
+      }).of(otherIntlLocale.language);
+
+      const listEl = document.createElement("li");
+      listEl.innerHTML = `${otherLangName}<img src="${getFlagSrc(
+        otherIntlLocale.region
+      )}" />`;
+      listEl.value = otherLocale;
+      listEl.addEventListener("mousedown", function () {
+        setSelectedLocale(otherLocale);
+      });
+      dropdownContent.appendChild(listEl);
+    });
+
+    dropdownBtn.innerHTML = `<img src="${getFlagSrc(
+      intlLocale.region
+    )}" />${langName}<span class="arrow-down"></span>`;
+  }
+
+  setSelectedLocale(locales[0]);
+  const browserLang = new Intl.Locale(navigator.language).language;
+  for (const locale of locales) {
+    const localeLang = new Intl.Locale(locale).language;
+    if (localeLang === browserLang) {
+      setSelectedLocale(locale);
+    }
+  }
+</script>
+</body>
+
+</html>

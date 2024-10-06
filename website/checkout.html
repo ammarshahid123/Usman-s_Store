@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./assets/css/kit.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+
+  <!-- header -->
+  <nav class="navbar">
+    <div class="first-half">
+      <div class="logo">
+        <a href="./home.html">
+          <img src="./assets/images/demo-logo.png" class="logo-image" alt="">
+        </a>
+      </div>
+      <div class="links">
+        <ul class="d-flex">
+          <li><a href="">Save More On App</a></li>
+          <li><a href="">Sell On Name</a></li>
+          <li><a href="">Help & Support</a></li>
+          <li class="dropdown">
+            <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
+            <ul class="dropdown-menu">
+              <li class="sub-dropdown">
+                <a href="#" class="subdropdowns">Category 1<i class="bx bx-chevron-left"></i></a>
+                <ul class="sub-menu">
+                  <li><a href="#">Sub Category 1</a></li>
+                  <li><a href="#">Sub Category 2</a></li>
+                </ul>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#" class="subdropdowns">Category 2 <i class="bx bx-chevron-left"></i></a>
+                <ul class="sub-menu">
+                  <li><a href="#">Sub Category 3</a></li>
+                  <li><a href="#">Sub Category 4</a></li>
+                </ul>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#">Category 1</a>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#">Category 1</a>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#">Category 1</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="second-half">
+      <ul class="d-flex">
+        <li>
+          <div class="search-box">
+            <input type="text" class="search-box-input" placeholder="What are you looking for ?">
+            <button class="search-box-btn">
+              <i class="search-box-icon material-icons bx bx-search"></i>
+            </button>
+          </div>
+        </li>
+        <li><a href="./cart.html"><i class="bx bx-cart fs-4"></i></a></li>
+        <li>
+          <div class="dropdown" tab-index="0">
+            <button id="dropdown-btn"></button>
+            <ul class="dropdown-content" id="dropdown-content"></ul>
+          </div>
+        </li>
+        <li>
+          <a href="./login.html">
+            <button class="btn btn-pill btn-login">Log In</button>
+          </a>
+        </li>
+        <li>
+          <a href="./login.html">
+            <button class="btn btn-pill btn-signUp">Sign Up</button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-area">
+    <div class="breadcrumbs-container">
+      <h4>Checkout Page</h4>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="./home.html" class="breadcrumb-link">Home</a></li>
+        <li class="breadcrumb-item"><a href="./cart.html" class="breadcrumb-link">Cart</a></li>
+        <li class="breadcrumb-item active">Checkout Page</li>
+      </ol>
+    </div>
+    <div class="container container-checkout">
+      <div class="shipping-address-form">
+        <form action="" class="add-ship-address">
+          <h4>Add Shipping Address</h4>
+          <hr>
+          <div class="inputs">
+            <div class="form-row">
+              <div class="field">
+                <input style="font-size: 16px;
+font-family: sans-serif;" type="text" class="field-text" placeholder="First Name" />
+              </div>
+              <div class="field">
+                <input style="font-size: 16px;
+font-family: sans-serif;" type="text" class="field-text" placeholder="Last Name" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <select style="font-size: 14px;
+font-family: sans-serif;" name="" id="" class="field-select">
+                  <option value="">State / City</option>
+                  <option value="Option">Option</option>
+                  <option value="Option">Option</option>
+                </select>
+              </div>
+              <div class="field">
+                <input style="font-size: 14px;
+font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" />
+              </div>
+            </div>
+            <div class="field text-area">
+              <textarea class="field-textarea" rows="5"       
+               placeholder="Enter your Address..." ></textarea>
+              </div>
+              <div class="save-btn">
+                <button class="btn btn-info btn-pill">Save</button>
+              </div>
+          </div>
+          <h4>Select Payment Methods</h4>
+          <hr>
+          <div class="payment-container"> 
+              <label class="check check-info check-radio"> <input type="radio" name="payment" value="cash" onclick="togglePaymentFields('none')"/> Cash on Delivery </label>
+              <label class="check check-info check-radio"> <input type="radio" name="payment" value="credit" onclick="togglePaymentFields('credit')"/> Credit Card </label>
+              <label class="check check-info check-radio"> <input type="radio" name="payment" value="stripe" onclick="togglePaymentFields('none')"/> Wallet </label>
+          </div>
+          <!-- Credit card fields (initially hidden) -->
+          <div id="credit-card-fields" class="hidden-fields">
+            <div class="grp">
+              <input type="text" placeholder="Name on card" />
+              <input type="number" placeholder="Card number" />
+            </div>
+            <div class="grp">
+              <input type="text" placeholder="Expiry date (MM/YY)" />
+              <input type="number" placeholder="CVC" />
+            </div>
+            <button class="btn btn-info btn-pill">Make Payment</button>
+          </div>
+        </form>
+      </div>
+      <div class="checkout-form">
+        <div class="card card-checkout-summary">
+          <div class="card-head">
+            <div class="shipping-address">
+              <h6>Select Shipping Address</h6>
+              <div class="media">
+                <div class="media-head">
+                  <i class="bx bx-map"></i>
+                </div>
+                <div class="media-body">
+                  <div class="card-subtitle">Ammar Shahid</div>
+                  <div class="card-subtitle">03164582746</div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Quo sapiente architecto nostrum perspiciatis animi libero tenetur mollitia
+                    dignissimos! Nulla deserunt doloremque consequatur quis ducimus labore rerum vitae similique
+                    excepturi dignissimos.</div>
+                </div>
+                <div class="media-foot">
+                  <label class="check check-info"> <input type="checkbox" /></label>
+                </div>
+              </div>
+              <hr>
+              <div class="media">
+                <div class="media-head">
+                  <i class="bx bx-map"></i>
+                </div>
+                <div class="media-body">
+                  <div class="card-subtitle">Ammar Shahid</div>
+                  <div class="card-subtitle">03164582746</div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Quo sapiente architecto nostrum perspiciatis animi libero tenetur mollitia
+                    dignissimos! Nulla deserunt doloremque consequatur quis ducimus labore rerum vitae similique
+                    excepturi dignissimos.</div>
+                </div>
+                <div class="media-foot">
+                  <label class="check check-info"> <input type="checkbox" /></label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="card-body">
+            <h6>Summary</h6>
+            <div class="media">
+              <div class="media-head">
+                <img src="./assets/images/t-shirt_product.jpg" alt="">
+              </div>
+              <div class="media-body">
+                <div class="text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eligendi optio consectetur voluptate alias? Placeat doloremque architecto eligendi eos quos
+                  repudiandae, velit in, perspiciatis, magnam ipsa nam facere maiores deserunt neque.</div>
+                <div class="media-foot">
+                  <div class="qty">x 1</div>
+                  <div class="card-subtitle">$599</div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="media">
+              <div class="media-head">
+                <img src="./assets/images/t-shirt_product.jpg" alt="">
+              </div>
+              <div class="media-body">
+                <div class="text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Eligendi optio consectetur voluptate alias? Placeat doloremque architecto eligendi eos quos
+                  repudiandae, velit in, perspiciatis, magnam ipsa nam facere maiores deserunt neque.</div>
+                <div class="media-foot">
+                  <div class="qty">x 5</div>
+                  <div class="card-subtitle">$599</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="card-foot">
+            <div class="card-subtitle">Subtotal<span>$1098</span></div>
+            <div class="card-subtitle">Discount<span>$0</span></div>
+            <div class="card-title">Total<span>$1098</span></div>
+            <button class="btn btn-info btn-block btn-pill">Order Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="phone-call cbh-phone cbh-green cbh-show cbh-static" id="clbh_phone_div">
+    <a id="WhatsApp-button" href="https://wa.me/5521980619913" target="_blank" class="phoneJs"
+      title="WhatsApp 360imagem">
+      <div class="cbh-ph-circle"></div>
+      <div class="cbh-ph-circle-fill"></div>
+      <div class="cbh-ph-img-circle1">
+        <i class='bx bxs-chat' style='color:#ffffff'></i>
+      </div>
+    </a>
+  </div>
+  <!-- /content -->
+  <!-- footer -->
+  <footer>
+    <div class="foot-logo">
+        <img src="./assets/images/demo-logo.png">
+    </div>
+    <div class="info d-flex">
+        <div class="links">
+            <h6 class="text-c-white fw-700">Quick Links</h6>
+            <ul>
+                <a href=""><li>Home</li></a>
+                <a href=""><li>About Us</li></a>
+                <a href=""><li>Contact Us</li></a>
+                <a href=""><li>Story</li></a>
+                <a href=""><li>Blogs</li></a>
+            </ul>
+        </div>
+        <div class="links">
+            <h6 class="text-c-white fw-700">Getting Started</h6>
+            <ul>
+                <a href=""><li>Home</li></a>
+                <a href=""><li>About Us</li></a>
+                <a href=""><li>Contact Us</li></a>
+                <a href=""><li>Story</li></a>
+                <a href=""><li>Blogs</li></a>
+            </ul>
+        </div>
+        <div class="links">
+            <h6 class="text-c-white fw-700">Featured</h6>
+            <ul>
+                <a href="./home.html"><li>Home</li></a>
+                <a href="./about-us.html"><li>About Us</li></a>
+                <a href=""><li>Contact Us</li></a>
+                <a href=""><li>Story</li></a>
+                <a href=""><li>Blogs</li></a>
+            </ul>
+        </div>
+        <div class="social-desc">
+            <div class="social-media">
+                <h6 class="text-c-white fw-800">FOLLOW Us On</h6>
+                <ul class="d-flex">
+                    <li><a href=""><i class='bx bxl-facebook'></i></a></li>
+                    <li><a href=""><i class='bx bxl-instagram'></i></a></li>
+                    <li><a href=""><i class='bx bxl-youtube'></i></a></li>
+                    <li><a href=""><i class='bx bxl-twitter' ></i></a></li>
+                    <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
+                </ul>
+            </div>
+            <div class="payment-methods">
+                <h6 class="text-c-white fw-800">Payment Methods</h6>
+                <img class="payment-method-img" src="./assets/images/payment-methods.png" alt="">
+                <img src="./assets/images/payment-method-2.png" alt="" width="60px" height="30px" style="margin-left: 3px;">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="terms-section d-flex">
+    <p>&copy; 2006 Company Name All Rights Reserved</p>
+    <div class="terms">
+        <ul class="d-flex">
+            <li><a href="./terms.html">Terms & Condition</a></li>
+            <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="./refund&exchange.html">Exchange & Return</a></li>
+            <li><a href="./refund-policy.html">Refund Policy</a></li>
+            <li><a href="./shipment-policy.html">Shippment Policy</a></li>
+        </ul>
+    </div>
+</div>
+</footer>
+  <!-- /footer -->
+
+  <!-- THIRD PARTY JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <!-- scripts -->
+  <script>
+    const locales = ["en-GB", "ar-SA", "zh-CN", "de-DE", "es-ES", "fr-FR", "hi-IN", "it-IT", "in-ID", "ja-JP", "ko-KR", "nl-NL", "no-NO", "pl-PL", "pt-BR", "sv-SE", "fi-FI", "th-TH", "tr-TR", "uk-UA", "vi-VN", "ru-RU", "he-IL"];
+
+    function getFlagSrc(countryCode) {
+      return /^[A-Z]{2}$/.test(countryCode)
+        ? `https://flagsapi.com/${countryCode.toUpperCase()}/shiny/64.png`
+        : "";
+    }
+
+    const dropdownBtn = document.getElementById("dropdown-btn");
+    const dropdownContent = document.getElementById("dropdown-content");
+
+    function setSelectedLocale(locale) {
+      const intlLocale = new Intl.Locale(locale);
+      const langName = new Intl.DisplayNames([locale], {
+        type: "language",
+      }).of(intlLocale.language);
+
+      dropdownContent.innerHTML = "";
+
+      const otherLocales = locales.filter((loc) => loc !== locale);
+      otherLocales.forEach((otherLocale) => {
+        const otherIntlLocale = new Intl.Locale(otherLocale);
+        const otherLangName = new Intl.DisplayNames([otherLocale], {
+          type: "language",
+        }).of(otherIntlLocale.language);
+
+        const listEl = document.createElement("li");
+        listEl.innerHTML = `${otherLangName}<img src="${getFlagSrc(
+          otherIntlLocale.region
+        )}" />`;
+        listEl.value = otherLocale;
+        listEl.addEventListener("mousedown", function () {
+          setSelectedLocale(otherLocale);
+        });
+        dropdownContent.appendChild(listEl);
+      });
+
+      dropdownBtn.innerHTML = `<img src="${getFlagSrc(
+        intlLocale.region
+      )}" />${langName}<span class="arrow-down"></span>`;
+    }
+
+    setSelectedLocale(locales[0]);
+    const browserLang = new Intl.Locale(navigator.language).language;
+    for (const locale of locales) {
+      const localeLang = new Intl.Locale(locale).language;
+      if (localeLang === browserLang) {
+        setSelectedLocale(locale);
+      }
+    }
+  </script>
+<!-- select payments -->
+<script>
+  function togglePaymentFields(paymentType) {
+    var creditCardFields = document.getElementById("credit-card-fields");
+
+    if (paymentType === 'credit') {
+      creditCardFields.style.display = 'block';
+    } else {
+      creditCardFields.style.display = 'none';
+    }
+  }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review and Images Tabs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+    }
+
+    .tab.active {
+      border-bottom: 2px solid black;
+    }
+
+    .content {
+      display: none;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .filter {
+      display: flex;
+      align-items: center;
+    }
+
+    select {
+      padding: 5px;
+      margin-left: 10px;
+    }
+
+    .review {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+
+    .review .details {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .review .comment {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .review .info {
+      font-size: 14px;
+      color: #666;
+    }
+    .tabs-filters{
+      display: flex;
+      justify-content: space-between;
+    }
+    .rating {
+      color: gold;
+    }
+  </style>
+</head>
+<body>
+<div class="tabs-filters">
+  <div class="tabs">
+    <div class="tab active" onclick="openTab('reviews')">All Reviews (43)</div>
+    <div class="tab" onclick="openTab('images')">Images (10)</div>
+  </div>
+
+  <div class="filters">
+    <div class="filter">
+      <label for="rating">Rating</label>
+      <select id="rating">
+        <option>All</option>
+        <option>5 stars</option>
+        <option>4 stars</option>
+        <option>3 stars</option>
+        <option>2 stars</option>
+        <option>1 star</option>
+      </select>
+    </div>
+    <div class="filter">
+      <label for="product-filter">Filter by product (color or size)</label>
+      <select id="product-filter">
+        <option>All</option>
+        <option>Color</option>
+        <option>Size</option>
+      </select>
+    </div>
+    <div class="filter">
+      <label for="sort">Sort by</label>
+      <select id="sort">
+        <option>Recommend</option>
+        <option>Newest</option>
+        <option>Oldest</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+  <!-- Reviews Tab Content -->
+  <div id="reviews" class="content active">
+    <div class="review">
+      <div class="rating">★★★★★</div>
+      <div class="comment">Hey yo. It was perfect!!!!!!!!</div>
+      <div class="details">Overall Fit: True to Size<br>Color: Mocha Brown<br>Size: S</div>
+      <div class="info">13 Jul, 2022</div>
+    </div>
+
+    <div class="review">
+      <div class="rating">★★★★★</div>
+      <div class="comment">Increíble!!! La calidad es genial y para...</div>
+      <div class="details">Overall Fit: True to Size<br>Color: Mocha Brown<br>Size: S</div>
+      <div class="info">13 Jul, 2022</div>
+    </div>
+  </div>
+
+  <!-- Images Tab Content -->
+  <div id="images" class="content">
+    <p>Here are some images related to the product.</p>
+    <!-- Add image thumbnails here -->
+  </div>
+
+  <script>
+    function openTab(tabName) {
+      // Hide all content
+      var contents = document.querySelectorAll('.content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Remove active class from all tabs
+      var tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Show the selected content and add active class to the tab
+      document.getElementById(tabName).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+    <link rel="stylesheet" href="./assets/css/kit.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<style>
+
+
+
+.blob-container {
+    position: static;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0; /* Send blobs behind the content */
+}
+
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: float 5s infinite ease-in-out;
+}
+
+.blob1 {
+    background: #10182f;
+    width: 200px;
+    height: 200px;
+    top: 20%;
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.blob2 {
+    background: black;
+    width: 300px;
+    height: 300px;
+    top: 60%;
+    left: 50%;
+    animation-delay: 1s;
+}
+
+.blob3 {
+    background: rgb(163, 171, 196);
+    width: 250px;
+    height: 250px;
+    top: 80%;
+    left: 20%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 1; /* Keep content above the blobs */
+    color: #333; /* Text color */
+    text-align: center; /* Center the text */
+    padding-top: 100px; /* Add padding to the top */
+}
+</style>
+<body>
+    <!-- header -->
+    <nav class="navbar">
+        <div class="first-half">
+            <div class="logo">
+              <a href="./home.html">
+                <img src="./assets/images/demo-logo.png" class="logo-image" alt="">
+              </a>
+            </div>
+            <div class="links">
+                <ul class="d-flex">
+                    <li><a href="">Save More On App</a></li>
+                    <li><a href="">Sell On Name</a></li>
+                    <li><a href="">Help & Support</a></li>
+                    <li class="dropdown">
+                      <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
+                      <ul class="dropdown-menu">
+                          <li class="sub-dropdown">
+                              <a href="#" class="subdropdowns">Category 1<i class="bx bx-chevron-left"></i></a>
+                              <ul class="sub-menu">
+                                  <li><a href="#">Sub Category 1</a></li>
+                                  <li><a href="#">Sub Category 2</a></li>
+                              </ul>
+                          </li>
+                          <li class="sub-dropdown">
+                              <a href="#" class="subdropdowns">Category 2 <i class="bx bx-chevron-left"></i></a>
+                              <ul class="sub-menu">
+                                  <li><a href="#">Sub Category 3</a></li>
+                                  <li><a href="#">Sub Category 4</a></li>
+                              </ul>
+                          </li>
+                          <li class="sub-dropdown">
+                            <a href="#">Category 1</a>
+                        </li>
+                        <li class="sub-dropdown">
+                          <a href="#">Category 1</a>
+                      </li>
+                      <li class="sub-dropdown">
+                        <a href="#">Category 1</a>
+                    </li>
+                      </ul>
+                  </li>
+                </ul>
+            </div>
+        </div>
+        <div class="second-half">
+            <ul class="d-flex">
+                <li>
+                    <div class="search-box">
+                        <input type="text" class="search-box-input" placeholder="What are you looking for ?">
+                        <button class="search-box-btn">
+                            <i class="search-box-icon material-icons bx bx-search"></i>
+                        </button>
+                    </div>
+                </li>
+                <li><a href="./cart.html"><i class="bx bx-cart fs-4"></i></a></li>
+                <li>
+                    <div class="dropdown" tab-index="0">
+                        <button id="dropdown-btn"></button>
+                        <ul class="dropdown-content" id="dropdown-content"></ul>
+                      </div>
+                </li>
+                <li>
+                  <a href="./login.html">
+                    <button class="btn btn-pill btn-login">Log In</button>
+                  </a>
+                </li>
+                <li>
+                  <a href="./login.html">
+                    <button class="btn btn-pill btn-signUp">Sign Up</button>
+                  </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- /header -->
+    <!-- content -->
+    <div class="blob-container">
+        <div class="blob blob1"></div>
+        <div class="blob blob2"></div>
+        <div class="blob blob3"></div>
+    </div>
+    <div class="content-area content Forms">
+<!--         
+            <div class="dotted-box ">
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            <div class="dotted-box " >
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="line">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div> -->
+       
+        <div class="container login-forms form-container">
+                <form class="form login-form active" >
+                    <h1>Welcome Back</h1>
+                    <div class="flex-column">
+                        <label>Email </label>
+                    </div>
+                    <div class="inputForm">
+                        <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <g id="Layer_3" data-name="Layer 3">
+                                <path
+                                    d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z">
+                                </path>
+                            </g>
+                        </svg>
+                        <input type="text" class="input" placeholder="Enter your Email">
+                    </div>
+    
+                    <div class="flex-column">
+                        <label>Password </label>
+                    </div>
+                    <div class="inputForm">
+                        <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0">
+                            </path>
+                            <path
+                                d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0">
+                            </path>
+                        </svg>
+                        <input type="password" class="input" placeholder="Enter your Password">
+                        <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z">
+                            </path>
+                        </svg>
+                    </div>
+    
+                    <div class="flex-row">
+                        <div>
+                            <label class="check check-dark"> <input type="checkbox" /> Remember me </label>
+                        </div>
+                        <span class="span switch-to-forgot">Forgot password?</span>
+                    </div>
+                    <button class="button-submit">Log In</button>
+                    <p class="p">Don't have an account? <span class="span switch-to-signup">Sign Up</span>
+    
+                        <!-- </p><p class="p line">Or With</p> -->
+                        <span class="divider divider-text divider-light">OR</span>
+    
+                    <div class="social-row">
+                        <a href="">
+                            <img src="./assets/images/google-icon-removebg-preview.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="./assets/images/facebook-logo.jpg" alt="">
+                        </a>
+                    </div>
+                </form>
+                <form class="form signup-form">
+                    <h1>Sign Up</h1>
+                    <div class="flex-column">
+                        <label>Username </label>
+                    </div>
+                    <div class="inputForm">
+                        <i class="bx bxs-user"></i>
+                        <input type="text" class="input" placeholder="Enter Username">
+                    </div>
+                    <div class="flex-column">
+                        <label>Email </label>
+                    </div>
+                    <div class="inputForm">
+                        <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <g id="Layer_3" data-name="Layer 3">
+                                <path
+                                    d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z">
+                                </path>
+                            </g>
+                        </svg>
+                        <input type="text" class="input" placeholder="Enter your Email">
+                    </div>
+    
+                    <div class="flex-column">
+                        <label>Password </label>
+                    </div>
+                    <div class="inputForm">
+                        <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0">
+                            </path>
+                            <path
+                                d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0">
+                            </path>
+                        </svg>
+                        <input type="password" class="input" placeholder="Enter your Password">
+                        <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z">
+                            </path>
+                        </svg>
+                    </div>
+    
+                    <div class="flex-column">
+                        <label>Confirm Password </label>
+                    </div>
+                    <div class="inputForm">
+                        <svg height="20" viewBox="-64 0 512 512" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="m336 512h-288c-26.453125 0-48-21.523438-48-48v-224c0-26.476562 21.546875-48 48-48h288c26.453125 0 48 21.523438 48 48v224c0 26.476562-21.546875 48-48 48zm-288-288c-8.8125 0-16 7.167969-16 16v224c0 8.832031 7.1875 16 16 16h288c8.8125 0 16-7.167969 16-16v-224c0-8.832031-7.1875-16-16-16zm0 0">
+                            </path>
+                            <path
+                                d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0">
+                            </path>
+                        </svg>
+                        <input type="password" class="input" placeholder="Confirm your Password">
+                        <svg viewBox="0 0 576 512" height="1em" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z">
+                            </path>
+                        </svg>
+                    </div>
+    
+    
+    
+                    <div class="flex-row">
+                        <div>
+                            <label class="check check-dark"> <input type="checkbox" /> Remember me </label>
+                        </div>
+                        <!-- <span class="span">Forgot password?</span> -->
+                    </div>
+                    <button class="button-submit">Sign In</button>
+                    <p class="p">Back to <span class="span switch-to-login">Log In</span>
+    
+                        <!-- </p><p class="p line">Or With</p> -->
+                        <span class="divider divider-text divider-light">OR</span>
+    
+                    <div class="social-row">
+                        <a href="">
+                            <img src="./assets/images/google-icon-removebg-preview.png" alt="">
+                        </a>
+                        <a href="">
+                            <img src="./assets/images/facebook-logo.jpg" alt="">
+                        </a>
+                    
+                    </div>
+                </form>   
+                <form class="form forget-form">
+                    <h1>Forget Password</h1>
+                    <div class="flex-column">
+                        <label>Email </label>
+                    </div>
+                    <div class="inputForm">
+                        <svg height="20" viewBox="0 0 32 32" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <g id="Layer_3" data-name="Layer 3">
+                                <path
+                                    d="m30.853 13.87a15 15 0 0 0 -29.729 4.082 15.1 15.1 0 0 0 12.876 12.918 15.6 15.6 0 0 0 2.016.13 14.85 14.85 0 0 0 7.715-2.145 1 1 0 1 0 -1.031-1.711 13.007 13.007 0 1 1 5.458-6.529 2.149 2.149 0 0 1 -4.158-.759v-10.856a1 1 0 0 0 -2 0v1.726a8 8 0 1 0 .2 10.325 4.135 4.135 0 0 0 7.83.274 15.2 15.2 0 0 0 .823-7.455zm-14.853 8.13a6 6 0 1 1 6-6 6.006 6.006 0 0 1 -6 6z">
+                                </path>
+                            </g>
+                        </svg>
+                        <input type="text" class="input" placeholder="Verify your Email">
+                    </div>
+    
+                    <button class="button-submit">Reset your Password</button>
+                    <p class="p">Back to <span class="span switch-to-login">Login</span>
+                   
+                    </form>
+            </div>
+        </div>
+    </div>
+    <!-- /content -->
+    <!-- footer -->
+    <footer>
+        <div class="foot-logo">
+            <img src="./assets/images/demo-logo.png">
+        </div>
+        <div class="info d-flex">
+            <div class="links">
+                <h6 class="text-c-white fw-700">Quick Links</h6>
+                <ul>
+                    <a href=""><li>Home</li></a>
+                    <a href=""><li>About Us</li></a>
+                    <a href=""><li>Contact Us</li></a>
+                    <a href=""><li>Story</li></a>
+                    <a href=""><li>Blogs</li></a>
+                </ul>
+            </div>
+            <div class="links">
+                <h6 class="text-c-white fw-700">Getting Started</h6>
+                <ul>
+                    <a href=""><li>Home</li></a>
+                    <a href=""><li>About Us</li></a>
+                    <a href=""><li>Contact Us</li></a>
+                    <a href=""><li>Story</li></a>
+                    <a href=""><li>Blogs</li></a>
+                </ul>
+            </div>
+            <div class="links">
+                <h6 class="text-c-white fw-700">Featured</h6>
+                <ul>
+                    <a href="./home.html"><li>Home</li></a>
+                    <a href="./about-us.html"><li>About Us</li></a>
+                    <a href=""><li>Contact Us</li></a>
+                    <a href=""><li>Story</li></a>
+                    <a href=""><li>Blogs</li></a>
+                </ul>
+            </div>
+            <div class="social-desc">
+                <div class="social-media">
+                    <h6 class="text-c-white fw-800">FOLLOW Us On</h6>
+                    <ul class="d-flex">
+                        <li><a href=""><i class='bx bxl-facebook'></i></a></li>
+                        <li><a href=""><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href=""><i class='bx bxl-youtube'></i></a></li>
+                        <li><a href=""><i class='bx bxl-twitter' ></i></a></li>
+                        <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
+                    </ul>
+                </div>
+                <div class="payment-methods">
+                    <h6 class="text-c-white fw-800">Payment Methods</h6>
+                    <img class="payment-method-img" src="./assets/images/payment-methods.png" alt="">
+                    <img src="./assets/images/payment-method-2.png" alt="" width="60px" height="30px" style="margin-left: 3px;">
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="terms-section d-flex">
+        <p>&copy; 2006 Company Name All Rights Reserved</p>
+        <div class="terms">
+            <ul class="d-flex">
+                <li><a href="./terms.html">Terms & Condition</a></li>
+                <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+                <li><a href="./refund&exchange.html">Exchange & Return</a></li>
+                <li><a href="./refund-policy.html">Refund Policy</a></li>
+                <li><a href="./shipment-policy.html">Shippment Policy</a></li>
+            </ul>
+        </div>
+    </div>
+    </footer>
+    <!-- /footer -->
+
+    <!-- THIRD PARTY JS -->
+    <!-- scripts -->
+    <script>
+        const locales = ["en-GB", "ar-SA", "zh-CN", "de-DE", "es-ES", "fr-FR", "hi-IN", "it-IT", "in-ID", "ja-JP", "ko-KR", "nl-NL", "no-NO", "pl-PL", "pt-BR", "sv-SE", "fi-FI", "th-TH", "tr-TR", "uk-UA", "vi-VN", "ru-RU", "he-IL"];
+
+        function getFlagSrc(countryCode) {
+            return /^[A-Z]{2}$/.test(countryCode)
+                ? `https://flagsapi.com/${countryCode.toUpperCase()}/shiny/64.png`
+                : "";
+        }
+
+        const dropdownBtn = document.getElementById("dropdown-btn");
+        const dropdownContent = document.getElementById("dropdown-content");
+
+        function setSelectedLocale(locale) {
+            const intlLocale = new Intl.Locale(locale);
+            const langName = new Intl.DisplayNames([locale], {
+                type: "language",
+            }).of(intlLocale.language);
+
+            dropdownContent.innerHTML = "";
+
+            const otherLocales = locales.filter((loc) => loc !== locale);
+            otherLocales.forEach((otherLocale) => {
+                const otherIntlLocale = new Intl.Locale(otherLocale);
+                const otherLangName = new Intl.DisplayNames([otherLocale], {
+                    type: "language",
+                }).of(otherIntlLocale.language);
+
+                const listEl = document.createElement("li");
+                listEl.innerHTML = `${otherLangName}<img src="${getFlagSrc(
+                    otherIntlLocale.region
+                )}" />`;
+                listEl.value = otherLocale;
+                listEl.addEventListener("mousedown", function () {
+                    setSelectedLocale(otherLocale);
+                });
+                dropdownContent.appendChild(listEl);
+            });
+
+            dropdownBtn.innerHTML = `<img src="${getFlagSrc(
+                intlLocale.region
+            )}" />${langName}<span class="arrow-down"></span>`;
+        }
+
+        setSelectedLocale(locales[0]);
+        const browserLang = new Intl.Locale(navigator.language).language;
+        for (const locale of locales) {
+            const localeLang = new Intl.Locale(locale).language;
+            if (localeLang === browserLang) {
+                setSelectedLocale(locale);
+            }
+        }
+    </script>
+    <script>
+        document.querySelectorAll('.switch-to-signup').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelector('.signup-form').classList.add('active');
+                document.querySelector('.login-form').classList.remove('active');
+                document.querySelector('.forget-form').classList.remove('active');
+            });
+        });
+
+        document.querySelectorAll('.switch-to-login').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelector('.login-form').classList.add('active');
+                document.querySelector('.signup-form').classList.remove('active');
+                document.querySelector('.forget-form').classList.remove('active');
+            });
+        });
+
+        document.querySelectorAll('.switch-to-forgot').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelector('.forget-form').classList.add('active');
+                document.querySelector('.login-form').classList.remove('active');
+                document.querySelector('.signup-form').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./assets/css/kit.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+<style>
+</style>
+</head>
+<body>
+  <!-- header -->
+  <nav class="navbar">
+    <div class="first-half">
+        <div class="logo">
+          <a href="./home.html">
+            <img src="./assets/images/demo-logo.png" class="logo-image" alt="">
+          </a>
+        </div>
+        <div class="links">
+            <ul class="d-flex">
+                <li><a href="">Save More On App</a></li>
+                <li><a href="">Sell On Name</a></li>
+                <li><a href="">Help & Support</a></li>
+                <li class="dropdown">
+                  <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
+                  <ul class="dropdown-menu">
+                      <li class="sub-dropdown">
+                          <a href="#" class="subdropdowns">Category 1<i class="bx bx-chevron-left"></i></a>
+                          <ul class="sub-menu">
+                              <li><a href="#">Sub Category 1</a></li>
+                              <li><a href="#">Sub Category 2</a></li>
+                          </ul>
+                      </li>
+                      <li class="sub-dropdown">
+                          <a href="#" class="subdropdowns">Category 2 <i class="bx bx-chevron-left"></i></a>
+                          <ul class="sub-menu">
+                              <li><a href="#">Sub Category 3</a></li>
+                              <li><a href="#">Sub Category 4</a></li>
+                          </ul>
+                      </li>
+                      <li class="sub-dropdown">
+                        <a href="#">Category 1</a>
+                    </li>
+                    <li class="sub-dropdown">
+                      <a href="#">Category 1</a>
+                  </li>
+                  <li class="sub-dropdown">
+                    <a href="#">Category 1</a>
+                </li>
+                  </ul>
+              </li>
+            </ul>
+        </div>
+    </div>
+    <div class="second-half">
+        <ul class="d-flex">
+            <li>
+                <div class="search-box">
+                    <input type="text" class="search-box-input" placeholder="What are you looking for ?">
+                    <button class="search-box-btn">
+                        <i class="search-box-icon material-icons bx bx-search"></i>
+                    </button>
+                </div>
+            </li>
+            <li><a href="./cart.html"><i class="bx bx-cart fs-4"></i></a></li>
+            <li>
+                <div class="dropdown" tab-index="0">
+                    <button id="dropdown-btn"></button>
+                    <ul class="dropdown-content" id="dropdown-content"></ul>
+                  </div>
+            </li>
+            <li>
+              <a href="./login.html">
+                <button class="btn btn-pill btn-login">Log In</button>
+              </a>
+            </li>
+            <li>
+              <a href="./login.html">
+                <button class="btn btn-pill btn-signUp">Sign Up</button>
+              </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <!-- /header -->
+    <!-- content -->
+<div class="content-area">
+    <div class="breadcrumbs-container">
+        <h4>Product Detail</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Products</a></li>
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Product-details</a></li>
+            <li class="breadcrumb-item active">T-shirts akjshajschashcuai suidh uui dhasiudh  h dish   </li>
+          </ol>
+    </div>
+    <div class="container product-detail-cards">
+        <div class="product-detail">
+            <div class="product-img-and-info">
+                <div class="products-image">
+                  <img src="./assets/images/t-shirt_product.jpg" class="main-img" id="mainImage" alt="Main Product Image">
+                  <div class="products-other-img">
+                      <img src="./assets/images/t-shirt_product.jpg" class="sm-img" alt="Thumbnail 1" onclick="changeImage(this)">
+                      <img src="./assets/images/t-shirt-2.jpg" class="sm-img" alt="Thumbnail 2" onclick="changeImage(this)">
+                      <img src="./assets/images/t-shirt_product.jpg" class="sm-img" alt="Thumbnail 3" onclick="changeImage(this)">
+                      <img src="./assets/images/t-shirt_product.jpg" class="sm-img" alt="Thumbnail 4" onclick="changeImage(this)">
+                  </div>
+                    <div class="card product-owner">
+                        <div class="card-head">
+                            <div class="store-name">
+                                <i class='bx bx-store-alt'></i>
+                                <h6>Creative T-shirts</h6>
+                                <i class='bx bxs-badge-check'></i>
+                            </div>
+                            <div class="rating-reviews">
+                                <i class="bx bxs-star"></i>
+                                <strong>(4.8)</strong>
+                                <strong>17.5k reviews</strong>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="card-body">
+                            <div class="location">
+                                <i class="bx bxs-map"></i>
+                                New york, USA
+                            </div>
+                            <button class="btn btn-visit-store">VISIT STORE</button>
+                        </div>
+                    </div>
+                    <div class="product-description">
+                        <h6>DESCRIPTION</h6>
+                        <!-- <p class="text-ellipsis text-ellipsis-2">orem ipsum, dolor sit amet consectetur adipisicing elit. Inventore expedita, molestiae explicabo laboriosam eligendi odio voluptatem unde atque dolore tempora incidunt neque ratione nobis culpa consequuntur iusto laborum at enim!</p> -->
+                        <p>
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore expedita, molestiae explicabo laboriosam eligendi odio voluptatem unde atque dolore tempora incidunt neque ratione nobis culpa consequuntur iusto laborum at enim!
+                            <span class="dots">...</span>
+                            <span class="more-text">Lorem ipsum additional content that will be revealed after clicking "Read More". This portion includes more detailed information about the product and its features.</span>
+                          </p>
+                          <button class="show-more-btn">Read More</button>
+                        
+                    </div>
+                    <hr>
+                    <div class="product-details">
+                        <h6>DETAILS</h6>
+                        <ul>
+                            <li><i class="bx bxs-map"></i>Send from <strong>New York, USA</strong></li>
+                            <li><i class='bx bxs-truck'></i>Estimated Shipping <strong>$3.99</strong></li>
+                            <li><i class='bx bxs-check-shield'></i><strong>100 %</strong>Original Product</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div class="share-badge">
+                        <div class="badge badge-pill">New Arrivals</div>
+                        <i class='bx bx-share-alt bx-flip-vertical'></i>
+                    </div>
+                    <h2 class="product-title">Stylish Comfort: Oversized Fit Printed T-Shirt for Men</h2>
+                    <div class="rating-reviews-sold">
+                        <div class="rating">
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <i class="bx bxs-star"></i>
+                            <strong>(5)</strong>
+                        </div>
+                        <div class="reviews">623 reviews</div>
+                        <div style="height: 15px;border: 1px solid grey;"></div>
+                        <div class="sold">1,919 Sold</div>
+                    </div>
+                    <div class="product-price">
+                        <h2 class="original-price">$890,00</h2>
+                        <div class="discounted-price"><del>$1290.00</del>-77%</div>
+                    </div>
+                    <div class="select-colors">
+                        <h6>SELECTED COLOR</h6>
+                        <div class="color-picker">
+                            <div class="color-circle active" data-color="red"></div>
+                            <div class="color-circle" data-color="orange"></div>
+                            <div class="color-circle" data-color="brown"></div>
+                            <div class="color-circle" data-color="purple"></div>
+                          </div>
+                    </div>
+                    <div class="select-size">
+                        <h6>SELECTED SIZE</h6>
+                        <div class="button-container">
+                            <button class="btn btn-color btn-sm active" >XS</button>
+                            <button class="btn btn-color btn-sm" >S</button>
+                            <button class="btn btn-color btn-sm" >M</button>
+                            <button class="btn btn-color btn-sm" >L</button>
+                            <button class="btn btn-color btn-sm" >XL</button>
+                            <button class="btn btn-color btn-sm" >XXL</button>
+                        </div>
+                    </div>
+                    <div class="select-color-family">
+                        <h6>SELECTED COLOR FAMILY</h6>
+                        <div class="color-images">
+                            <img src="./assets/images/t-shirt_product.jpg" class="color-product active" alt="">
+                            <img src="./assets/images/t-shirt_product.jpg" class="color-product" alt="">
+                            <img src="./assets/images/t-shirt_product.jpg" class="color-product" alt="">
+                            <img src="./assets/images/t-shirt_product.jpg" class="color-product" alt="">
+                            <img src="./assets/images/t-shirt_product.jpg" class="color-product" alt="">
+                        </div>
+                    </div>
+                    <div class="quantity-counter">
+                        <h6>SELECT QUANTITY</h6>
+                        <div class="counter">
+                            <button id="decrement"><i class="bx bx-minus"></i></button>
+                            <input type="text" id="quantity" value="1" readonly>
+                            <button id="increment"><i class="bx bx-plus"></i></button>
+                        </div>
+                    </div>
+                    <button class="btn btn-block btn-icon btn-wishlist"><i class="bx bx-heart icon-pre"></i> Save to Wishlist </button>
+                    <button class="btn btn-block btn-icon btn-cart"><i class="bx bx-cart icon-pre"></i> Add to Cart </button>                </div>
+                <div class="order-detail">
+                    <div class="heading-info">
+                        Delivery Options 
+                        <i class='bx bx-info-circle' ></i>
+                    </div>
+                    <div class="desc-info">
+                        <i class='bx bx-map'></i>
+                        <div class="text">
+                            Sindh, Karachi - Karachi G Block-G Block 15
+                        </div>
+                        <button class="btn btn-change-address btn-sm">CHANGE</button>
+                    </div>
+                    <hr>
+                    <div class="desc-info">
+                        <i class='bx bxs-truck'></i>
+                        <div class="text">
+                            Standard Delivery<br><span>Guaranteed by 6-11 Oct</span>
+                        </div>
+                        <div class="delivery-price">$3.99</div>
+                    </div>
+                    <div class="desc-info">
+                        <i class='bx bx-money-withdraw'></i>
+                        <div class="text">
+                            Cash on Deleivery Available
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="heading-info">
+                        Return & Warranty 
+                        <i class='bx bx-info-circle' ></i>
+                    </div>
+                    <div class="desc-info">
+                        <i class='bx bx-redo bx-flip-horizontal' ></i>
+                        <div class="text">
+                            14 days easy return
+                        </div>
+                    </div>
+                    <div class="desc-info">
+                        <i class='bx bx-shield-x'></i>
+                        <div class="text">
+                            Warranty not available
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="heading-info">
+                        <h6>Positive Seller Ratings</h6>  
+                        <strong>86%</strong>
+                    </div>
+                    <div class="heading-info">
+                        <h6>Ship on Time</h6>  
+                        <strong>100%</strong>
+                    </div>
+                    <div class="heading-info">
+                        <h6>Chat Response Rate</h6>  
+                        <strong>97%</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container customer-reviews">
+      <div class="heading-rating">
+        <h4>Customer Reviews (306)</h4>
+        <div class="rating">
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bxs-star"></i>
+          <i class="bx bx-star"></i>
+          <strong>3.9</strong>
+        </div>
+      </div>
+      <div class="container tabs-container">
+        <div class="tabs-filters">
+          <div class="tabs">
+            <div class="tab active" onclick="openTab('reviews')">All Reviews (43)</div>
+            <div class="tab" onclick="openTab('images')">Images (10)</div>
+          </div>
+        
+          <div class="filters">
+            <div class="filter">
+              <label for="rating">Rating</label>
+              <select id="rating">
+                <option>All</option>
+                <option>5 stars</option>
+                <option>4 stars</option>
+                <option>3 stars</option>
+                <option>2 stars</option>
+                <option>1 star</option>
+              </select>
+            </div>
+            <div class="filter">
+              <label for="sort">Sort by</label>
+              <select id="sort">
+                <option>Recommend</option>
+                <option>Newest</option>
+                <option>Oldest</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+          <!-- Reviews Tab Content -->
+          <div id="reviews" class="content active">
+            <div class="review">
+              <h5 class="name">Hassan <i class="bx bxs-badge-check"></i></h5>
+              <div class="rating">★★★★★</div>
+              <div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi illo eveniet eaque consequatur provident praesentium ullam ratione, odit incidunt. Earum, architecto praesentium consequatur odio voluptas cupiditate consequuntur incidunt veritatis ratione.
+                Porro officia nulla, odio sed ut nihil. Inventore quas praesentium harum. Rerum ipsam eum dolor quisquam, officiis ea non, quod illo quibusdam quis harum fugiat sapiente sed sit iure possimus!</div>
+                
+              <div class="review-images">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 1" onclick="enlargeImage(this, 'enlargedImageContainer1')">
+                <img src="./assets/images/home-banner-1.webp" alt="Product 2" onclick="enlargeImage(this, 'enlargedImageContainer1')">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 3" onclick="enlargeImage(this, 'enlargedImageContainer1')">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 4" onclick="enlargeImage(this, 'enlargedImageContainer1')">
+              </div>
+        
+              <!-- Enlarged Image Section -->
+              <div class="enlarged-image" id="enlargedImageContainer1">
+                <!-- Initially, no image will be displayed -->
+              </div>
+              <div class="details">Color: Mocha Brown</div>
+              <div class="info">13 Jul, 2022</div>
+            </div>
+        
+            <div class="review">
+              <h5 class="name">Hassan <i class="bx bxs-badge-check"></i></h5>
+              <div class="rating">★★★★★</div>
+              <div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi illo eveniet eaque consequatur provident praesentium ullam ratione, odit incidunt. Earum, architecto praesentium consequatur odio voluptas cupiditate consequuntur incidunt veritatis ratione.
+                Porro officia nulla, odio sed ut nihil. Inventore quas praesentium harum. Rerum ipsam eum dolor quisquam, officiis ea non, quod illo quibusdam quis harum fugiat sapiente sed sit iure possimus!</div>
+                
+              <div class="review-images">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 1" onclick="enlargeImage(this, 'enlargedImageContainer2')">
+                <img src="./assets/images/home-banner-1.webp" alt="Product 2" onclick="enlargeImage(this, 'enlargedImageContainer2')">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 3" onclick="enlargeImage(this, 'enlargedImageContainer2')">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 4" onclick="enlargeImage(this, 'enlargedImageContainer2')">
+              </div>
+        
+              <!-- Enlarged Image Section -->
+              <div class="enlarged-image" id="enlargedImageContainer2">
+                <!-- Initially, no image will be displayed -->
+              </div>
+              <div class="details">Color: Mocha Brown</div>
+              <div class="info">13 Jul, 2022</div>
+            </div>
+          </div>
+          
+          <!-- Images Tab Content -->
+          <div id="images" class="content">
+            <p>Here are some images related to the product.</p>
+          </div>
+      </div>
+    </div>
+    <div class="container flash-sale">
+        <div class="headings d-flex">
+          <h3>Similar Products</h3>
+        </div>
+        <hr>
+        <div class="swiper mySwiper related-products">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <a href="./Product-details.html">
+                    <div class="card Product-card">
+                      <div class="card-head">
+                        <img src="./assets/images/t-shirt_product.jpg" class="card-image">
+                      </div>
+                      <div class="card-body">
+                        <div class="brand-and-ratings">
+                          <div class="brand">H&M</div>
+                          <div class="rating-and-sold">
+                            <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                            <div class="sold">(13.8k) sold</div>
+                          </div>
+                        </div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                        <div class="prices">
+                          <div class="card-subtitle original-price">$295.00</div>
+                        </div>
+                        <div class="card-subtitle discounted-price"><del>$295.00</del>-66%</div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="./Product-details.html">
+                    <div class="card Product-card">
+                      <div class="card-head">
+                        <img src="./assets/images/t-shirt_product.jpg" class="card-image">
+                      </div>
+                      <div class="card-body">
+                        <div class="brand-and-ratings">
+                          <div class="brand">H&M</div>
+                          <div class="rating-and-sold">
+                            <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                            <div class="sold">(13.8k) sold</div>
+                          </div>
+                        </div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                        <div class="prices">
+                          <div class="card-subtitle original-price">$295.00</div>
+                        </div>
+                        <div class="card-subtitle discounted-price"><del>$295.00</del>-66%</div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="./Product-details.html">
+                    <div class="card Product-card">
+                      <div class="card-head">
+                        <img src="./assets/images/t-shirt_product.jpg" class="card-image">
+                      </div>
+                      <div class="card-body">
+                        <div class="brand-and-ratings">
+                          <div class="brand">H&M</div>
+                          <div class="rating-and-sold">
+                            <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                            <div class="sold">(13.8k) sold</div>
+                          </div>
+                        </div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                        <div class="prices">
+                          <div class="card-subtitle original-price">$295.00</div>
+                        </div>
+                        <div class="card-subtitle discounted-price"><del>$295.00</del>-66%</div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="./Product-details.html">
+                    <div class="card Product-card">
+                      <div class="card-head">
+                        <img src="./assets/images/t-shirt_product.jpg" class="card-image">
+                      </div>
+                      <div class="card-body">
+                        <div class="brand-and-ratings">
+                          <div class="brand">H&M</div>
+                          <div class="rating-and-sold">
+                            <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                            <div class="sold">(13.8k) sold</div>
+                          </div>
+                        </div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                        <div class="prices">
+                          <div class="card-subtitle original-price">$295.00</div>
+                        </div>
+                        <div class="card-subtitle discounted-price"><del>$295.00</del>-66%</div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="swiper-slide">
+                  <a href="./Product-details.html">
+                    <div class="card Product-card">
+                      <div class="card-head">
+                        <img src="./assets/images/t-shirt_product.jpg" class="card-image">
+                      </div>
+                      <div class="card-body">
+                        <div class="brand-and-ratings">
+                          <div class="brand">H&M</div>
+                          <div class="rating-and-sold">
+                            <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                            <div class="sold">(13.8k) sold</div>
+                          </div>
+                        </div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                        <div class="prices">
+                          <div class="card-subtitle original-price">$295.00</div>
+                        </div>
+                        <div class="card-subtitle discounted-price"><del>$295.00</del>-66%</div>
+                      </div>
+                    </div>
+                  </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="./Product-details.html">
+                  <div class="card Product-card">
+                    <div class="card-head">
+                      <img src="./assets/images/t-shirt_product.jpg" class="card-image">
+                    </div>
+                    <div class="card-body">
+                      <div class="brand-and-ratings">
+                        <div class="brand">H&M</div>
+                        <div class="rating-and-sold">
+                          <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                          <div class="sold">(13.8k) sold</div>
+                        </div>
+                      </div>
+                      <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                      <div class="prices">
+                        <div class="card-subtitle original-price">$295.00</div>
+                      </div>
+                      <div class="card-subtitle discounted-price"><del>$295.00</del>-66%</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="./Product-details.html">
+                  <div class="card Product-card">
+                    <div class="card-head">
+                      <img src="./assets/images/t-shirt_product.jpg" class="card-image">
+                    </div>
+                    <div class="card-body">
+                      <div class="brand-and-ratings">
+                        <div class="brand">H&M</div>
+                        <div class="rating-and-sold">
+                          <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                          <div class="sold">(13.8k) sold</div>
+                        </div>
+                      </div>
+                      <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                      <div class="prices">
+                        <div class="card-subtitle original-price">$295.00</div>
+                      </div>
+                      <div class="card-subtitle discounted-price"><del>$295.00</del>-66%</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="swiper-slide">
+                <a href="./Product-details.html">
+                  <div class="card Product-card">
+                    <div class="card-head">
+                      <img src="./assets/images/t-shirt_product.jpg" class="card-image">
+                    </div>
+                    <div class="card-body">
+                      <div class="brand-and-ratings">
+                        <div class="brand">H&M</div>
+                        <div class="rating-and-sold">
+                          <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                          <div class="sold">(13.8k) sold</div>
+                        </div>
+                      </div>
+                      <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                      <div class="prices">
+                        <div class="card-subtitle original-price">$295.00</div>
+                      </div>
+                      <div class="card-subtitle discounted-price"><del>$295.00</del>-66%</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+                <!-- Add more swiper slides as needed -->
+            </div>
+            <!-- Navigation Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+</div>
+<div
+class="phone-call cbh-phone cbh-green cbh-show cbh-static"
+id="clbh_phone_div"
+>
+<a
+  id="WhatsApp-button"
+  href="https://wa.me/5521980619913"
+  target="_blank"
+  class="phoneJs"
+  title="WhatsApp 360imagem"
+  ><div class="cbh-ph-circle"></div>
+  <div class="cbh-ph-circle-fill"></div>
+  <div class="cbh-ph-img-circle1">
+    <i class='bx bxs-chat' style='color:#ffffff'  ></i>
+  </div>
+</a>
+</div>
+<!-- /content -->
+ <!-- footer -->
+ <footer>
+  <div class="foot-logo">
+      <img src="./assets/images/demo-logo.png">
+  </div>
+  <div class="info d-flex">
+      <div class="links">
+          <h6 class="text-c-white fw-700">Quick Links</h6>
+          <ul>
+              <a href=""><li>Home</li></a>
+              <a href=""><li>About Us</li></a>
+              <a href=""><li>Contact Us</li></a>
+              <a href=""><li>Story</li></a>
+              <a href=""><li>Blogs</li></a>
+          </ul>
+      </div>
+      <div class="links">
+          <h6 class="text-c-white fw-700">Getting Started</h6>
+          <ul>
+              <a href=""><li>Home</li></a>
+              <a href=""><li>About Us</li></a>
+              <a href=""><li>Contact Us</li></a>
+              <a href=""><li>Story</li></a>
+              <a href=""><li>Blogs</li></a>
+          </ul>
+      </div>
+      <div class="links">
+          <h6 class="text-c-white fw-700">Featured</h6>
+          <ul>
+              <a href="./home.html"><li>Home</li></a>
+              <a href="./about-us.html"><li>About Us</li></a>
+              <a href=""><li>Contact Us</li></a>
+              <a href=""><li>Story</li></a>
+              <a href=""><li>Blogs</li></a>
+          </ul>
+      </div>
+      <div class="social-desc">
+          <div class="social-media">
+              <h6 class="text-c-white fw-800">FOLLOW Us On</h6>
+              <ul class="d-flex">
+                  <li><a href=""><i class='bx bxl-facebook'></i></a></li>
+                  <li><a href=""><i class='bx bxl-instagram'></i></a></li>
+                  <li><a href=""><i class='bx bxl-youtube'></i></a></li>
+                  <li><a href=""><i class='bx bxl-twitter' ></i></a></li>
+                  <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
+              </ul>
+          </div>
+          <div class="payment-methods">
+              <h6 class="text-c-white fw-800">Payment Methods</h6>
+              <img class="payment-method-img" src="./assets/images/payment-methods.png" alt="">
+              <img src="./assets/images/payment-method-2.png" alt="" width="60px" height="30px" style="margin-left: 3px;">
+          </div>
+      </div>
+  </div>
+  <hr>
+  <div class="terms-section d-flex">
+  <p>&copy; 2006 Company Name All Rights Reserved</p>
+  <div class="terms">
+      <ul class="d-flex">
+          <li><a href="./terms.html">Terms & Condition</a></li>
+          <li><a href="./privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="./refund&exchange.html">Exchange & Return</a></li>
+          <li><a href="./refund-policy.html">Refund Policy</a></li>
+          <li><a href="./shipment-policy.html">Shippment Policy</a></li>
+      </ul>
+  </div>
+</div>
+</footer>
+<!-- /footer -->
+
+ <!-- THIRD PARTY JS -->
+ <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<!-- scripts -->
+ <script>
+    const locales = ["en-GB","ar-SA","zh-CN","de-DE","es-ES","fr-FR","hi-IN","it-IT","in-ID","ja-JP","ko-KR","nl-NL","no-NO","pl-PL","pt-BR","sv-SE","fi-FI","th-TH","tr-TR","uk-UA","vi-VN","ru-RU","he-IL"];
+
+function getFlagSrc(countryCode) {
+  return /^[A-Z]{2}$/.test(countryCode)
+       ? `https://flagsapi.com/${countryCode.toUpperCase()}/shiny/64.png`
+    : "";
+}
+
+const dropdownBtn = document.getElementById("dropdown-btn");
+const dropdownContent = document.getElementById("dropdown-content");
+
+function setSelectedLocale(locale) {
+  const intlLocale = new Intl.Locale(locale);
+  const langName = new Intl.DisplayNames([locale], {
+    type: "language",
+  }).of(intlLocale.language);
+
+  dropdownContent.innerHTML = "";
+
+  const otherLocales = locales.filter((loc) => loc !== locale);
+  otherLocales.forEach((otherLocale) => {
+    const otherIntlLocale = new Intl.Locale(otherLocale);
+    const otherLangName = new Intl.DisplayNames([otherLocale], {
+      type: "language",
+    }).of(otherIntlLocale.language);
+
+    const listEl = document.createElement("li");
+    listEl.innerHTML = `${otherLangName}<img src="${getFlagSrc(
+      otherIntlLocale.region
+    )}" />`;
+    listEl.value = otherLocale;
+    listEl.addEventListener("mousedown", function () {
+      setSelectedLocale(otherLocale);
+    });
+    dropdownContent.appendChild(listEl);
+  });
+
+  dropdownBtn.innerHTML = `<img src="${getFlagSrc(
+    intlLocale.region
+  )}" />${langName}<span class="arrow-down"></span>`;
+}
+
+setSelectedLocale(locales[0]);
+const browserLang = new Intl.Locale(navigator.language).language;
+for (const locale of locales) {
+  const localeLang = new Intl.Locale(locale).language;
+  if (localeLang === browserLang) {
+    setSelectedLocale(locale);
+  }
+}
+ </script>
+ <script>
+     // Initialize Swiper
+     var swiper = new Swiper('.banner-vertical-slider', {
+         direction: 'vertical', // Set the direction to vertical
+         loop: true, // Enable loop mode
+         navigation: {
+             nextEl: '.swiper-button-next',
+             prevEl: '.swiper-button-prev',
+         },
+         pagination: {
+             el: '.swiper-pagination',
+             clickable: true, // Make pagination bullets clickable
+         },
+         autoplay: {
+             delay: 3000, // Delay between slides in ms
+             disableOnInteraction: false,
+         },
+     });
+ </script>
+   <script>
+    var swiper = new Swiper(".related-products", {
+        slidesPerView: 4,          // Show 4 slides at a time
+        spaceBetween: 10,          // Space between slides
+        loop: true,                // Enable loop for infinite sliding
+        autoplay: {
+            delay: 2500,           // Auto slide after 2.5 seconds
+            disableOnInteraction: false, // Continue autoplay after manual interaction
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+<!-- lode More -->
+<script>
+  const productCards = document.querySelectorAll('.Product-card');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  const loader = document.querySelector('.loader');
+  let visibleCards = 25; // Initially visible cards
+
+  // Function to show the next set of cards
+  function loadMoreCards() {
+      loader.style.display = 'block'; // Show loader
+      setTimeout(() => {
+          loader.style.display = 'none'; // Hide loader after 2 seconds
+          for (let i = visibleCards; i < visibleCards + 25 && i < productCards.length; i++) {
+              productCards[i].style.display = 'inline-block'; // Show next 25 cards
+          }
+          visibleCards += 25; // Increase the count of visible cards
+          // Hide the button if all cards are displayed
+          if (visibleCards >= productCards.length) {
+              loadMoreBtn.style.display = 'none';
+          }
+      }, 2000); // Simulate loading time
+  }
+
+  // Show the initial 25 cards
+  for (let i = 0; i < visibleCards; i++) {
+      productCards[i].style.display = 'inline-block';
+  }
+
+  // Event listener for Load More button
+  loadMoreBtn.addEventListener('click', loadMoreCards);
+</script> 
+<!-- show more -->
+<script>
+    const showMoreBtn = document.querySelector('.show-more-btn');
+    const moreText = document.querySelector('.more-text');
+    const dots = document.querySelector('.dots');
+    const ellipsisText = document.querySelector('.text-ellipsis');
+
+    showMoreBtn.addEventListener('click', function() {
+      if (moreText.style.display === "none") {
+        moreText.style.display = "inline";
+        dots.style.display = "none";
+        ellipsisText.classList.remove('text-ellipsis-2'); /* Remove ellipsis for full text */
+        showMoreBtn.textContent = "Read Less";
+      } else {
+        moreText.style.display = "none";
+        dots.style.display = "inline";
+        ellipsisText.classList.add('text-ellipsis-2'); /* Restore ellipsis */
+        showMoreBtn.textContent = "Read More";
+      }
+    });
+  </script>
+  <!-- select color -->
+  <script>
+    const circles = document.querySelectorAll('.color-circle');
+
+    circles.forEach(circle => {
+      // Set the background color based on data-color attribute
+      const color = circle.getAttribute('data-color');
+      circle.style.backgroundColor = color;
+
+      // Add click event listener
+      circle.addEventListener('click', function() {
+        // Remove 'active' class from all circles
+        circles.forEach(c => c.classList.remove('active'));
+
+        // Add 'active' class to clicked circle
+        this.classList.add('active');
+      });
+    });
+  </script>
+  <!-- quantity counter -->
+  <script>
+    const decrementButton = document.getElementById('decrement');
+    const incrementButton = document.getElementById('increment');
+    const quantityInput = document.getElementById('quantity');
+
+    // Increment the value by 1 on button click
+    incrementButton.addEventListener('click', () => {
+      let value = parseInt(quantityInput.value);
+      quantityInput.value = value + 1;
+    });
+
+    // Decrement the value by 1 on button click, but prevent going below 1
+    decrementButton.addEventListener('click', () => {
+      let value = parseInt(quantityInput.value);
+      if (value > 1) {
+        quantityInput.value = value - 1;
+      }
+    });
+  </script>
+  <!-- size selection -->
+  <script>
+    // Select all the buttons inside the button container
+    const buttons = document.querySelectorAll('.button-container .btn');
+
+    // Add click event listener to each button
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove the 'active' class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Add the 'active' class to the clicked button
+            this.classList.add('active');
+        });
+    });
+</script>
+  <!-- color-family images selection -->
+  <script>
+    // Select all the buttons inside the button container
+    const colorFamily = document.querySelectorAll('.color-images .color-product');
+    // Add click event listener to each button
+    colorFamily.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove the 'active' class from all 
+            colorFamily.forEach(btn => btn.classList.remove('active'));
+            // Add the 'active' class to the clicked button
+            this.classList.add('active');
+        });
+    });
+</script>
+<!-- reviews tabs -->
+<script>
+  function openTab(tabName) {
+    // Hide all content
+    var contents = document.querySelectorAll('.content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    // Remove active class from all tabs
+    var tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+
+    // Show the selected content and add active class to the tab
+    document.getElementById(tabName).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+<!-- click image on review -->
+<script>
+  let currentActiveImages = {}; // Store the currently active thumbnail for each review
+  let enlargedImageElements = {}; // Store the currently enlarged image element for each review
+
+  function enlargeImage(imgElement, containerId) {
+    const imgSrc = imgElement.src;
+    const enlargedImageContainer = document.getElementById(containerId);
+
+    // Check if the clicked image is already enlarged
+    if (enlargedImageElements[containerId] && enlargedImageElements[containerId].src === imgSrc) {
+      // If the same image is clicked, clear it
+      enlargedImageContainer.innerHTML = ""; // Clear the enlarged image
+      imgElement.classList.remove("active"); // Remove active class
+      enlargedImageElements[containerId] = null; // Reset the enlarged image for this review
+      currentActiveImages[containerId] = null; // Reset the current active image for this review
+      return; // Exit the function
+    }
+
+    // Create a new image element
+    enlargedImageElements[containerId] = document.createElement("img");
+    enlargedImageElements[containerId].src = imgSrc;
+
+    // Clear the enlarged image container and add the new enlarged image
+    enlargedImageContainer.innerHTML = "";
+    enlargedImageContainer.appendChild(enlargedImageElements[containerId]);
+
+    // Remove active class from the previously active thumbnail, if any
+    if (currentActiveImages[containerId]) {
+      currentActiveImages[containerId].classList.remove("active");
+    }
+
+    // Add active class to the clicked thumbnail
+    imgElement.classList.add("active");
+    currentActiveImages[containerId] = imgElement; // Update the current active image
+
+    // Toggle visibility of enlarged image on click
+    enlargedImageElements[containerId].onclick = function() {
+      enlargedImageContainer.innerHTML = ""; // Clear the enlarged image
+      imgElement.classList.remove("active"); // Remove active class
+      enlargedImageElements[containerId] = null; // Reset the enlarged image for this review
+      currentActiveImages[containerId] = null; // Reset the current active image for this review
+    };
+  }
+</script>
+<!-- product image chnager from sm images -->
+ <script>
+  function changeImage(thumbnail) {
+    const mainImage = document.getElementById('mainImage');
+    mainImage.src = thumbnail.src; // Change the source of the main image to the thumbnail clicked
+}
+ </script>
+</body>
+</html>

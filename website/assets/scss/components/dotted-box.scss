@@ -1,0 +1,30 @@
+.dotted-box{
+    height: 100px;
+    width: 105px;
+    animation: move 2s forwards ; /* Animation */
+    position: relative;
+    top: 56px;
+    z-index: 0;
+    .line{
+        padding: 0px 5px;
+        display: flex;
+        height: 11px;
+        gap: 6px;
+        align-items: center;
+        .dot{
+            height: 5px;
+            width: 5px;
+            border-radius: 50%;
+            background-color:  rgb(163, 171, 196);
+        }
+    }
+    
+    @keyframes move {
+        0% {
+            transform: translateX(0%); /* Start off-screen on the left */
+        }
+        100% {
+            transform: translateX(387%); /* End off-screen on the right */
+        }
+    }
+}
