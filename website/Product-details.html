@@ -9,6 +9,52 @@
     <link rel="stylesheet" href="./assets/css/kit.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 <style>
+/* Loader styles */
+.loader {
+        display: none; /* Initially hidden */
+        margin: 20px 0;
+        text-align: center;
+    }
+    .load-more {
+      border: none;
+      color: white;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 10px;
+      height: 50px;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      margin: 40px 0px;
+      padding: 10px 20px;
+      font-size: 16px;  
+      background-color: #424f77;
+    &:hover {
+        background-color: #10182f;
+    }
+    }
+.review {
+    display: none; /* Hide all reviews initially */
+}
+
+.review.visible {
+    display: block; /* Show only reviews that have the 'visible' class */
+}
+
+#loadMoreReview {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#loadMoreReview:hover {
+    background-color: #0056b3;
+}
+
 </style>
 </head>
 <body>
@@ -339,7 +385,6 @@
               <div class="details">Color: Mocha Brown</div>
               <div class="info">13 Jul, 2022</div>
             </div>
-        
             <div class="review">
               <h5 class="name">Hassan <i class="bx bxs-badge-check"></i></h5>
               <div class="rating">★★★★★</div>
@@ -359,6 +404,53 @@
               </div>
               <div class="details">Color: Mocha Brown</div>
               <div class="info">13 Jul, 2022</div>
+            </div>
+            <div class="review">
+              <h5 class="name">Hassan <i class="bx bxs-badge-check"></i></h5>
+              <div class="rating">★★★★★</div>
+              <div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi illo eveniet eaque consequatur provident praesentium ullam ratione, odit incidunt. Earum, architecto praesentium consequatur odio voluptas cupiditate consequuntur incidunt veritatis ratione.
+                Porro officia nulla, odio sed ut nihil. Inventore quas praesentium harum. Rerum ipsam eum dolor quisquam, officiis ea non, quod illo quibusdam quis harum fugiat sapiente sed sit iure possimus!</div>
+                
+              <div class="review-images">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 1" onclick="enlargeImage(this, 'enlargedImageContainer1')">
+                <img src="./assets/images/home-banner-1.webp" alt="Product 2" onclick="enlargeImage(this, 'enlargedImageContainer1')">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 3" onclick="enlargeImage(this, 'enlargedImageContainer1')">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 4" onclick="enlargeImage(this, 'enlargedImageContainer1')">
+              </div>
+        
+              <!-- Enlarged Image Section -->
+              <div class="enlarged-image" id="enlargedImageContainer1">
+                <!-- Initially, no image will be displayed -->
+              </div>
+              <div class="details">Color: Mocha Brown</div>
+              <div class="info">13 Jul, 2022</div>
+            </div>
+            <div class="review">
+              <h5 class="name">Hassan <i class="bx bxs-badge-check"></i></h5>
+              <div class="rating">★★★★★</div>
+              <div class="comment">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi illo eveniet eaque consequatur provident praesentium ullam ratione, odit incidunt. Earum, architecto praesentium consequatur odio voluptas cupiditate consequuntur incidunt veritatis ratione.
+                Porro officia nulla, odio sed ut nihil. Inventore quas praesentium harum. Rerum ipsam eum dolor quisquam, officiis ea non, quod illo quibusdam quis harum fugiat sapiente sed sit iure possimus!</div>
+                
+              <div class="review-images">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 1" onclick="enlargeImage(this, 'enlargedImageContainer2')">
+                <img src="./assets/images/home-banner-1.webp" alt="Product 2" onclick="enlargeImage(this, 'enlargedImageContainer2')">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 3" onclick="enlargeImage(this, 'enlargedImageContainer2')">
+                <img src="./assets/images/t-shirt_product.jpg" alt="Product 4" onclick="enlargeImage(this, 'enlargedImageContainer2')">
+              </div>
+        
+              <!-- Enlarged Image Section -->
+              <div class="enlarged-image" id="enlargedImageContainer2">
+                <!-- Initially, no image will be displayed -->
+              </div>
+              <div class="details">Color: Mocha Brown</div>
+              <div class="info">13 Jul, 2022</div>
+            </div>
+                <!-- Loader -->
+            <div class="loader" id="loaderReview">
+              <span class="fallback fallback-spin fallback-spin-primary fallback-spin-lg"></span>
+            </div>
+            <div class="text-center">
+              <button class="btn btn-dark" id="loadMoreReview" onclick="loadMoreReviews()">Load More</button>
             </div>
           </div>
           
@@ -567,22 +659,9 @@
         </div>
     </div>
 </div>
-<div
-class="phone-call cbh-phone cbh-green cbh-show cbh-static"
-id="clbh_phone_div"
->
-<a
-  id="WhatsApp-button"
-  href="https://wa.me/5521980619913"
-  target="_blank"
-  class="phoneJs"
-  title="WhatsApp 360imagem"
-  ><div class="cbh-ph-circle"></div>
-  <div class="cbh-ph-circle-fill"></div>
-  <div class="cbh-ph-img-circle1">
-    <i class='bx bxs-chat' style='color:#ffffff'  ></i>
-  </div>
-</a>
+<div class="message-btn">
+  <i class="icon">&#9993;</i> <!-- This is the envelope icon -->
+  <span class="message-text">Message</span>
 </div>
 <!-- /content -->
  <!-- footer -->
@@ -745,7 +824,7 @@ for (const locale of locales) {
         },
     });
 </script>
-<!-- lode More -->
+<!-- lode More products-->
 <script>
   const productCards = document.querySelectorAll('.Product-card');
   const loadMoreBtn = document.getElementById('loadMoreBtn');
@@ -934,5 +1013,55 @@ for (const locale of locales) {
     mainImage.src = thumbnail.src; // Change the source of the main image to the thumbnail clicked
 }
  </script>
+ <!-- load more reviews -->
+<script>
+  let reviewsPerPage = 2; // Number of reviews to show per "Load More" click
+
+// Show initial reviews (first 2)
+function initializeReviews() {
+    const reviews = document.querySelectorAll('.review');
+    reviews.forEach((review, index) => {
+        if (index < reviewsPerPage) {
+            review.classList.add('visible');
+        }
+    });
+
+    // Hide the "Load More" button if all reviews are already visible
+    if (reviews.length <= reviewsPerPage) {
+        document.getElementById('loadMoreReview').style.display = 'none';
+    }
+}
+
+// Show the loader for 2 seconds, then display the next set of reviews
+function loadMoreReviews() {
+    const loader = document.getElementById('loaderReview');
+    const reviews = document.querySelectorAll('.review');
+    const currentlyVisible = document.querySelectorAll('.review.visible').length;
+
+    // Show the loader
+    loader.style.display = 'block';
+
+    // After 2 seconds, hide the loader and show the next set of reviews
+    setTimeout(() => {
+        loader.style.display = 'none'; // Hide the loader
+
+        // Show the next set of reviews
+        for (let i = currentlyVisible; i < currentlyVisible + reviewsPerPage; i++) {
+            if (i < reviews.length) {
+                reviews[i].classList.add('visible');
+            }
+        }
+
+        // Hide the "Load More" button if all reviews are shown
+        if (currentlyVisible + reviewsPerPage >= reviews.length) {
+            document.getElementById('loadMoreReview').style.display = 'none';
+        }
+    }, 2000); // 2-second delay for loader
+}
+
+// Initialize reviews on page load
+document.addEventListener('DOMContentLoaded', initializeReviews);
+
+</script>
 </body>
 </html>
