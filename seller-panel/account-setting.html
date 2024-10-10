@@ -828,543 +828,110 @@
         <div class="page-content">
             <div class="container-xxl">
                 <div class="row justify-content-center">
-                    <h3>My Income<h3>
+                    <h3>Account Setting<h3>
                 </div>
-                <div class="row">
-                    <div class="col-md-12 col-lg-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <h4 class="card-title"></h4>
-                                    </div><!--end col-->
-                                </div> <!--end row-->
-                            </div><!--end card-header-->
-                            <div class="card-body pt-0">
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" data-bs-toggle="tab" href="#overview" role="tab"
-                                            aria-selected="true">Income Overview</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#statement" role="tab"
-                                            aria-selected="false">Income Statement</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#details" role="tab"
-                                            aria-selected="false">Income Details</a>
-                                    </li>
-
-                                </ul>
-
-                                <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div class="tab-pane p-3 active" id="overview" role="tabpanel">
-                                        <div class="card" style="border-radius: 10px;">
-                                            <div class="card-header" style="background-color: #e8f1ff;">
-                                                <div class="row align-items-center">
-                                                    <div class="col d-flex" style="gap: 10px;">
-                                                        <i class="fa fa-info-circle fs-18"></i>
-                                                        <p class="card-text text-muted fs-13">Get the platform traffic boost and badges by
-                                                            participating in name programs. Join our programs and improve your store
-                                                            performance right now!</p>
-                                                    </div><!--end col-->
-                                                </div>
-                                                <!--end row-->
-                                            </div>
-                                            <!--end card-header-->
-                                            <!--end card-body-->
-                                        </div>
-                                        <h3>Income Overview</h3>
-                                        <div class="col-4">
-                                            <div class="card" style="border-radius:10px;background-color: #e8f1ff;padding: 15px;">
-                                                <h4 class="title mb-2">To Release</h4>
-                                                <h1 class="card-subtitle mb-2">PKR 0.00</h1>
-                                                <p class="card-text">To be released on 14 Oct 2024
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-lg-12">
-                                            <div class="card">
-                                               <!--end card-header-->
-                                                <div class="card-body pt-0">
-                                                    <ul class="nav nav-tabs" role="tablist">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab" aria-selected="true">To Release</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" data-bs-toggle="tab" href="#profile" role="tab" aria-selected="false">Released</a>
-                                                        </li>                                                
-                                                       
-                                                    </ul>
-                    
-                                                    <!-- Tab panes -->
-                                                    <div class="tab-content">
-                                                        <div class="tab-pane p-3 active" id="home" role="tabpanel">
-                                                          
-                                                            <div class="card" style="border-radius: 10px;">
-                                                                <div class="card-header">
-                                                                    <div class="row align-items-center">
-                                                                        <div class="col">
-                                                                            <div class="row d-flex">
-                                                                                <div class="col-5">
-                                                                                    <div class="mb-4 d-flex" style="gap:10px;">
-                                                                                        <label for="example-date-input" class="col-4 col-form-label text-end">Transection Date</label>
-                                                                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="col-3">
-                                                                                    <select class="form-select" aria-label="Default select example">
-                                                                                        <option selected="">Select Transection Type</option>
-                                                                                        <option value="1">Delivered Orders</option>
-                                                                                        <option value="2">Transaction Fees</option>
-                                                                                        <option value="3">Returned Orders</option>
-                                                                                        <option value="4">Transaction Fees Refunded</option>
-                                                                                        <option value="5">Ready to released</option>
-                                                                                      </select>
-                                                                                </div>
-                                                                                <div class="col-3">
-                                                                                    <button class="btn btn-primary">Reset</button>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-5">
-                                                                                <div class="input-group mb-3">
-                                                                                    <input type="text" class="form-control" placeholder="Order No / Order ID" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                                                    <button class="btn btn-primary" type="button" id="button-addon1"><i class="fas fa-search"></i></button>
-                                                                                </div>
-                                                                            </div>
-                                                                           
-                                                                            <div class="col mb-3">
-                                                                                <div class="table-responsive">
-                                                                                    <table class="table  mb-0 table-centered">
-                                                                                        <thead class="table-light">
-                                                                                        <tr>
-                                                                                            <th>Order Details</th>
-                                                                                            <th>Order Creation Date</th>
-                                                                                            <th>Order Status</th>
-                                                                                            <th>Est Release Amount</th>
-                                                                                            <th>Order Details</th>
-                                                                                            <th>Release Status</th>
-                                                                                            <th>Statement Number</th>
-                                                                                            <th>Action</th>
-                                                                                        </tr>
-                                                                                        </thead>
-                                                                                        <tbody>
-                                                                                        <tr>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                        </tr>
-                                                                                       
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div><!--end col-->
+                <div class="card">
+                    <div class="card-header" style="border-radius: 10px;">
+                        <div class="text">
+                            <h5><u>Login Email address</u></h5>
+                            <p>usmanshahzadmax@gmail.com</p>
+                            <h5><u>Login Phone Number</u></h5>
+                            <p>+92 3218838388</p>
+                            <h5><u>Password</u></h5>
+                            <p>******</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                Change Setting
+                            </button>
+                            <!-- model -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h6 class="modal-title m-0" id="exampleModalCenterTitle">Change Login Credentials</h6>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div><!--end modal-header-->
+                                        <div class="modal-body">
+                                            <div class="row justify-content-center">
+                                                <div class="col-12">
+                                                    <div class="card">
+                                                        <!--end card-header-->
+                                                        <div class="card-body pt-0">
+                                                            <form action="#" method="post" id="custom-step">
+                                                                <nav>
+                                                                    <div class="nav nav-tabs" id="nav-tab">
+                                                                        <a class="nav-link py-2 active" id="step1-tab" data-bs-toggle="tab" href="#step1">Verify Account</a>
+                                                                        <a class="nav-link py-2" id="step2-tab" data-bs-toggle="tab" href="#step2">Change Details</a>
                                                                     </div>
-                                                                    <!--end row-->
-                                                                </div>
-                                                                <!--end card-header-->
-                                                                <!--end card-body-->
-                                                            </div>
-                                                            <div class="col-7 d-flex align-items-center ">
-                                                                <div class="pages-count d-flex align-items-center">
-                                                                    <h6 class="text-muted m-0">Items per page:</h6>
-                                                                    <span>
-                                                                        <select class="form-select ms-2" id="inputGroupSelect04"
-                                                                        aria-label="Example select with button addon">
-                                                                        <option selected="">Choose...</option>
-                                                                        <option value="1">One</option>
-                                                                        <option value="2">Two</option>
-                                                                        <option value="3">Three</option>
-                                                                    </select>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="pagination ms-5">
-                                                                    <nav aria-label="...">
-                                                                        <ul class="pagination mb-0">
-                                                                            <li class="page-item disabled">
-                                                                                <span class="page-link">Previous</span>
-                                                                            </li>
-                                                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                                            <li class="page-item active">
-                                                                                <span class="page-link">
-                                                                                    2
-                                                                                    <span class="sr-only">(current)</span>
-                                                                                </span>
-                                                                            </li>
-                                                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                                            <li class="page-item">
-                                                                                <a class="page-link" href="#">Next</a>
-                                                                            </li>
-                                                                        </ul><!--end pagination-->
-                                                                    </nav>
-                                                                </div>
-                                                        </div>
-                                                        </div>
-                                                        <div class="tab-pane p-3" id="profile" role="tabpanel">
-                                                            <div class="card" style="border-radius: 10px;">
-                                                                <div class="card-header">
-                                                                    <div class="row align-items-center">
-                                                                        <div class="col">
-                                                                            <div class="row d-flex">
-                                                                                <div class="col-5">
-                                                                                    <div class="mb-4 d-flex" style="gap:10px;">
-                                                                                        <label for="example-date-input" class="col-4 col-form-label text-end">Transection Date</label>
-                                                                                            <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
+                                                                </nav>
+                                                                <div class="tab-content" id="nav-tabContent">
+                                                                    <div class="tab-pane active" id="step1">
+                                                                        <h4 class="card-title my-4  fs-15"></h4>
+                                                                                    <h5>Your current login phone</h5>
+                                                                                    <p>+92 3218838388</p>
+                                                                                    <h5>Verification Code in SMS</h5>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group row mb-2 d-flex">
+                                                                                    <div class="col-lg-9">
+                                                                                        <input id="txtFirstNameBilling" name="txtFirstNameBilling" placeholder="Enter the Code" type="text" class="form-control">
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="col-3">
-                                                                                    <select class="form-select" aria-label="Default select example">
-                                                                                        <option selected="">Select Transection Type</option>
-                                                                                        <option value="1">Delivered Orders</option>
-                                                                                        <option value="2">Transaction Fees</option>
-                                                                                        <option value="3">Returned Orders</option>
-                                                                                        <option value="4">Transaction Fees Refunded</option>
-                                                                                        <option value="5">Ready to released</option>
-                                                                                      </select>
-                                                                                </div>
-                                                                                <div class="col-3">
-                                                                                    <button class="btn btn-primary">Reset</button>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="col-5">
-                                                                                <div class="input-group mb-3">
-                                                                                    <input type="text" class="form-control" placeholder="Order No / Order ID" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                                                    <button class="btn btn-primary" type="button" id="button-addon1"><i class="fas fa-search"></i></button>
-                                                                                </div>
-                                                                            </div>
-                                                                           
-                                                                            <div class="col mb-3">
-                                                                                <div class="table-responsive">
-                                                                                    <table class="table  mb-0 table-centered">
-                                                                                        <thead class="table-light">
-                                                                                        <tr>
-                                                                                            <th>Order Details</th>
-                                                                                            <th>Order Creation Date</th>
-                                                                                            <th>Order Status</th>
-                                                                                            <th>Est Release Amount</th>
-                                                                                            <th>Order Details</th>
-                                                                                            <th>Release Status</th>
-                                                                                            <th>Statement Number</th>
-                                                                                            <th>Action</th>
-                                                                                        </tr>
-                                                                                        </thead>
-                                                                                        <tbody>
-                                                                                        <tr>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                            <td>hello</td>
-                                                                                        </tr>
-                                                                                       
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div><!--end col-->
+                                                                                    <div class="col-lg-3">
+                                                                                        <button class="btn btn-primary">send</button>
+                                                                                    </div>
+                                                                                </div><!--end form-group-->
+                                                                            </div><!--end col-->
+                                                                          <!--end col-->
+                                                                        </div><!--end row-->
+                                                                       <!--end row-->
+                                                                        <!--end row-->
+                                                                                                             
                                                                     </div>
-                                                                    <!--end row-->
-                                                                </div>
-                                                                <!--end card-header-->
-                                                                <!--end card-body-->
-                                                            </div>
-                                                            <div class="col-7 d-flex align-items-center ">
-                                                                <div class="pages-count d-flex align-items-center">
-                                                                    <h6 class="text-muted m-0">Items per page:</h6>
-                                                                    <span>
-                                                                        <select class="form-select ms-2" id="inputGroupSelect04"
-                                                                        aria-label="Example select with button addon">
-                                                                        <option selected="">Choose...</option>
-                                                                        <option value="1">One</option>
-                                                                        <option value="2">Two</option>
-                                                                        <option value="3">Three</option>
-                                                                    </select>
-                                                                    </span>
-                                                                </div>
-                                                                <div class="pagination ms-5">
-                                                                    <nav aria-label="...">
-                                                                        <ul class="pagination mb-0">
-                                                                            <li class="page-item disabled">
-                                                                                <span class="page-link">Previous</span>
-                                                                            </li>
-                                                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                                            <li class="page-item active">
-                                                                                <span class="page-link">
-                                                                                    2
-                                                                                    <span class="sr-only">(current)</span>
-                                                                                </span>
-                                                                            </li>
-                                                                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                                            <li class="page-item">
-                                                                                <a class="page-link" href="#">Next</a>
-                                                                            </li>
-                                                                        </ul><!--end pagination-->
-                                                                    </nav>
-                                                                </div>
-                                                        </div>
-                                                        </div>                                                
-                                                    </div>              
-                                                </div><!--end card-body--> 
-                                            </div><!--end card--> 
-                                        </div> 
-                                    </div>
-                                    <div class="tab-pane p-3" id="statement" role="tabpanel">
-                                        <div class="card" style="border-radius: 10px;">
-                                            <div class="card-header" style="background-color: #e8f1ff;">
-                                                <div class="row align-items-center">
-                                                    <div class="col d-flex" style="gap: 10px;">
-                                                        <i class="fa fa-info-circle fs-18"></i>
-                                                        <p class="card-text text-muted fs-13">
-                                                            Dear seller, your item price credit includes the Lazada co-fund program subsidies such as Lazada Bonus, Coins. Please let us know if you have any improvement ideas on this or other finance topics.Click here to giver your <a href="">feedback.</a></p>
-                                                    </div><!--end col-->
-                                                </div>
-                                                <!--end row-->
-                                            </div>
-                                            <!--end card-header-->
-                                            <!--end card-body-->
-                                        </div>
-                                        <div class="card" style="border-radius: 10px;">
-                                            <div class="card-header">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <h2 class="title">View Statements</h2>
-                                                        <div class="row d-flex">
-                                                            <div class="col-3">
-                                                                <select class="form-select" aria-label="Default select example">
-                                                                    <option selected="">Select Status</option>
-                                                                    <option value="1">Released</option>
-                                                                    <option value="2">Ready to released</option>
-                                                                  </select>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <div class="input-group mb-3">
-                                                                    <input type="text" class="form-control" placeholder="Search Statement Number" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                                    <button class="btn btn-primary" type="button" id="button-addon1"><i class="fas fa-search"></i></button>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <button class="btn btn-primary">Refreash</button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col mb-3">
-                                                            <div class="table-responsive">
-                                                                <table class="table  mb-0 table-centered">
-                                                                    <thead class="table-light">
-                                                                    <tr>
-                                                                        <th>Statement Number</th>
-                                                                        <th>Statement Period</th>
-                                                                        <th>Released Amount</th>
-                                                                        <th>Released Status</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <td>hello</td>
-                                                                        <td>hello</td>
-                                                                        <td>hello</td>
-                                                                        <td>hello</td>
-                                                                        <td>hello</td>
-                                                                    </tr>
+                                                                    <div class="tab-pane" id="step2">
+                                                                        <h4 class="card-title my-4 fs-15"></h4>
+                                                                        <div class="row">
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group row mb-2">
+                                                                                    <div class="col-lg-12">
+                                                                                        <input id="txtFirstNameShipping" placeholder="Enter New Email" name="txtFirstNameShipping" type="text" class="form-control">
+                                                                                    </div>
+                                                                                </div><!--end form-group-->
+                                                                            </div><!--end col-->
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group row mb-2">
+                                                                                    <div class="col-lg-12">
+                                                                                        <input id="txtFirstNameShipping" placeholder="Enter New Phone No" name="txtFirstNameShipping" type="text" class="form-control">
+                                                                                    </div>
+                                                                                </div><!--end form-group-->
+                                                                            </div>
+                                                                            <div class="col-md-12">
+                                                                                <div class="form-group row mb-2">
+                                                                                    <div class="col-lg-12">
+                                                                                        <input id="txtFirstNameShipping" placeholder="Enter New Password" name="txtFirstNameShipping" type="text" class="form-control">
+                                                                                    </div>
+                                                                                </div><!--end form-group-->
+                                                                            </div><!--end col-->
+                                                                        </div><!--end row-->
+                                                                        <!--end row-->
+                                                                        <div>
+                                                                            <button type="button"  class="btn btn-primary float-end mt-2">Save Changes</button>
+                                                                        </div> 
+                                                                    </div>
                                                                    
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div><!--end col-->
-                                                </div>
-                                                <!--end row-->
-                                            </div>
-                                            <!--end card-header-->
-                                            <!--end card-body-->
-                                        </div>
-                                        <div class="col-6 d-flex align-items-center ">
-                                            <div class="pages-count d-flex align-items-center">
-                                                <h6 class="text-muted m-0">Items per page:</h6>
-                                                <span>
-                                                    <select class="form-select ms-2" id="inputGroupSelect04"
-                                                    aria-label="Example select with button addon">
-                                                    <option selected="">Choose...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                                </span>
-                                            </div>
-                                            <div class="pagination ms-5">
-                                                <nav aria-label="...">
-                                                    <ul class="pagination mb-0">
-                                                        <li class="page-item disabled">
-                                                            <span class="page-link">Previous</span>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                        <li class="page-item active">
-                                                            <span class="page-link">
-                                                                2
-                                                                <span class="sr-only">(current)</span>
-                                                            </span>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                        <li class="page-item">
-                                                            <a class="page-link" href="#">Next</a>
-                                                        </li>
-                                                    </ul><!--end pagination-->
-                                                </nav>
-                                            </div>
-                                    </div>
-                                    </div>
-                                    <div class="tab-pane p-3" id="details" role="tabpanel">
-                                        <div class="card" style="border-radius: 10px;">
-                                            <div class="card-header" style="background-color: #e8f1ff;">
-                                                <div class="row align-items-center">
-                                                    <div class="col d-flex" style="gap: 10px;">
-                                                        <i class="fa fa-info-circle fs-18"></i>
-                                                        <p class="card-text text-muted fs-13">
-                                                            Dear seller, your item price credit includes the Lazada co-fund program subsidies such as Lazada Bonus, Coins. Please let us know if you have any improvement ideas on this or other finance topics.Click here to giver your <a href="">feedback.</a></p>
-                                                    </div><!--end col-->
-                                                </div>
-                                                <!--end row-->
-                                            </div>
-                                            <!--end card-header-->
-                                            <!--end card-body-->
-                                        </div>
-                                        <div class="card" style="border-radius: 10px;">
-                                            <div class="card-header">
-                                                <div class="row align-items-center">
-                                                    <div class="col">
-                                                        <h2 class="title">Income Details</h2>
-                                                        <div class="row d-flex">
-                                                            <div class="col-5">
-                                                                <div class="mb-4 d-flex" style="gap:10px;">
-                                                                    <label for="example-date-input" class="col-3 col-form-label text-end">Transection Date</label>
-                                                                        <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <select class="form-select" aria-label="Default select example">
-                                                                    <option selected="">Select Transection Type</option>
-                                                                    <option value="1">Delivered Orders</option>
-                                                                    <option value="2">Transaction Fees</option>
-                                                                    <option value="3">Returned Orders</option>
-                                                                    <option value="4">Transaction Fees Refunded</option>
-                                                                    <option value="5">Ready to released</option>
-                                                                  </select>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <button class="btn btn-primary">Reset</button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-5">
-                                                            <div class="input-group mb-3">
-                                                                <input type="text" class="form-control" placeholder="Order No / Order ID" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                                                                <button class="btn btn-primary" type="button" id="button-addon1"><i class="fas fa-search"></i></button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row d-flex">
-                                                            <div class="col-4">
-                                                                <div class="card" style="border-radius:10px;background-color: #e8f1ff;padding: 15px;">
-                                                                    <h3 class="card-title mb-3">Total Amount</h3>
-                                                                    <h1 class="card-subtitle">PKR 0.00</h1>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <div class="card" style="border-radius:10px;background-color: #e8f1ff;padding: 15px;">
-                                                                    <h3 class="card-title mb-3">Revenue</h3>
-                                                                    <h1 class="card-subtitle">PKR 0.00</h1>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <div class="card" style="border-radius:10px;background-color: #e8f1ff;padding: 15px;">
-                                                                    <h3 class="card-title mb-3">Deductions</h3>
-                                                                    <h1 class="card-subtitle">PKR 0.00</h1>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col mb-3">
-                                                            <div class="table-responsive">
-                                                                <table class="table  mb-0 table-centered">
-                                                                    <thead class="table-light">
-                                                                    <tr>
-                                                                        <th>Transaction Date</th>
-                                                                        <th>Fee Name</th>
-                                                                        <th>Statement Number</th>
-                                                                        <th>Amount</th>
-                                                                        <th>Order Details</th>
-                                                                        <th>Comment</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                    </thead>
-                                                                    <tbody>
-                                                                    <tr>
-                                                                        <td>hello</td>
-                                                                        <td>hello</td>
-                                                                        <td>hello</td>
-                                                                        <td>hello</td>
-                                                                        <td>hello</td>
-                                                                    </tr>
-                                                                   
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div><!--end col-->
-                                                </div>
-                                                <!--end row-->
-                                            </div>
-                                            <!--end card-header-->
-                                            <!--end card-body-->
-                                        </div>
-                                        <div class="col-6 d-flex align-items-center ">
-                                            <div class="pages-count d-flex align-items-center">
-                                                <h6 class="text-muted m-0">Items per page:</h6>
-                                                <span>
-                                                    <select class="form-select ms-2" id="inputGroupSelect04"
-                                                    aria-label="Example select with button addon">
-                                                    <option selected="">Choose...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                                </span>
-                                            </div>
-                                            <div class="pagination ms-5">
-                                                <nav aria-label="...">
-                                                    <ul class="pagination mb-0">
-                                                        <li class="page-item disabled">
-                                                            <span class="page-link">Previous</span>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                                        <li class="page-item active">
-                                                            <span class="page-link">
-                                                                2
-                                                                <span class="sr-only">(current)</span>
-                                                            </span>
-                                                        </li>
-                                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                                        <li class="page-item">
-                                                            <a class="page-link" href="#">Next</a>
-                                                        </li>
-                                                    </ul><!--end pagination-->
-                                                </nav>
-                                            </div>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div><!--end card-body-->
-                        </div><!--end card-->
-                    </div> <!--end col-->
-                    <!--end col-->
-                </div><!--end row-->
+                                                            </form><!--end form-->               
+                                                        </div><!--end card-body--> 
+                                                    </div><!--end card--> 
+                                                </div> <!--end col-->                                                                               
+                                            </div><!--end row-->   
+                                        </div><!--end modal-body-->
+                                       <!--end modal-footer-->
+                                    </div><!--end modal-content-->
+                                </div><!--end modal-dialog-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <!--end row-->
                 <!--end row--><!--end row-->
             </div><!-- container -->
             <!--Start Rightbar-->
