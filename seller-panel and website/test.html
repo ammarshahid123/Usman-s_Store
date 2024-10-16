@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Folder Explorer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .folder {
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .folder span {
+            font-weight: bold;
+        }
+
+        .files {
+            padding-left: 20px;
+        }
+
+        .file {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .file img {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .file button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .file button:hover {
+            background-color: darkred;
+        }
+
+        .section {
+            display: none;
+        }
+
+        button {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Folder List -->
+    <div id="foldersSection">
+
+        <div class="folder" ondblclick="openFolder('folder1Section')">
+            <span>📁 Folder 1</span>
+        </div>
+
+        <div class="folder" ondblclick="openFolder('folder2Section')">
+            <span>📁 Folder 2</span>
+        </div>
+
+        <div class="folder" ondblclick="openFolder('folder3Section')">
+            <span>📁 Folder 3</span>
+        </div>
+    </div>
+
+    <!-- Folder 1 Section -->
+    <div id="folder1Section" class="section">
+        <h2>Folder 1 Files</h2>
+        <button onclick="backToFolders()">Back to Folders</button>
+        <div class="files">
+            <div class="file">
+                <img src="image1.jpg" alt="Image 1" class="image">
+                <button onclick="deleteImage(this)">Delete</button>
+            </div>
+            <div class="file">
+                <img src="image2.jpg" alt="Image 2" class="image">
+                <button onclick="deleteImage(this)">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Folder 2 Section -->
+    <div id="folder2Section" class="section">
+        <h2>Folder 2 Files</h2>
+        <button onclick="backToFolders()">Back to Folders</button>
+        <div class="files">
+            <div class="file">
+                <img src="image3.jpg" alt="Image 3" class="image">
+                <button onclick="deleteImage(this)">Delete</button>
+            </div>
+            <div class="file">
+                <img src="image4.jpg" alt="Image 4" class="image">
+                <button onclick="deleteImage(this)">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Folder 3 Section -->
+    <div id="folder3Section" class="section">
+        <h2>Folder 3 Files</h2>
+        <button onclick="backToFolders()">Back to Folders</button>
+        <div class="files">
+            <div class="file">
+                <img src="image5.jpg" alt="Image 5" class="image">
+                <button onclick="deleteImage(this)">Delete</button>
+            </div>
+            <div class="file">
+                <img src="image6.jpg" alt="Image 6" class="image">
+                <button onclick="deleteImage(this)">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to open a specific folder section and hide the folder list
+        function openFolder(folderId) {
+            document.getElementById('foldersSection').style.display = 'none'; // Hide folder section
+            document.getElementById(folderId).style.display = 'block'; // Show the specific folder's files
+        }
+
+        // Function to go back to the folder list
+        function backToFolders() {
+            document.getElementById('foldersSection').style.display = 'block'; // Show folder section
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none'; // Hide all file sections
+            });
+        }
+
+        // Function to delete an image
+        function deleteImage(button) {
+            const file = button.parentElement;
+            file.remove();
+        }
+    </script>
+
+</body>
+</html>

@@ -26,7 +26,68 @@
      <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
 </head>
+<style>
+.folder {
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 125px;
+    span {
+        font-weight: bold;
+    }
+}
 
+.files {
+    padding-left: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.file {
+    margin-top: 10px;
+    
+    img {
+        width: 100px;
+        height: 100px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+    }
+    
+    .del-button {
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        margin-top: 10px;
+        padding: 5px 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: darkred;
+        }
+    }
+    .download-btn{
+        margin-top: 10px;
+        background-color: #0071f1;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        padding: 5px 10px;
+        cursor: pointer;
+        &:hover {
+            background-color: #17569e;
+        }
+    }
+}
+
+.section {
+    display: none;
+    
+    span {
+       font-size: 25px;
+    }
+}
+
+</style>
 <body>
 
     <!-- Top Bar Start -->
@@ -1040,15 +1101,81 @@
                                         <input type="file" class="form-control" id="inputGroupFile02">
                                         <button class="btn btn-primary">Upload</button>
                                     </div> 
-                                <div class="images">
-                                    <h4 class="card-title">Images</h4>
-                                    <img src="./assets/images/products/01.png" alt="">
-                                    <img src="./assets/images/products/02.png" alt="">
-                                    <img src="./assets/images/products/03.png" alt="">
-                                    <img src="./assets/images/products/04.png" alt="">
-                                    <img src="./assets/images/products/05.png" alt="">
-                                    <img src="./assets/images/products/06.png" alt="">
-                                </div>
+                                     <!-- Folder List -->
+                                     <h4>Folders :</h4>
+    <div class="row" id="foldersSection">
+        <div class="folder" ondblclick="openFolder('folder1Section')">
+            <span><img src="./assets/images/folders-image.png" width="100px" height="100px" alt="">
+                <p class="text-center">Products</p>
+            </span>
+        </div>
+
+        <div class="folder" ondblclick="openFolder('folder2Section')">
+            <span><img src="./assets/images/folders-image.png" width="100px" height="100px" alt="">
+                <p class="text-center">Avatars</p>
+            </span>
+        </div>
+
+        <div class="folder" ondblclick="openFolder('folder3Section')">
+            <span><img src="./assets/images/folders-image.png" width="100px" height="100px" alt="">
+                <p class="text-center">Clients</p>
+            </span>
+        </div>
+    </div>
+
+    <!-- Folder 1 Section -->
+    <div id="folder1Section" class="section">
+        <h4>Products Images</h4>
+        <span onclick="backToFolders()"><i class='fas fa-arrow-circle-left'></i></span>
+        <div class="files">
+            <div class="file">
+                <img src="./assets/images/products/01.png" alt="Image 1" class="image"><br>
+                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
+                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
+            </div>
+            <div class="file">
+                <img src="./assets/images/products/02.png" alt="Image 2" class="image"><br>
+                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
+                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Folder 2 Section -->
+    <div id="folder2Section" class="section">
+        <h4>Avatars Images</h5>
+        <span onclick="backToFolders()"><i class='fas fa-arrow-circle-left'></i></span>
+        <div class="files">
+            <div class="file">
+                <img src="./assets/images/products/03.png" alt="Image 1" class="image"><br>
+                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
+                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
+            </div>
+            <div class="file">
+                <img src="./assets/images/products/04.png" alt="Image 1" class="image"><br>
+                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
+                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Folder 3 Section -->
+    <div id="folder3Section" class="section">
+        <h4>Client Images</h4>
+        <span onclick="backToFolders()"><i class='fas fa-arrow-circle-left'></i></span>
+        <div class="files">
+            <div class="file">
+                <img src="./assets/images/products/05.png" alt="Image 1" class="image"><br>
+                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
+                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
+            </div>
+            <div class="file">
+                <img src="./assets/images/products/06.png" alt="Image 2" class="image"><br>
+                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
+                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
+            </div>
+        </div>
+    </div>
                             </div>
                             <div class="tab-pane p-3" id="video" role="tabpanel">
                                 <div class="col-lg-4" style="margin-left: auto;">    
@@ -1150,6 +1277,28 @@
     <script src="assets/libs/jsvectormap/maps/world.js"></script>
     <script src="assets/js/pages/index.init.js"></script>
     <script src="assets/js/app.js"></script>
+    <script>
+        // Function to open a specific folder section and hide the folder list
+        function openFolder(folderId) {
+            document.getElementById('foldersSection').style.display = 'none'; // Hide folder section
+            document.getElementById(folderId).style.display = 'block'; // Show the specific folder's files
+        }
+
+        // Function to go back to the folder list
+        function backToFolders() {
+            document.getElementById('foldersSection').style.display = 'flex'; // Show folder section
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none'; // Hide all file sections
+            });
+        }
+
+        // Function to delete an image
+        function deleteImage(button) {
+            const file = button.parentElement;
+            file.remove();
+        }
+    </script>
+
 </body>
 <!--end body-->
 
