@@ -1,0 +1,93 @@
+.my-reviews{
+    .btn-profile-primary{
+        background-color: transparent;
+        color: #007bff;
+        cursor: pointer;
+        border-color: #007bff;
+        transition: all 0.3s ease-in-out;
+        margin: 20px 0px;
+        &:hover{
+            background-color: #007bff;
+            color: white;    
+        }
+        &:focus{
+            background-color: #007bff;
+            color: white;    
+        }
+    }
+    .tabs {
+        width: 100%;
+        max-width: 100%;
+        margin: 100px 0px;
+        font-family: Arial, sans-serif;
+      }
+      
+      /* Style the tab list */
+      .tab-list {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+      }
+      
+      .tab-item {
+        padding: 10px 20px;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 50px;
+        flex-grow: 1;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
+      .tab-item:hover {
+        background-color: #f1f1f1;
+      }
+      
+      /* Active tab styles with transition */
+      .tab-item.active {
+        background-color: #10182f;
+        color: white;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      
+      /* Style the tab content */
+      .tab-content {
+        padding: 50px 40px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        border-top: none;
+        overflow: hidden;
+      }
+      
+      /* Hide all tab content by default */
+      .tab-pane {
+        display: none;
+        opacity: 0;
+        transform: translateY(20px); /* Starting position for animation */
+        transition: opacity 0.5s ease, transform 0.5s ease; /* Animation for showing content */
+      }
+      
+      /* Show active tab content with animation */
+      .tab-pane.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0); /* End position for animation */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      
+      /* Make tabs responsive */
+      @media (max-width: 600px) {
+        .tab-list {
+          flex-direction: column;
+        }
+      
+        .tab-item {
+          text-align: left;
+          border-bottom: 1px solid #ddd;
+        }
+      }
+      
+      
+      
+}

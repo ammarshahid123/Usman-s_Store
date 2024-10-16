@@ -2797,6 +2797,312 @@ footer .terms-section .terms ul li a {
   background-color: #10182f;
 }
 
+.my-orders {
+  /* Style the tab list */
+  /* Active tab styles with transition */
+  /* Style the tab content */
+  /* Hide all tab content by default */
+  /* Show active tab content with animation */
+  /* Make tabs responsive */
+}
+.my-orders .btn-profile-primary {
+  background-color: transparent;
+  color: #007bff;
+  cursor: pointer;
+  border-color: #007bff;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin: 20px 0px;
+}
+.my-orders .btn-profile-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+.my-orders .btn-profile-primary:focus {
+  background-color: #007bff;
+  color: white;
+}
+.my-orders .tabs {
+  width: 100%;
+  max-width: 100%;
+  margin: 100px 0px;
+  font-family: Arial, sans-serif;
+}
+.my-orders .tab-list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0;
+}
+.my-orders .tab-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.my-orders .tab-item:hover {
+  background-color: #f1f1f1;
+}
+.my-orders .tab-item.active {
+  background-color: #10182f;
+  color: white;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.my-orders .tab-content {
+  padding: 50px 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+          box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  border-top: none;
+  overflow: hidden;
+}
+.my-orders .tab-pane {
+  display: none;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px); /* Starting position for animation */
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease; /* Animation for showing content */
+}
+.my-orders .tab-pane.active {
+  display: block;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0); /* End position for animation */
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+@media (max-width: 600px) {
+  .my-orders .tab-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .my-orders .tab-item {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+.my-wishlist {
+  /* Style the tab list */
+  /* Active tab styles with transition */
+  /* Style the tab content */
+  /* Hide all tab content by default */
+  /* Show active tab content with animation */
+  /* Make tabs responsive */
+}
+.my-wishlist .btn-profile-primary {
+  background-color: transparent;
+  color: #007bff;
+  cursor: pointer;
+  border-color: #007bff;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin: 20px 0px;
+}
+.my-wishlist .btn-profile-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+.my-wishlist .btn-profile-primary:focus {
+  background-color: #007bff;
+  color: white;
+}
+.my-wishlist .tabs {
+  width: 100%;
+  max-width: 100%;
+  margin: 100px 0px;
+  font-family: Arial, sans-serif;
+}
+.my-wishlist .tab-list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0;
+}
+.my-wishlist .tab-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.my-wishlist .tab-item:hover {
+  background-color: #f1f1f1;
+}
+.my-wishlist .tab-item.active {
+  background-color: #10182f;
+  color: white;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.my-wishlist .tab-content {
+  padding: 50px 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+          box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  border-top: none;
+  overflow: hidden;
+}
+.my-wishlist .tab-pane {
+  display: none;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px); /* Starting position for animation */
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease; /* Animation for showing content */
+}
+.my-wishlist .tab-pane.active {
+  display: block;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0); /* End position for animation */
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+@media (max-width: 600px) {
+  .my-wishlist .tab-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .my-wishlist .tab-item {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
+.my-reviews {
+  /* Style the tab list */
+  /* Active tab styles with transition */
+  /* Style the tab content */
+  /* Hide all tab content by default */
+  /* Show active tab content with animation */
+  /* Make tabs responsive */
+}
+.my-reviews .btn-profile-primary {
+  background-color: transparent;
+  color: #007bff;
+  cursor: pointer;
+  border-color: #007bff;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  margin: 20px 0px;
+}
+.my-reviews .btn-profile-primary:hover {
+  background-color: #007bff;
+  color: white;
+}
+.my-reviews .btn-profile-primary:focus {
+  background-color: #007bff;
+  color: white;
+}
+.my-reviews .tabs {
+  width: 100%;
+  max-width: 100%;
+  margin: 100px 0px;
+  font-family: Arial, sans-serif;
+}
+.my-reviews .tab-list {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 0;
+}
+.my-reviews .tab-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.my-reviews .tab-item:hover {
+  background-color: #f1f1f1;
+}
+.my-reviews .tab-item.active {
+  background-color: #10182f;
+  color: white;
+  -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.my-reviews .tab-content {
+  padding: 50px 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  -webkit-box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+          box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  border-top: none;
+  overflow: hidden;
+}
+.my-reviews .tab-pane {
+  display: none;
+  opacity: 0;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px); /* Starting position for animation */
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease; /* Animation for showing content */
+}
+.my-reviews .tab-pane.active {
+  display: block;
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0); /* End position for animation */
+  -webkit-transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, -webkit-transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+@media (max-width: 600px) {
+  .my-reviews .tab-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .my-reviews .tab-item {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+}
+
 /* terms and conditon */
 .terms-condition p.description {
   margin-bottom: 1.2em;
@@ -3054,6 +3360,45 @@ footer .terms-section .terms ul li a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.drop-profile {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.drop-profile-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 200px;
+  -webkit-box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  border-radius: 5px;
+  padding: 10px 0px;
+  top: 60px; /* Adjusted to position below the avatar image */
+  /* right: 0; */
+}
+
+.drop-profile-content a {
+  color: black;
+  padding: 12px 20px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  font-size: 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.drop-profile-content a:hover {
+  background-color: #10182f;
+  color: white;
+}
+
+.showed {
+  display: block !important;
 }
 
 body {

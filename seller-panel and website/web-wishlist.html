@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+    <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+<style>
+/* tabs */
+
+.drop-profile {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.drop-profile-content {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  min-width: 200px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  border-radius: 5px;
+  padding: 10px 0px;
+  top: 60px; /* Adjusted to position below the avatar image */
+  /* right: 0; */
+}
+
+.drop-profile-content a {
+  color: black;
+  padding: 12px 20px;
+  transition: all 0.2s ease-in-out;
+  font-size: 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.drop-profile-content a:hover {
+  background-color: #10182f;
+  color: white;
+}
+
+.showed {
+  display: block !important;
+}
+
+ /* Container for the button */
+/* Container for the button */
+/* Container for the button */
+/* Container for the button */
+.message-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff; /* Button color */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(100px);
+    border: 2px solid transparent; /* Start with no visible border */
+    animation: slideIn 2s ease forwards, borderPulse 3s infinite ease-in-out; /* Added border animation */
+}
+
+/* Icon inside the button */
+.message-btn .icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* Text inside the button */
+.message-btn .message-text {
+    font-weight: 600;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+}
+
+/* Border pulse animation */
+@keyframes borderPulse {
+    0%, 100% {
+        border-color: transparent; /* Start and end with no visible border */
+    }
+    50% {
+        border-color: #ffffff; /* The border appears at 50% of the animation */
+        border-width: 2px; /* Set the border thickness */
+    }
+}
+
+/* Hover effect */
+.message-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+</style>
+</head>
+<body>
+  <!-- header -->
+  <nav class="navbar">
+    <div class="first-half">
+        <div class="logo">
+          <a href="./web-index.html">
+            <img src="./web-assets/assets/images/demo-logo.png" class="logo-image" alt="">
+          </a>
+        </div>
+        <div class="links">
+            <ul class="d-flex">
+                <li><a href="">Save More On App</a></li>
+                <li><a href="">Sell On Name</a></li>
+                <li><a href="">Help & Support</a></li>
+                <li class="dropdown">
+                  <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
+                  <ul class="dropdown-menu">
+                      <li class="sub-dropdown">
+                          <a href="#" class="subdropdowns">Category 1<i class="bx bx-chevron-left"></i></a>
+                          <ul class="sub-menu">
+                              <li><a href="#">Sub Category 1</a></li>
+                              <li><a href="#">Sub Category 2</a></li>
+                          </ul>
+                      </li>
+                      <li class="sub-dropdown">
+                          <a href="#" class="subdropdowns">Category 2 <i class="bx bx-chevron-left"></i></a>
+                          <ul class="sub-menu">
+                              <li><a href="#">Sub Category 3</a></li>
+                              <li><a href="#">Sub Category 4</a></li>
+                          </ul>
+                      </li>
+                      <li class="sub-dropdown">
+                        <a href="#">Category 1</a>
+                    </li>
+                    <li class="sub-dropdown">
+                      <a href="#">Category 1</a>
+                  </li>
+                  <li class="sub-dropdown">
+                    <a href="#">Category 1</a>
+                </li>
+                  </ul>
+              </li>
+            </ul>
+        </div>
+    </div>
+    <div class="second-half">
+        <ul class="d-flex">
+            <li>
+                <div class="search-box">
+                    <input type="text" class="search-box-input" placeholder="What are you looking for ?">
+                    <button class="search-box-btn">
+                        <i class="search-box-icon material-icons bx bx-search"></i>
+                    </button>
+                </div>
+            </li>
+            <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>
+            <li>
+                <div class="dropdown" tab-index="0">
+                    <button id="dropdown-btn"></button>
+                    <ul class="dropdown-content" id="dropdown-content"></ul>
+                  </div>
+            </li>
+            <li>
+              <div class="drop-profile">
+                <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Avatar" width="50px" height="50px" style="border-radius: 50%;" onclick="toggleDropdown()">
+                <i class='bx bxs-down-arrow' style="font-size: 8px;color: white;" onclick="toggleDropdown()"></i>
+                <div class="drop-profile-content">
+                  <a href="./web-account-manage.html">Manage My Account</a>
+                  <a href="./web-my-orders.html">My Orders</a>
+                  <a href="./web-wishlist.html">My Wishlist & Followed Stores</a>
+                  <a href="./web-my-reviews.html">My Reviews</a>
+                  <a href="./web-login.html">Logout</a>
+                </div>
+              </div>
+            </li>              
+            <li>
+              <a href="./web-login.html">
+                <button class="btn btn-pill btn-login">Log In</button>
+              </a>
+            </li>
+            <li>
+              <a href="./web-login.html">
+                <button class="btn btn-pill btn-signUp">Sign Up</button>
+              </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- /header -->
+    <!-- content -->
+<div class="content-area">
+    <div class="breadcrumbs-container">
+        <h4>My Wishlist</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item active">My Wishlist & Followed Stores</li>
+          </ol>
+    </div>
+    <div class="container my-wishlist">
+        <div class="tabs">
+            <ul class="tab-list">
+              <li class="tab-item active" onclick="openTab(event, 'tab1')">My Wishlist</li>
+              <li class="tab-item" onclick="openTab(event, 'tab2')">Past Purchases</li>
+              <li class="tab-item" onclick="openTab(event, 'tab3')">Followed Stores</li>
+            </ul>
+          
+            <div class="tab-content">
+              <div id="tab1" class="tab-pane active">
+                <p class="text-center">There are no favorites yet.<br>
+                    Add your favorites to wishlist and they will show here.<br>
+                    <i class="bx bx-heart mt-3" style="color: #007bff;font-size: 30px;"></i>
+                </p>
+                <div class="button text-center" >
+                    <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
+                </div>
+              </div>
+              <div id="tab2" class="tab-pane">
+                  <p class="text-center">There are no favorites yet.<br>
+                    Add your favorites to wishlist and they will show here.</p><br>
+                <div class="button text-center" >
+                    <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
+                </div>
+              </div>
+              <div id="tab3" class="tab-pane">
+                  <div class="button text-center" >
+                    <i class="bx bxs-store" style="color: #0056b3;font-size: 30px;"></i>
+                </div>
+                <p class="text-center mt-3">You Don't Follow Any Store.</p>
+             
+            </div>
+        </div>
+    </div>
+</div>
+<div class="message-btn">
+  <i class="icon">&#9993;</i> <!-- This is the envelope icon -->
+  <span class="message-text">Message</span>
+</div>
+<!-- <div class="phone-call cbh-phone cbh-green cbh-show cbh-static" id="clbh_phone_div">
+<a id="WhatsApp-button" href="https://wa.me/5521980619913" target="_blank" class="phoneJs" title="WhatsApp 360imagem" ><div class="cbh-ph-circle"></div>
+  <div class="cbh-ph-circle-fill"></div>
+  <div class="cbh-ph-img-circle1">
+    <i class='bx bxs-chat' style='color:#ffffff'></i>
+    Messages
+  </div>
+</a>
+</div> -->
+<!-- /content -->
+ <!-- footer -->
+<footer>
+    <div class="foot-logo">
+        <img src="./web-assets/assets/images/demo-logo.png">
+    </div>
+    <div class="info d-flex">
+        <div class="links">
+            <h6 class="text-c-white fw-700">Quick Links</h6>
+            <ul>
+                <a href="./web-index.html"><li>Home</li></a>
+                <a href="./web-about-us.html"><li>About Us</li></a>
+                <a href=""><li>Contact Us</li></a>
+                <a href=""><li>Story</li></a>
+                <a href=""><li>Blogs</li></a>
+            </ul>
+        </div>
+        <div class="links">
+            <h6 class="text-c-white fw-700">Getting Started</h6>
+            <ul>
+                <a href=""><li>Home</li></a>
+                <a href=""><li>About Us</li></a>
+                <a href=""><li>Contact Us</li></a>
+                <a href=""><li>Story</li></a>
+                <a href=""><li>Blogs</li></a>
+            </ul>
+        </div>
+        <div class="links">
+            <h6 class="text-c-white fw-700">Featured</h6>
+            <ul>
+                <a href="./web-terms.html"><li>Terms & Condition</li></a>
+                <a href="./web-privacy-policy.html"><li>Privacy Policy</li></a>
+                <a href="./web-refund&exchange.html"><li>Exchange & Return</li></a>
+                <a href="./web-refund-policy.html"><li>Refund Policy</li></a>
+                <a href="./web-shipment-policy.html"><li>Shipment Policy</li></a>
+            </ul>
+        </div>
+        <div class="social-desc">
+            <div class="social-media">
+                <h6 class="text-c-white fw-800">FOLLOW Us On</h6>
+                <ul class="d-flex">
+                    <li><a href=""><i class='bx bxl-facebook'></i></a></li>
+                    <li><a href=""><i class='bx bxl-instagram'></i></a></li>
+                    <li><a href=""><i class='bx bxl-youtube'></i></a></li>
+                    <li><a href=""><i class='bx bxl-twitter' ></i></a></li>
+                    <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
+                </ul>
+            </div>
+            <div class="payment-methods">
+                <h6 class="text-c-white fw-800">Payment Methods</h6>
+                <img class="payment-method-img" src="./web-assets/assets/images/payment-methods.png" alt="">
+                <img src="./web-assets/assets/images/payment-method-2.png" alt="" width="60px" height="30px" style="margin-left: 3px;">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="terms-section">
+    <p>&copy; 2006 Company Name All Rights Reserved</p>
+</div>
+</footer>
+<!-- /footer -->
+
+ <!-- THIRD PARTY JS -->
+ <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ <script src="./web-assets/assets/js/script.js"></script>
+
+<!-- scripts -->
+ <script>
+    const locales = ["en-GB","ar-SA","zh-CN","de-DE","es-ES","fr-FR","hi-IN","it-IT","in-ID","ja-JP","ko-KR","nl-NL","no-NO","pl-PL","pt-BR","sv-SE","fi-FI","th-TH","tr-TR","uk-UA","vi-VN","ru-RU","he-IL"];
+
+function getFlagSrc(countryCode) {
+  return /^[A-Z]{2}$/.test(countryCode)
+       ? `https://flagsapi.com/${countryCode.toUpperCase()}/shiny/64.png`
+    : "";
+}
+
+const dropdownBtn = document.getElementById("dropdown-btn");
+const dropdownContent = document.getElementById("dropdown-content");
+
+function setSelectedLocale(locale) {
+  const intlLocale = new Intl.Locale(locale);
+  const langName = new Intl.DisplayNames([locale], {
+    type: "language",
+  }).of(intlLocale.language);
+
+  dropdownContent.innerHTML = "";
+
+  const otherLocales = locales.filter((loc) => loc !== locale);
+  otherLocales.forEach((otherLocale) => {
+    const otherIntlLocale = new Intl.Locale(otherLocale);
+    const otherLangName = new Intl.DisplayNames([otherLocale], {
+      type: "language",
+    }).of(otherIntlLocale.language);
+
+    const listEl = document.createElement("li");
+    listEl.innerHTML = `${otherLangName}<img src="${getFlagSrc(
+      otherIntlLocale.region
+    )}" />`;
+    listEl.value = otherLocale;
+    listEl.addEventListener("mousedown", function () {
+      setSelectedLocale(otherLocale);
+    });
+    dropdownContent.appendChild(listEl);
+  });
+
+  dropdownBtn.innerHTML = `<img src="${getFlagSrc(
+    intlLocale.region
+  )}" />${langName}<span class="arrow-down"></span>`;
+}
+
+setSelectedLocale(locales[0]);
+const browserLang = new Intl.Locale(navigator.language).language;
+for (const locale of locales) {
+  const localeLang = new Intl.Locale(locale).language;
+  if (localeLang === browserLang) {
+    setSelectedLocale(locale);
+  }
+}
+ </script>
+ <script>
+     // Initialize Swiper
+     var swiper = new Swiper('.banner-vertical-slider', {
+         direction: 'vertical', // Set the direction to vertical
+         loop: true, // Enable loop mode
+         navigation: {
+             nextEl: '.swiper-button-next',
+             prevEl: '.swiper-button-prev',
+         },
+         pagination: {
+             el: '.swiper-pagination',
+             clickable: true, // Make pagination bullets clickable
+         },
+         autoplay: {
+             delay: 3000, // Delay between slides in ms
+             disableOnInteraction: false,
+         },
+     });
+ </script>
+   <script>
+    var swiper = new Swiper(".sale-slider", {
+        slidesPerView: 4,          // Show 4 slides at a time
+        spaceBetween: 10,          // Space between slides
+        loop: true,                // Enable loop for infinite sliding
+       autoplay: {
+           delay: 2500,           // Auto slide after 2.5 seconds
+           disableOnInteraction: false, // Continue autoplay after manual interaction
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+</script>
+<!-- lode More -->
+<script>
+  const productCards = document.querySelectorAll('.Product-card');
+  const loadMoreBtn = document.getElementById('loadMoreBtn');
+  const loader = document.querySelector('.loader');
+  let visibleCards = 25; // Initially visible cards
+
+  // Function to show the next set of cards
+  function loadMoreCards() {
+      loader.style.display = 'block'; // Show loader
+      setTimeout(() => {
+          loader.style.display = 'none'; // Hide loader after 2 seconds
+          for (let i = visibleCards; i < visibleCards + 25 && i < productCards.length; i++) {
+              productCards[i].style.display = 'inline-block'; // Show next 25 cards
+          }
+          visibleCards += 25; // Increase the count of visible cards
+          // Hide the button if all cards are displayed
+          if (visibleCards >= productCards.length) {
+              loadMoreBtn.style.display = 'none';
+          }
+      }, 2000); // Simulate loading time
+  }
+
+  // Show the initial 25 cards
+  for (let i = 0; i < visibleCards; i++) {
+      productCards[i].style.display = 'inline-block';
+  }
+
+  // Event listener for Load More button
+  loadMoreBtn.addEventListener('click', loadMoreCards);
+</script>
+<!-- model -->
+<script>
+  // Function to close the modal
+  function closeModal() {
+      document.getElementById("page-modal").style.display = "none";
+  }
+  
+  // Auto-open modal when page loads
+  window.onload = function() {
+      document.getElementById("page-modal").style.display = "block"; // Show modal when page loads
+  };
+  
+  </script>
+  <!-- profile-dropdown -->
+   <script>
+function toggleDropdown() {
+  var dropdown = document.querySelector('.drop-profile .drop-profile-content');
+  dropdown.classList.toggle('showed');
+}
+
+// Optional: Close dropdown when clicking outside
+window.onclick = function(event) {
+  if (!event.target.matches('.drop-profile img') && !event.target.matches('.drop-profile i')) {
+    var dropdowns = document.getElementsByClassName("drop-profile-content");
+    for (var i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('showed')) {
+        openDropdown.classList.remove('showed');
+      }
+    }
+  }
+}
+
+   </script>
+      <!-- tabs -->
+
+<script>
+    function openTab(event, tabId) {
+      // Remove active class from all tabs
+      var tabItems = document.getElementsByClassName('tab-item');
+      for (var i = 0; i < tabItems.length; i++) {
+        tabItems[i].classList.remove('active');
+      }
+  
+      // Remove active class from all tab content
+      var tabPanes = document.getElementsByClassName('tab-pane');
+      for (var i = 0; i < tabPanes.length; i++) {
+        tabPanes[i].classList.remove('active');
+      }
+  
+      // Add active class to the clicked tab
+      event.currentTarget.classList.add('active');
+  
+      // Show the content for the active tab
+      document.getElementById(tabId).classList.add('active');
+    }
+  </script>
+</body>
+</html>
