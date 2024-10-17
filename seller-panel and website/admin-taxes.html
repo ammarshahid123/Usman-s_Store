@@ -7,9 +7,9 @@
     
 
     <meta charset="utf-8" />
-            <title>Seller Panel</title>
+            <title>Admin & Dashboard Panel</title>
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+            <meta content=" Admin & Dashboard " name="description" />
             <meta content="" name="author" />
             <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -26,68 +26,7 @@
      <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
 
 </head>
-<style>
-.folder {
-    margin-bottom: 10px;
-    cursor: pointer;
-    font-size: 14px;
-    width: 125px;
-    span {
-        font-weight: bold;
-    }
-}
 
-.files {
-    padding-left: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.file {
-    margin-top: 10px;
-    
-    img {
-        width: 100px;
-        height: 100px;
-        margin-right: 10px;
-        border: 1px solid #ccc;
-    }
-    
-    .del-button {
-        background-color: red;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        margin-top: 10px;
-        padding: 5px 10px;
-        cursor: pointer;
-        &:hover {
-            background-color: darkred;
-        }
-    }
-    .download-btn{
-        margin-top: 10px;
-        background-color: #0071f1;
-        color: white;
-        border: none;
-        border-radius: 50%;
-        padding: 5px 10px;
-        cursor: pointer;
-        &:hover {
-            background-color: #17569e;
-        }
-    }
-}
-
-.section {
-    display: none;
-    
-    span {
-       font-size: 25px;
-    }
-}
-
-</style>
 <body>
 
     <!-- Top Bar Start -->
@@ -382,10 +321,10 @@
                             <div class="collapse " id="sidebarDashboards">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./index.html">Analytics</a>
+                                        <a class="nav-link" href="./admin-index.html">Analytics</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./ecommerce.html">Ecommerce</a>
+                                        <a class="nav-link" href="./admin-ecommerce.html">Ecommerce</a>
                                     </li><!--end nav-item-->
                                 </ul><!--end nav-->
                             </div><!--end startbarDashboards-->
@@ -407,22 +346,19 @@
                             <div class="collapse " id="sidebarproducts">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./ecommerce-products.html">Manage Products</a>
+                                        <a class="nav-link" href="./admin-ecommerce-products.html">Quality Check</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./add-products.html">Add Products</a>
+                                        <a class="nav-link" href="./admin-product-status.html">Product Status</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./media-center.html">Media Center</a>
+                                        <a class="nav-link" href="./admin-Product-refunds.html">Return & Exchange</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./ecommerce-refunds.html">Fulfilment by 
-                                            Name
+                                        <a class="nav-link" href="./ecommerce-refunds.html">Extra
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./brand.html">Brand Management</a>
-                                    </li><!--end nav-item-->
+                                    <!--end nav-item-->
                                 </ul><!--end nav-->
                             </div><!--end startbarDashboards-->
                         </li>
@@ -432,18 +368,15 @@
                             <a class="nav-link" href="#sidebarOrder" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarOrder">
                                 <i class="fas fa-box-open menu-icon"></i>
-                                <span>Orders and Refund</span>
+                                <span>Seller</span>
                             </a>
                             <div class="collapse " id="sidebarOrder">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./ecommerce-orders.html">Orders</a>
+                                        <a class="nav-link" href="./admin-registered-seller.html">Registered</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./ecommerce-order-details.html">Order Details</a>
-                                    </li><!--end nav-item-->
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./ecommerce-refunds.html">Refunds</a>
+                                        <a class="nav-link" href="./admin-other-seller.html">Others</a>
                                     </li><!--end nav-item-->
                                 </ul><!--end nav-->
                             </div><!--end startbarDashboards-->
@@ -453,32 +386,18 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarMarketing" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarMarketing">
-                                <i class="fab fa-facebook-messenger menu-icon"></i>
-                                <span>Marketing Center</span>
+                                <i class="fas fa-chart-line menu-icon"></i>
+                                
+                                <span>Marketing</span>
                             </a>
                             <div class="collapse " id="sidebarMarketing">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./campaign.html">Compaign (New)</a>
+                                        <a class="nav-link" href="./admin-campaign.html">All Campaigns</a>
                                     </li><!--end nav-item-->
                                     <!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./flash.html">NameFlash</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./free-shipping.html">Free Shipping (Old)</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./bundles.html">Bundles</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./promotions.html">Promotions</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./Programs.html">Name Programs</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./marketing-solution.html">Marketing Solutions</a>
+                                        <a class="nav-link" href="./admin-campaign-statics.html">Campaign statistics</a>
                                     </li>
                                     <!--end nav-item-->
                                 </ul><!--end nav-->
@@ -489,16 +408,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarDataInsight" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarDataInsight">
-                                <i class="fas fa-chart-line    menu-icon"></i>
-                                <span>Data Insight</span>
+                                <i class="iconoir-fingerprint-lock-circle menu-icon"></i>
+                                <span>Copyright Protection</span>
                             </a>
                             <div class="collapse " id="sidebarDataInsight">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./business-advisor.html">Business Advisor</a>
+                                        <a class="nav-link" href="./business-advisor.html">To be Announced</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./account-health.html">Account Health</a>
+                                        <a class="nav-link" href="./account-health.html">To be Announced</a>
                                     </li><!--end nav-item-->
                                     <!--end nav-item-->
                                 </ul><!--end nav-->
@@ -509,16 +428,16 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarGrow" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarGrow">
-                                <i class="fas fa-seedling  menu-icon"></i>
-                                <span>Learn and Grow</span>
+                                <i class="fab fa-expeditedssl  menu-icon"></i>
+                                <span>Brand Protection</span>
                             </a>
                             <div class="collapse " id="sidebarGrow">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="ecommerce-orders.html">Name University</a>
+                                        <a class="nav-link" href="ecommerce-orders.html">To be Announced</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="./seller-challenges.html">New Seller Challenge</a>
+                                        <a class="nav-link" href="./seller-challenges.html">To be Announced</a>
                                     </li><!--end nav-item-->
                                     <!--end nav-item-->
                                 </ul><!--end nav-->
@@ -529,16 +448,19 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#sidebarstore" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarstore">
-                                <i class="fas fa-store-alt menu-icon"></i>
-                                <span>Store</span>
+                                <i class="fas fa-wallet menu-icon"></i>
+                                <span>Income Calculator</span>
                             </a>
                             <div class="collapse " id="sidebarstore">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="ecommerce-orders.html">Store Decoration</a>
+                                        <a class="nav-link" href="./admin-seller-income.html">Seller Income</a>
                                     </li><!--end nav-item-->
                                     <li class="nav-item">
-                                        <a class="nav-link" href="ecommerce-order-details.html">Store Settings</a>
+                                        <a class="nav-link" href="./web-income.html">Web Income</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="./admin-taxes.html">Taxes</a>
                                     </li><!--end nav-item-->
                                     <!--end nav-item-->
                                 </ul><!--end nav-->
@@ -547,69 +469,14 @@
                         <!-- store -->
                            <!-- finance -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#sidebarfinance" data-bs-toggle="collapse" role="button"
+                            <a class="nav-link" href="./admin-chats-msg.html" role="button"
                                 aria-expanded="false" aria-controls="sidebarfinance">
-                                <i class="fas fa-wallet menu-icon"></i>
-                                <span>Finance</span>
+                                <i class="fab fa-facebook-messenger menu-icon"></i>
+                                <span>Chats and Messages</span>
                             </a>
-                            <div class="collapse " id="sidebarfinance">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./my-income.html">My Income</a>
-                                    </li><!--end nav-item-->
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="ecommerce-order-details.html">Seller Finance</a>
-                                    </li><!--end nav-item-->
-                                    <!--end nav-item-->
-                                </ul><!--end nav-->
-                            </div><!--end startbarDashboards-->
+                           <!--end startbarDashboards-->
                         </li>
                         <!-- finance -->
-                           <!-- Help -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#sidebarHelp" data-bs-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="sidebarHelp">
-                                <i class="fas fa-question-circle  menu-icon"></i>
-                                <span>Support</span>
-                            </a>
-                            <div class="collapse " id="sidebarHelp">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="pages-faq.html">Help Center</a>
-                                    </li><!--end nav-item-->
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./projects-chat.html">Chat With Us</a>
-                                    </li><!--end nav-item-->
-                                    <!--end nav-item-->
-                                </ul><!--end nav-->
-                            </div><!--end startbarDashboards-->
-                        </li>
-                        <!-- Help -->
-                           <!-- Account -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="#sidebarAccount" data-bs-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="sidebarAccount">
-                                <i class="fas fa-user  menu-icon"></i>
-                                <span>My Account</span>
-                            </a>
-                            <div class="collapse " id="sidebarAccount">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./settings.html">Settings</a>
-                                    </li><!--end nav-item-->
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./user-management.html">User Management</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="./account-setting.html">Account Setting</a>
-                                    </li>
-                                    <!--end nav-item-->
-                                    <!--end nav-item-->
-                                </ul><!--end nav-->
-                            </div><!--end startbarDashboards-->
-                        </li>
-                        <!-- Account -->
-                        <!--end nav-item-->
                         <!--end nav-item-->
                     </ul><!--end navbar-nav--->
                     <!-- <div class="update-msg text-center"> 
@@ -632,130 +499,72 @@
         <!-- Page Content-->
         <div class="page-content">
             <div class="container-xxl">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="row align-items-center">
-                            <div class="col">                      
-                                <h1>Media Center<h1>                      
-                            </div><!--end col-->
-                        </div>  <!--end row-->                                  
-                    </div>
-                    <!--end card-header-->
-                    <div class="card-body pt-0">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-bs-toggle="tab" href="#images" role="tab" aria-selected="true">Images</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="tab" href="#video" role="tab" aria-selected="false">Vedios</a>
-                            </li>                                                
-                        </ul>
-
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div class="tab-pane p-3 active" id="images" role="tabpanel">
-                                <div class="col-lg-4" style="margin-left: auto;">    
-                                    <div class="mb-3">
-                                        <div class="col-sm-12 d-flex" style="gap:15px;">
-                                            <input class="form-control" type="search" value="Search Image by Name" id="example-search-input">
-                                            <button class="btn btn-primary">Search</button>
-                                        </div>
-                                    </div>  
-                                </div>
-                                    <h4 class="card-title">Upload Image Here!</h4>
-                                    <div class="input-group mb-3">
-                                        <input type="file" class="form-control" id="inputGroupFile02">
-                                        <button class="btn btn-primary">Upload</button>
-                                    </div> 
-                                     <!-- Folder List -->
-                                     <h4>Folders :</h4>
-    <div class="row" id="foldersSection">
-        <div class="folder" ondblclick="openFolder('folder1Section')">
-            <span><img src="./assets/images/folders-image.png" width="100px" height="100px" alt="">
-                <p class="text-center">Products</p>
-            </span>
-        </div>
-
-        <div class="folder" ondblclick="openFolder('folder2Section')">
-            <span><img src="./assets/images/folders-image.png" width="100px" height="100px" alt="">
-                <p class="text-center">Avatars</p>
-            </span>
-        </div>
-
-        <div class="folder" ondblclick="openFolder('folder3Section')">
-            <span><img src="./assets/images/folders-image.png" width="100px" height="100px" alt="">
-                <p class="text-center">Clients</p>
-            </span>
-        </div>
-    </div>
-
-    <!-- Folder 1 Section -->
-    <div id="folder1Section" class="section">
-        <h4>Products Images</h4>
-        <span onclick="backToFolders()"><i class='fas fa-arrow-circle-left'></i></span>
-        <div class="files">
-            <div class="file">
-                <img src="./assets/images/products/01.png" alt="Image 1" class="image"><br>
-                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
-                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
-            </div>
-            <div class="file">
-                <img src="./assets/images/products/02.png" alt="Image 2" class="image"><br>
-                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
-                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Folder 2 Section -->
-    <div id="folder2Section" class="section">
-        <h4>Avatars Images</h5>
-        <span onclick="backToFolders()"><i class='fas fa-arrow-circle-left'></i></span>
-        <div class="files">
-            <div class="file">
-                <img src="./assets/images/products/03.png" alt="Image 1" class="image"><br>
-                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
-                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
-            </div>
-            <div class="file">
-                <img src="./assets/images/products/04.png" alt="Image 1" class="image"><br>
-                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
-                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Folder 3 Section -->
-    <div id="folder3Section" class="section">
-        <h4>Client Images</h4>
-        <span onclick="backToFolders()"><i class='fas fa-arrow-circle-left'></i></span>
-        <div class="files">
-            <div class="file">
-                <img src="./assets/images/products/05.png" alt="Image 1" class="image"><br>
-                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
-                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
-            </div>
-            <div class="file">
-                <img src="./assets/images/products/06.png" alt="Image 2" class="image"><br>
-                <button class="del-button" onclick="deleteImage(this)"><i class='fas fa-trash'></i></button>
-                <button class="download-btn"><i class='fas fa-arrow-down'></i></button>
-            </div>
-        </div>
-    </div>
-                            </div>
-                            <div class="tab-pane p-3" id="video" role="tabpanel">
-                                <div class="col-lg-4" style="margin-left: auto;">    
-                                    <div class="mb-3">
-                                        <div class="col-sm-12 d-flex" style="gap:15px;">
-                                            <input class="form-control" type="search" value="Search Videos" id="example-search-input">
-                                            <button class="btn btn-primary">Search</button>
-                                        </div>
-                                    </div>  
-                                </div>
-                                <p class="mb-0 text-muted">Vedio Goes Here !</p>
-                            </div>                                                
-                        </div>              
-                    </div><!--end card-body--> 
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">                      
+                                        <h4 class="card-title">Taxes</h4>                      
+                                    </div><!--end col-->
+                                </div>  <!--end row-->                                  
+                            </div><!--end card-header-->
+                            <div class="card-body pt-0">
+                                <div class="table-responsive">
+                                    <table class="table datatable" id="datatable_1">
+                                        <thead class="table-light">
+                                          <tr>
+                                            <th>Name</th>
+                                            <th>Ext.</th>
+                                            <th>City</th>
+                                            <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
+                                            <th>Completion</th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Unity Pugh</td>
+                                                <td>9958</td>
+                                                <td>Curicó</td>
+                                                <td>2005/02/11</td>
+                                                <td>37%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Theodore Duran</td><td>8971</td><td>Dhanbad</td><td>1999/04/07</td><td>97%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kylie Bishop</td><td>3147</td><td>Norman</td><td>2005/09/08</td><td>63%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Willow Gilliam</td><td>3497</td><td>Amqui</td><td>2009/29/11</td><td>30%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Blossom Dickerson</td><td>5018</td><td>Kempten</td><td>2006/11/09</td><td>17%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Elliott Snyder</td><td>3925</td><td>Enines</td><td>2006/03/08</td><td>57%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Castor Pugh</td><td>9488</td><td>Neath</td><td>2014/23/12</td><td>93%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Pearl Carlson</td><td>6231</td><td>Cobourg</td><td>2014/31/08</td><td>100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Deirdre Bridges</td><td>1579</td><td>Eberswalde-Finow</td><td>2014/26/08</td><td>44%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Daniel Baldwin</td><td>6095</td><td>Moircy</td><td>2000/11/01</td><td>33%</td>
+                                            </tr>  
+                                            <tr>
+                                                <td>Pearl Carlson</td><td>6231</td><td>Cobourg</td><td>2014/31/08</td><td>100%</td>
+                                            </tr>                                                                                        
+                                        </tbody>
+                                      </table>
+                                </div>   
+                            </div><!--end card-body--> 
+                        </div><!--end card--> 
+                    </div> <!--end col-->                                                        
                 </div>
             </div><!-- container -->
 
@@ -837,34 +646,13 @@
     
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
+
     <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
     <script src="assets/data/stock-prices.js"></script>
     <script src="assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
     <script src="assets/libs/jsvectormap/maps/world.js"></script>
     <script src="assets/js/pages/index.init.js"></script>
     <script src="assets/js/app.js"></script>
-    <script>
-        // Function to open a specific folder section and hide the folder list
-        function openFolder(folderId) {
-            document.getElementById('foldersSection').style.display = 'none'; // Hide folder section
-            document.getElementById(folderId).style.display = 'block'; // Show the specific folder's files
-        }
-
-        // Function to go back to the folder list
-        function backToFolders() {
-            document.getElementById('foldersSection').style.display = 'flex'; // Show folder section
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.display = 'none'; // Hide all file sections
-            });
-        }
-
-        // Function to delete an image
-        function deleteImage(button) {
-            const file = button.parentElement;
-            file.remove();
-        }
-    </script>
-
 </body>
 <!--end body-->
 
