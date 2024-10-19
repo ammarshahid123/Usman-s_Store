@@ -115,6 +115,114 @@
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Section */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.right-section {
+  display: flex;
+  gap: 15px;
+}
+
+.filter-dropdown, .search-bar input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar input {
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.search-icon {
+  margin-right: 10px;
+}
+
+/* Table Section */
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.order-table th {
+  background-color: #f0f0f0;
+  text-align: left;
+  padding: 10px;
+}
+
+.order-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-image {
+  width: 50px;
+  height: 50px;
+}
+
+/* Footer Section */
+.footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.results-dropdown select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right-section {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+  
+  .order-table th, .order-table td {
+    font-size: 12px;
+  }
+
+}
 
 
 </style>
@@ -174,7 +282,65 @@
                     </button>
                 </div>
             </li>
-            <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>
+            <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>                
+            <li>
+              <div class="dropdown-noti">
+                <i class="bx bx-bell fs-4 dropdown-toggle" onclick="toggleDropdownnoti()"></i>
+                <div id="dropdownMenu" class="dropdown-menu">
+                  <!-- Dropdown Header -->
+                  <div class="dropdown-header">
+                    <h3>Notifications</h3>
+                  </div>
+            
+                  <!-- Tabs -->
+                  <div class="tabs">
+                    <button class="tab-link active" onclick="openTab(event, 'new')">New (2)</button>
+                    <button class="tab-link" onclick="openTab(event, 'seen')">Seen (3)</button>
+                  </div>
+            
+                  <!-- New Notifications -->
+                  <div id="new" class="tab-content">
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>You have a new message from John.</p>
+                      </div>
+                    </div>
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>Meeting scheduled with the marketing team tomorrow.</p>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <!-- Seen Notifications -->
+                  <div id="seen" class="tab-content">
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>Project update received from the development team.</p>
+                      </div>
+                    </div>
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>New design mockups have been seen and approved.</p>
+                      </div>
+                    </div>
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>New design are seen and approved.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="noti-counter">
+                <span>5</span>
+            </li>
             <li>
                 <div class="dropdown" tab-index="0">
                     <button id="dropdown-btn"></button>
@@ -206,7 +372,7 @@
             </li>
         </ul>
     </div>
-  </nav>
+</nav>
 <!-- /header -->
     <!-- content -->
 <div class="content-area">
@@ -231,39 +397,72 @@
           
             <div class="tab-content">
               <div id="tab1" class="tab-pane active">
-                <div class="form-field">
-                    <label class="field-label"><strong>Search By:</strong></label>
-                    <div class="field field-inline">
-                        <select name="" id="" class="field-select">
-                          <option value="">Select</option>
-                          <option value="Option">Option</option>
-                          <option value="Option">Option</option>
-                        </select>
+                <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
                       </div>
-                  </div>
-                  <hr>
-                  <div class="card mt-4">
-                    <div class="card-head d-flex" style="justify-content: space-between;">
-                        <div class="icon-name d-flex" style="gap: 10px;align-items: center;">
-                            <i class="bx bx-store"></i>
-                            <h6 class="name fw-bold" style="margin: 0;">Mix Tech</h6>
-                        </div>
-                        <div class="badge-cancel">
-                            <div class="badge badge-light badge-pill">Cnacelled</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <div class="card-body d-flex" style="gap: 20px;align-items: center;">
-                        <img src="./web-assets/assets/images/t-shirt_product.jpg" alt="" style="border-radius: 10px;" width="100px" height="100px">
-                        <div class="desc">
-                            <div class="card-desc text-ellipsis text-ellipsis-2">lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, veritatis repellat eligendi saepe ullam assumenda expedita natus nesciuntIste, veritatis repellat eligendi saepe ullam assumenda expedita natus nesciunt tenetur placeat fuga voluptas dicta quod! Laborum sed id nostrum? Beatae, illo.</div>
-                            <div class="price-qty d-flex mt-3" style="align-items: center;gap: 10px;">
-                                <div class="price"><strong>Rs.</strong> 976</div>
-                                <div class="qty"><strong>Qty:</strong> 1</div>
-                            </div>
-                        </div>
                     </div>
                   </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;" alt="Product Image" class="product-image"> T-shirt</td>
+                        <td>Product 1</td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-success badge-pill">Completed</div></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;" alt="Product Image" class="product-image"> T-shirt</td>
+                        <td>Product 1</td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-success badge-pill">Completed</div></td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+                
                
               </div>
               <div id="tab2" class="tab-pane">
@@ -291,9 +490,46 @@
                 </div>
               </div>
               <div id="tab6" class="tab-pane">
-                <p class="text-center">There are no Returns Yet</p><br>
-                <div class="button text-center" >
-                    <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
+                <div style="display: flex;justify-content: end;">
+                  <button class="btn btn-profile-primary btn-inline">Add New Return</button>
+                </div>
+                <div class="row">
+                  <div class="col-4">
+                    <div class="card card-returns d-flex" style="flex-direction: row;">
+                      <div class="card-head">
+                        <img src="./web-assets/assets/images/t-shirt_product.jpg" width="100px" height="100px" style="border-radius: 10px;" alt="" class="img">
+                      </div>
+                      <div class="card-body">
+                        <div class="card-subtitle">Name Goes Here !</div>
+                        <div class="badge badge-pill badge-success mb-2">Approved</div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis iste magnam accusamus consequuntur nostrum itaque! Similique nihil vero, quasi ad fuga, et ducimus ratione ullam quibusdam reprehenderit assumenda reiciendis. Alias.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="card card-returns d-flex" style="flex-direction: row;">
+                      <div class="card-head">
+                        <img src="./web-assets/assets/images/t-shirt_product.jpg" width="100px" height="100px" style="border-radius: 10px;" alt="" class="img">
+                      </div>
+                      <div class="card-body">
+                        <div class="card-subtitle">Name Goes Here !</div>
+                        <div class="badge badge-pill badge-warning mb-2">Pending</div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis iste magnam accusamus consequuntur nostrum itaque! Similique nihil vero, quasi ad fuga, et ducimus ratione ullam quibusdam reprehenderit assumenda reiciendis. Alias.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="card card-returns d-flex" style="flex-direction: row;">
+                      <div class="card-head">
+                        <img src="./web-assets/assets/images/t-shirt_product.jpg" width="100px" height="100px" style="border-radius: 10px;" alt="" class="img">
+                      </div>
+                      <div class="card-body">
+                        <div class="card-subtitle">Name Goes Here !</div>
+                        <div class="badge badge-pill badge-danger mb-2">Declined</div>
+                        <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis iste magnam accusamus consequuntur nostrum itaque! Similique nihil vero, quasi ad fuga, et ducimus ratione ullam quibusdam reprehenderit assumenda reiciendis. Alias.</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div id="tab7" class="tab-pane">
@@ -560,5 +796,37 @@ window.onclick = function(event) {
       document.getElementById(tabId).classList.add('active');
     }
   </script>
+    <!-- nitofication dropdown -->
+    <script>
+      function toggleDropdownnoti() {
+        const dropdownMenu = document.getElementById("dropdownMenu");
+        if (dropdownMenu.style.display === "block") {
+          dropdownMenu.style.display = "none";
+        } else {
+          dropdownMenu.style.display = "block";
+        }
+      }
+  
+      function openTab(evt, tabName) {
+        // Hide all tab contents
+        var tabContent = document.getElementsByClassName("tab-content");
+        for (var i = 0; i < tabContent.length; i++) {
+          tabContent[i].style.display = "none";
+        }
+  
+        // Remove active state from all tab links
+        var tabLinks = document.getElementsByClassName("tab-link");
+        for (var i = 0; i < tabLinks.length; i++) {
+          tabLinks[i].classList.remove("active");
+        }
+  
+        // Show the clicked tab's content and set the clicked tab link as active
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.classList.add("active");
+      }
+  
+      // Set "New" tab content visible on page load
+      document.getElementById("new").style.display = "block";
+    </script>
 </body>
 </html>

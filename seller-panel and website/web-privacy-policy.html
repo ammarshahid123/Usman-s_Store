@@ -69,7 +69,65 @@
                     </button>
                 </div>
             </li>
-            <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>
+            <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>                
+            <li>
+              <div class="dropdown-noti">
+                <i class="bx bx-bell fs-4 dropdown-toggle" onclick="toggleDropdownnoti()"></i>
+                <div id="dropdownMenu" class="dropdown-menu">
+                  <!-- Dropdown Header -->
+                  <div class="dropdown-header">
+                    <h3>Notifications</h3>
+                  </div>
+            
+                  <!-- Tabs -->
+                  <div class="tabs">
+                    <button class="tab-link active" onclick="openTab(event, 'new')">New (2)</button>
+                    <button class="tab-link" onclick="openTab(event, 'seen')">Seen (3)</button>
+                  </div>
+            
+                  <!-- New Notifications -->
+                  <div id="new" class="tab-content">
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>You have a new message from John.</p>
+                      </div>
+                    </div>
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>Meeting scheduled with the marketing team tomorrow.</p>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <!-- Seen Notifications -->
+                  <div id="seen" class="tab-content">
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>Project update received from the development team.</p>
+                      </div>
+                    </div>
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>New design mockups have been seen and approved.</p>
+                      </div>
+                    </div>
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>New design are seen and approved.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="noti-counter">
+                <span>5</span>
+            </li>
             <li>
                 <div class="dropdown" tab-index="0">
                     <button id="dropdown-btn"></button>
@@ -363,6 +421,38 @@
     }
   }
 </script>
+  <!-- nitofication dropdown -->
+  <script>
+    function toggleDropdownnoti() {
+      const dropdownMenu = document.getElementById("dropdownMenu");
+      if (dropdownMenu.style.display === "block") {
+        dropdownMenu.style.display = "none";
+      } else {
+        dropdownMenu.style.display = "block";
+      }
+    }
+
+    function openTab(evt, tabName) {
+      // Hide all tab contents
+      var tabContent = document.getElementsByClassName("tab-content");
+      for (var i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+
+      // Remove active state from all tab links
+      var tabLinks = document.getElementsByClassName("tab-link");
+      for (var i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+      }
+
+      // Show the clicked tab's content and set the clicked tab link as active
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.classList.add("active");
+    }
+
+    // Set "New" tab content visible on page load
+    document.getElementById("new").style.display = "block";
+  </script>
 </body>
 
 </html>

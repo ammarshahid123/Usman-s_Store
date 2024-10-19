@@ -1,45 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Folder</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notification Dropdown</title>
+  <style>
+    /* Basic dropdown styles */
+    .dropdown-noti {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-toggle {
+      padding: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 5px;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      width: 300px;
+      z-index: 1;
+      border-radius: 5px;
+    }
+
+    .dropdown-header h3 {
+      margin: 0;
+      padding: 10px;
+      background-color: #f1f1f1;
+      font-size: 18px;
+      text-align: center;
+      border-radius: 5px 5px 0 0;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .tab-link {
+      flex: 1;
+      padding: 10px;
+      cursor: pointer;
+      text-align: center;
+      border: none;
+      background-color: #eee;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .tab-link:hover {
+      background-color: #ddd;
+    }
+
+    .tab-link.active {
+      background-color: #007bff;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 10px;
+    }
+
+    .notification {
+      display: flex;
+      padding: 10px 0;
+      border-bottom: 1px solid #f1f1f1;
+    }
+
+    .notification-img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 50%;
+    }
+
+    .notification-text p {
+      margin: 0;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Button to trigger folder selection -->
-    <button id="selectFolder">Select Folder</button>
-    
-    <!-- Hidden input to select folder -->
-    <input type="file" id="folderInput" webkitdirectory multiple style="display:none">
-    
-    <!-- Display selected folder contents -->
-    <ul id="fileList"></ul>
-    
-    <script>
-        // Get button and input elements
-        const selectFolderBtn = document.getElementById('selectFolder');
-        const folderInput = document.getElementById('folderInput');
-        const fileList = document.getElementById('fileList');
+  <div class="dropdown-noti">
+    <button class="dropdown-toggle" onclick="toggleDropdown()">Click Me</button>
+    <div id="dropdownMenu" class="dropdown-menu">
+      <!-- Dropdown Header -->
+      <div class="dropdown-header">
+        <h3>Notifications</h3>
+      </div>
 
-        // When the button is clicked, trigger the hidden file input
-        selectFolderBtn.addEventListener('click', () => {
-            folderInput.click();
-        });
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-link active" onclick="openTab(event, 'new')">New</button>
+        <button class="tab-link" onclick="openTab(event, 'seen')">Seen</button>
+      </div>
 
-        // Handle folder selection
-        folderInput.addEventListener('change', (event) => {
-            const files = event.target.files;
-            fileList.innerHTML = ''; // Clear previous list
-            
-            // Display selected folder contents
-            for (let i = 0; i < files.length; i++) {
-                const li = document.createElement('li');
-                li.textContent = files[i].webkitRelativePath;
-                fileList.appendChild(li);
-            }
-        });
-    </script>
+      <!-- New Notifications -->
+      <div id="new" class="tab-content">
+        <div class="notification">
+          <img src="image1.jpg" alt="Notification Image" class="notification-img">
+          <div class="notification-text">
+            <p>You have a new message from John.</p>
+          </div>
+        </div>
+        <div class="notification">
+          <img src="image2.jpg" alt="Notification Image" class="notification-img">
+          <div class="notification-text">
+            <p>Meeting scheduled with the marketing team tomorrow.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Seen Notifications -->
+      <div id="seen" class="tab-content">
+        <div class="notification">
+          <img src="image3.jpg" alt="Notification Image" class="notification-img">
+          <div class="notification-text">
+            <p>Project update received from the development team.</p>
+          </div>
+        </div>
+        <div class="notification">
+          <img src="image4.jpg" alt="Notification Image" class="notification-img">
+          <div class="notification-text">
+            <p>New design mockups have been seen and approved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleDropdown() {
+      const dropdownMenu = document.getElementById("dropdownMenu");
+      if (dropdownMenu.style.display === "block") {
+        dropdownMenu.style.display = "none";
+      } else {
+        dropdownMenu.style.display = "block";
+      }
+    }
+
+    function openTab(evt, tabName) {
+      // Hide all tab contents
+      var tabContent = document.getElementsByClassName("tab-content");
+      for (var i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+
+      // Remove active state from all tab links
+      var tabLinks = document.getElementsByClassName("tab-link");
+      for (var i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+      }
+
+      // Show the clicked tab's content and set the clicked tab link as active
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.classList.add("active");
+    }
+
+    // Set "New" tab content visible on page load
+    document.getElementById("new").style.display = "block";
+  </script>
 
 </body>
 </html>

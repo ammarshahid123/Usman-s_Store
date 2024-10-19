@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
     <link rel="stylesheet" href="./web-assets/assets/css/style.css">
 <style>
+  /* balanece-card */
+  .balance-card{
+    background-color: black;
+    color: white;
+  }
    /* Modal Overlay */
    .modal-overlay-address {
         display: none;
@@ -318,46 +323,58 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* tables */
+.info-card {
+                width: auto;
+                background-color: #fafafa;
+                padding: 20px 10px;
+                .heading-info {
+                    display: flex;
+                    align-items: center;
+                    font-size: 13px;
+                    color: grey;
+                    margin-bottom: 10px;
+                    justify-content: space-between;
+                    h6{
+                        font-size: 14px;
+                    }
+                    strong{
+                        color: black;
+                    }
+                }
+                hr{
+                    margin: 10px 0px;
+                }
+                .desc-info {
+                    display: flex;
+                    gap: 10px;
+                    margin: 20px 0px;
+                    i{
+                        color: grey;
+                        font-size: 20px;
+                    }
+                    .text{
+                        font-size: 14px;
+                        span{
+                            font-size: 12px;
+                            color: grey;
+                        }
+                    }
+                    .delivery-price{
+                    margin-left:auto;
+                    }
+                    .btn-change-address{
+                        border-color: #007bff;
+                        color: #007bff;
+                        background-color:transparent;
+                        transition: all 0.2s ease-in-out;
+                        &:hover{
+                            background-color: #007bff;
+                            color: white;                    
+                        }
+                    }
+                }
 
-.address-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-}
-
-.address-table th, .address-table td {
-    padding: 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-}
-
-.address-table th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-}
-
-.address-table td {
-    vertical-align: middle;
-}
-
-.edit-link {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.edit-link:hover {
-    text-decoration: underline;
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-gap: 10px;
-  padding: 10px;
-}
-
-
+            }
 </style>
 </head>
 <body>
@@ -415,7 +432,65 @@
                       </button>
                   </div>
               </li>
-              <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>
+              <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>                
+              <li>
+                <div class="dropdown-noti">
+                  <i class="bx bx-bell fs-4 dropdown-toggle" onclick="toggleDropdownnoti()"></i>
+                  <div id="dropdownMenu" class="dropdown-menu">
+                    <!-- Dropdown Header -->
+                    <div class="dropdown-header">
+                      <h3>Notifications</h3>
+                    </div>
+              
+                    <!-- Tabs -->
+                    <div class="tabs">
+                      <button class="tab-link active" onclick="openTab(event, 'new')">New (2)</button>
+                      <button class="tab-link" onclick="openTab(event, 'seen')">Seen (3)</button>
+                    </div>
+              
+                    <!-- New Notifications -->
+                    <div id="new" class="tab-content">
+                      <div class="notification">
+                        <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                        <div class="notification-text">
+                          <p>You have a new message from John.</p>
+                        </div>
+                      </div>
+                      <div class="notification">
+                        <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                        <div class="notification-text">
+                          <p>Meeting scheduled with the marketing team tomorrow.</p>
+                        </div>
+                      </div>
+                    </div>
+              
+                    <!-- Seen Notifications -->
+                    <div id="seen" class="tab-content">
+                      <div class="notification">
+                        <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                        <div class="notification-text">
+                          <p>Project update received from the development team.</p>
+                        </div>
+                      </div>
+                      <div class="notification">
+                        <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                        <div class="notification-text">
+                          <p>New design mockups have been seen and approved.</p>
+                        </div>
+                      </div>
+                      <div class="notification">
+                        <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                        <div class="notification-text">
+                          <p>New design are seen and approved.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="noti-counter">
+                  <span>5</span>
+              </li>
               <li>
                   <div class="dropdown" tab-index="0">
                       <button id="dropdown-btn"></button>
@@ -650,71 +725,52 @@
       
         <div class="tab-content">
           <div id="tab1" class="tab-pane active">
-            <div class="grid-container">
-              <div class="item1">
-              <div class="grp">
-                <h6 class="fw-bold">Full Name</h6>
-                <p>Ammar Shahid</p>
+            <div class="info-card">
+              <div class="heading-info">
+                  Personal Information 
+                  <i class='bx bx-info-circle' ></i>
               </div>
+              <div class="desc-info">
+                <div class="text">
+                  <p><strong>Full Name :</strong> John Doe<br><br>
+                    <strong>Email :</strong> John Doe@gmail.com<br><br>
+                    <strong>Phone Number :</strong> +92 8192746387<br><br>
+                    <strong>Birthday :</strong> 11 / 12 / 2006<br><br>
+                    <strong>Gender :</strong> Male <br>
+                  </p>
+                  <button class="btn btn-profile modal-trigger" data-target="modal-1">Edit Profile</button>
+                  </div>                  
               </div>
-              <div class="item2">
-                <div class="grp">
-                  <h6 class="fw-bold">Email Addres</h6>
-                  <p>am***************@gmail.com</p>
-                </div>
+              <hr>
+              <div class="heading-info">
+                  Security Information 
+                  <i class='bx bx-info-circle' ></i>
               </div>
-              <div class="item3">
-                <div class="grp">
-                  <h6 class="fw-bold">Mobile</h6>
-                  <p>+92 8193657625</p>
-                </div>
-              </div>  
-              <div class="item4">
-                <div class="grp">
-                  <h6 class="fw-bold">Birthday</h6>
-                  <p><i>12 / 11 / 2007</i></p>
-                </div>
+              <div class="desc-info">
+                <div class="text">
+                  <p><strong>Password :</strong> *******<br><br>
+                    <button class="btn btn-secondary btn-sm">Show Password</button>
+                  </p>
+                  <button class="btn btn-profile modal-trigger" data-target="modal-2">Change Password</button>
+                  </div>     
               </div>
-              <div class="item5">
-                <div class="grp">
-                  <h6 class="fw-bold">Gender</h6>
-                  <p>Male</p>
-                </div>
-              </div>
-            </div>
-            <button class="btn btn-profile modal-trigger" data-target="modal-1">Edit Profile</button><br>
-            <button class="btn btn-profile modal-trigger" data-target="modal-2">Change Password</button>
+          </div>
+            <br>
           </div>
           <div id="tab2" class="tab-pane">
-            <table class="address-table">
-              <thead>
-                  <tr>
-                      <th>Full Name</th>
-                      <th>Address</th>
-                      <th>Postcode</th>
-                      <th>Phone Number</th>
-                      <th></th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>Ammar Shahid</td>
-                      <td>
-                          <div class="badge badge-sm badge-pill badge-primary">Office</div><br> yftjjtjjtjjjjttj yt
-                      </td>
-                      <td>Islamabad - B-17 - Sector B-17</td>
-                      <td>3167876425</td>
-                      
-                      <td><a href="#" class="edit-link">EDIT</a></td>
-                  </tr>
-              </tbody>
-              <button class="btn btn-profile modal-trigger" data-target="modal-3" style="float: right;margin-bottom:20px;">Add New Address</button>
-          </table>
-
-          <!-- Modal Structure -->
-      
-      
-      
+            <div class="info-card">
+              <div class="heading-info">
+                  Your Address 
+                  <i class='bx bx-info-circle' ></i>
+              </div>
+              <div class="desc-info">
+              <i class='bx bx-map'></i>
+                  <div class="text">
+                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur ipsum a amet accusamus sequi molestias dignissimos. Dignissimos cupiditate iusto quisquam totam nobis, sint explicabo mollitia? Vel molestias hic nisi accusamus.
+                  </div>
+              </div>
+              <hr>
+              <button class="btn btn-profile modal-trigger" data-target="modal-3">Change Address</button>
           </div>
           <div id="tab3" class="tab-pane">
             <div class="text-center">
@@ -723,9 +779,17 @@
             </div>
           </div>
           <div id="tab4" class="tab-pane">
-            <div class="text-center">
-              <i class="bx bx-wallet" style="color: #007bff;font-size: 30px;"></i>
-              <p class="mt-3">Wallet Not Ready</p>
+            <div class="col-4">
+              <div class="card balance-card" style="background-image:linear-gradient(to top, rgba(245, 246, 252, 0.1), rgba(0, 0, 0, 0.33)), url('./web-assets/assets/images/card-bg.jpg');">
+               <div class="card-head">Available Balance</div>
+               <div class="card-body d-flex" style="gap: 10px;">
+                <span style="font-size: 20px;">$</span>
+                <div class="card-title" style="color: white;font-size: 35px;font-family: emoji;">19,546.89</div>
+               </div>
+               <div class="card-foot">
+                <button class="btn btn-dark" style="border-color: white;">Add Balance</button>
+               </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1081,5 +1145,37 @@ window.onclick = function(event) {
       }
     });
     </script>
+      <!-- nitofication dropdown -->
+  <script>
+    function toggleDropdownnoti() {
+      const dropdownMenu = document.getElementById("dropdownMenu");
+      if (dropdownMenu.style.display === "block") {
+        dropdownMenu.style.display = "none";
+      } else {
+        dropdownMenu.style.display = "block";
+      }
+    }
+
+    function openTab(evt, tabName) {
+      // Hide all tab contents
+      var tabContent = document.getElementsByClassName("tab-content");
+      for (var i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+
+      // Remove active state from all tab links
+      var tabLinks = document.getElementsByClassName("tab-link");
+      for (var i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+      }
+
+      // Show the clicked tab's content and set the clicked tab link as active
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.classList.add("active");
+    }
+
+    // Set "New" tab content visible on page load
+    document.getElementById("new").style.display = "block";
+  </script>
 </body>
 </html>

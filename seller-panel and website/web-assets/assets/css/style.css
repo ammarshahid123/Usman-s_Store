@@ -868,6 +868,16 @@ footer .terms-section .terms ul li a {
   background-color: #007BFF;
   color: white;
 }
+.product-detail-cards .product-detail .product-img-and-info .products-image .product-owner .card-body .btn-chat-us {
+  font-size: 12px;
+  border-color: #007BFF;
+  background-color: #007BFF !important;
+  color: white;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-color: transparent;
+  cursor: pointer;
+}
 .product-detail-cards .product-detail .product-img-and-info .products-image .product-description h6 {
   margin: 20px 0px;
   font-size: 14px;
@@ -3360,6 +3370,94 @@ footer .terms-section .terms ul li a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.noti-counter {
+  background-color: #878dc3;
+  color: white;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  border-radius: 50%;
+  z-index: 5;
+  margin-left: -26px;
+  font-size: 12px;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 3px;
+}
+
+/* notification */
+.dropdown-noti {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-noti .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  z-index: 2;
+  border-radius: 5px;
+}
+.dropdown-noti .dropdown-header h3 {
+  margin: 0;
+  padding: 10px;
+  background-color: #f1f1f1;
+  font-size: 18px;
+  text-align: center;
+  border-radius: 5px 5px 0 0;
+}
+.dropdown-noti .tabs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 12px;
+  border-bottom: 1px solid #ccc;
+}
+.dropdown-noti .tab-link {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  border: none;
+  background-color: #eee;
+  font-size: 16px;
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+}
+.dropdown-noti .tab-link.active {
+  color: navy;
+}
+.dropdown-noti .tab-content {
+  display: none;
+  padding: 10px;
+}
+.dropdown-noti .notification {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f1f1;
+}
+.dropdown-noti .notification-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+.dropdown-noti .notification-text p {
+  margin: 0;
+  font-size: 14px;
 }
 
 .drop-profile {

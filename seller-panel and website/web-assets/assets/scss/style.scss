@@ -2,7 +2,89 @@
 @import "./components/components";
 @import "./Pages/pages";
 
+.noti-counter{
+  background-color: #878dc3;
+  color: white;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  border-radius: 50%;
+  z-index: 5;
+  margin-left: -26px;
+  font-size: 12px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  top: 3px;
 
+}
+/* notification */
+.dropdown-noti {
+  position: relative;
+  display: inline-block;
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    z-index: 2;
+    border-radius: 5px;
+  }
+
+  .dropdown-header h3 {
+    margin: 0;
+    padding: 10px;
+    background-color: #f1f1f1;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .tabs {
+    display: flex;
+    margin: 12px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .tab-link {
+    flex: 1;
+    padding: 10px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    background-color: #eee;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  .tab-link.active {
+    color: navy;
+  }
+
+  .tab-content {
+    display: none;
+    padding: 10px;
+  }
+
+  .notification {
+    display: flex;
+    padding: 10px 0;
+    border-bottom: 1px solid #f1f1f1;
+  }
+
+  .notification-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 50%;
+  }
+
+  .notification-text p {
+    margin: 0;
+    font-size: 14px;
+  }
+}
 .drop-profile {
   position: relative;
   display: inline-block;
