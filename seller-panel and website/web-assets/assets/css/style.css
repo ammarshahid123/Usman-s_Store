@@ -3422,7 +3422,7 @@ footer .terms-section .terms ul li a {
   margin: 12px;
   border-bottom: 1px solid #ccc;
 }
-.dropdown-noti .tab-link {
+.dropdown-noti .tab-link-noti {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -3435,10 +3435,10 @@ footer .terms-section .terms ul li a {
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
 }
-.dropdown-noti .tab-link.active {
+.dropdown-noti .tab-link-noti.active {
   color: navy;
 }
-.dropdown-noti .tab-content {
+.dropdown-noti .tab-content-noti {
   display: none;
   padding: 10px;
 }

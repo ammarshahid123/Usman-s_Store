@@ -186,12 +186,12 @@
             
                   <!-- Tabs -->
                   <div class="tabs">
-                    <button class="tab-link active" onclick="openTab(event, 'new')">New (2)</button>
-                    <button class="tab-link" onclick="openTab(event, 'seen')">Seen (3)</button>
+                    <button class="tab-link-noti active" onclick="openTabnoti(event, 'new')">New (2)</button>
+                    <button class="tab-link-noti" onclick="openTabnoti(event, 'seen')">Seen (3)</button>
                   </div>
             
                   <!-- New Notifications -->
-                  <div id="new" class="tab-content">
+                  <div id="new" class="tab-content-noti">
                     <div class="notification">
                       <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
                       <div class="notification-text">
@@ -207,7 +207,7 @@
                   </div>
             
                   <!-- Seen Notifications -->
-                  <div id="seen" class="tab-content">
+                  <div id="seen" class="tab-content-noti">
                     <div class="notification">
                       <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
                       <div class="notification-text">
@@ -531,7 +531,6 @@ window.onclick = function(event) {
 
    </script>
       <!-- tabs -->
-
 <script>
     function openTab(event, tabId) {
       // Remove active class from all tabs
@@ -564,15 +563,15 @@ window.onclick = function(event) {
         }
       }
   
-      function openTab(evt, tabName) {
+      function openTabnoti(evt, tabName) {
         // Hide all tab contents
-        var tabContent = document.getElementsByClassName("tab-content");
+        var tabContent = document.getElementsByClassName("tab-content-noti");
         for (var i = 0; i < tabContent.length; i++) {
           tabContent[i].style.display = "none";
         }
   
         // Remove active state from all tab links
-        var tabLinks = document.getElementsByClassName("tab-link");
+        var tabLinks = document.getElementsByClassName("tab-link-noti");
         for (var i = 0; i < tabLinks.length; i++) {
           tabLinks[i].classList.remove("active");
         }

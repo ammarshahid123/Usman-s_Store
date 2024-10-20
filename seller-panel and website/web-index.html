@@ -158,8 +158,8 @@
             
                   <!-- Tabs -->
                   <div class="tabs">
-                    <button class="tab-link active" onclick="openTab(event, 'new')">New (2)</button>
-                    <button class="tab-link" onclick="openTab(event, 'seen')">Seen (3)</button>
+                    <button class="tab-link active" onclick="openTabnoti(event, 'new')">New (2)</button>
+                    <button class="tab-link" onclick="openTabnoti(event, 'seen')">Seen (3)</button>
                   </div>
             
                   <!-- New Notifications -->
@@ -1312,7 +1312,7 @@ for (const locale of locales) {
       }
     }
 
-    function openTab(evt, tabName) {
+    function openTabnoti(evt, tabName) {
       // Hide all tab contents
       var tabContent = document.getElementsByClassName("tab-content");
       for (var i = 0; i < tabContent.length; i++) {

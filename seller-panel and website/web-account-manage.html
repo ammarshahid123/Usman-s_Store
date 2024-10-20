@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
     <link rel="stylesheet" href="./web-assets/assets/css/style.css">
 <style>
+  /* showing password */
+    .masked {
+      letter-spacing: 3px;
+    }
   /* balanece-card */
   .balance-card{
     background-color: black;
@@ -374,7 +378,126 @@
                     }
                 }
 
-            }
+}
+.payment-option-table{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header Section */
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.right-section {
+  display: flex;
+  gap: 15px;
+}
+
+.filter-dropdown, .search-bar input {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar input {
+  border: none;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.search-icon {
+  margin-right: 10px;
+}
+
+/* Table Section */
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.order-table th {
+  background-color: #f0f0f0;
+  text-align: left;
+  padding: 10px;
+}
+
+.order-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.product-image {
+  width: 50px;
+  height: 50px;
+}
+
+/* Footer Section */
+.footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.results-dropdown select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-action{
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+}
+.btn-edit{
+  color: #007bff;
+}
+
+.btn-del{
+  color: var(--danger);
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header-section {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .right-section {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+  
+  .order-table th, .order-table td {
+    font-size: 12px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -444,12 +567,12 @@
               
                     <!-- Tabs -->
                     <div class="tabs">
-                      <button class="tab-link active" onclick="openTab(event, 'new')">New (2)</button>
-                      <button class="tab-link" onclick="openTab(event, 'seen')">Seen (3)</button>
+                      <button class="tab-link-noti active" onclick="openTabnoti(event, 'new')">New (2)</button>
+                      <button class="tab-link-noti" onclick="openTabnoti(event, 'seen')">Seen (3)</button>
                     </div>
               
                     <!-- New Notifications -->
-                    <div id="new" class="tab-content">
+                    <div id="new" class="tab-content-noti">
                       <div class="notification">
                         <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
                         <div class="notification-text">
@@ -465,7 +588,7 @@
                     </div>
               
                     <!-- Seen Notifications -->
-                    <div id="seen" class="tab-content">
+                    <div id="seen" class="tab-content-noti">
                       <div class="notification">
                         <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
                         <div class="notification-text">
@@ -714,84 +837,149 @@
             <li class="breadcrumb-item active">My Account</li>
           </ol>
     </div>
-<div class="container">
-    <div class="tabs">
-        <ul class="tab-list">
-          <li class="tab-item active" onclick="openTab(event, 'tab1')">My Profile</li>
-          <li class="tab-item" onclick="openTab(event, 'tab2')">Address Book</li>
-          <li class="tab-item" onclick="openTab(event, 'tab3')">My Payment Options</li>
-          <li class="tab-item" onclick="openTab(event, 'tab4')">Wallet</li>
-        </ul>
-      
-        <div class="tab-content">
-          <div id="tab1" class="tab-pane active">
-            <div class="info-card">
-              <div class="heading-info">
-                  Personal Information 
-                  <i class='bx bx-info-circle' ></i>
-              </div>
-              <div class="desc-info">
-                <div class="text">
-                  <p><strong>Full Name :</strong> John Doe<br><br>
-                    <strong>Email :</strong> John Doe@gmail.com<br><br>
-                    <strong>Phone Number :</strong> +92 8192746387<br><br>
-                    <strong>Birthday :</strong> 11 / 12 / 2006<br><br>
-                    <strong>Gender :</strong> Male <br>
-                  </p>
-                  <button class="btn btn-profile modal-trigger" data-target="modal-1">Edit Profile</button>
-                  </div>                  
-              </div>
-              <hr>
-              <div class="heading-info">
-                  Security Information 
-                  <i class='bx bx-info-circle' ></i>
-              </div>
-              <div class="desc-info">
-                <div class="text">
-                  <p><strong>Password :</strong> *******<br><br>
-                    <button class="btn btn-secondary btn-sm">Show Password</button>
-                  </p>
-                  <button class="btn btn-profile modal-trigger" data-target="modal-2">Change Password</button>
-                  </div>     
-              </div>
-          </div>
-            <br>
-          </div>
-          <div id="tab2" class="tab-pane">
-            <div class="info-card">
-              <div class="heading-info">
-                  Your Address 
-                  <i class='bx bx-info-circle' ></i>
-              </div>
-              <div class="desc-info">
-              <i class='bx bx-map'></i>
-                  <div class="text">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur ipsum a amet accusamus sequi molestias dignissimos. Dignissimos cupiditate iusto quisquam totam nobis, sint explicabo mollitia? Vel molestias hic nisi accusamus.
+    <div class="container">
+        <div class="tabs">
+            <ul class="tab-list">
+              <li class="tab-item active" onclick="openTab(event, 'tab1')">My Profile</li>
+              <li class="tab-item" onclick="openTab(event, 'tab2')">Address Book</li>
+              <li class="tab-item" onclick="openTab(event, 'tab3')">My Payment Options</li>
+              <li class="tab-item" onclick="openTab(event, 'tab4')">Wallet</li>
+            </ul>     
+            <div class="tab-content">
+              <div id="tab1" class="tab-pane active">
+                <div class="info-card">
+                  <div class="heading-info">
+                      Personal Information 
+                      <i class='bx bx-info-circle' ></i>
+                  </div>
+                  <div class="desc-info">
+                    <div class="text">
+                      <p><strong>Full Name :</strong> John Doe<br><br>
+                        <strong>Email :</strong> John Doe@gmail.com<br><br>
+                        <strong>Phone Number :</strong> +92 8192746387<br><br>
+                        <strong>Birthday :</strong> 11 / 12 / 2006<br><br>
+                        <strong>Gender :</strong> Male <br>
+                      </p>
+                      <button class="btn btn-profile modal-trigger" data-target="modal-1">Edit Profile</button>
+                      </div>                  
+                  </div>
+                  <hr>
+                  <div class="heading-info">
+                      Security Information 
+                      <i class='bx bx-info-circle' ></i>
+                  </div>
+                  <div class="desc-info">
+                    <div class="text">
+                      <div class="d-flex gap-3">
+                        <strong>Password :</strong>
+                        <p id="passwordDisplay" data-password="Show Q kiya Password">******</p>
+                        <button class="btn btn-secondary btn-sm btn-pill" onclick="togglePassword()">Show / Hide</button>
+                      </div>
+                      <button class="btn btn-profile modal-trigger" data-target="modal-2">Change Password</button>
+                      </div>     
                   </div>
               </div>
-              <hr>
-              <button class="btn btn-profile modal-trigger" data-target="modal-3">Change Address</button>
-          </div>
-          <div id="tab3" class="tab-pane">
-            <div class="text-center">
-              <i class="bx bx-wallet" style="color: #007bff;font-size: 30px;"></i>
-              <p class="mt-3">No Payment Options</p>
-            </div>
-          </div>
-          <div id="tab4" class="tab-pane">
-            <div class="col-4">
-              <div class="card balance-card" style="background-image:linear-gradient(to top, rgba(245, 246, 252, 0.1), rgba(0, 0, 0, 0.33)), url('./web-assets/assets/images/card-bg.jpg');">
-               <div class="card-head">Available Balance</div>
-               <div class="card-body d-flex" style="gap: 10px;">
-                <span style="font-size: 20px;">$</span>
-                <div class="card-title" style="color: white;font-size: 35px;font-family: emoji;">19,546.89</div>
-               </div>
-               <div class="card-foot">
-                <button class="btn btn-dark" style="border-color: white;">Add Balance</button>
-               </div>
+              </div>
+              <div id="tab2" class="tab-pane">
+                <div class="info-card">
+                  <div class="heading-info">
+                      Your Address 
+                      <i class='bx bx-info-circle' ></i>
+                  </div>
+                  <div class="desc-info">
+                  <i class='bx bx-map'></i>
+                      <div class="text">
+                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur ipsum a amet accusamus sequi molestias dignissimos. Dignissimos cupiditate iusto quisquam totam nobis, sint explicabo mollitia? Vel molestias hic nisi accusamus.
+                      </div>
+                  </div>
+                  <hr>
+                  <button class="btn btn-profile modal-trigger" data-target="modal-3">Change Address</button>
+              </div>
+              </div>
+              <div id="tab3" class="tab-pane">
+                <div class="d-flex" style="justify-content: end;">
+                  <button class="btn btn-profile">Add Payment Option</button>
+                </div>
+                <div class="container payment-option-table">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">Filter</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search..." />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Selected Method</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;" alt="Product Image" class="product-image"> T-shirt</td>
+                        <td>Product 1</td>
+                        <td>$10</td>
+                        <td>
+                          <img src="./web-assets/assets/images/payment-option-1.png" width="100px" height="100px" alt="" class="payment-img">
+                        </td>
+                        <td>
+                          <button class="btn-action btn-edit"><i class="bx bx-edit"></i></button>
+                          <button class="btn-action btn-del"><i class="bx bx-trash"></i></button>
+                        </td>
+                      </tr>
+                      
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div id="tab4" class="tab-pane">
+                <div class="col-4">
+                  <div class="card balance-card" style="background-image: url('https://img.freepik.com/premium-vector/green-light-line-dark-grey-geometric-background_33869-1258.jpg');background-repeat: no-repeat;background-size: cover;">
+                  <div class="card-head">Available Balance</div>
+                  <div class="card-body d-flex" style="gap: 10px;">
+                    <span style="font-size: 20px;">$</span>
+                    <div class="card-title" style="color: white;font-size: 35px;font-family: emoji;">19,546.89</div>
+                  </div>
+                  <div class="card-foot">
+                    <button class="btn btn-dark" >Add Balance</button>
+                  </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
         </div>
     </div>
 </div>
@@ -1156,15 +1344,15 @@ window.onclick = function(event) {
       }
     }
 
-    function openTab(evt, tabName) {
+    function openTabnoti(evt, tabName) {
       // Hide all tab contents
-      var tabContent = document.getElementsByClassName("tab-content");
+      var tabContent = document.getElementsByClassName("tab-content-noti");
       for (var i = 0; i < tabContent.length; i++) {
         tabContent[i].style.display = "none";
       }
 
       // Remove active state from all tab links
-      var tabLinks = document.getElementsByClassName("tab-link");
+      var tabLinks = document.getElementsByClassName("tab-link-noti");
       for (var i = 0; i < tabLinks.length; i++) {
         tabLinks[i].classList.remove("active");
       }
@@ -1176,6 +1364,25 @@ window.onclick = function(event) {
 
     // Set "New" tab content visible on page load
     document.getElementById("new").style.display = "block";
+  </script>
+  <!-- show passord js -->
+  <script>
+    let isPasswordHidden = true; // Flag to track the current state
+  
+    function togglePassword() {
+      const passwordDisplay = document.getElementById("passwordDisplay");
+      const originalPassword = passwordDisplay.getAttribute("data-password"); // Get the password from the HTML data attribute
+  
+      if (isPasswordHidden) {
+        // Show the actual password
+        passwordDisplay.textContent = originalPassword;
+        isPasswordHidden = false;
+      } else {
+        // Mask the password (6 stars)
+        passwordDisplay.textContent = "******";
+        isPasswordHidden = true;
+      }
+    }
   </script>
 </body>
 </html>
