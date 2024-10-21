@@ -3374,7 +3374,7 @@ footer .terms-section .terms ul li a {
 
 .chats-container {
   max-width: 1170px;
-  margin: auto;
+  margin: 100px auto;
 }
 .chats-container img {
   max-width: 100%;
@@ -3587,6 +3587,20 @@ footer .terms-section .terms ul li a {
   z-index: 6;
   border-radius: 5px;
 }
+.dropdown-noti .dropdown-menu .btn-noti-view {
+  display: block;
+  background: #007bff;
+  width: 100%;
+  color: white;
+  padding: 15px 0px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  border-radius: 0px 0px 5px 5px;
+  text-decoration: none;
+}
+.dropdown-noti .dropdown-menu .btn-noti-view:hover {
+  background-color: #2863a3;
+}
 .dropdown-noti .dropdown-header h3 {
   margin: 0;
   padding: 10px;
@@ -3621,6 +3635,8 @@ footer .terms-section .terms ul li a {
 .dropdown-noti .tab-content-noti {
   display: none;
   padding: 10px;
+  height: 172px;
+  overflow: scroll;
 }
 .dropdown-noti .notification {
   display: -webkit-box;
