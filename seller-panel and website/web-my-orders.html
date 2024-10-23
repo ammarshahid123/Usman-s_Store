@@ -388,7 +388,7 @@
     </div>
     <div class="container my-orders">
         <div class="tabs">
-            <ul class="tab-list">
+            <ul class="tab-list" style="width: 749px;">
               <li class="tab-item active" onclick="openTab(event, 'tab1')">All</li>
               <li class="tab-item" onclick="openTab(event, 'tab2')">To Pay</li>
               <li class="tab-item" onclick="openTab(event, 'tab3')">To Ship</li>
@@ -430,15 +430,15 @@
                     </thead>
                     <tbody>
                       <tr>
-                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;" alt="Product Image" class="product-image"> T-shirt</td>
-                        <td>Product 1</td>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
                         <td>$10</td>
                         <td>2</td>
                         <td><div class="badge badge-success badge-pill">Completed</div></td>
                       </tr>
                       <tr>
-                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;" alt="Product Image" class="product-image"> T-shirt</td>
-                        <td>Product 1</td>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
                         <td>$10</td>
                         <td>2</td>
                         <td><div class="badge badge-success badge-pill">Completed</div></td>
@@ -467,25 +467,286 @@
                 </div>
               </div>
               <div id="tab2" class="tab-pane">
-                  <p class="text-center">There are no orders placed yet.</p><br>
+                <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-warning badge-pill">Pending</div></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-warning badge-pill">Pending</div></td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
                 <div class="button text-center" >
                     <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
                 </div>
               </div>
               <div id="tab3" class="tab-pane">
-                <p class="text-center">There are no orders placed yet.</p><br>
+                 <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;height: 30px; width: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-success badge-pill">Ready</div></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;height: 30px; width: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-success badge-pill">Ready</div></td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
                 <div class="button text-center" >
                     <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
                 </div>
             </div>
               <div id="tab4" class="tab-pane">
-                <p class="text-center">There are no orders placed yet.</p><br>
+                 <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-info badge-pill">Shipped</div></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-info badge-pill">Shipped</div></td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
                 <div class="button text-center" >
                     <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
                 </div>
               </div>
               <div id="tab5" class="tab-pane">
-                <p class="text-center">There are no orders placed yet.</p><br>
+                 <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td style="display: flex;gap: 10px;align-items: center;"><div class="badge badge-warning badge-pill">Pending</div>
+                        <a href=""><button class="btn btn-info btn-sm">Post Review </button></a>
+                      </td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td style="display: flex;gap: 10px;align-items: center;"><div class="badge badge-warning badge-pill">Pending</div>
+                        <a href=""><button class="btn btn-info btn-sm">Post Review </button></a>
+                      </td>
+                      </tr>
+                
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
                 <div class="button text-center" >
                     <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
                 </div>
@@ -534,7 +795,71 @@
                 </div>
               </div>
               <div id="tab7" class="tab-pane">
-                <p class="text-center">There are no orders placed yet.</p><br>
+                 <div class="container">
+                  <!-- Header Section -->
+                  <div class="header-section">
+                    <h2 class="heading"></h2>
+                    <div class="right-section">
+                      <select class="filter-dropdown">
+                        <option value="all">All Orders</option>
+                        <option value="pending">Pending</option>
+                        <option value="delivered">Delivered</option>
+                      </select>
+                      <div class="search-bar">
+                        <input type="text" placeholder="Search orders" />
+                        <i class="bx bx-search search-icon"></i>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <!-- Table Section -->
+                  <table class="order-table">
+                    <thead>
+                      <tr>
+                        <th>Product Image</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-danger badge-pill">Cancelled</div></td>
+                      </tr>
+                      <tr>
+                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;width: 30px;height: 30px;" alt="Product Image" class="product-image"></td>
+                        <td><a href="" style="text-decoration: none;">Product</a></td>
+                        <td>$10</td>
+                        <td>2</td>
+                        <td><div class="badge badge-danger badge-pill">Cancelled</div></td>
+                      </tr>
+                      <!-- Add more rows as needed -->
+                    </tbody>
+                  </table>
+                
+                  <!-- Footer Section -->
+                  <div class="footer-section">
+                    <div class="results-dropdown">
+                      <select>
+                        <option value="10">Show 10 results</option>
+                        <option value="20">Show 20 results</option>
+                        <option value="50">Show 50 results</option>
+                      </select>
+                    </div>
+                    <ul class="pagination">
+                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                    </ul>
+                  </div>
+                </div>
                 <div class="button text-center" >
                     <button class="btn btn-profile-primary btn-inline">Continue Shopping</button>
                 </div>

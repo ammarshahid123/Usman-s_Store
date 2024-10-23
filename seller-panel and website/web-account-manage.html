@@ -1,996 +1,1129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
-    <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
-    <link rel="stylesheet" href="./web-assets/assets/css/style.css">
-<style>
-  /* showing password */
+  <meta charset="UTF-8">
+  <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+  <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+  <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+  <style>
+    /* showing password */
     .masked {
       letter-spacing: 3px;
     }
-  /* balanece-card */
-  .balance-card{
-    background-color: black;
-    color: white;
-  }
-   /* Modal Overlay */
-   .modal-overlay-address {
-        display: none;
+
+    /* balanece-card */
+    .balance-card {
+      background-color: black;
+      color: white;
+    }
+
+    /* Modal Overlay */
+    .modal-overlay-address {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1 !important;
+    }
+
+    .modal-overlay-address.active {
+      display: flex;
+    }
+
+    /* Modal Container */
+    .modal-address {
+      background: white;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Modal Header */
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      background-color: #f1f1f1;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .modal-header .close-modal {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* Modal Body */
+    .modal-address .modal-body {
+      padding: 20px;
+      height: 400px;
+      overflow-y: scroll;
+    }
+
+    /* Modal Footer */
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: 15px;
+      background-color: #f1f1f1;
+      border-top: 1px solid #ddd;
+    }
+
+    .modal-footer button {
+      margin-left: 10px;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .modal-footer .close-btn {
+      background-color: #ddd;
+      color: #333;
+    }
+
+    .modal-footer .send-btn {
+      background-color: #007bff;
+      color: #fff;
+    }
+
+    .btn-close-modal {
+      border: none;
+      outline: none;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 640px) {
+      .modal-overlay-address .modal-address {
         position: fixed;
         top: 0;
+        bottom: 0;
         left: 0;
+        right: 0;
+        max-width: 100%;
         width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        justify-content: center;
-        align-items: center;
-        z-index: 1 !important;
-      }
-      .modal-overlay-address.active {
-        display: flex;
       }
 
-      /* Modal Container */
-      .modal-address {
+      .modal-overlay-address .modal-address .modal-body {
+        height: 80%;
+      }
+
+      .modal-overlay-address .modal-address .modal-footer {
+        position: absolute;
+        bottom: 0px;
         background: white;
-        border-radius: 8px;
-        width: 90%;
-        max-width: 400px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-        display: flex;
+        border: none;
+        z-index: 99;
+        width: 100%;
+        right: 0px;
+      }
+    }
+
+    .btn-profile {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      margin: 10px 0px;
+
+      &:hover {
+        background-color: #007bff;
+        color: white;
+      }
+
+      &:focus {
+        background-color: #007bff;
+        color: white;
+      }
+    }
+
+    /* Style the tab container */
+    .tabs {
+      width: 100%;
+      max-width: 100%;
+      margin: 100px 0px;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Style the tab list */
+    .tab-list {
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      padding: 0;
+    }
+
+    .tab-item {
+      padding: 10px 20px;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 50px;
+      flex-grow: 1;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .tab-item:hover {
+      background-color: #f1f1f1;
+    }
+
+    /* Active tab styles with transition */
+    .tab-item.active {
+      background-color: #10182f;
+      color: white;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Style the tab content */
+    .tab-content {
+      padding: 50px 40px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+      border-top: none;
+    }
+
+    /* Hide all tab content by default */
+    .tab-pane {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      /* Starting position for animation */
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      /* Animation for showing content */
+    }
+
+    /* Show active tab content with animation */
+    .tab-pane.active {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      /* End position for animation */
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    /* Make tabs responsive */
+    @media (max-width: 600px) {
+      .tab-list {
         flex-direction: column;
       }
 
-      /* Modal Header */
-      .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px;
-        background-color: #f1f1f1;
+      .tab-item {
+        text-align: left;
         border-bottom: 1px solid #ddd;
       }
-      .modal-header h3 {
-        margin: 0;
-        font-size: 18px;
-      }
-      .modal-header .close-modal {
-        background: none;
-        border: none;
-        font-size: 18px;
-        cursor: pointer;
-      }
-
-      /* Modal Body */
-      .modal-address .modal-body {
-        padding: 20px;
-        height: 400px;
-        overflow-y: scroll;
-      }
-
-      /* Modal Footer */
-      .modal-footer {
-        display: flex;
-        justify-content: flex-end;
-        padding: 15px;
-        background-color: #f1f1f1;
-        border-top: 1px solid #ddd;
-      }
-      .modal-footer button {
-        margin-left: 10px;
-        padding: 8px 12px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-      }
-      .modal-footer .close-btn {
-        background-color: #ddd;
-        color: #333;
-      }
-      .modal-footer .send-btn {
-        background-color: #007bff;
-        color: #fff;
-      }
-
-      .btn-close-modal {
-        border: none;
-        outline: none;
-        font-size: 25px;
-        font-weight: 500;
-      }
-
-      @media (max-width: 640px) {
-        .modal-overlay-address .modal-address {
-          position: fixed;
-          top: 0;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          max-width: 100%;
-          width: 100%;
-        }
-
-        .modal-overlay-address .modal-address .modal-body {
-            height: 80%;
-        }
-
-        .modal-overlay-address .modal-address .modal-footer {
-          position: absolute;
-          bottom: 0px;
-          background: white;
-          border: none;
-          z-index: 99;
-          width: 100%;
-          right: 0px;
-        }
-      }
-
-.btn-profile{
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
-    margin: 10px 0px;
-    &:hover{
-        background-color: #007bff;
-        color: white;    
     }
-    &:focus{
-        background-color: #007bff;
-        color: white;    
+
+
+
+
+
+    .drop-profile {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
     }
-}
-/* Style the tab container */
-.tabs {
-  width: 100%;
-  max-width: 100%;
-  margin: 100px 0px;
-  font-family: Arial, sans-serif;
-}
 
-/* Style the tab list */
-.tab-list {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  padding: 0;
-}
+    .drop-profile-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 5;
+      border-radius: 5px;
+      padding: 10px 0px;
+      top: 60px;
+      /* Adjusted to position below the avatar image */
+      /* right: 0; */
+    }
 
-.tab-item {
-  padding: 10px 20px;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 50px;
-  flex-grow: 1;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+    .drop-profile-content a {
+      color: black;
+      padding: 12px 20px;
+      transition: all 0.2s ease-in-out;
+      font-size: 12px;
+      text-decoration: none;
+      display: block;
+    }
 
-.tab-item:hover {
-  background-color: #f1f1f1;
-}
+    .drop-profile-content a:hover {
+      background-color: #10182f;
+      color: white;
+    }
 
-/* Active tab styles with transition */
-.tab-item.active {
-  background-color: #10182f;
-  color: white;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+    .showed {
+      display: block !important;
+    }
 
-/* Style the tab content */
-.tab-content {
-  padding: 50px 40px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
-  border-top: none;
-}
+    /* Container for the button */
+    /* Container for the button */
+    /* Container for the button */
+    /* Container for the button */
+    .message-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #007bff;
+      /* Button color */
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      opacity: 0;
+      transform: translateY(100px);
+      border: 2px solid transparent;
+      /* Start with no visible border */
+      animation: slideIn 2s ease forwards, borderPulse 3s infinite ease-in-out;
+      /* Added border animation */
+    }
 
-/* Hide all tab content by default */
-.tab-pane {
-  display: none;
-  opacity: 0;
-  transform: translateY(20px); /* Starting position for animation */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Animation for showing content */
-}
+    /* Icon inside the button */
+    .message-btn .icon {
+      font-size: 20px;
+      margin-right: 10px;
+    }
 
-/* Show active tab content with animation */
-.tab-pane.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0); /* End position for animation */
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
+    /* Text inside the button */
+    .message-btn .message-text {
+      font-weight: 600;
+    }
 
-/* Make tabs responsive */
-@media (max-width: 600px) {
-  .tab-list {
-    flex-direction: column;
-  }
-
-  .tab-item {
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-}
-
-
-
-
-
-.drop-profile {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.drop-profile-content {
-  display: none;
-  position: absolute;
-  background-color: #fff;
-  min-width: 200px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 5;
-  border-radius: 5px;
-  padding: 10px 0px;
-  top: 60px; /* Adjusted to position below the avatar image */
-  /* right: 0; */
-}
-
-.drop-profile-content a {
-  color: black;
-  padding: 12px 20px;
-  transition: all 0.2s ease-in-out;
-  font-size: 12px;
-  text-decoration: none;
-  display: block;
-}
-
-.drop-profile-content a:hover {
-  background-color: #10182f;
-  color: white;
-}
-
-.showed {
-  display: block !important;
-}
-
- /* Container for the button */
-/* Container for the button */
-/* Container for the button */
-/* Container for the button */
-.message-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #007bff; /* Button color */
-    color: white;
-    padding: 15px 20px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transform: translateY(100px);
-    border: 2px solid transparent; /* Start with no visible border */
-    animation: slideIn 2s ease forwards, borderPulse 3s infinite ease-in-out; /* Added border animation */
-}
-
-/* Icon inside the button */
-.message-btn .icon {
-    font-size: 20px;
-    margin-right: 10px;
-}
-
-/* Text inside the button */
-.message-btn .message-text {
-    font-weight: 600;
-}
-
-/* Slide in animation */
-@keyframes slideIn {
-    0% {
+    /* Slide in animation */
+    @keyframes slideIn {
+      0% {
         transform: translateY(100px);
         opacity: 0;
-    }
-    50% {
+      }
+
+      50% {
         transform: translateY(-10px);
         opacity: 1;
-    }
-    100% {
+      }
+
+      100% {
         transform: translateY(-10px);
         opacity: 1;
+      }
     }
-}
 
-/* Border pulse animation */
-@keyframes borderPulse {
-    0%, 100% {
-        border-color: transparent; /* Start and end with no visible border */
+    /* Border pulse animation */
+    @keyframes borderPulse {
+
+      0%,
+      100% {
+        border-color: transparent;
+        /* Start and end with no visible border */
+      }
+
+      50% {
+        border-color: #ffffff;
+        /* The border appears at 50% of the animation */
+        border-width: 2px;
+        /* Set the border thickness */
+      }
     }
-    50% {
-        border-color: #ffffff; /* The border appears at 50% of the animation */
-        border-width: 2px; /* Set the border thickness */
+
+    /* Hover effect */
+    .message-btn:hover {
+      background-color: #0056b3;
+      /* Darker blue on hover */
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     }
-}
 
-/* Hover effect */
-.message-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
+    .info-card {
+      width: auto;
+      background-color: #fafafa;
+      padding: 20px 10px;
 
-.info-card {
-                width: auto;
-                background-color: #fafafa;
-                padding: 20px 10px;
-                .heading-info {
-                    display: flex;
-                    align-items: center;
-                    font-size: 13px;
-                    color: grey;
-                    margin-bottom: 10px;
-                    justify-content: space-between;
-                    h6{
-                        font-size: 14px;
-                    }
-                    strong{
-                        color: black;
-                    }
-                }
-                hr{
-                    margin: 10px 0px;
-                }
-                .desc-info {
-                    display: flex;
-                    gap: 10px;
-                    margin: 20px 0px;
-                    i{
-                        color: grey;
-                        font-size: 20px;
-                    }
-                    .text{
-                        font-size: 14px;
-                        span{
-                            font-size: 12px;
-                            color: grey;
-                        }
-                    }
-                    .delivery-price{
-                    margin-left:auto;
-                    }
-                    .btn-change-address{
-                        border-color: #007bff;
-                        color: #007bff;
-                        background-color:transparent;
-                        transition: all 0.2s ease-in-out;
-                        &:hover{
-                            background-color: #007bff;
-                            color: white;                    
-                        }
-                    }
-                }
+      .heading-info {
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        color: grey;
+        margin-bottom: 10px;
+        justify-content: space-between;
 
-}
-.payment-option-table{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
+        h6 {
+          font-size: 14px;
+        }
 
-/* Header Section */
-.header-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
+        strong {
+          color: black;
+        }
+      }
 
-.heading {
-  font-size: 24px;
-  font-weight: bold;
-}
+      hr {
+        margin: 10px 0px;
+      }
 
-.right-section {
-  display: flex;
-  gap: 15px;
-}
+      .desc-info {
+        display: flex;
+        gap: 10px;
+        margin: 20px 0px;
 
-.filter-dropdown, .search-bar input {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+        i {
+          color: grey;
+          font-size: 20px;
+        }
 
-.search-bar {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+        .text {
+          font-size: 14px;
 
-.search-bar input {
-  border: none;
-  padding: 8px;
-  font-size: 14px;
-}
+          span {
+            font-size: 12px;
+            color: grey;
+          }
+        }
 
-.search-icon {
-  margin-right: 10px;
-}
+        .delivery-price {
+          margin-left: auto;
+        }
 
-/* Table Section */
-.order-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
+        .btn-change-address {
+          border-color: #007bff;
+          color: #007bff;
+          background-color: transparent;
+          transition: all 0.2s ease-in-out;
 
-.order-table th {
-  background-color: #f0f0f0;
-  text-align: left;
-  padding: 10px;
-}
+          &:hover {
+            background-color: #007bff;
+            color: white;
+          }
+        }
+      }
 
-.order-table td {
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
+    }
 
-.product-image {
-  width: 50px;
-  height: 50px;
-}
+    .payment-option-table {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-/* Footer Section */
-.footer-section {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-}
+    /* Header Section */
+    .header-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
 
-.results-dropdown select {
-  padding: 8px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
+    .heading {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-.btn-action{
-  background-color: transparent;
-  border: none;
-  font-size: 18px;
-}
-.btn-edit{
-  color: #007bff;
-}
+    .right-section {
+      display: flex;
+      gap: 15px;
+    }
 
-.btn-del{
-  color: var(--danger);
-}
-/* Responsive Design */
-@media (max-width: 768px) {
-  .header-section {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+    .filter-dropdown,
+    .search-bar input {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-  .right-section {
-    flex-direction: column;
-    width: 100%;
-  }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
 
-  .search-bar input {
-    width: 100%;
-  }
-  
-  .order-table th, .order-table td {
-    font-size: 12px;
-  }
-}
+    .search-bar input {
+      border: none;
+      padding: 8px;
+      font-size: 14px;
+    }
 
-</style>
+    .search-icon {
+      margin-right: 10px;
+    }
+
+    /* Table Section */
+    .order-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .order-table th {
+      background-color: #f0f0f0;
+      text-align: left;
+      padding: 10px;
+    }
+
+    .order-table td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .product-image {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* Footer Section */
+    .footer-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .results-dropdown select {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .btn-action {
+      background-color: transparent;
+      border: none;
+      font-size: 18px;
+    }
+
+    .btn-edit {
+      color: #007bff;
+    }
+
+    .btn-del {
+      color: var(--danger);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .right-section {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .search-bar input {
+        width: 100%;
+      }
+
+      .order-table th,
+      .order-table td {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <!-- header -->
-    <nav class="navbar">
-      <div class="first-half">
-          <div class="logo">
-            <a href="./web-index.html">
-              <img src="./web-assets/assets/images/demo-logo.png" class="logo-image" alt="">
-            </a>
-          </div>
-          <div class="links">
-              <ul class="d-flex">
-                  <li><a href="">Save More On App</a></li>
-                  <li><a href="">Sell On Name</a></li>
-                  <li><a href="">Help & Support</a></li>
-                  <li class="dropdown">
-                    <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
-                    <ul class="dropdown-menu">
-                        <li class="sub-dropdown">
-                            <a href="#" class="subdropdowns">Category 1<i class="bx bx-chevron-left"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Sub Category 1</a></li>
-                                <li><a href="#">Sub Category 2</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-dropdown">
-                            <a href="#" class="subdropdowns">Category 2 <i class="bx bx-chevron-left"></i></a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Sub Category 3</a></li>
-                                <li><a href="#">Sub Category 4</a></li>
-                            </ul>
-                        </li>
-                        <li class="sub-dropdown">
-                          <a href="#">Category 1</a>
-                      </li>
-                      <li class="sub-dropdown">
-                        <a href="#">Category 1</a>
-                    </li>
-                    <li class="sub-dropdown">
-                      <a href="#">Category 1</a>
-                  </li>
-                    </ul>
-                </li>
-              </ul>
-          </div>
+  <!-- header -->
+  <nav class="navbar">
+    <div class="first-half">
+      <div class="logo">
+        <a href="./web-index.html">
+          <img src="./web-assets/assets/images/demo-logo.png" class="logo-image" alt="">
+        </a>
       </div>
-      <div class="second-half">
-          <ul class="d-flex">
-              <li>
-                  <div class="search-box">
-                      <input type="text" class="search-box-input" placeholder="What are you looking for ?">
-                      <button class="search-box-btn">
-                          <i class="search-box-icon material-icons bx bx-search"></i>
-                      </button>
-                  </div>
+      <div class="links">
+        <ul class="d-flex">
+          <li><a href="">Save More On App</a></li>
+          <li><a href="">Sell On Name</a></li>
+          <li><a href="">Help & Support</a></li>
+          <li class="dropdown">
+            <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
+            <ul class="dropdown-menu">
+              <li class="sub-dropdown">
+                <a href="#" class="subdropdowns">Category 1<i class="bx bx-chevron-left"></i></a>
+                <ul class="sub-menu">
+                  <li><a href="#">Sub Category 1</a></li>
+                  <li><a href="#">Sub Category 2</a></li>
+                </ul>
               </li>
-              <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>                
-              <li>
-                <div class="dropdown-noti">
-                  <i class="bx bx-bell fs-4 dropdown-toggle" onclick="toggleDropdownnoti()"></i>
-                  <div id="dropdownMenu" class="dropdown-menu">
-                    <!-- Dropdown Header -->
-                    <div class="dropdown-header">
-                      <h3>Notifications</h3>
-                    </div>
-              
-                    <!-- Tabs -->
-                    <div class="tabs">
-                      <button class="tab-link-noti active" onclick="openTabnoti(event, 'new')">New (2)</button>
-                      <button class="tab-link-noti" onclick="openTabnoti(event, 'seen')">Seen (3)</button>
-                    </div>
-              
-                    <!-- New Notifications -->
-                    <div id="new" class="tab-content-noti">
-                      <div class="notification">
-                        <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
-                        <div class="notification-text">
-                          <p>You have a new message from John.</p>
-                        </div>
-                      </div>
-                      <div class="notification">
-                        <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
-                        <div class="notification-text">
-                          <p>Meeting scheduled with the marketing team tomorrow.</p>
-                        </div>
-                      </div>
-                    </div>
-              
-                    <!-- Seen Notifications -->
-                    <div id="seen" class="tab-content-noti">
-                      <div class="notification">
-                        <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
-                        <div class="notification-text">
-                          <p>Project update received from the development team.</p>
-                        </div>
-                      </div>
-                      <div class="notification">
-                        <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
-                        <div class="notification-text">
-                          <p>New design mockups have been seen and approved.</p>
-                        </div>
-                      </div>
-                      <div class="notification">
-                        <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
-                        <div class="notification-text">
-                          <p>New design are seen and approved.</p>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="./web-chats.html" style="text-decoration: none;">
-                      <button class="btn-noti-view">View All</button>
-                    </a>
+              <li class="sub-dropdown">
+                <a href="#" class="subdropdowns">Category 2 <i class="bx bx-chevron-left"></i></a>
+                <ul class="sub-menu">
+                  <li><a href="#">Sub Category 3</a></li>
+                  <li><a href="#">Sub Category 4</a></li>
+                </ul>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#">Category 1</a>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#">Category 1</a>
+              </li>
+              <li class="sub-dropdown">
+                <a href="#">Category 1</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="second-half">
+      <ul class="d-flex">
+        <li>
+          <div class="search-box">
+            <input type="text" class="search-box-input" placeholder="What are you looking for ?">
+            <button class="search-box-btn">
+              <i class="search-box-icon material-icons bx bx-search"></i>
+            </button>
+          </div>
+        </li>
+        <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>
+        <li>
+          <div class="dropdown-noti">
+            <i class="bx bx-bell fs-4 dropdown-toggle" onclick="toggleDropdownnoti()"></i>
+            <div id="dropdownMenu" class="dropdown-menu">
+              <!-- Dropdown Header -->
+              <div class="dropdown-header">
+                <h3>Notifications</h3>
+              </div>
+
+              <!-- Tabs -->
+              <div class="tabs">
+                <button class="tab-link-noti active" onclick="openTabnoti(event, 'new')">New (2)</button>
+                <button class="tab-link-noti" onclick="openTabnoti(event, 'seen')">Seen (3)</button>
+              </div>
+
+              <!-- New Notifications -->
+              <div id="new" class="tab-content-noti">
+                <div class="notification">
+                  <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image"
+                    class="notification-img">
+                  <div class="notification-text">
+                    <p>You have a new message from John.</p>
                   </div>
                 </div>
-              </li>
-              <li class="noti-counter">
-                  <span>5</span>
-              </li>
-              <li>
-                  <div class="dropdown" tab-index="0">
-                      <button id="dropdown-btn"></button>
-                      <ul class="dropdown-content" id="dropdown-content"></ul>
-                    </div>
-              </li>
-              <li>
-                <div class="drop-profile">
-                  <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Avatar" width="50px" height="50px" style="border-radius: 50%;" onclick="toggleDropdown()">
-                  <i class='bx bxs-down-arrow' style="font-size: 8px;color: white;" onclick="toggleDropdown()"></i>
-                  <div class="drop-profile-content">
-                    <a href="./web-account-manage.html">Manage My Account</a>
-                    <a href="./web-my-orders.html">My Orders</a>
-                    <a href="./web-wishlist.html">My Wishlist & Followed Stores</a>
-                    <a href="./web-my-reviews.html">My Reviews</a>
-                    <a href="./web-login.html">Logout</a>
+                <div class="notification">
+                  <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image"
+                    class="notification-img">
+                  <div class="notification-text">
+                    <p>Meeting scheduled with the marketing team tomorrow.</p>
                   </div>
                 </div>
-              </li>              
-              <li>
-                <a href="./web-login.html">
-                  <button class="btn btn-pill btn-login">Log In</button>
-                </a>
-              </li>
-              <li>
-                <a href="./web-login.html">
-                  <button class="btn btn-pill btn-signUp">Sign Up</button>
-                </a>
-              </li>
-          </ul>
-      </div>
+              </div>
+
+              <!-- Seen Notifications -->
+              <div id="seen" class="tab-content-noti">
+                <div class="notification">
+                  <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image"
+                    class="notification-img">
+                  <div class="notification-text">
+                    <p>Project update received from the development team.</p>
+                  </div>
+                </div>
+                <div class="notification">
+                  <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image"
+                    class="notification-img">
+                  <div class="notification-text">
+                    <p>New design mockups have been seen and approved.</p>
+                  </div>
+                </div>
+                <div class="notification">
+                  <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image"
+                    class="notification-img">
+                  <div class="notification-text">
+                    <p>New design are seen and approved.</p>
+                  </div>
+                </div>
+              </div>
+              <a href="./web-chats.html" style="text-decoration: none;">
+                <button class="btn-noti-view">View All</button>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="noti-counter">
+          <span>5</span>
+        </li>
+        <li>
+          <div class="dropdown" tab-index="0">
+            <button id="dropdown-btn"></button>
+            <ul class="dropdown-content" id="dropdown-content"></ul>
+          </div>
+        </li>
+        <li>
+          <div class="drop-profile">
+            <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Avatar" width="50px" height="50px"
+              style="border-radius: 50%;" onclick="toggleDropdown()">
+            <i class='bx bxs-down-arrow' style="font-size: 8px;color: white;" onclick="toggleDropdown()"></i>
+            <div class="drop-profile-content">
+              <a href="./web-account-manage.html">Manage My Account</a>
+              <a href="./web-my-orders.html">My Orders</a>
+              <a href="./web-wishlist.html">My Wishlist & Followed Stores</a>
+              <a href="./web-my-reviews.html">My Reviews</a>
+              <a href="./web-login.html">Logout</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="./web-login.html">
+            <button class="btn btn-pill btn-login">Log In</button>
+          </a>
+        </li>
+        <li>
+          <a href="./web-login.html">
+            <button class="btn btn-pill btn-signUp">Sign Up</button>
+          </a>
+        </li>
+      </ul>
+    </div>
   </nav>
   <!-- /header -->
-    <!-- content -->
+  <!-- content -->
 
-    <div class="modal-overlay-address" id="modal-1">
-      <div class="modal-address">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h3>Edit Profile</h3>
-          <button class="close-modal">&times;</button>
-        </div>
-  
-        <!-- Modal Body -->
-        <div class="modal-body">
-            <div class="form-field">
-                <label class="field-label">Full Name :</label>
-                <div class="field">
-                  <input type="text" class="field-text" placeholder="Full Name" />
-                </div>
-            </div>
-            <div class="form-field">
-                <label class="field-label">Email :</label>
-                <div class="field">
-                  <input type="email" class="field-text" placeholder="Please enter your e-mail" />
-                </div>
-            </div>
-            <div class="form-field">
-              <label class="field-label">Phone No. :</label>
-              <div class="field">
-                <input type="tel" class="field-text" placeholder="Please enter your phone number" />
-              </div>
-            </div>
-            <div class="form-field">
-              <label class="field-label">Birthday :</label>
-              <div class="field">
-                <input type="date" class="field-text" />
-              </div>
-            </div>
+  <div class="modal-overlay-address" id="modal-1">
+    <div class="modal-address">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h3>Edit Profile</h3>
+        <button class="close-modal">&times;</button>
+      </div>
 
-            <div class="form-field">
-                <label class="field-label">Gender:</label>
-                <div class="field">
-                    <select name="" id="" class="field-select">
-                      <option value="">Please Chose your Gender</option>
-                      <option value="Option">Male</option>
-                      <option value="Option">Female</option>
-                    </select>
-                </div>
-            </div>
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <div class="form-field">
+          <label class="field-label">Full Name :</label>
+          <div class="field">
+            <input type="text" class="field-text" placeholder="Full Name" />
+          </div>
         </div>
-  
-        <!-- Modal Footer -->
-        <div class="modal-footer">
-          <button class="close-btn close-modal">Close</button>
-          <button class="send-btn">Send</button>
+        <div class="form-field">
+          <label class="field-label">Email :</label>
+          <div class="field">
+            <input type="email" class="field-text" placeholder="Please enter your e-mail" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="field-label">Phone No. :</label>
+          <div class="field">
+            <input type="tel" class="field-text" placeholder="Please enter your phone number" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="field-label">Birthday :</label>
+          <div class="field">
+            <input type="date" class="field-text" />
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="field-label">Gender:</label>
+          <div class="field">
+            <select name="" id="" class="field-select">
+              <option value="">Please Chose your Gender</option>
+              <option value="Option">Male</option>
+              <option value="Option">Female</option>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <div class="modal-overlay-address" id="modal-2">
-      <div class="modal-address">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h3>Change Password</h3>
-          <button class="close-modal-address close-modal">&times;</button>
-        </div>
-  
-        <!-- Modal Body -->
-        <div class="modal-body">
-            <div class="form-field">
-                <label class="field-label">Email :</label>
-                <div class="field">
-                  <input type="email" class="field-text" placeholder="Please enter your email" />
-                </div>
-            </div>
-            <div class="form-field">
-                <label class="field-label">Old Password :</label>
-                <div class="field">
-                  <input type="password" class="field-text" placeholder="Please enter your old password" />
-                </div>
-            </div>
-            <div class="form-field">
-                <label class="field-label">New Password :</label>
-                <div class="field">
-                  <input type="password" class="field-text" placeholder="Please enter your new password" />
-                </div>
-            </div>
-            <div class="form-field">
-                <label class="field-label">Confirm Password :</label>
-                <div class="field">
-                  <input type="password" class="field-text" placeholder="Please enter your confirm password" />
-                </div>
-            </div>
 
-        </div>
-  
-        <!-- Modal Footer -->
-        <div class="modal-footer">
-          <button class="close-btn close-modal">Close</button>
-          <button class="send-btn">Send</button>
-        </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="close-btn close-modal">Close</button>
+        <button class="send-btn">Send</button>
       </div>
     </div>
+  </div>
 
-    <div class="modal-overlay-address" id="modal-3">
-      <div class="modal-address">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h3>Add Address</h3>
-          <button class="close-modal-address close-modal">&times;</button>
+  <div class="modal-overlay-address" id="modal-2">
+    <div class="modal-address">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h3>Change Password</h3>
+        <button class="close-modal-address close-modal">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <div class="form-field">
+          <label class="field-label">Email :</label>
+          <div class="field">
+            <input type="email" class="field-text" placeholder="Please enter your email" />
+          </div>
         </div>
-  
-        <!-- Modal Body -->
-        <div class="modal-body">
-            <div class="form-field">
-                <label class="field-label">Full Name :</label>
-                <div class="field">
-                  <input type="text" class="field-text" placeholder="First Last" />
-                </div>
-            </div>
-            <div class="form-field">
-                <label class="field-label">Phone Number :</label>
-                <div class="field">
-                  <input type="number" class="field-text" placeholder="Please enter your phone number" />
-                </div>
-            </div>
-            <div class="form-field">
-                <label class="field-label">Province / Region :</label>
-                <div class="field">
-                    <select name="" id="" class="field-select">
-                      <option value="">Please Chose your province / region</option>
-                      <option value="Option">Islam</option>
-                      <option value="Option">Hindu</option>
-                      <option value="Option">Christen</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-field">
-                <label class="field-label">City :</label>
-                <div class="field">
-                    <select name="" id="" class="field-select">
-                      <option value="">Please Chose your city</option>
-                      <option value="Option">Lahore</option>
-                      <option value="Option">Islamabad</option>
-                      <option value="Option">karachi</option>
-                      <option value="Option">Faislabad</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-field">
-                <label class="field-label">Landmark (optional):</label>
-                <div class="field">
-                  <input type="text" class="field-text" placeholder="e.g. beside station" />
-                </div>
-            </div>
-            <div class="form-field">
-                <label class="field-label">Zone :</label>
-                <div class="field">
-                    <select name="" id="" class="field-select">
-                      <option value="">Please Chose your zone</option>
-                      <option value="Option">Fategarh</option>
-                      <option value="Option">Shalamar</option>
-                      <option value="Option">Gari shuuu</option>
-                      <option value="Option">Railway Station</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-field">
-                <label class="field-label">Address :</label>
-                <div class="field">
-                  <input type="text" class="field-text" placeholder="Please enter your address" />
-                </div>
-            </div>
-  
+        <div class="form-field">
+          <label class="field-label">Old Password :</label>
+          <div class="field">
+            <input type="password" class="field-text" placeholder="Please enter your old password" />
+          </div>
         </div>
-  
-        <!-- Modal Footer -->
-        <div class="modal-footer">
-          <button class="close-btn close-modal">Close</button>
-          <button class="send-btn">Send</button>
+        <div class="form-field">
+          <label class="field-label">New Password :</label>
+          <div class="field">
+            <input type="password" class="field-text" placeholder="Please enter your new password" />
+          </div>
         </div>
+        <div class="form-field">
+          <label class="field-label">Confirm Password :</label>
+          <div class="field">
+            <input type="password" class="field-text" placeholder="Please enter your confirm password" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="close-btn close-modal">Close</button>
+        <button class="send-btn">Send</button>
       </div>
     </div>
-    
-<div class="content-area">
+  </div>
+
+  <div class="modal-overlay-address" id="modal-3">
+    <div class="modal-address">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h3>Add Address</h3>
+        <button class="close-modal-address close-modal">&times;</button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <div class="form-field">
+          <label class="field-label">Full Name :</label>
+          <div class="field">
+            <input type="text" class="field-text" placeholder="First Last" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="field-label">Phone Number :</label>
+          <div class="field">
+            <input type="number" class="field-text" placeholder="Please enter your phone number" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="field-label">Province / Region :</label>
+          <div class="field">
+            <select name="" id="" class="field-select">
+              <option value="">Please Chose your province / region</option>
+              <option value="Option">Islam</option>
+              <option value="Option">Hindu</option>
+              <option value="Option">Christen</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="field-label">City :</label>
+          <div class="field">
+            <select name="" id="" class="field-select">
+              <option value="">Please Chose your city</option>
+              <option value="Option">Lahore</option>
+              <option value="Option">Islamabad</option>
+              <option value="Option">karachi</option>
+              <option value="Option">Faislabad</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="field-label">Landmark (optional):</label>
+          <div class="field">
+            <input type="text" class="field-text" placeholder="e.g. beside station" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="field-label">Zone :</label>
+          <div class="field">
+            <select name="" id="" class="field-select">
+              <option value="">Please Chose your zone</option>
+              <option value="Option">Fategarh</option>
+              <option value="Option">Shalamar</option>
+              <option value="Option">Gari shuuu</option>
+              <option value="Option">Railway Station</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="field-label">Address :</label>
+          <div class="field">
+            <input type="text" class="field-text" placeholder="Please enter your address" />
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button class="close-btn close-modal">Close</button>
+        <button class="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-area">
     <div class="breadcrumbs-container">
-        <h4>Manage My Account</h4>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
-            <li class="breadcrumb-item active">My Account</li>
-          </ol>
+      <h4>Manage My Account</h4>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="" class="breadcrumb-link">Home</a></li>
+        <li class="breadcrumb-item active">My Account</li>
+      </ol>
     </div>
     <div class="container">
-        <div class="tabs">
-            <ul class="tab-list">
-              <li class="tab-item active" onclick="openTab(event, 'tab1')">My Profile</li>
-              <li class="tab-item" onclick="openTab(event, 'tab2')">Address Book</li>
-              <li class="tab-item" onclick="openTab(event, 'tab3')">My Payment Options</li>
-              <li class="tab-item" onclick="openTab(event, 'tab4')">Wallet</li>
-            </ul>     
-            <div class="tab-content">
-              <div id="tab1" class="tab-pane active">
-                <div class="info-card">
-                  <div class="heading-info">
-                      Personal Information 
-                      <i class='bx bx-info-circle' ></i>
+      <div class="tabs">
+        <ul class="tab-list" style="width: 530px;">
+          <li class="tab-item active" onclick="openTab(event, 'tab1')">My Profile</li>
+          <li class="tab-item" onclick="openTab(event, 'tab2')">Address Book</li>
+          <li class="tab-item" onclick="openTab(event, 'tab3')">My Payment Options</li>
+          <li class="tab-item" onclick="openTab(event, 'tab4')">Wallet</li>
+        </ul>
+        <div class="tab-content">
+          <div id="tab1" class="tab-pane active">
+            <div class="row">
+              <div class="col-5">
+                <div class="card" style="height: 330px;">
+                  <div class="card-head d-flex" style="justify-content: space-between;">
+                    <div class="card-subtitle">
+                      Personal Information
+                      <i class='bx bx-info-circle'></i>
+                    </div>
+                    <a class="modal-trigger" data-target="modal-1" style="cursor: pointer;">Edit Profile</a>
                   </div>
-                  <div class="desc-info">
-                    <div class="text">
-                      <p><strong>Full Name :</strong> John Doe<br><br>
-                        <strong>Email :</strong> John Doe@gmail.com<br><br>
-                        <strong>Phone Number :</strong> +92 8192746387<br><br>
-                        <strong>Birthday :</strong> 11 / 12 / 2006<br><br>
-                        <strong>Gender :</strong> Male <br>
-                      </p>
-                      <button class="btn btn-profile modal-trigger" data-target="modal-1">Edit Profile</button>
-                      </div>                  
-                  </div>
-                  <hr>
-                  <div class="heading-info">
-                      Security Information 
-                      <i class='bx bx-info-circle' ></i>
-                  </div>
-                  <div class="desc-info">
-                    <div class="text">
-                      <div class="d-flex gap-3">
-                        <strong>Password :</strong>
-                        <p id="passwordDisplay" data-password="Show Q kiya Password">******</p>
-                        <button class="btn btn-secondary btn-sm btn-pill" onclick="togglePassword()">Show / Hide</button>
+                  <div class="card-body">
+                    <div class="desc-info">
+                      <div class="infos d-flex" >
+                        <div class="first" style="width: 150px;">
+                          <strong style="width: 200px;">Full Name :</strong><br><br>
+                          <strong style="width: 200px;">Email :</strong><br><br>
+                          <strong style="width: 200px;">Phone Number :</strong><br><br>
+                          <strong style="width: 200px;">Birthday :</strong><br><br>
+                          <strong style="width: 200px;">Gender :</strong>
+                        </div>
+                        <div class="second">
+                          John Doe<br><br>
+                          John Doe@gmail.com<br><br>
+                         +92 8192746387<br><br>
+                          11 / 12 / 2006<br><br>
+                          Male 
+                        </div>
+                        
                       </div>
-                      <button class="btn btn-profile modal-trigger" data-target="modal-2">Change Password</button>
-                      </div>     
+                  </div>
+                  </div>
                   </div>
               </div>
-              </div>
-              <div id="tab2" class="tab-pane">
-                <div class="info-card">
-                  <div class="heading-info">
-                      Your Address 
-                      <i class='bx bx-info-circle' ></i>
+              <div class="col-5">
+                <div class="card" style="height: 330px;">
+                  <div class="card-head d-flex" style="justify-content: space-between;">
+                    <div class="card-subtitle">
+                      Security Information
+                      <i class='bx bx-info-circle'></i>
+                    </div>
+                    <a class="modal-trigger" data-target="modal-2" style="cursor: pointer;">Change Password</a>
                   </div>
-                  <div class="desc-info">
-                  <i class='bx bx-map'></i>
+                  <div class="card-body">
+                    <div class="desc-info">
                       <div class="text">
-                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur ipsum a amet accusamus sequi molestias dignissimos. Dignissimos cupiditate iusto quisquam totam nobis, sint explicabo mollitia? Vel molestias hic nisi accusamus.
-                      </div>
-                  </div>
-                  <hr>
-                  <button class="btn btn-profile modal-trigger" data-target="modal-3">Change Address</button>
-              </div>
-              </div>
-              <div id="tab3" class="tab-pane">
-                <div class="d-flex" style="justify-content: end;">
-                  <button class="btn btn-profile">Add Payment Option</button>
-                </div>
-                <div class="container payment-option-table">
-                  <!-- Header Section -->
-                  <div class="header-section">
-                    <h2 class="heading"></h2>
-                    <div class="right-section">
-                      <select class="filter-dropdown">
-                        <option value="all">Filter</option>
-                        <option value="pending">Pending</option>
-                        <option value="delivered">Delivered</option>
-                      </select>
-                      <div class="search-bar">
-                        <input type="text" placeholder="Search..." />
-                        <i class="bx bx-search search-icon"></i>
+                        <div class="d-flex gap-3">
+                          <strong>Password :</strong>
+                          <p id="passwordDisplay" data-password="Show Q kiya Password">******</p>
+                          <button class="btn btn-secondary btn-sm btn-pill" onclick="togglePassword()">Show / Hide</button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                
-                  <!-- Table Section -->
-                  <table class="order-table">
-                    <thead>
-                      <tr>
-                        <th>Product Image</th>
-                        <th>Product Name</th>
-                        <th>Price</th>
-                        <th>Selected Method</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td><img src="./web-assets/assets/images/t-shirt_product.jpg" style="border-radius: 10px;" alt="Product Image" class="product-image"> T-shirt</td>
-                        <td>Product 1</td>
-                        <td>$10</td>
-                        <td>
-                          <img src="./web-assets/assets/images/payment-option-1.png" width="100px" height="100px" alt="" class="payment-img">
-                        </td>
-                        <td>
-                          <button class="btn-action btn-edit"><i class="bx bx-edit"></i></button>
-                          <button class="btn-action btn-del"><i class="bx bx-trash"></i></button>
-                        </td>
-                      </tr>
-                      
-                      <!-- Add more rows as needed -->
-                    </tbody>
-                  </table>
-                
-                  <!-- Footer Section -->
-                  <div class="footer-section">
-                    <div class="results-dropdown">
-                      <select>
-                        <option value="10">Show 10 results</option>
-                        <option value="20">Show 20 results</option>
-                        <option value="50">Show 50 results</option>
-                      </select>
-                    </div>
-                    <ul class="pagination">
-                      <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                      <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                      <li class="page-item"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item"><a class="page-link " href="#">Next</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div id="tab4" class="tab-pane">
-                <div class="col-4">
-                  <div class="card balance-card" style="background-image: url('https://img.freepik.com/premium-vector/green-light-line-dark-grey-geometric-background_33869-1258.jpg');background-repeat: no-repeat;background-size: cover;">
-                  <div class="card-head">Available Balance</div>
-                  <div class="card-body d-flex" style="gap: 10px;">
-                    <span style="font-size: 20px;">$</span>
-                    <div class="card-title" style="color: white;font-size: 35px;font-family: emoji;">19,546.89</div>
-                  </div>
-                  <div class="card-foot">
-                    <button class="btn btn-dark" >Add Balance</button>
-                  </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div id="tab2" class="tab-pane">
+            <div class="d-flex" style="justify-content: end;">
+              <button class="btn btn-profile btn-icon"><i class="bx bx-plus icon-pre"></i> Add Address </button>
+              <button class="btn btn-profile btn-icon modal-trigger" data-target="modal-3"><i class="bx bx-edit icon-pre"></i> Change Address </button>
+            </div>
+            <div class="info-card">
+              <div class="heading-info">
+                Your Address
+                <i class='bx bx-info-circle'></i>
+              </div>
+              <div class="desc-info">
+                <i class='bx bx-map'></i>
+                <div class="text">
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur ipsum a amet accusamus sequi
+                  molestias dignissimos. Dignissimos cupiditate iusto quisquam totam nobis, sint explicabo mollitia? Vel
+                  molestias hic nisi accusamus.
+                </div>
+              </div>
+              <hr>
+            </div>
+          </div>
+          <div id="tab3" class="tab-pane">
+            <div class="d-flex" style="justify-content: end;">
+              <button class="btn btn-profile">Add Payment Option</button>
+            </div>
+            <div class="container payment-option-table">
+              <!-- Header Section -->
+              <div class="header-section">
+                <h2 class="heading"></h2>
+                <div class="right-section">
+                  <select class="filter-dropdown">
+                    <option value="all">Filter</option>
+                    <option value="pending">Pending</option>
+                    <option value="delivered">Delivered</option>
+                  </select>
+                  <div class="search-bar">
+                    <input type="text" placeholder="Search..." />
+                    <i class="bx bx-search search-icon"></i>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Table Section -->
+              <table class="order-table">
+                <thead>
+                  <tr>
+                    <th>Carrier Name</th>
+                    <th>Type</th>
+                    <th>Selected Method</th>
+                    <th>Option</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>JazzCash</td>
+                    <td>E-Wallet</td>
+                    <td>
+                      <img src="./web-assets/assets/images/payment-option-1.png" width="50px" height="50px" alt=""
+                        class="payment-img">
+                    </td>
+                    <td>
+                      <div class="d-flex" style="flex-direction: column;gap: 10px;">
+                        <button class="btn btn-success btn-sm btn-icon" disabled style="    width: 70px;
+                            padding: 0;
+                            height: 20px;
+                            font-size: 11px;
+                        "><i class="bx bx-check icon-pre"></i> Selected </button>
+                       
+                      </div>
+                    </td>
+                    <td>
+                      <button class="btn-action btn-edit"><i class="bx bx-edit"></i></button>
+                      <button class="btn-action btn-del"><i class="bx bx-trash"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>EasyPaisa</td>
+                    <td>E-Wallet</td>
+                    <td>
+                      <img src="./web-assets/assets/images/easypaisa-removebg-preview.png" width="40px" height="40px" alt=""
+                        class="payment-img">
+                    </td>
+                    <td>
+                      <div class="d-flex" style="flex-direction: column;gap: 10px;">
+                        <button class="btn btn-success btn-sm" style=" width: 70px;
+                            padding: 0;
+                            height: 20px;
+                            font-size: 11px;
+                        ">Select </button>
+                       
+                      </div>
+                    </td>
+                    <td>
+                      <button class="btn-action btn-edit"><i class="bx bx-edit"></i></button>
+                      <button class="btn-action btn-del"><i class="bx bx-trash"></i></button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Bank Alfalah</td>
+                    <td>Bank</td>
+                    <td>
+                      <img src="./web-assets/assets/images/alfalah.png" width="40px" height="40px" alt=""
+                        class="payment-img">
+                    </td>
+                    <td>
+                      <div class="d-flex" style="flex-direction: column;gap: 10px;">
+                        <button class="btn btn-success btn-sm" style=" width: 70px;
+                            padding: 0;
+                            height: 20px;
+                            font-size: 11px;
+                        ">Select </button>
+                       
+                      </div>
+                    </td>
+                    <td>
+                      <button class="btn-action btn-edit"><i class="bx bx-edit"></i></button>
+                      <button class="btn-action btn-del"><i class="bx bx-trash"></i></button>
+                    </td>
+                  </tr> 
+                  <!-- Add more rows as needed -->
+                </tbody>
+              </table>
+
+              <!-- Footer Section -->
+              <div class="footer-section">
+                <div class="results-dropdown">
+                  <select>
+                    <option value="10">Show 10 results</option>
+                    <option value="20">Show 20 results</option>
+                    <option value="50">Show 50 results</option>
+                  </select>
+                </div>
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link " href="#">Next</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div id="tab4" class="tab-pane">
+            <div class="col-4">
+              <div class="card balance-card"
+                style="background-image: url('https://img.freepik.com/premium-vector/green-light-line-dark-grey-geometric-background_33869-1258.jpg');background-repeat: no-repeat;background-size: cover;">
+                <div class="card-head">Available Balance</div>
+                <div class="card-body d-flex" style="gap: 10px;">
+                  <span style="font-size: 20px;">Rs</span>
+                  <div class="card-title" style="color: white;font-size: 35px;font-family: emoji;">19,546.89</div>
+                </div>
+                <div class="card-foot">
+                  <button class="btn btn-dark">Add Balance</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<div class="message-btn">
-  <i class="icon">&#9993;</i> <!-- This is the envelope icon -->
-  <span class="message-text">Message</span>
-</div>
-<!-- <div class="phone-call cbh-phone cbh-green cbh-show cbh-static" id="clbh_phone_div">
+  </div>
+  <div class="message-btn">
+    <i class="icon">&#9993;</i> <!-- This is the envelope icon -->
+    <span class="message-text">Message</span>
+  </div>
+  <!-- <div class="phone-call cbh-phone cbh-green cbh-show cbh-static" id="clbh_phone_div">
 <a id="WhatsApp-button" href="https://wa.me/5521980619913" target="_blank" class="phoneJs" title="WhatsApp 360imagem" ><div class="cbh-ph-circle"></div>
   <div class="cbh-ph-circle-fill"></div>
   <div class="cbh-ph-img-circle1">
@@ -999,330 +1132,361 @@
   </div>
 </a>
 </div> -->
-<!-- /content -->
- <!-- footer -->
-<footer>
+  <!-- /content -->
+  <!-- footer -->
+  <footer>
     <div class="foot-logo">
-        <img src="./web-assets/assets/images/demo-logo.png">
+      <img src="./web-assets/assets/images/demo-logo.png">
     </div>
     <div class="info d-flex">
-        <div class="links">
-            <h6 class="text-c-white fw-700">Quick Links</h6>
-            <ul>
-                <a href="./web-index.html"><li>Home</li></a>
-                <a href="./web-about-us.html"><li>About Us</li></a>
-                <a href=""><li>Contact Us</li></a>
-                <a href=""><li>Story</li></a>
-                <a href=""><li>Blogs</li></a>
-            </ul>
+      <div class="links">
+        <h6 class="text-c-white fw-700">Quick Links</h6>
+        <ul>
+          <a href="./web-index.html">
+            <li>Home</li>
+          </a>
+          <a href="./web-about-us.html">
+            <li>About Us</li>
+          </a>
+          <a href="">
+            <li>Contact Us</li>
+          </a>
+          <a href="">
+            <li>Story</li>
+          </a>
+          <a href="">
+            <li>Blogs</li>
+          </a>
+        </ul>
+      </div>
+      <div class="links">
+        <h6 class="text-c-white fw-700">Getting Started</h6>
+        <ul>
+          <a href="">
+            <li>Home</li>
+          </a>
+          <a href="">
+            <li>About Us</li>
+          </a>
+          <a href="">
+            <li>Contact Us</li>
+          </a>
+          <a href="">
+            <li>Story</li>
+          </a>
+          <a href="">
+            <li>Blogs</li>
+          </a>
+        </ul>
+      </div>
+      <div class="links">
+        <h6 class="text-c-white fw-700">Featured</h6>
+        <ul>
+          <a href="./web-terms.html">
+            <li>Terms & Condition</li>
+          </a>
+          <a href="./web-privacy-policy.html">
+            <li>Privacy Policy</li>
+          </a>
+          <a href="./web-refund&exchange.html">
+            <li>Exchange & Return</li>
+          </a>
+          <a href="./web-refund-policy.html">
+            <li>Refund Policy</li>
+          </a>
+          <a href="./web-shipment-policy.html">
+            <li>Shipment Policy</li>
+          </a>
+        </ul>
+      </div>
+      <div class="social-desc">
+        <div class="social-media">
+          <h6 class="text-c-white fw-800">FOLLOW Us On</h6>
+          <ul class="d-flex">
+            <li><a href=""><i class='bx bxl-facebook'></i></a></li>
+            <li><a href=""><i class='bx bxl-instagram'></i></a></li>
+            <li><a href=""><i class='bx bxl-youtube'></i></a></li>
+            <li><a href=""><i class='bx bxl-twitter'></i></a></li>
+            <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
+          </ul>
         </div>
-        <div class="links">
-            <h6 class="text-c-white fw-700">Getting Started</h6>
-            <ul>
-                <a href=""><li>Home</li></a>
-                <a href=""><li>About Us</li></a>
-                <a href=""><li>Contact Us</li></a>
-                <a href=""><li>Story</li></a>
-                <a href=""><li>Blogs</li></a>
-            </ul>
+        <div class="payment-methods">
+          <h6 class="text-c-white fw-800">Payment Methods</h6>
+          <img class="payment-method-img" src="./web-assets/assets/images/payment-methods.png" alt="">
+          <img src="./web-assets/assets/images/payment-method-2.png" alt="" width="60px" height="30px"
+            style="margin-left: 3px;">
         </div>
-        <div class="links">
-            <h6 class="text-c-white fw-700">Featured</h6>
-            <ul>
-                <a href="./web-terms.html"><li>Terms & Condition</li></a>
-                <a href="./web-privacy-policy.html"><li>Privacy Policy</li></a>
-                <a href="./web-refund&exchange.html"><li>Exchange & Return</li></a>
-                <a href="./web-refund-policy.html"><li>Refund Policy</li></a>
-                <a href="./web-shipment-policy.html"><li>Shipment Policy</li></a>
-            </ul>
-        </div>
-        <div class="social-desc">
-            <div class="social-media">
-                <h6 class="text-c-white fw-800">FOLLOW Us On</h6>
-                <ul class="d-flex">
-                    <li><a href=""><i class='bx bxl-facebook'></i></a></li>
-                    <li><a href=""><i class='bx bxl-instagram'></i></a></li>
-                    <li><a href=""><i class='bx bxl-youtube'></i></a></li>
-                    <li><a href=""><i class='bx bxl-twitter' ></i></a></li>
-                    <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
-                </ul>
-            </div>
-            <div class="payment-methods">
-                <h6 class="text-c-white fw-800">Payment Methods</h6>
-                <img class="payment-method-img" src="./web-assets/assets/images/payment-methods.png" alt="">
-                <img src="./web-assets/assets/images/payment-method-2.png" alt="" width="60px" height="30px" style="margin-left: 3px;">
-            </div>
-        </div>
+      </div>
     </div>
     <hr>
     <div class="terms-section">
-    <p>&copy; 2006 Company Name All Rights Reserved</p>
-</div>
-</footer>
-<!-- /footer -->
+      <p>&copy; 2006 Company Name All Rights Reserved</p>
+    </div>
+  </footer>
+  <!-- /footer -->
 
- <!-- THIRD PARTY JS -->
- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- <script src="./web-assets/assets/js/script.js"></script>
+  <!-- THIRD PARTY JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./web-assets/assets/js/script.js"></script>
 
 
-<!-- scripts -->
- <script>
-    const locales = ["en-GB","ar-SA","zh-CN","de-DE","es-ES","fr-FR","hi-IN","it-IT","in-ID","ja-JP","ko-KR","nl-NL","no-NO","pl-PL","pt-BR","sv-SE","fi-FI","th-TH","tr-TR","uk-UA","vi-VN","ru-RU","he-IL"];
+  <!-- scripts -->
+  <script>
+    const locales = ["en-GB", "ar-SA", "zh-CN", "de-DE", "es-ES", "fr-FR", "hi-IN", "it-IT", "in-ID", "ja-JP", "ko-KR", "nl-NL", "no-NO", "pl-PL", "pt-BR", "sv-SE", "fi-FI", "th-TH", "tr-TR", "uk-UA", "vi-VN", "ru-RU", "he-IL"];
 
-function getFlagSrc(countryCode) {
-  return /^[A-Z]{2}$/.test(countryCode)
-       ? `https://flagsapi.com/${countryCode.toUpperCase()}/shiny/64.png`
-    : "";
-}
+    function getFlagSrc(countryCode) {
+      return /^[A-Z]{2}$/.test(countryCode)
+        ? `https://flagsapi.com/${countryCode.toUpperCase()}/shiny/64.png`
+        : "";
+    }
 
-const dropdownBtn = document.getElementById("dropdown-btn");
-const dropdownContent = document.getElementById("dropdown-content");
+    const dropdownBtn = document.getElementById("dropdown-btn");
+    const dropdownContent = document.getElementById("dropdown-content");
 
-function setSelectedLocale(locale) {
-  const intlLocale = new Intl.Locale(locale);
-  const langName = new Intl.DisplayNames([locale], {
-    type: "language",
-  }).of(intlLocale.language);
+    function setSelectedLocale(locale) {
+      const intlLocale = new Intl.Locale(locale);
+      const langName = new Intl.DisplayNames([locale], {
+        type: "language",
+      }).of(intlLocale.language);
 
-  dropdownContent.innerHTML = "";
+      dropdownContent.innerHTML = "";
 
-  const otherLocales = locales.filter((loc) => loc !== locale);
-  otherLocales.forEach((otherLocale) => {
-    const otherIntlLocale = new Intl.Locale(otherLocale);
-    const otherLangName = new Intl.DisplayNames([otherLocale], {
-      type: "language",
-    }).of(otherIntlLocale.language);
+      const otherLocales = locales.filter((loc) => loc !== locale);
+      otherLocales.forEach((otherLocale) => {
+        const otherIntlLocale = new Intl.Locale(otherLocale);
+        const otherLangName = new Intl.DisplayNames([otherLocale], {
+          type: "language",
+        }).of(otherIntlLocale.language);
 
-    const listEl = document.createElement("li");
-    listEl.innerHTML = `${otherLangName}<img src="${getFlagSrc(
-      otherIntlLocale.region
-    )}" />`;
-    listEl.value = otherLocale;
-    listEl.addEventListener("mousedown", function () {
-      setSelectedLocale(otherLocale);
-    });
-    dropdownContent.appendChild(listEl);
-  });
+        const listEl = document.createElement("li");
+        listEl.innerHTML = `${otherLangName}<img src="${getFlagSrc(
+          otherIntlLocale.region
+        )}" />`;
+        listEl.value = otherLocale;
+        listEl.addEventListener("mousedown", function () {
+          setSelectedLocale(otherLocale);
+        });
+        dropdownContent.appendChild(listEl);
+      });
 
-  dropdownBtn.innerHTML = `<img src="${getFlagSrc(
-    intlLocale.region
-  )}" />${langName}<span class="arrow-down"></span>`;
-}
+      dropdownBtn.innerHTML = `<img src="${getFlagSrc(
+        intlLocale.region
+      )}" />${langName}<span class="arrow-down"></span>`;
+    }
 
-setSelectedLocale(locales[0]);
-const browserLang = new Intl.Locale(navigator.language).language;
-for (const locale of locales) {
-  const localeLang = new Intl.Locale(locale).language;
-  if (localeLang === browserLang) {
-    setSelectedLocale(locale);
-  }
-}
- </script>
- <script>
-     // Initialize Swiper
-     var swiper = new Swiper('.banner-vertical-slider', {
-         direction: 'vertical', // Set the direction to vertical
-         loop: true, // Enable loop mode
-         navigation: {
-             nextEl: '.swiper-button-next',
-             prevEl: '.swiper-button-prev',
-         },
-         pagination: {
-             el: '.swiper-pagination',
-             clickable: true, // Make pagination bullets clickable
-         },
-         autoplay: {
-             delay: 3000, // Delay between slides in ms
-             disableOnInteraction: false,
-         },
-     });
- </script>
-   <script>
-    var swiper = new Swiper(".sale-slider", {
-        slidesPerView: 4,          // Show 4 slides at a time
-        spaceBetween: 10,          // Space between slides
-        loop: true,                // Enable loop for infinite sliding
-       autoplay: {
-           delay: 2500,           // Auto slide after 2.5 seconds
-           disableOnInteraction: false, // Continue autoplay after manual interaction
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
-</script>
-<!-- lode More -->
-<script>
-  const productCards = document.querySelectorAll('.Product-card');
-  const loadMoreBtn = document.getElementById('loadMoreBtn');
-  const loader = document.querySelector('.loader');
-  let visibleCards = 25; // Initially visible cards
-
-  // Function to show the next set of cards
-  function loadMoreCards() {
-      loader.style.display = 'block'; // Show loader
-      setTimeout(() => {
-          loader.style.display = 'none'; // Hide loader after 2 seconds
-          for (let i = visibleCards; i < visibleCards + 25 && i < productCards.length; i++) {
-              productCards[i].style.display = 'inline-block'; // Show next 25 cards
-          }
-          visibleCards += 25; // Increase the count of visible cards
-          // Hide the button if all cards are displayed
-          if (visibleCards >= productCards.length) {
-              loadMoreBtn.style.display = 'none';
-          }
-      }, 2000); // Simulate loading time
-  }
-
-  // Show the initial 25 cards
-  for (let i = 0; i < visibleCards; i++) {
-      productCards[i].style.display = 'inline-block';
-  }
-
-  // Event listener for Load More button
-  loadMoreBtn.addEventListener('click', loadMoreCards);
-</script>
-<!-- model -->
-<script>
-  // Function to close the modal
-  function closeModal() {
-      document.getElementById("page-modal").style.display = "none";
-  }
-  
-  // Auto-open modal when page loads
-  window.onload = function() {
-      document.getElementById("page-modal").style.display = "block"; // Show modal when page loads
-  };
-  
-  </script>
-  <!-- profile-dropdown -->
-   <script>
-function toggleDropdown() {
-  var dropdown = document.querySelector('.drop-profile .drop-profile-content');
-  dropdown.classList.toggle('showed');
-}
-
-// Optional: Close dropdown when clicking outside
-window.onclick = function(event) {
-  if (!event.target.matches('.drop-profile img') && !event.target.matches('.drop-profile i')) {
-    var dropdowns = document.getElementsByClassName("drop-profile-content");
-    for (var i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('showed')) {
-        openDropdown.classList.remove('showed');
+    setSelectedLocale(locales[0]);
+    const browserLang = new Intl.Locale(navigator.language).language;
+    for (const locale of locales) {
+      const localeLang = new Intl.Locale(locale).language;
+      if (localeLang === browserLang) {
+        setSelectedLocale(locale);
       }
     }
-  }
-}
+  </script>
+  <script>
+    // Initialize Swiper
+    var swiper = new Swiper('.banner-vertical-slider', {
+      direction: 'vertical', // Set the direction to vertical
+      loop: true, // Enable loop mode
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true, // Make pagination bullets clickable
+      },
+      autoplay: {
+        delay: 3000, // Delay between slides in ms
+        disableOnInteraction: false,
+      },
+    });
+  </script>
+  <script>
+    var swiper = new Swiper(".sale-slider", {
+      slidesPerView: 4,          // Show 4 slides at a time
+      spaceBetween: 10,          // Space between slides
+      loop: true,                // Enable loop for infinite sliding
+      autoplay: {
+        delay: 2500,           // Auto slide after 2.5 seconds
+        disableOnInteraction: false, // Continue autoplay after manual interaction
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+  <!-- lode More -->
+  <script>
+    const productCards = document.querySelectorAll('.Product-card');
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const loader = document.querySelector('.loader');
+    let visibleCards = 25; // Initially visible cards
 
-   </script>
-   <!-- tabs -->
+    // Function to show the next set of cards
+    function loadMoreCards() {
+      loader.style.display = 'block'; // Show loader
+      setTimeout(() => {
+        loader.style.display = 'none'; // Hide loader after 2 seconds
+        for (let i = visibleCards; i < visibleCards + 25 && i < productCards.length; i++) {
+          productCards[i].style.display = 'inline-block'; // Show next 25 cards
+        }
+        visibleCards += 25; // Increase the count of visible cards
+        // Hide the button if all cards are displayed
+        if (visibleCards >= productCards.length) {
+          loadMoreBtn.style.display = 'none';
+        }
+      }, 2000); // Simulate loading time
+    }
 
-<script>
+    // Show the initial 25 cards
+    for (let i = 0; i < visibleCards; i++) {
+      productCards[i].style.display = 'inline-block';
+    }
+
+    // Event listener for Load More button
+    loadMoreBtn.addEventListener('click', loadMoreCards);
+  </script>
+  <!-- model -->
+  <script>
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById("page-modal").style.display = "none";
+    }
+
+    // Auto-open modal when page loads
+    window.onload = function () {
+      document.getElementById("page-modal").style.display = "block"; // Show modal when page loads
+    };
+
+  </script>
+  <!-- profile-dropdown -->
+  <script>
+    function toggleDropdown() {
+      var dropdown = document.querySelector('.drop-profile .drop-profile-content');
+      dropdown.classList.toggle('showed');
+    }
+
+    // Optional: Close dropdown when clicking outside
+    window.onclick = function (event) {
+      if (!event.target.matches('.drop-profile img') && !event.target.matches('.drop-profile i')) {
+        var dropdowns = document.getElementsByClassName("drop-profile-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('showed')) {
+            openDropdown.classList.remove('showed');
+          }
+        }
+      }
+    }
+
+  </script>
+  <!-- tabs -->
+
+  <script>
     function openTab(event, tabId) {
       // Remove active class from all tabs
       var tabItems = document.getElementsByClassName('tab-item');
       for (var i = 0; i < tabItems.length; i++) {
         tabItems[i].classList.remove('active');
       }
-  
+
       // Remove active class from all tab content
       var tabPanes = document.getElementsByClassName('tab-pane');
       for (var i = 0; i < tabPanes.length; i++) {
         tabPanes[i].classList.remove('active');
       }
-  
+
       // Add active class to the clicked tab
       event.currentTarget.classList.add('active');
-  
+
       // Show the content for the active tab
       document.getElementById(tabId).classList.add('active');
     }
   </script>
- <!-- models -->
-  
-<script>
-  // Get modal elements
-  const modal1 = document.getElementById('modal1');
-  const modal2 = document.getElementById('modal2');
+  <!-- models -->
 
-  // Get open modal buttons
-  const openModal1 = document.getElementById('openModal1');
-  const openModal2 = document.getElementById('openModal2');
+  <script>
+    // Get modal elements
+    const modal1 = document.getElementById('modal1');
+    const modal2 = document.getElementById('modal2');
 
-  // Get close buttons
-  const closeModal1 = document.getElementById('closeModal1');
-  const closeModal2 = document.getElementById('closeModal2');
+    // Get open modal buttons
+    const openModal1 = document.getElementById('openModal1');
+    const openModal2 = document.getElementById('openModal2');
 
-  // Get footer close buttons
-  const footerClose1 = document.getElementById('footerClose1');
-  const footerClose2 = document.getElementById('footerClose2');
+    // Get close buttons
+    const closeModal1 = document.getElementById('closeModal1');
+    const closeModal2 = document.getElementById('closeModal2');
 
-  // Open modal 1
-  openModal1.addEventListener('click', function() {
+    // Get footer close buttons
+    const footerClose1 = document.getElementById('footerClose1');
+    const footerClose2 = document.getElementById('footerClose2');
+
+    // Open modal 1
+    openModal1.addEventListener('click', function () {
       modal1.style.display = 'flex';
-  });
+    });
 
-  // Open modal 2
-  openModal2.addEventListener('click', function() {
+    // Open modal 2
+    openModal2.addEventListener('click', function () {
       modal2.style.display = 'flex';
-  });
+    });
 
-  // Close modal 1 (X button and footer close button)
-  closeModal1.addEventListener('click', function() {
+    // Close modal 1 (X button and footer close button)
+    closeModal1.addEventListener('click', function () {
       modal1.style.display = 'none';
-  });
+    });
 
-  footerClose1.addEventListener('click', function() {
+    footerClose1.addEventListener('click', function () {
       modal1.style.display = 'none';
-  });
+    });
 
-  // Close modal 2 (X button and footer close button)
-  closeModal2.addEventListener('click', function() {
+    // Close modal 2 (X button and footer close button)
+    closeModal2.addEventListener('click', function () {
       modal2.style.display = 'none';
-  });
+    });
 
-  footerClose2.addEventListener('click', function() {
+    footerClose2.addEventListener('click', function () {
       modal2.style.display = 'none';
-  });
+    });
 
-  // Close modals when clicking outside the modal content
-  window.addEventListener('click', function(event) {
+    // Close modals when clicking outside the modal content
+    window.addEventListener('click', function (event) {
       if (event.target === modal1) {
-          modal1.style.display = 'none';
+        modal1.style.display = 'none';
       }
       if (event.target === modal2) {
-          modal2.style.display = 'none';
+        modal2.style.display = 'none';
       }
-  });
-</script>
-<!-- model address-->
-<script>
-  var elements = $(".modal-overlay-address, .modal-address");
+    });
+  </script>
+  <!-- model address-->
+  <script>
+    var elements = $(".modal-overlay-address, .modal-address");
 
-  // Button click par modal ko show karna
-  $(".address-model").click(function () {
-    elements.addClass("active");
-  });
+    // Button click par modal ko show karna
+    $(".address-model").click(function () {
+      elements.addClass("active");
+    });
 
-  // Close button par click karne par modal ko hide karna
-  $(".close-modal-address").click(function () {
-    elements.removeClass("active");
-  });
-
-  // Modal overlay ke ilawa click par modal ko hide karna
-  $(".modal-overlay-address").click(function (event) {
-    if (!$(event.target).closest(".modal-address").length) {
+    // Close button par click karne par modal ko hide karna
+    $(".close-modal-address").click(function () {
       elements.removeClass("active");
-    }
-  });
-</script>
-<!-- model address-->
-    <script>
-      // Trigger modal opening based on data-target
+    });
+
+    // Modal overlay ke ilawa click par modal ko hide karna
+    $(".modal-overlay-address").click(function (event) {
+      if (!$(event.target).closest(".modal-address").length) {
+        elements.removeClass("active");
+      }
+    });
+  </script>
+  <!-- model address-->
+  <script>
+    // Trigger modal opening based on data-target
     $(".modal-trigger").click(function () {
       var targetModal = "#" + $(this).data("target");
       $(targetModal).addClass("active");
@@ -1335,8 +1499,8 @@ window.onclick = function(event) {
         modal.removeClass("active");
       }
     });
-    </script>
-      <!-- nitofication dropdown -->
+  </script>
+  <!-- nitofication dropdown -->
   <script>
     function toggleDropdownnoti() {
       const dropdownMenu = document.getElementById("dropdownMenu");
@@ -1371,11 +1535,11 @@ window.onclick = function(event) {
   <!-- show passord js -->
   <script>
     let isPasswordHidden = true; // Flag to track the current state
-  
+
     function togglePassword() {
       const passwordDisplay = document.getElementById("passwordDisplay");
       const originalPassword = passwordDisplay.getAttribute("data-password"); // Get the password from the HTML data attribute
-  
+
       if (isPasswordHidden) {
         // Show the actual password
         passwordDisplay.textContent = originalPassword;
@@ -1388,4 +1552,5 @@ window.onclick = function(event) {
     }
   </script>
 </body>
+
 </html>
