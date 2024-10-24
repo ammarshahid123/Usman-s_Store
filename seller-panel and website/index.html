@@ -16,7 +16,11 @@
             <!-- App favicon -->
             <link rel="shortcut icon" href="assets/images/favicon.ico">
     <!-- <link rel="stylesheet" href="assets/libs/jsvectormap/css/jsvectormap.min.css"> -->
+    <!-- date picker -->
 
+    <link href="assets/libs/mobius1-selectr/selectr.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/huebee/huebee.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/libs/vanillajs-datepicker/css/datepicker.min.css" rel="stylesheet" type="text/css" />
      <!-- App css -->
      <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
      <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
@@ -586,17 +590,17 @@
         <!-- Page Content-->
         <div class="page-content">
             <div class="container-xxl">
-                <div class="row justify-content-center">
-                    <div class="col-md-6 col-lg-4">
+                <div class="row">
+                    <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center border-dashed-bottom pb-3">
-                                    <div class="col-9">
+                                    <div class="col-8">
                                         <p class="text-dark mb-0 fw-semibold fs-14">Total Orders</p>
                                         <h3 class="mt-2 mb-0 fw-bold">24k</h3>
                                     </div>
                                     <!--end col-->
-                                    <div class="col-3 align-self-center">
+                                    <div class="col-4 align-self-center">
                                         <div class="d-flex justify-content-center align-items-center thumb-xl bg-light rounded-circle mx-auto">
                                             <i class="iconoir-hexagon-dice h1 align-self-center mb-0 text-secondary"></i>
                                         </div>
@@ -638,28 +642,28 @@
                         <!--end card-->
                     </div>
                     <!--end col-->
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-3">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row d-flex justify-content-center border-dashed-bottom pb-3">
-                                    <div class="col-9">
+                                    <div class="col-8">
                                         <p class="text-dark mb-0 fw-semibold fs-14">Total Sales</p>
                                         <h3 class="mt-2 mb-0 fw-bold">136k $</h3>
                                     </div>
                                     <!--end col-->
-                                    <div class="col-3 align-self-center">
+                                    <div class="col-4  align-self-center">
                                         <div class="d-flex justify-content-center align-items-center thumb-xl bg-light rounded-circle mx-auto">
-                                            <i class="fas fa-chart-line h1 align-self-center mb-0 text-secondary"></i>
+                                            <i class="iconoir-reports-solid h1 align-self-center mb-0 text-secondary"></i>
                                         </div>
                                     </div>
                                     <!--end col-->
                                 </div>
                                 <!--end row-->
-                                <div class="mb-0 text-truncate text-muted mt-3 d-flex" style="gap: 10px;">
+                                <div class="mb-0 text-truncate text-muted mt-2 d-flex" style="gap: 10px;">
                                 <h5 class="text-success">1.5% <i class="fas fa-arrow-up"></i></h5>
                                 <p>From Yesterday Sale</p>
                             </div>
-                            <div class="mb-0 text-truncate text-muted mt-3 d-flex" style="gap: 10px;">
+                            <div class="mb-0 text-truncate text-muted mt-1 d-flex" style="gap: 10px;">
                                 <h5 class="text-danger">0.5% <i class="fas fa-arrow-down"></i></h5>
                                 <p>From Yesterday Sale</p>
                             </div>
@@ -669,7 +673,65 @@
                         <!--end card-->
                     </div>
                     <!--end col-->
-                    <div class="col-md-6 col-lg-4">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body border-dashed-bottom pb-3">
+                                <div class="row d-flex justify-content-between">
+                                    <div class="col-auto">
+                                        <div class="d-flex justify-content-center align-items-center thumb-xl border border-secondary rounded-circle">
+                                            <i class="icofont-money-bag h1 align-self-center mb-0 text-secondary"></i>
+                                        </div> 
+                                        <h5 class="mt-2 mb-0 fs-14">Total Revenue</h5>
+                                    </div><!--end col-->
+                                    <div class="col align-self-center">
+                                        <div id="line-1" class="apex-charts float-end"></div> 
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end card-body-->
+                            <div class="card-body"> 
+                                <div class="justify-content-center ">
+                                    <div class="col-12 col-md-12">
+                                        <h2 class="fs-22 mt-0 mb-1 fw-bold">$8365.00</h2>
+                                        <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>8.5%</span> New Sessions Today</p>                                           
+                                    </div><!--end col-->
+                                    <div class="col-12 col-md-12 align-self-center text-start mt-2">
+                                        <button type="button" class="btn btn-primary btn-sm px-2 mt-2 mt-md-0 ">View Report</button>  
+                                    </div><!--end col-->
+                                </div><!--end row-->  
+                            </div><!--end card-body--> 
+                        </div><!--end card-->
+                    </div>
+                    <!-- end col -->
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-body border-dashed-bottom pb-3">
+                                <div class="row d-flex justify-content-between">
+                                    <div class="col-auto">
+                                        <div class="d-flex justify-content-center align-items-center thumb-xl border border-secondary rounded-circle">
+                                            <i class="icofont-opencart h1 align-self-center mb-0 text-secondary"></i>
+                                        </div> 
+                                        <h5 class="mt-2 mb-0 fs-14">New Order</h5>
+                                    </div><!--end col-->
+                                    <div class="col align-self-center ">
+                                        <div id="line-2" class="apex-charts float-end"></div> 
+                                    </div><!--end col-->
+                                </div><!--end row-->
+                            </div><!--end card-body-->
+                            <div class="card-body"> 
+                                <div class="justify-content-center ">
+                                    <div class="col-12 col-md-12">
+                                        <h2 class="fs-22 mt-0 mb-1 fw-bold">722</h2>
+                                        <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>8.5%</span> New Sessions Today</p>                                           
+                                    </div><!--end col-->
+                                    <div class="col-12 col-md-12 align-self-center text-start mt-2">
+                                        <button type="button" class="btn btn-outline-secondary btn-sm px-2 mt-2 mt-md-0 ">View  Report</button>  
+                                    </div><!--end col-->
+                                </div><!--end row-->  
+                            </div><!--end card-body--> 
+                        </div><!--end card-->
+                    </div>
+                    <!-- bounce card -->
+                     <!-- <div class="col-md-6 col-lg-4">
                         <div class="card">
                             <div class="card-body">
                                 <div class="ribbon4 rib4-blue">
@@ -681,22 +743,17 @@
                                             Rate</p>
                                         <h3 class="mt-2 mb-0 fw-bold">36.45%</h3>
                                     </div>
-                                    <!--end col-->
                                     <div class="col-3 align-self-center">
                                         <div class="d-flex justify-content-center align-items-center thumb-xl bg-light rounded-circle mx-auto">
                                             <i class="iconoir-percentage-circle h1 align-self-center mb-0 text-secondary"></i>
                                         </div>
                                     </div>
-                                    <!--end col-->
                                 </div>
-                                <!--end row-->
                                 <p class="mb-0 text-truncate text-muted mt-3"><span class="text-danger">8%</span>
                                    Up Bounce Rate Weekly</p>
                             </div>
-                            <!--end card-body-->
                         </div>
-                        <!--end card-->
-                    </div>
+                    </div>  -->
                     <!--end col-->
                 </div>
                 <!--end row-->
@@ -709,7 +766,11 @@
                                         <h4 class="card-title">Check Sales</h4>
                                     </div>
                                     <!--end col-->
-                                    <div class="col-auto">
+                                    <div class="col-auto d-flex align-items-center gap-1">
+                                        <div>
+                                            <label for="">Customize Date</label>                                  
+                                                <input style="margin-bottom:20px;" class="form-control datepicker-input" placeholder="Pick Customize Date" type="date" name="foo">
+                                        </div>      
                                         <div class="dropdown">
                                             <a href="#" class="btn bt btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="icofont-calendar fs-5 me-1"></i>
@@ -809,37 +870,71 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><img src="assets/images/logos/chrome.png" alt height="24" class="me-2">Chrome</td>
-                                                <td>10853<small class="text-muted">(52%)</small></td>
+                                                <td>#3269</td>
+                                                <td>Ammar Shahid</td>
                                                 <td> 52.80%</td>
                                                 <td>566<small class="text-muted">(92%)</small></td>
                                             </tr>
                                             <!--end tr-->
                                             <tr>
-                                                <td><img src="assets/images/logos/micro-edge.png" alt height="24" class="me-2">Microsoft
-                                                    Edge</td>
-                                                <td>2545<small class="text-muted">(47%)</small></td>
+                                                <td>#3989</td>
+                                                <td>John Doe</td>
                                                 <td> 47.54%</td>
                                                 <td>498<small class="text-muted">(81%)</small></td>
                                             </tr>
                                             <!--end tr-->
                                             <tr>
-                                                <td><img src="assets/images/logos/in-explorer.png" alt height="24" class="me-2">Internet-Explorer</td>
-                                                <td>1836<small class="text-muted">(38%)</small></td>
+                                                <td>#2459</td>
+                                                <td>Jane Smith</td>
                                                 <td> 41.12%</td>
                                                 <td>455<small class="text-muted">(74%)</small></td>
                                             </tr>
                                             <!--end tr-->
                                             <tr>
-                                                <td><img src="assets/images/logos/opera.png" alt height="24" class="me-2">Opera</td>
-                                                <td>1958<small class="text-muted">(31%)</small></td>
+                                                <td>#3239</td>
+                                                <td>Alex Johnson</td>
                                                 <td> 36.82%</td>
                                                 <td>361<small class="text-muted">(61%)</small></td>
                                             </tr>
                                             <!--end tr-->
                                             <tr>
-                                                <td><img src="assets/images/logos/chrome.png" alt height="24" class="me-2">Chrome</td>
-                                                <td>10853<small class="text-muted">(52%)</small></td>
+                                                <td>#3379</td>
+                                                <td>Sarah Brown</td>
+                                                <td> 52.80%</td>
+                                                <td>566<small class="text-muted">(92%)</small></td>
+                                            </tr>
+                                            <!--end tr-->
+                                            <tr>
+                                                <td>#3199</td>
+                                                <td>Michael Davis</td>
+                                                <td> 52.80%</td>
+                                                <td>566<small class="text-muted">(92%)</small></td>
+                                            </tr>
+                                            <!--end tr-->
+                                            <tr>
+                                                <td>#2679</td>
+                                                <td>Emily Wilson</td>
+                                                <td> 47.54%</td>
+                                                <td>498<small class="text-muted">(81%)</small></td>
+                                            </tr>
+                                            <!--end tr-->
+                                            <tr>
+                                                <td>#2129</td>
+                                                <td>Chris Tylor</td>
+                                                <td> 41.12%</td>
+                                                <td>455<small class="text-muted">(74%)</small></td>
+                                            </tr>
+                                            <!--end tr-->
+                                            <tr>
+                                                <td>#2939</td>
+                                                <td>David Anderson</td>
+                                                <td> 36.82%</td>
+                                                <td>361<small class="text-muted">(61%)</small></td>
+                                            </tr>
+                                            <!--end tr-->
+                                            <tr>
+                                                <td>#3209</td>
+                                                <td>Olivia White</td>
                                                 <td> 52.80%</td>
                                                 <td>566<small class="text-muted">(92%)</small></td>
                                             </tr>
@@ -952,66 +1047,7 @@
                 </div>
                 <!--end row-->
                 <div class="row">
-                    <div class="col-md-12 col-lg-12 col-xl-4">
-                        <div class="row">
-                            <div class="col-md-12 col-lg-6 col-xl-12">
-                                <div class="card">
-                                    <div class="card-body border-dashed-bottom pb-3">
-                                        <div class="row d-flex justify-content-between">
-                                            <div class="col-auto">
-                                                <div class="d-flex justify-content-center align-items-center thumb-xl border border-secondary rounded-circle">
-                                                    <i class="icofont-money-bag h1 align-self-center mb-0 text-secondary"></i>
-                                                </div> 
-                                                <h5 class="mt-2 mb-0 fs-14">Total Revenue</h5>
-                                            </div><!--end col-->
-                                            <div class="col align-self-center">
-                                                <div id="line-1" class="apex-charts float-end"></div> 
-                                            </div><!--end col-->
-                                        </div><!--end row-->
-                                    </div><!--end card-body-->
-                                    <div class="card-body"> 
-                                        <div class="row d-flex justify-content-center ">
-                                            <div class="col-12 col-md-6">
-                                                <h2 class="fs-22 mt-0 mb-1 fw-bold">$8365.00</h2>
-                                                <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>8.5%</span> New Sessions Today</p>                                           
-                                            </div><!--end col-->
-                                            <div class="col-12 col-md-6 align-self-center text-start text-md-end">
-                                                <button type="button" class="btn btn-primary btn-sm px-2 mt-2 mt-md-0 ">View Report</button>  
-                                            </div><!--end col-->
-                                        </div><!--end row-->  
-                                    </div><!--end card-body--> 
-                                </div><!--end card-->
-                            </div><!--end col-->
-                            <div class="col-md-12 col-lg-6 col-xl-12">
-                                <div class="card">
-                                    <div class="card-body border-dashed-bottom pb-3">
-                                        <div class="row d-flex justify-content-between">
-                                            <div class="col-auto">
-                                                <div class="d-flex justify-content-center align-items-center thumb-xl border border-secondary rounded-circle">
-                                                    <i class="icofont-opencart h1 align-self-center mb-0 text-secondary"></i>
-                                                </div> 
-                                                <h5 class="mt-2 mb-0 fs-14">New Order</h5>
-                                            </div><!--end col-->
-                                            <div class="col align-self-center ">
-                                                <div id="line-2" class="apex-charts float-end"></div> 
-                                            </div><!--end col-->
-                                        </div><!--end row-->
-                                    </div><!--end card-body-->
-                                    <div class="card-body"> 
-                                        <div class="row d-flex justify-content-center ">
-                                            <div class="col-12 col-md-6">
-                                                <h2 class="fs-22 mt-0 mb-1 fw-bold">722</h2>
-                                                <p class="mb-0 text-truncate text-muted"><span class="text-success"><i class="mdi mdi-trending-up"></i>8.5%</span> New Sessions Today</p>                                           
-                                            </div><!--end col-->
-                                            <div class="col-12 col-md-6 align-self-center text-start text-md-end">
-                                                <button type="button" class="btn btn-outline-secondary btn-sm px-2 mt-2 mt-md-0 ">View  Report</button>  
-                                            </div><!--end col-->
-                                        </div><!--end row-->  
-                                    </div><!--end card-body--> 
-                                </div><!--end card-->
-                            </div><!--end col-->
-                        </div> <!--end row--> 
-                    </div> <!--end col--> 
+                     <!--end col--> 
                     <div class="col-md-12 col-lg-12 col-xl-8">
                         <div class="card">
                             <div class="card-header">
@@ -1494,6 +1530,13 @@
     <script src="assets/libs/jsvectormap/maps/world.js"></script>
     <script src="assets/js/pages/index.init.js"></script>
     <script src="assets/js/app.js"></script>
+
+    <script src="assets/libs/mobius1-selectr/selectr.min.js"></script>
+    <script src="assets/libs/huebee/huebee.pkgd.min.js"></script>
+    <script src="assets/libs/vanillajs-datepicker/js/datepicker-full.min.js"></script>
+    <script src="assets/js/moment.js"></script>
+    <script src="assets/libs/imask/imask.min.js"></script>
+    <script src="assets/js/pages/forms-advanced.js"></script>
 </body>
 <!--end body-->
 

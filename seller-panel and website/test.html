@@ -3,174 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notification Dropdown</title>
-  <style>
-    /* Basic dropdown styles */
-    .dropdown-noti {
-      position: relative;
-      display: inline-block;
-    }
-
-    .dropdown-toggle {
-      padding: 10px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      border-radius: 5px;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      background-color: white;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 10px;
-      width: 300px;
-      z-index: 1;
-      border-radius: 5px;
-    }
-
-    .dropdown-header h3 {
-      margin: 0;
-      padding: 10px;
-      background-color: #f1f1f1;
-      font-size: 18px;
-      text-align: center;
-      border-radius: 5px 5px 0 0;
-    }
-
-    .tabs {
-      display: flex;
-      border-bottom: 1px solid #ccc;
-    }
-
-    .tab-link {
-      flex: 1;
-      padding: 10px;
-      cursor: pointer;
-      text-align: center;
-      border: none;
-      background-color: #eee;
-      font-size: 16px;
-      transition: background-color 0.3s;
-    }
-
-    .tab-link:hover {
-      background-color: #ddd;
-    }
-
-    .tab-link.active {
-      background-color: #007bff;
-      color: white;
-    }
-
-    .tab-content {
-      display: none;
-      padding: 10px;
-    }
-
-    .notification {
-      display: flex;
-      padding: 10px 0;
-      border-bottom: 1px solid #f1f1f1;
-    }
-
-    .notification-img {
-      width: 50px;
-      height: 50px;
-      margin-right: 10px;
-      border-radius: 50%;
-    }
-
-    .notification-text p {
-      margin: 0;
-      font-size: 14px;
-    }
-  </style>
+  <title>Document</title>
 </head>
+<style>
+  .text-left{
+    text-align:left;
+  }
+.main-table{
+  width: 100%;
+  tbody{
+    tr{
+      display: flex;
+      gap: 5px;
+      .heading{
+        width: 20%;
+        text-align: left;
+      }
+      .colon{
+        display: flex;
+        align-items: center;
+      }
+      td{
+        text-align: left;
+        padding: 10px;
+        width: 50%;
+        border-bottom: 1px solid black;
+      }
+    }
+  }
+}
+</style>
 <body>
-
-  <div class="dropdown-noti">
-    <button class="dropdown-toggle" onclick="toggleDropdown()">Click Me</button>
-    <div id="dropdownMenu" class="dropdown-menu">
-      <!-- Dropdown Header -->
-      <div class="dropdown-header">
-        <h3>Notifications</h3>
-      </div>
-
-      <!-- Tabs -->
-      <div class="tabs">
-        <button class="tab-link active" onclick="openTab(event, 'new')">New</button>
-        <button class="tab-link" onclick="openTab(event, 'seen')">Seen</button>
-      </div>
-
-      <!-- New Notifications -->
-      <div id="new" class="tab-content">
-        <div class="notification">
-          <img src="image1.jpg" alt="Notification Image" class="notification-img">
-          <div class="notification-text">
-            <p>You have a new message from John.</p>
-          </div>
-        </div>
-        <div class="notification">
-          <img src="image2.jpg" alt="Notification Image" class="notification-img">
-          <div class="notification-text">
-            <p>Meeting scheduled with the marketing team tomorrow.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Seen Notifications -->
-      <div id="seen" class="tab-content">
-        <div class="notification">
-          <img src="image3.jpg" alt="Notification Image" class="notification-img">
-          <div class="notification-text">
-            <p>Project update received from the development team.</p>
-          </div>
-        </div>
-        <div class="notification">
-          <img src="image4.jpg" alt="Notification Image" class="notification-img">
-          <div class="notification-text">
-            <p>New design mockups have been seen and approved.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function toggleDropdown() {
-      const dropdownMenu = document.getElementById("dropdownMenu");
-      if (dropdownMenu.style.display === "block") {
-        dropdownMenu.style.display = "none";
-      } else {
-        dropdownMenu.style.display = "block";
-      }
-    }
-
-    function openTab(evt, tabName) {
-      // Hide all tab contents
-      var tabContent = document.getElementsByClassName("tab-content");
-      for (var i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
-      }
-
-      // Remove active state from all tab links
-      var tabLinks = document.getElementsByClassName("tab-link");
-      for (var i = 0; i < tabLinks.length; i++) {
-        tabLinks[i].classList.remove("active");
-      }
-
-      // Show the clicked tab's content and set the clicked tab link as active
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.classList.add("active");
-    }
-
-    // Set "New" tab content visible on page load
-    document.getElementById("new").style.display = "block";
-  </script>
-
+  <table class="main-table">
+    <tbody>
+      <tr>
+        <th class="heading">Do Number </th>
+        <th class="colon">:</th>
+        <td>76/DO/07/2024</td>
+      </tr>
+      <tr>
+        <th class="heading"></th>
+        <th class="colon">:</th>
+        <td>
+          <img src="https://img.freepik.com/free-psd/barcode-illustration-isolated_23-2150584086.jpg" style="width: 100px;height: 50px;" alt="">
+        </td>
+      </tr>
+      <tr>
+        <th class="heading">Date</th>
+        <th class="colon">:</th>
+        <td>16 October 203</td>
+      </tr>
+      <tr>
+        <th class="heading">Submitted to</th>
+        <th class="colon">:</th>
+        <td>PT Naunsta Semesta</td>
+      </tr>
+      <tr>
+        <th class="heading">Purchase Order</th>
+        <th class="colon">:</th>
+        <td>67356</td>
+      </tr>
+      <tr>
+        <th class="heading">The Folowing</th>
+        <th class="colon">:</th>
+        <td>jo bhi hy w idher a jaega</td>
+      </tr> 
+    </tbody>
+  </table>
 </body>
 </html>
