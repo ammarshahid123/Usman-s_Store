@@ -595,105 +595,115 @@
                                             Against Existing Brand. This
                                             will be your brand identity</small>
                                     </p>
-                                    <select class="form-select" id="inputGroupSelect04"
-                                        aria-label="Example select with button addon">
-                                        <option selected="">Choose...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                                        <option value="4">Four</option>
-                                        <option value="5">Five</option>
-                                        <option value="6">Six</option>
-                                    </select>
+                                    <input type="text" class="form-control" placeholder="Enter Brand Name" id="username" required="">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputPassword1" class="form-label">Brand Category</label>
                                     <select class="form-select" id="inputGroupSelect04"
                                         aria-label="Example select with button addon">
-                                        <option selected="">Choose...</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                                        <option selected="">Choose Brand Ctegory...</option>
+                                        <option value="1">Mobile & Tablets</option>
+                                        <option value="2">Cmputers & Laptops</option>
+                                        <option value="3">Cameras</option>
+                                        <option value="3">Fashion</option>
+                                        <option value="3">Home & Beauty</option>
                                     </select>
                                 </div>
-                                <div class="more-checkbox" id="contentShow">
-                                    <div class="mb-3" id="content3" style="display: none">
+                                <label for="exampleInputPassword1" class="form-label">Relationship with the Brand</label>
+                                <p>
+                                    <small id="emailHelp" class="form-text text-muted">
+                                        Select the correct brand relation, this will help us to verify your document and assign the right Tag</small>
+                                </p>
+                                <div class="form-check mb-3">
+                                    
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" name="inlineRadioOptions" type="radio" value=""
+                                            id="flexCheckDefaultdemo" onclick="toggleContentShow('contentShow')" />
+                                        <label class="form-check-label" for="flexCheckDefaultdemo">Brand Owner</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio2" value="option2" onclick="toggleContentShow('contentShow')" />
+                                        <label class="form-check-label" for="inlineRadio2">Exclusive Distributor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio3" value="option3" onclick="toggleContentShow('contentShow')" />
+                                        <label class="form-check-label" for="inlineRadio3">Non-Exclusive Distributor</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                            id="inlineRadio4" value="option4" onclick="toggleContentShow('contentShow')" />
+                                        <label class="form-check-label" for="inlineRadio4">Reseller</label>
+                                    </div>
+                                </div>
+                                <div class="more-checkbox" id="contentShow" style="display: none;">
+                                    <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Trademark Number</label>
                                         <p>
-                                            <small id="emailHelp" class="form-text text-muted">Enter the Trademark
-                                                Number of your Brand. This will
+                                            <small id="emailHelp" class="form-text text-muted">Enter the Trademark Number of your Brand. This will
                                                 help us to verify your Brand, Example: 12345678</small>
                                         </p>
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp" />
-                                    </div>
-
-                                    <div class="col d-flex mb-3 radioOptions">
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio1" value="option1" onclick="showContent('content3')" />
-                                            <label class="form-check-label" for="inlineRadio1">Brand Owner</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio2" value="option2" />
-                                            <label class="form-check-label" for="inlineRadio2">Exclusive
-                                                Distributor</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio3" value="option3" />
-                                            <label class="form-check-label" for="inlineRadio3">Non-Exclusive
-                                                Distributor</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="inlineRadio4" value="option4" />
-                                            <label class="form-check-label" for="inlineRadio4">Reseller</label>
-                                        </div>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
                                     </div>
                                 </div>
                                 <label for="exampleInputEmail1" class="form-label my-3">Authorization Validity
-                                </label>
+                                </label>    
                                 <div class="row mb-4">
-                                    <div class="col-2 date-time">
+                                    <div class="col-2 date-time" >
                                         <label for="exampleInputEmail1" class="form-label"><small
                                                 class="form-text text-muted">Start Date</small></label>
                                         <input class="form-control" type="date" value="2011-08-19"
                                             id="example-date-input" />
                                     </div>
-                                    <div class="col-1 date-time">
-                                        <label for="exampleInputEmail1" class="form-label"><small
-                                                class="form-text text-muted">Have End Date</small></label>
+                                    <div class="date-time" style="width: 106px;">
+                                        <label for="toggleEndDateCheckbox" class="form-label">
+                                            <small class="form-text text-muted">Have End Date</small>
+                                        </label>
                                         <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault"
-                                                style="width: 4rem; height: 2rem" />
+                                            <input class="form-check-input" type="checkbox" id="toggleEndDateCheckbox" style="width: 4rem; height: 2rem" onclick="toggleEndDate()" />
                                         </div>
                                     </div>
-                                    <div class="col-2 date-time">
-                                        <label for="exampleInputEmail1" class="form-label"><small
-                                                class="form-text text-muted">End Date</small></label>
-                                        <input class="form-control" type="date" value="2011-08-19"
-                                            id="example-date-input" />
+                                    
+                                    <div class="col-2 date-time" id="endDateContainer" style="display: none;">
+                                        <label for="endDateInput" class="form-label">
+                                            <small class="form-text text-muted">End Date</small>
+                                        </label>
+                                        <input class="form-control" type="date" value="2011-08-19" id="endDateInput" />
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <div class="card">
-                                            <label for="exampleInputEmail1" class="form-label text-black">Brand Authentication</label>
-                                            <p><small class="form-text text-muted">Authentication Documents</small></p>
-                                            <div class="input-group mb-3">
-                                                <input type="file" class="form-control" id="inputGroupFile02">
-                                                <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                                            <div class="col-5">
+                                                <label for="exampleInputEmail1" class="form-label text-black">Brand Authentication</label>
+                                                <p><small class="form-text text-muted">Authentication Documents</small></p>
+                                                <div class="input-group mb-3">
+                                                    <input type="file" class="form-control" id="inputGroupFile02">
+                                                    <label class="input-group-text" for="inputGroupFile02">Upload</label>
+                                                </div>
                                             </div>
-                                            <div class="mb-3">
-                                                <label for="exampleInputEmail1" class="form-label">Social Media Links</label>
-                                                <p><small id="emailHelp" class="form-text text-muted">Please provide the URL to your brand official website, social media profile and store link on other eCommerce platforms.</small></p>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            <div class="col-5">
+                                                <div class="social-media-links">
+                                                    <label for="socialMediaLinks" class="form-label">
+                                                        <strong>Social Media Links</strong> <i class="fa fa-info-circle"></i>
+                                                    </label>
+                                                    <p class="text-muted">
+                                                        Please provide the URL to your brand official website, social media profile, and store link on other eCommerce platforms.
+                                                    </p>
+                                                    <div id="linkContainer">
+                                                        <div class="input-group mb-3">
+                                                            <input type="url" class="form-control" placeholder="Enter Social Media Link" />
+                                                            <button class="btn btn-outline-secondary" type="button" onclick="addLinkField()">+</button>
+                                                            <button class="btn btn-outline-secondary" type="button" onclick="removeLinkField(this)">-</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <button class="btn btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -789,7 +799,53 @@
 
     <!-- Javascript  -->
     <!-- vendor js -->
+     <script>
+function toggleEndDate() {
+    const endDateContainer = document.getElementById('endDateContainer');
+    const checkbox = document.getElementById('toggleEndDateCheckbox');
 
+    if (checkbox.checked) {
+        endDateContainer.style.display = 'block';
+    } else {
+        endDateContainer.style.display = 'none';
+    }
+}
+     </script>
+<script>
+function toggleContentShow(id) {
+    const content = document.getElementById(id);
+    const brandOwnerRadio = document.getElementById('flexCheckDefaultdemo');
+
+    if (brandOwnerRadio.checked) {
+        content.style.display = 'block';
+    } else {
+        content.style.display = 'none';
+    }
+}
+</script>
+<script>
+    // Function to add new link input field
+    function addLinkField() {
+        const linkContainer = document.getElementById('linkContainer');
+        const newField = document.createElement('div');
+        newField.classList.add('input-group', 'mb-3');
+
+        newField.innerHTML = `
+            <input type="url" class="form-control" placeholder="Enter Social Media Link" />
+            <button class="btn btn-outline-secondary" type="button" onclick="addLinkField()">+</button>
+            <button class="btn btn-outline-secondary" type="button" onclick="removeLinkField(this)">-</button>
+        `;
+        linkContainer.appendChild(newField);
+    }
+
+    // Function to remove a link input field
+    function removeLinkField(button) {
+        const linkContainer = document.getElementById('linkContainer');
+        if (linkContainer.children.length > 1) {
+            button.parentElement.remove();
+        }
+    }
+</script>
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/simple-datatables/umd/simple-datatables.js"></script>

@@ -600,15 +600,9 @@
                             </div>
                             <div class="row">
                                 <div class="col-3">
-                                    <div class="mb-3 d-flex align-items-center">
+                                    <div class="mb-3 d-flex align-items-center gap-2">
                                         <label for="inputGroupSelect04" class="form-label m-0">Name</label>
-                                        <select class="form-select ms-2" id="inputGroupSelect04"
-                                            aria-label="Example select with button addon">
-                                            <option selected="">Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
-                                        </select>
+                                        <input type="text" class="form-control" id="username" required="">
                                     </div>
                                 </div>
                                 <div class="col-2">
@@ -617,9 +611,10 @@
                                         <select class="form-select ms-2" id="inputGroupSelect04"
                                             aria-label="Example select with button addon">
                                             <option selected="">Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option value="1">Brand Owner</option>
+                                            <option value="2">Reseller</option>
+                                            <option value="3">Exclusive Distributor</option>
+                                            <option value="3">Non-Exclusive Distributor</option>
                                         </select>
                                     </div>
                                 </div>
@@ -629,9 +624,10 @@
                                         <select class="form-select ms-2" id="inputGroupSelect04"
                                             aria-label="Example select with button addon">
                                             <option selected="">Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option value="1">Pending</option>
+                                            <option value="2">Approved</option>
+                                            <option value="3">Rejected</option>
+                                            <option value="3">Draft</option>
                                         </select>
                                     </div>
                                 </div>
@@ -648,52 +644,37 @@
                                         <table class="table  mb-0 table-centered">
                                             <thead class="table-light">
                                             <tr>
-                                                <th>Compny</th>
-                                                <th>Bill</th>
-                                                <th>Average Bill</th>
-                                                <th>Paid Bill</th>
+                                                <th>Brand Detail</th>
+                                                <th>Relation</th>
+                                                <th>Category</th>
+                                                <th>Status</th>
+                                                <th>Authorize Date</th>
+                                                <th>Reason</th>
                                                 <th>Action</th>
-                                                <th>Last second</th>
-                                                <th>Last</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                            </tr>
-                                            <tr>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                            </tr>
-                                            <tr>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                            </tr>
-                                            <tr>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                                <td>hello</td>
-                                            </tr>
+                                                <tr>
+                                                    <td class="ps-0">
+                                                        <img src="./assets/images/brand/brand-logo.png" alt="" height="40">
+                                                        <p class="d-inline-block align-middle mb-0">
+                                                            <a href="ecommerce-order-details.html" class="d-inline-block align-middle mb-0 product-name">Apple Watch</a> 
+                                                            <br>
+                                                            <span class="text-muted font-13">Size-05 (Model 2021)</span> 
+                                                        </p>
+                                                    </td>
+                                                    <td>Reseller</td>
+                                                    <td>Shoes</td>
+                                                    <td><span class="badge bg-success-subtle text-success"><i class="fas fa-check me-1"></i> Approved</span></td>
+                                                    <td>23/23/2009</td>
+                                                    <td>
+                                                            Description Goes Here.
+                                                    </td>
+                                                    <td class="text-start">                                                       
+                                                        <a href="#"><i class="las la-pen text-secondary fs-18"></i></a>
+                                                        <a href="#"><i class="las la-trash-alt text-secondary fs-18"></i></a>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -704,10 +685,9 @@
                                         <span>
                                             <select class="form-select ms-2" id="inputGroupSelect04"
                                             aria-label="Example select with button addon">
-                                            <option selected="">Choose...</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option selected="">10</option>
+                                            <option value="1">30</option>
+                                            <option value="2">50</option>
                                         </select>
                                         </span>
                                     </div>

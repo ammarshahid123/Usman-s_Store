@@ -1095,7 +1095,6 @@
                                         </div>
                                     </div>
                                     <div class="tab-pane p-1" id="active" role="tabpanel">
-                                        
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="card">
@@ -2235,16 +2234,16 @@
                                                      <!-- Nav tabs -->
                                                 <ul style="width:200px;" class="nav nav-pills nav-justified" role="tablist">
                                                     <li class="nav-item waves-effect waves-light" role="presentation">
-                                                        <a class="nav-link" data-bs-toggle="tab" href="#home-1" role="tab" aria-selected="false" tabindex="-1">Voilation</a>
+                                                        <a class="nav-link active" data-bs-toggle="tab" href="#home-1" role="tab" aria-selected="true" tabindex="-1">Voilation</a>
                                                     </li>
                                                     <li class="nav-item waves-effect waves-light" role="presentation">
-                                                        <a class="nav-link active" data-bs-toggle="tab" href="#profile-1" role="tab" aria-selected="true">Rejected</a>
+                                                        <a class="nav-link " data-bs-toggle="tab" href="#profile-1" role="tab" aria-selected="false">Rejected</a>
                                                     </li>
                                                 </ul>
                 
                                                 <!-- Tab panes -->
                                                 <div class="tab-content">
-                                                    <div class="tab-pane p-2" id="home-1" role="tabpanel">
+                                                    <div class="tab-pane p-1 active show" id="home-1" role="tabpanel">
                                                         <div class="row">
                                                             <div class="col-12">
                                                                 <div class="card">
@@ -2263,7 +2262,7 @@
                                                                                     <th class="ps-0">Product Name</th>
                                                                                     <th>Category</th>
                                                                                     <th>Status</th>
-                                                                                    <th class="text-center">Reason</th>
+                                                                                    <th class="text-center text-danger">Reason</th>
                                                                                     <th class="text-end">Action</th>
                                                                                   </tr>
                                                                                 </thead>
@@ -2284,7 +2283,7 @@
                                                                                         </td>
                                                                                         <td>Sports</td>
                                                                                         <td><span class="badge bg-danger-subtle text-danger"><i class="fas fa-check me-1"></i> Voilated</span></td>
-                                                                                        <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, corrupti et earum est provident atque quibusdam molestiae exercitationem dicta dignissimos omnis iusto, totam, excepturi cumque maxime facere ullam impedit nesciunt?</td>
+                                                                                        <td class="text-danger">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, corrupti et earum est provident atque quibusdam molestiae exercitationem dicta dignissimos omnis iusto, totam, excepturi cumque maxime facere ullam impedit nesciunt?</td>
                                                                                         <td class="text-end">                                                       
                                                                                             <a href="#"><i class="las la-pen text-secondary fs-18"></i></a>
                                                                                             <a href="#"><i class="las la-trash-alt text-secondary fs-18"></i></a>
@@ -2299,7 +2298,7 @@
                                                             </div> <!-- end col -->
                                                         </div>
                                                     </div>
-                                                    <div class="tab-pane p-1 active show" id="profile-1" role="tabpanel">
+                                                    <div class="tab-pane p-1 " id="profile-1" role="tabpanel">
                                                         <div class="row">
                                                             <div class="col-12">
                                                                 <div class="card">
@@ -2356,14 +2355,66 @@
                                                     </div>
                                                     
                                                 </div>    
-                                                </div><!--end card-body--> 
+                        </div><!--end card-body--> 
                                             </div><!--end card--> 
                                         </div>
                                     </div>
-                                    <div class="tab-pane p-3" id="deleted" role="tabpanel">
-                                        <p class="text-muted mb-0">
-                                            7
-                                        </p>
+                                    <div class="tab-pane p-1" id="deleted" role="tabpanel">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                  <!--end card-header-->
+                                                    <div class="card-body pt-0">
+                                                        
+                                                        <div class="table-responsive">
+                                                            <table class="table mb-0 checkbox-all" id="datatable_1">
+                                                                <thead class="table-light">
+                                                                  <tr>
+                                                                    <th style="width: 16px;">
+                                                                        <div class="form-check mb-0 ms-n1">
+                                                                            <input type="checkbox" class="form-check-input" name="select-all" id="select-all">                                                    
+                                                                        </div>
+                                                                    </th>
+                                                                    <th class="ps-0">Product Name</th>
+                                                                    <th>Category</th>
+                                                                    <th>Pics</th>
+                                                                    <th>Price</th>
+                                                                    <th>Status</th>
+                                                                    <th class="text-end">Action</th>
+                                                                  </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                 
+                                                                    <tr>
+                                                                        <td style="width: 16px;">
+                                                                            <div class="form-check">
+                                                                                <input type="checkbox" class="form-check-input" name="check"  id="customCheck13">
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="ps-0">
+                                                                            <img src="assets/images/products/03.png" alt="" height="40">
+                                                                            <p class="d-inline-block align-middle mb-0">
+                                                                                <a href="ecommerce-order-details.html" class="d-inline-block align-middle mb-0 product-name">New Morden Chair</a> 
+                                                                                <br>
+                                                                                <span class="text-muted font-13">size-05 (Model 2021)</span> 
+                                                                            </p>
+                                                                        </td>
+                                                                        <td>Interior</td>
+                                                                        <td>6</td>
+                                                                        <td>$20</td>
+                                                                        <td><span class="badge bg-success-subtle text-success"><i class="fas fa-check me-1"></i> Published</span></td>
+                                                                       
+                                                                        <td class="text-end">                                                       
+                                                                          <button class="btn btn-warning">Restore</button>
+                                                                        </td>
+                                                                    </tr>                                                                                   
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> <!-- end col -->
+                                        </div>
                                     </div>
                                 </div>              
                             </div><!--end card-body--> 
