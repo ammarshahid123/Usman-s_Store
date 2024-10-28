@@ -16,10 +16,7 @@
     }
 
     /* balanece-card */
-    .balance-card {
-      background-color: black;
-      color: white;
-    }
+   
 
     /* Modal Overlay */
     .modal-overlay-address {
@@ -1318,50 +1315,6 @@
       },
     });
   </script>
-  <!-- lode More -->
-  <script>
-    const productCards = document.querySelectorAll('.Product-card');
-    const loadMoreBtn = document.getElementById('loadMoreBtn');
-    const loader = document.querySelector('.loader');
-    let visibleCards = 25; // Initially visible cards
-
-    // Function to show the next set of cards
-    function loadMoreCards() {
-      loader.style.display = 'block'; // Show loader
-      setTimeout(() => {
-        loader.style.display = 'none'; // Hide loader after 2 seconds
-        for (let i = visibleCards; i < visibleCards + 25 && i < productCards.length; i++) {
-          productCards[i].style.display = 'inline-block'; // Show next 25 cards
-        }
-        visibleCards += 25; // Increase the count of visible cards
-        // Hide the button if all cards are displayed
-        if (visibleCards >= productCards.length) {
-          loadMoreBtn.style.display = 'none';
-        }
-      }, 2000); // Simulate loading time
-    }
-
-    // Show the initial 25 cards
-    for (let i = 0; i < visibleCards; i++) {
-      productCards[i].style.display = 'inline-block';
-    }
-
-    // Event listener for Load More button
-    loadMoreBtn.addEventListener('click', loadMoreCards);
-  </script>
-  <!-- model -->
-  <script>
-    // Function to close the modal
-    function closeModal() {
-      document.getElementById("page-modal").style.display = "none";
-    }
-
-    // Auto-open modal when page loads
-    window.onload = function () {
-      document.getElementById("page-modal").style.display = "block"; // Show modal when page loads
-    };
-
-  </script>
   <!-- profile-dropdown -->
   <script>
     function toggleDropdown() {
@@ -1384,7 +1337,6 @@
 
   </script>
   <!-- tabs -->
-
   <script>
     function openTab(event, tabId) {
       // Remove active class from all tabs

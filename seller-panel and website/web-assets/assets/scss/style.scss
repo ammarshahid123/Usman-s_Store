@@ -1,7 +1,10 @@
 @import "./layouts/layouts";
 @import "./components/components";
 @import "./Pages/pages";
-
+.balance-card {
+  background-color: black;
+  color: white;
+}
 .noti-counter{
   background-color: #878dc3;
   color: white;

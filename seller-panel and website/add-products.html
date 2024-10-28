@@ -12,13 +12,236 @@
 
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="stylesheet" href="assets/libs/quill/quill.snow.css">
 
     <!-- App css -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
 </head>
+<style>
 
+
+
+
+
+
+.product-video-section{
+    .video-section {
+    font-family: Arial, sans-serif;
+}
+
+.video-options {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.video-upload-section, .youtube-section, .media-center-section {
+    background-color: #f5f9ff;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.upload-box {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #ffa500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.upload-box:hover {
+    border-color: #007bff;
+}
+
+.plus-icon {
+    font-size: 24px;
+    color: #ffa500;
+}
+
+.upload-box:hover .plus-icon {
+    color: #007bff;
+}
+
+.upload-instructions {
+    padding: 0;
+    line-height:2;
+}
+
+.youtube-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.media-center-link {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.media-center-link:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    font-size: 14px;
+    color: red;
+    margin-top: 10px;
+}
+}
+.product-images-section{
+    .product-images {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+.image-container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f9fcff;
+    border-radius: 5px;
+}
+
+.image-box img {
+    width: 80px;
+    height: 80px;
+    border-radius: 4px;
+}
+
+.add-image-box {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border: 2px dashed #ffa500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.add-image-box:hover {
+    border-color: #ff4500;
+}
+
+.plus-icon {
+    font-size: 24px;
+    color: #ffa500;
+    transition: color 0.3s;
+}
+
+.add-image-box:hover .plus-icon {
+    color: #ff4500;
+}
+
+.dropdown-menu-img {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    min-width: 100px;
+    margin-top: 5px;
+}
+
+.dropdown-menu-img div {
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown-menu div:hover {
+    background-color: #f1f1f1;
+}
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+}
+}
+.custom-dropdown{
+    .custom-form-control {
+    cursor: pointer;
+    border: 1px solid #ccc; /* Adding a border to mimic form-control */
+    padding: 10px; /* Adding padding for better appearance */
+}
+
+.custom-dropdown-menu {
+    display: none; /* Initially hidden */
+    position: absolute; /* Positioning dropdown below the input */
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure dropdown is above other elements */
+    /* width: calc(100% - 2px); */
+}
+
+.custom-dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.custom-dropdown-item:hover {
+    background-color: #f1f1f1; /* Highlight on hover */
+}
+
+}
+.hidden {
+            display: none;
+        }
+  /* Anchor styling */
+
+
+    /* Hidden div styling */
+    .hover-content {
+      display: none;
+      position: absolute;
+      top: 170px;
+      left: 34%; /* Right side of the link */
+      margin-left: 10px;
+      width: 400px;
+      padding: 10px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+    .hover-link:hover +  .hover-content{
+            display: block;
+    }
+
+    /* Show div on hover */
+
+    .hover-content img {
+      max-width: 100%;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    .hover-text{
+        padding: 10px;
+    background-color: #ececec;
+    border-radius: 10px;
+    }
+</style>
 <body>
     <!-- Top Bar Start -->
     <div class="topbar d-print-none">
@@ -589,7 +812,7 @@
                             <div class="card-header">
                                 <div class="row align-items-center">
                                     <div class="col">
-                                        <h4 class="card-title"></h4>
+                                        <h4 class="card-title">Basic Information</h4>
                                     </div>
                                     <!--end col-->
                                 </div>
@@ -619,51 +842,81 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-3">
-                                            <div class="mb-3">
-                                                <label for="exampleInputPassword1" class="form-label">Categories</label>
-                                                <select class="form-select" id="inputGroupSelect04"
-                                                    aria-label="Example select with button addon">
-                                                    <option selected="">Choose Categories of your product...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-3">
-                                            <div class="mb-3">
-                                                <label for="exampleInputPassword1" class="form-label">Categories</label>
-                                                <select class="form-select" id="inputGroupSelect04"
-                                                    aria-label="Example select with button addon">
-                                                    <option selected="">Choose Categories of your product...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row d-flex">
-                                        <div class="col-6">
-                                                <div class="mb-3">
-                                                    <label class="form-label" for="message">Discription</label>
-                                                    <textarea class="form-control" rows="5" id="message"></textarea>
+                                        <div class="col-12 product-images-section mt-2 mb-2">
+                                            <div class="product-images">
+                                                <label for="product-image-upload" style="font-weight: 600;">Product Images</label>
+                                                <p class="text-secondary">You can upload up to 10 images , But Cannot add the same image again.</p>
+                                                <div class="image-container">
+                                                    <!-- Existing Product Image -->
+                                                    
+                                                    <!-- Add New Image Button -->
+                                                    <div class="add-image-box" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">
+                                                        <span class="plus-icon">+</span>
+                                                        <!-- Dropdown Menu -->
+                                                        <div class="dropdown-menu-img">
+                                                            <div onclick="triggerUpload()">Upload</div>
+                                                            <div><a href="./media-center.html">Media Center</a></div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                        </div>
-                                        <div class="col-6">
-                                            <div class="mb-3">
-                                                <label for="exampleInputPassword1" class="form-label">Varients</label>
-                                                <select class="form-select" id="inputGroupSelect04"
-                                                    aria-label="Example select with button addon">
-                                                    <option selected="">Choose Varients of your product...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
+                                                <!-- Hidden File Input for Upload -->
+                                                <input type="file" id="product-image-upload" style="display: none;" accept="image/*" onchange="previewImage(event)">
+                                                <!-- Error Message -->
+                                                <p id="error-message" class="error-message" style="display: none;">Image limit exceeded. You can only add up to 10 images.</p>
                                             </div>
                                         </div>
+                                        <div class="col-12 product-video-section mt-2">
+                                            <div class="video-section">
+                                                <label for="product-image-upload" style="font-weight: 600;margin-bottom:20px;">Upload Video</label>
+                                                <div class="video-options">
+                                                    <input class="form-check-input" id="uploadVideo" name="videoOption" onclick="showSection('upload')" checked type="radio" name="inlineRadioOptions"/>
+                                                    <label class="form-check-label" for="uploadVideo">Upload Video</label>
+                                                    
+
+                                                    <input class="form-check-input" id="youtubeLink" name="videoOption" onclick="showSection('youtube')" type="radio"/>
+                                                    <label class="form-check-label" for="youtubeLink">Youtube Link</label>
+                                                    
+
+                                                    <input class="form-check-input" id="mediaCenter" name="videoOption" onclick="showSection('media')" type="radio"/>
+                                                    <label class="form-check-label" for="mediaCenter">Media Center</label>
+                                                    
+                                                </div>
+                                            
+                                                <!-- Upload Video Section -->
+                                                <div id="uploadSection" class="video-upload-section">
+                                                    <div class="row d-flex gap-3">
+                                                        <div class="col-1">
+                                                            <label class="upload-box" for="videoInput">
+                                                                <span class="plus-icon">+</span>
+                                                                <input type="file" id="videoInput" accept="video/mp4" onchange="validateVideo()" hidden>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-7">
+                                                            <ul class="upload-instructions">
+                                                                <li class="text-secondary">Min size: 480 x 480 px, max video length: 60 seconds, max file size: 100MB.</li>
+                                                                <li class="text-secondary">Supported Format: mp4</li>
+                                                                <li class="text-secondary">New video might take up to 36 hrs to be approved</li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                    <p id="error-message" class="error-message" style="display: none; color: red;">Please upload a video that meets the requirements.</p>
+                                                </div>
+                                            
+                                                <!-- YouTube Link Section -->
+                                                <div id="youtubeSection" class="youtube-section" style="display: none;">
+                                                    <input type="url" placeholder="Enter YouTube URL" class="youtube-input">
+                                                </div>
+                                            
+                                                <!-- Media Center Section -->
+                                                <div id="mediaSection" class="media-center-section" style="display: none;">
+                                                    <button class="btn btn-primary"><a href="./media-center.html" style="color:white;">Open Media Center</a></button>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
                                     </div>
+                                    
                                     <div class="form-check mb-3">
                                         <input class="form-check-input" type="checkbox" value=""
                                             id="flexCheckDefaultdemo" onclick="toggleContentShow('contentShow')"/>
@@ -741,8 +994,320 @@
                             </div>
                             <!--end card-body-->
                         </div>
-                        <!--end card-->
-                    </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h4 class="card-title">Product Specifications</h4><br>
+                                        <p class="text-secondary">Fill more product specification will increase product searchability.</p>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <div class="card-body pt-0">
+                                <form>
+                                    <div class="row product-specification">
+                                        <div class="col-6">
+                                            <div class="mb-3 custom-dropdown">
+                                                <label class="form-label" for="customBrandDropdown">Brand</label>
+                                                <div class="custom-form-control form-control" id="customBrandDropdown" onclick="toggleCustomDropdown()">
+                                                    Select
+                                                </div>
+                                                <div id="customDropdownMenu" class="custom-dropdown-menu">
+                                                    <div class="custom-dropdown-item text-center text-secondary" onclick="selectBrand('Not found')">Not found</div>
+                                                    <div class="custom-dropdown-item text-center" onclick="selectBrand('Nike')">Nike</div>
+                                                    <div class="custom-dropdown-item text-center" onclick="selectBrand('Puma')">Puma</div>
+                                                    <hr style="margin:0;">
+                                                    <div class="custom-dropdown-item ">Cannot find brand ? <a href="./brand-details.html">Add New Brand</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6 model-field hidden" id="modelField2">
+                                            <div class="mb-3">
+                                                <label for="model" class="form-label">Model</label>
+                                                <input type="text" class="form-control" id="model" placeholder="Enter Here">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="toggle-link" data-target="modelField2">Show More</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h4 class="card-title">Price, Stock Variants</h4><br>
+                                        <p class="text-secondary">You can add variants to a product that has more than one option, such as size or color.</p>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <div class="card-body pt-0">
+                                <div class="card-body pt-0">
+                                    <label for="" class="form-label">Price & Stock</label>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped mb-0">
+                                            <thead class="table-light">
+                                            <tr>
+                                                <th class="text-center">Price</th>
+                                                <th class="text-center">Special Price</th>
+                                                <th class="text-center">Stock</th>
+                                                <th class="text-center">SellerSKU</th>
+                                                <th class="text-center">Free Items</th>
+                                                <th class="text-center">Availability</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <input type="text" placeholder="Rs." class="form-control">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <input type="text" placeholder="Add" class="form-control">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <input type="number" class="form-control">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <input type="text" placeholder="Seller SKU  0/200" class="form-control">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <input type="text" class="form-control">
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-12">
+                                                        <div class="form-check form-switch">
+                                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table><!--end /table-->
+                                    </div><!--end /tableresponsive-->          
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h4 class="card-title">Product Description</h4><br>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <div class="card-body pt-0">
+                                <form>
+                                    <div class="row product-specification">
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">                      
+                                                            <h4 class="card-title text-secondary">Main Description</h4>                      
+                                                        </div><!--end col-->
+                                                    </div>  <!--end row-->                                  
+                                                </div><!--end card-header-->
+                                                <div class="card-body pt-0">
+                                                    <div role="toolbar" class="ql-toolbar ql-snow"><span class="ql-formats"><span class="ql-header ql-picker"><span class="ql-picker-label" tabindex="0" role="button" aria-expanded="false" aria-controls="ql-picker-options-0"><svg viewBox="0 0 18 18"><polygon class="ql-stroke" points="7 11 9 13 11 11 7 11"></polygon><polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon></svg></span><span class="ql-picker-options" aria-hidden="true" tabindex="-1" id="ql-picker-options-0"><span tabindex="0" role="button" class="ql-picker-item" data-value="1"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="2"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="3"></span><span tabindex="0" role="button" class="ql-picker-item"></span></span></span><select class="ql-header" style="display: none;"><option value="1"></option><option value="2"></option><option value="3"></option><option selected="selected"></option></select></span><span class="ql-formats"><button type="button" class="ql-bold" aria-pressed="false" aria-label="bold"><svg viewBox="0 0 18 18"><path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path><path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path></svg></button><button type="button" class="ql-italic" aria-pressed="false" aria-label="italic"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="7" x2="13" y1="4" y2="4"></line><line class="ql-stroke" x1="5" x2="11" y1="14" y2="14"></line><line class="ql-stroke" x1="8" x2="10" y1="14" y2="4"></line></svg></button><button type="button" class="ql-underline" aria-pressed="false" aria-label="underline"><svg viewBox="0 0 18 18"><path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"></path><rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="12" x="3" y="15"></rect></svg></button><button type="button" class="ql-link" aria-pressed="false" aria-label="link"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="7" x2="11" y1="7" y2="11"></line><path class="ql-even ql-stroke" d="M8.9,4.577a3.476,3.476,0,0,1,.36,4.679A3.476,3.476,0,0,1,4.577,8.9C3.185,7.5,2.035,6.4,4.217,4.217S7.5,3.185,8.9,4.577Z"></path><path class="ql-even ql-stroke" d="M13.423,9.1a3.476,3.476,0,0,0-4.679-.36,3.476,3.476,0,0,0,.36,4.679c1.392,1.392,2.5,2.542,4.679.36S14.815,10.5,13.423,9.1Z"></path></svg></button></span><span class="ql-formats"><button type="button" class="ql-list" aria-pressed="false" value="ordered" aria-label="list: ordered"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="7" x2="15" y1="4" y2="4"></line><line class="ql-stroke" x1="7" x2="15" y1="9" y2="9"></line><line class="ql-stroke" x1="7" x2="15" y1="14" y2="14"></line><line class="ql-stroke ql-thin" x1="2.5" x2="4.5" y1="5.5" y2="5.5"></line><path class="ql-fill" d="M3.5,6A0.5,0.5,0,0,1,3,5.5V3.085l-0.276.138A0.5,0.5,0,0,1,2.053,3c-0.124-.247-0.023-0.324.224-0.447l1-.5A0.5,0.5,0,0,1,4,2.5v3A0.5,0.5,0,0,1,3.5,6Z"></path><path class="ql-stroke ql-thin" d="M4.5,10.5h-2c0-.234,1.85-1.076,1.85-2.234A0.959,0.959,0,0,0,2.5,8.156"></path><path class="ql-stroke ql-thin" d="M2.5,14.846a0.959,0.959,0,0,0,1.85-.109A0.7,0.7,0,0,0,3.75,14a0.688,0.688,0,0,0,.6-0.736,0.959,0.959,0,0,0-1.85-.109"></path></svg></button><button type="button" class="ql-list" aria-pressed="false" value="bullet" aria-label="list: bullet"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="6" x2="15" y1="4" y2="4"></line><line class="ql-stroke" x1="6" x2="15" y1="9" y2="9"></line><line class="ql-stroke" x1="6" x2="15" y1="14" y2="14"></line><line class="ql-stroke" x1="3" x2="3" y1="4" y2="4"></line><line class="ql-stroke" x1="3" x2="3" y1="9" y2="9"></line><line class="ql-stroke" x1="3" x2="3" y1="14" y2="14"></line></svg></button></span><span class="ql-formats"><button type="button" class="ql-clean" aria-pressed="false" aria-label="clean"><svg class="" viewBox="0 0 18 18"><line class="ql-stroke" x1="5" x2="13" y1="3" y2="3"></line><line class="ql-stroke" x1="6" x2="9.35" y1="12" y2="3"></line><line class="ql-stroke" x1="11" x2="15" y1="11" y2="15"></line><line class="ql-stroke" x1="15" x2="11" y1="11" y2="15"></line><rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2" y="14"></rect></svg></button></span></div><div id="editor" class="ql-container ql-snow"><div class="ql-editor ql-blank" contenteditable="true"><p><br></p></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" rel="noopener noreferrer" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div> 
+                                                </div><!--end card-body--> 
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">                      
+                                                            <h4 class="card-title text-secondary">Product Description</h4>                      
+                                                        </div><!--end col-->
+                                                    </div>  <!--end row-->                                  
+                                                </div><!--end card-header-->
+                                                <div class="card-body pt-0">
+                                                    <div role="toolbar" class="ql-toolbar ql-snow"><span class="ql-formats"><span class="ql-header ql-picker"><span class="ql-picker-label" tabindex="0" role="button" aria-expanded="false" aria-controls="ql-picker-options-0"><svg viewBox="0 0 18 18"><polygon class="ql-stroke" points="7 11 9 13 11 11 7 11"></polygon><polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon></svg></span><span class="ql-picker-options" aria-hidden="true" tabindex="-1" id="ql-picker-options-0"><span tabindex="0" role="button" class="ql-picker-item" data-value="1"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="2"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="3"></span><span tabindex="0" role="button" class="ql-picker-item"></span></span></span><select class="ql-header" style="display: none;"><option value="1"></option><option value="2"></option><option value="3"></option><option selected="selected"></option></select></span><span class="ql-formats"><button type="button" class="ql-bold" aria-pressed="false" aria-label="bold"><svg viewBox="0 0 18 18"><path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path><path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path></svg></button><button type="button" class="ql-italic" aria-pressed="false" aria-label="italic"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="7" x2="13" y1="4" y2="4"></line><line class="ql-stroke" x1="5" x2="11" y1="14" y2="14"></line><line class="ql-stroke" x1="8" x2="10" y1="14" y2="4"></line></svg></button><button type="button" class="ql-underline" aria-pressed="false" aria-label="underline"><svg viewBox="0 0 18 18"><path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"></path><rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="12" x="3" y="15"></rect></svg></button><button type="button" class="ql-link" aria-pressed="false" aria-label="link"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="7" x2="11" y1="7" y2="11"></line><path class="ql-even ql-stroke" d="M8.9,4.577a3.476,3.476,0,0,1,.36,4.679A3.476,3.476,0,0,1,4.577,8.9C3.185,7.5,2.035,6.4,4.217,4.217S7.5,3.185,8.9,4.577Z"></path><path class="ql-even ql-stroke" d="M13.423,9.1a3.476,3.476,0,0,0-4.679-.36,3.476,3.476,0,0,0,.36,4.679c1.392,1.392,2.5,2.542,4.679.36S14.815,10.5,13.423,9.1Z"></path></svg></button></span><span class="ql-formats"><button type="button" class="ql-list" aria-pressed="false" value="ordered" aria-label="list: ordered"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="7" x2="15" y1="4" y2="4"></line><line class="ql-stroke" x1="7" x2="15" y1="9" y2="9"></line><line class="ql-stroke" x1="7" x2="15" y1="14" y2="14"></line><line class="ql-stroke ql-thin" x1="2.5" x2="4.5" y1="5.5" y2="5.5"></line><path class="ql-fill" d="M3.5,6A0.5,0.5,0,0,1,3,5.5V3.085l-0.276.138A0.5,0.5,0,0,1,2.053,3c-0.124-.247-0.023-0.324.224-0.447l1-.5A0.5,0.5,0,0,1,4,2.5v3A0.5,0.5,0,0,1,3.5,6Z"></path><path class="ql-stroke ql-thin" d="M4.5,10.5h-2c0-.234,1.85-1.076,1.85-2.234A0.959,0.959,0,0,0,2.5,8.156"></path><path class="ql-stroke ql-thin" d="M2.5,14.846a0.959,0.959,0,0,0,1.85-.109A0.7,0.7,0,0,0,3.75,14a0.688,0.688,0,0,0,.6-0.736,0.959,0.959,0,0,0-1.85-.109"></path></svg></button><button type="button" class="ql-list" aria-pressed="false" value="bullet" aria-label="list: bullet"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="6" x2="15" y1="4" y2="4"></line><line class="ql-stroke" x1="6" x2="15" y1="9" y2="9"></line><line class="ql-stroke" x1="6" x2="15" y1="14" y2="14"></line><line class="ql-stroke" x1="3" x2="3" y1="4" y2="4"></line><line class="ql-stroke" x1="3" x2="3" y1="9" y2="9"></line><line class="ql-stroke" x1="3" x2="3" y1="14" y2="14"></line></svg></button></span><span class="ql-formats"><button type="button" class="ql-clean" aria-pressed="false" aria-label="clean"><svg class="" viewBox="0 0 18 18"><line class="ql-stroke" x1="5" x2="13" y1="3" y2="3"></line><line class="ql-stroke" x1="6" x2="9.35" y1="12" y2="3"></line><line class="ql-stroke" x1="11" x2="15" y1="11" y2="15"></line><line class="ql-stroke" x1="15" x2="11" y1="11" y2="15"></line><rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2" y="14"></rect></svg></button></span></div><div id="editor" class="ql-container ql-snow"><div class="ql-editor ql-blank" contenteditable="true"><p><br></p></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" rel="noopener noreferrer" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div> 
+                                                </div><!--end card-body--> 
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <div class="row align-items-center">
+                                                        <div class="col">                      
+                                                            <h4 class="card-title text-secondary">Highlight</h4>                      
+                                                        </div><!--end col-->
+                                                    </div>  <!--end row-->                                  
+                                                </div><!--end card-header-->
+                                                <div class="card-body pt-0">
+                                                    <div role="toolbar" class="ql-toolbar ql-snow"><span class="ql-formats"><span class="ql-header ql-picker"><span class="ql-picker-label" tabindex="0" role="button" aria-expanded="false" aria-controls="ql-picker-options-0"><svg viewBox="0 0 18 18"><polygon class="ql-stroke" points="7 11 9 13 11 11 7 11"></polygon><polygon class="ql-stroke" points="7 7 9 5 11 7 7 7"></polygon></svg></span><span class="ql-picker-options" aria-hidden="true" tabindex="-1" id="ql-picker-options-0"><span tabindex="0" role="button" class="ql-picker-item" data-value="1"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="2"></span><span tabindex="0" role="button" class="ql-picker-item" data-value="3"></span><span tabindex="0" role="button" class="ql-picker-item"></span></span></span><select class="ql-header" style="display: none;"><option value="1"></option><option value="2"></option><option value="3"></option><option selected="selected"></option></select></span><span class="ql-formats"><button type="button" class="ql-bold" aria-pressed="false" aria-label="bold"><svg viewBox="0 0 18 18"><path class="ql-stroke" d="M5,4H9.5A2.5,2.5,0,0,1,12,6.5v0A2.5,2.5,0,0,1,9.5,9H5A0,0,0,0,1,5,9V4A0,0,0,0,1,5,4Z"></path><path class="ql-stroke" d="M5,9h5.5A2.5,2.5,0,0,1,13,11.5v0A2.5,2.5,0,0,1,10.5,14H5a0,0,0,0,1,0,0V9A0,0,0,0,1,5,9Z"></path></svg></button><button type="button" class="ql-italic" aria-pressed="false" aria-label="italic"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="7" x2="13" y1="4" y2="4"></line><line class="ql-stroke" x1="5" x2="11" y1="14" y2="14"></line><line class="ql-stroke" x1="8" x2="10" y1="14" y2="4"></line></svg></button><button type="button" class="ql-underline" aria-pressed="false" aria-label="underline"><svg viewBox="0 0 18 18"><path class="ql-stroke" d="M5,3V9a4.012,4.012,0,0,0,4,4H9a4.012,4.012,0,0,0,4-4V3"></path><rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="12" x="3" y="15"></rect></svg></button><button type="button" class="ql-link" aria-pressed="false" aria-label="link"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="7" x2="11" y1="7" y2="11"></line><path class="ql-even ql-stroke" d="M8.9,4.577a3.476,3.476,0,0,1,.36,4.679A3.476,3.476,0,0,1,4.577,8.9C3.185,7.5,2.035,6.4,4.217,4.217S7.5,3.185,8.9,4.577Z"></path><path class="ql-even ql-stroke" d="M13.423,9.1a3.476,3.476,0,0,0-4.679-.36,3.476,3.476,0,0,0,.36,4.679c1.392,1.392,2.5,2.542,4.679.36S14.815,10.5,13.423,9.1Z"></path></svg></button></span><span class="ql-formats"><button type="button" class="ql-list" aria-pressed="false" value="ordered" aria-label="list: ordered"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="7" x2="15" y1="4" y2="4"></line><line class="ql-stroke" x1="7" x2="15" y1="9" y2="9"></line><line class="ql-stroke" x1="7" x2="15" y1="14" y2="14"></line><line class="ql-stroke ql-thin" x1="2.5" x2="4.5" y1="5.5" y2="5.5"></line><path class="ql-fill" d="M3.5,6A0.5,0.5,0,0,1,3,5.5V3.085l-0.276.138A0.5,0.5,0,0,1,2.053,3c-0.124-.247-0.023-0.324.224-0.447l1-.5A0.5,0.5,0,0,1,4,2.5v3A0.5,0.5,0,0,1,3.5,6Z"></path><path class="ql-stroke ql-thin" d="M4.5,10.5h-2c0-.234,1.85-1.076,1.85-2.234A0.959,0.959,0,0,0,2.5,8.156"></path><path class="ql-stroke ql-thin" d="M2.5,14.846a0.959,0.959,0,0,0,1.85-.109A0.7,0.7,0,0,0,3.75,14a0.688,0.688,0,0,0,.6-0.736,0.959,0.959,0,0,0-1.85-.109"></path></svg></button><button type="button" class="ql-list" aria-pressed="false" value="bullet" aria-label="list: bullet"><svg viewBox="0 0 18 18"><line class="ql-stroke" x1="6" x2="15" y1="4" y2="4"></line><line class="ql-stroke" x1="6" x2="15" y1="9" y2="9"></line><line class="ql-stroke" x1="6" x2="15" y1="14" y2="14"></line><line class="ql-stroke" x1="3" x2="3" y1="4" y2="4"></line><line class="ql-stroke" x1="3" x2="3" y1="9" y2="9"></line><line class="ql-stroke" x1="3" x2="3" y1="14" y2="14"></line></svg></button></span><span class="ql-formats"><button type="button" class="ql-clean" aria-pressed="false" aria-label="clean"><svg class="" viewBox="0 0 18 18"><line class="ql-stroke" x1="5" x2="13" y1="3" y2="3"></line><line class="ql-stroke" x1="6" x2="9.35" y1="12" y2="3"></line><line class="ql-stroke" x1="11" x2="15" y1="11" y2="15"></line><line class="ql-stroke" x1="15" x2="11" y1="11" y2="15"></line><rect class="ql-fill" height="1" rx="0.5" ry="0.5" width="7" x="2" y="14"></rect></svg></button></span></div><div id="editor" class="ql-container ql-snow"><div class="ql-editor ql-blank" contenteditable="true"><p><br></p></div><div class="ql-tooltip ql-hidden"><a class="ql-preview" rel="noopener noreferrer" target="_blank" href="about:blank"></a><input type="text" data-formula="e=mc^2" data-link="https://quilljs.com" data-video="Embed URL"><a class="ql-action"></a><a class="ql-remove"></a></div></div> 
+                                                </div><!--end card-body--> 
+                                            </div>
+                                        </div>
+                                        <div class="col-12 model-field hidden" id="modelField1" >
+                                            <div class="mb-3">
+                                                <label for="model" class="form-label">What's in the box</label>
+                                                <input type="text" class="form-control" id="model">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#"  class="toggle-link" data-target="modelField1">Show More</a>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <h4 class="card-title">Shipping & Warranty</h4><br>
+                                        <p class="text-secondary">Switch to enter different package dimensions & weight for variations</p>
+                                        <div class="form-check form-switch" style="cursor:no-drop;">
+                                            <input class="form-check-input"  disabled type="checkbox" id="flexSwitchCheckDefault">
+                                        </div>
+                                        <br>
+                                        <p>Switch on if you need different dimension & weight for different product variants</p>
+                                    </div>
+                                    <!--end col-->
+                                </div>
+                                <!--end row-->
+                            </div>
+                            <div class="card-body pt-0">
+                                <form>
+                                    <div class="col-4 mb-3">
+                                        <label for="model" class="form-label">Pakage Weight</label>
+                                        <div style="display: flex;align-items: center;">
+                                            <input type="text" style="--bs-border-radius:0.4rem 0px 0px 0.4rem;" class="form-control" placeholder="0.001~300">
+                                            <div class="col-3">
+                                                <select style="--bs-border-radius:0px 0.4rem 0.4rem 0px;" class="form-select" id="exampleFormControlSelect1">
+                                                <option>Kg</option>
+                                                <option>g</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row shipping-warranty">
+                                        <label for="exampleInputEmail1" class="form-label">Package Length(cm) * Width(cm) * Height(cm)</label>
+                                        <div>
+                                            <div class="d-flex gap-1">
+                                                <p class="text-sedoncary">How to measure my package dimensions?</p>
+                                                <a class="hover-link" style="cursor: pointer;">View Example</a>
+                                                <div class="hover-content">
+                                                <p class="hover-text">Please <strong>Iclude the package materials</strong>to be used for shipment while entering the package weight and dimenshions. Note that inaccurate package dimenshions may result additional shipping charges or failed delivery.</p>
+                                                <img src="./assets/images/extra/dimension-check.jpg" alt="Example Image">
+                                                </div>
+                                            </div>
+                                        </div>
+                                            <div class="row align-items-center">
+                                                <div class="col-3">
+                                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0.01~300" />
+                                                
+                                    </div>
+                                                x
+                                                <div class="col-3">
+                                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0.01~300" />
+                                                </div>
+                                                x
+                                                <div class="col-3">
+                                        <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0.01~300" />
+                                                </div>
+                                            </div>                                        
+                                            <div class="col-12 model-field hidden" id="modelField1" >
+                                            <div class="mb-3">
+                                                <label for="model" class="form-label">What's in the box</label>
+                                                <input type="text" class="form-control" id="model">
+                                            </div>
+                                            </div>
+                                    </div>
+                                    <label for="exampleInputEmail1" class="form-label mt-3">Dangerous Goods</label>
+                                    <div class="mb-3 row mt-2">
+                                        <div class="col-1">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked="">
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                  None
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-5">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    Contains battery / flammables / liquid
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class=" col-4 mb-3">
+                                        <label class="form-label" for="exampleFormControlSelect1">Warranty Type</label>
+                                        <select class="form-select" id="exampleFormControlSelect1">
+                                        <option>Select</option>
+                                        <option>International Manufacturer Warranty</option>
+                                        <option>Non-local warranty</option>
+                                        <option>No Warranty</option>
+                                        <option>Local Seller Warranty</option>
+                                        <option>International Warranty</option>
+                                        <option>Local Warranty</option>
+                                        <option>Brand Warranty</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12 model-field hidden" id="modelField3" >
+                                            <div class="col-4 mb-3">
+                                                <label class="form-label" for="exampleFormControlSelect1">Warranty Period</label>
+                                                <select class="form-select" id="exampleFormControlSelect1">
+                                                <option>Select</option>
+                                                <option>1 Month</option>
+                                                <option>2 Month</option>
+                                                <option>3 Month</option>
+                                                <option>4 Month</option>
+                                                <option>5 Month</option>
+                                                <option>6 Month</option>
+                                                <option>7 Month</option>
+                                                <option>8 Month</option>
+                                                <option>9 Month</option>
+                                                <option>10 Month</option>
+                                                <option>11 Month</option>
+                                                <option>1 Year</option>
+                                                <option>2 Year</option>
+                                                <option>3 Year</option>
+                                                <option>4 Year</option>
+                                                <option>5 Year</option>
+                                                <option>6 Year</option>
+                                                <option>7 Year</option>
+                                                <option>8 Year</option>
+                                                <option>9 Year</option>
+                                                <option>Life Time Warranty</option>
+                                                <option>N/A</option>
+                                                <option>International Warranty</option>
+                                                <option>Local Warranty</option>
+                                                <option>Brand Warranty</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-4 mb-3">
+                                                <label for="model" class="form-label">Warranty Policy</label>
+                                                <input type="text" class="form-control" id="model">
+                                            </div>
+                                    </div>
+                                    <a href="#"  class="toggle-link" data-target="modelField3">Show More</a>
+                                    <div class="text-end">
+                                        <button class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                     </div>
                 </div>
                 <!--end row-->
             </div>
@@ -846,10 +1411,149 @@
 
     <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
-
+    <script src="assets/js/pages/form-editor.init.js"></script>
+    <script src="assets/libs/quill/quill.js"></script>
     <script src="assets/libs/fullcalendar/index.global.min.js"></script>
     <script src="assets/js/pages/calendar.init.js"></script>
     <script src="assets/js/app.js"></script>
+    <script>
+        const MAX_IMAGES = 10;
+      
+      function showDropdown() {
+          document.querySelector('.dropdown-menu-img').style.display = 'flex';
+      }
+      
+      function hideDropdown() {
+          document.querySelector('.dropdown-menu-img').style.display = 'none';
+      }
+      
+      function triggerUpload() {
+          const imageCount = document.querySelectorAll('.image-box').length;
+          if (imageCount >= MAX_IMAGES) {
+              showError("Image limit exceeded. You can only add up to 10 images.");
+          } else {
+              document.getElementById('product-image-upload').click();
+          }
+      }
+      
+      function previewImage(event) {
+          const imageCount = document.querySelectorAll('.image-box').length;
+          if (imageCount >= MAX_IMAGES) {
+              showError("Image limit exceeded. You can only add up to 10 images.");
+              return;
+          }
+      
+          const imageContainer = document.createElement('div');
+          imageContainer.classList.add('image-box');
+      
+          const newImage = document.createElement('img');
+          newImage.src = URL.createObjectURL(event.target.files[0]);
+          newImage.alt = "New Product Image";
+      
+          imageContainer.appendChild(newImage);
+          document.querySelector('.image-container').insertBefore(imageContainer, document.querySelector('.add-image-box'));
+      
+          // Hide the error message if it was shown
+          hideError();
+      }
+      
+      function showError(message) {
+          const errorMessage = document.getElementById('error-message');
+          errorMessage.textContent = message;
+          errorMessage.style.display = 'block';
+      }
+      
+      function hideError() {
+          const errorMessage = document.getElementById('error-message');
+          errorMessage.style.display = 'none';
+      }
+      
+      function openMediaCenter() {
+          alert("Media Center is under construction.");
+      }
+      
+    </script>
+    <script>
+                function showSection(option) {
+                 document.getElementById("uploadSection").style.display = "none";
+                 document.getElementById("youtubeSection").style.display = "none";
+                 document.getElementById("mediaSection").style.display = "none";
+                 document.getElementById("error-message").style.display = "none";
+             
+                 if (option === "upload") {
+                     document.getElementById("uploadSection").style.display = "block";
+                 } else if (option === "youtube") {
+                     document.getElementById("youtubeSection").style.display = "block";
+                 } else if (option === "media") {
+                     document.getElementById("mediaSection").style.display = "block";
+                 }
+             }
+             
+             function validateVideo() {
+                 const fileInput = document.getElementById("videoInput");
+                 const file = fileInput.files[0];
+                 const errorMessage = document.getElementById("error-message");
+             
+                 if (file) {
+                     const maxSize = 100 * 1024 * 1024; // 100MB in bytes
+                     const maxDuration = 60; // 60 seconds
+             
+                     if (file.size > maxSize) {
+                         errorMessage.textContent = "File size should not exceed 100MB.";
+                         errorMessage.style.display = "block";
+                         fileInput.value = ""; // Reset the input
+                         return;
+                     }
+             
+                     const video = document.createElement("video");
+                     video.src = URL.createObjectURL(file);
+             
+                     video.onloadedmetadata = function() {
+                         if (video.duration > maxDuration) {
+                             errorMessage.textContent = "Video length should not exceed 60 seconds.";
+                             errorMessage.style.display = "block";
+                             fileInput.value = ""; // Reset the input
+                         } else {
+                             errorMessage.style.display = "none"; // Clear error if validation passes
+                         }
+                     };
+                 }
+             }
+             
+    </script>
+   <!-- product-specification js -->
+    <script>
+                       document.querySelectorAll('.toggle-link').forEach(toggleLink => {
+    toggleLink.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default link behavior
+
+        const targetId = toggleLink.getAttribute('data-target'); // Get the target ID
+        const modelField = document.getElementById(targetId);
+        const isExpanded = !modelField.classList.contains('hidden');
+
+        if (isExpanded) {
+            modelField.classList.add('hidden'); // Hide the model field
+            toggleLink.textContent = 'Show More'; // Change link text to "Show More"
+        } else {
+            modelField.classList.remove('hidden'); // Show the model field
+            toggleLink.textContent = 'Show Less'; // Change link text to "Show Less"
+        }
+    });
+});
+    </script>
+    <script>
+                   function toggleCustomDropdown() {
+    const customDropdownMenu = document.getElementById('customDropdownMenu');
+    customDropdownMenu.style.display = customDropdownMenu.style.display === 'block' ? 'none' : 'block';
+}
+
+function selectBrand(brand) {
+    const customBrandDropdown = document.getElementById('customBrandDropdown');
+    customBrandDropdown.textContent = brand; // Set the selected brand in the main div
+    document.getElementById('customDropdownMenu').style.display = 'none'; // Hide the dropdown after selection
+}
+
+    </script>
 </body>
 <!--end body-->
 

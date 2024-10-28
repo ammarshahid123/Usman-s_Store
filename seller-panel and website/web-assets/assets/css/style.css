@@ -1192,6 +1192,9 @@ footer .terms-section .terms ul li a {
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
+.product-detail-cards .product-detail .product-img-and-info .order-detail .desc-info .btn-change-address a {
+  text-decoration: none;
+}
 .product-detail-cards .product-detail .product-img-and-info .order-detail .desc-info .btn-change-address:hover {
   background-color: #007bff;
   color: white;
@@ -3550,6 +3553,11 @@ footer .terms-section .terms ul li a {
 .chats-container .msg_history {
   height: 516px;
   overflow-y: auto;
+}
+
+.balance-card {
+  background-color: black;
+  color: white;
 }
 
 .noti-counter {

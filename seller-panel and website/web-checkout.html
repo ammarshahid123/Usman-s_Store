@@ -210,8 +210,7 @@ font-family: sans-serif;" name="" id="" class="field-select">
                 </select>
               </div>
               <div class="field">
-                <input style="font-size: 14px;
-font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" />
+                <input style="font-size: 14px;font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" />
               </div>
             </div>
             <div class="field text-area">
@@ -227,7 +226,7 @@ font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" 
           <div class="payment-container"> 
               <label class="check check-info check-radio"> <input type="radio" name="payment" value="cash" onclick="togglePaymentFields('none')"/> Cash on Delivery </label>
               <label class="check check-info check-radio"> <input type="radio" name="payment" value="credit" onclick="togglePaymentFields('credit')"/> Credit Card </label>
-              <label class="check check-info check-radio"> <input type="radio" name="payment" value="stripe" onclick="togglePaymentFields('none')"/> Wallet </label>
+              <label class="check check-info check-radio"> <input type="radio" name="payment" value="stripe" onclick="togglePaymentFields('wallet')"/> Wallet </label>
           </div>
           <!-- Credit card fields (initially hidden) -->
           <div id="credit-card-fields" class="hidden-fields">
@@ -240,6 +239,23 @@ font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" 
               <input type="number" placeholder="CVC" />
             </div>
             <button class="btn btn-info btn-pill">Make Payment</button>
+          </div>
+          <div id="wallet" class="hidden-fields">
+            <div class="row">
+              <div class="col-6">
+                <div class="card balance-card"
+                  style="background-image: url('https://img.freepik.com/premium-vector/green-light-line-dark-grey-geometric-background_33869-1258.jpg');background-repeat: no-repeat;background-size: cover;">
+                  <div class="card-head">Available Balance</div>
+                  <div class="card-body d-flex" style="gap: 10px;">
+                    <span style="font-size: 20px;">Rs</span>
+                    <div class="card-title" style="color: white;font-size: 35px;font-family: emoji;">19,546.89</div>
+                  </div>
+                  <div class="card-foot">
+                    <button class="btn btn-dark">Add Balance</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </form>
       </div>
@@ -255,13 +271,12 @@ font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" 
                 <div class="media-body">
                   <div class="card-subtitle">Ammar Shahid</div>
                   <div class="card-subtitle">03164582746</div>
-                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Quo sapiente architecto nostrum perspiciatis animi libero tenetur mollitia
-                    dignissimos! Nulla deserunt doloremque consequatur quis ducimus labore rerum vitae similique
-                    excepturi dignissimos.</div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo sapiente architecto nostrum perspiciatis animi libero tenetur mollitia dignissimos! Nulla deserunt doloremque consequatur quis ducimus labore rerum vitae similique excepturi dignissimos.</div>
                 </div>
                 <div class="media-foot">
-                  <label class="check check-info"> <input type="checkbox" /></label>
+                  <label class="check check-info">
+                    <input type="checkbox" class="shipping-checkbox" />
+                  </label>
                 </div>
               </div>
               <hr>
@@ -272,13 +287,12 @@ font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" 
                 <div class="media-body">
                   <div class="card-subtitle">Ammar Shahid</div>
                   <div class="card-subtitle">03164582746</div>
-                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Quo sapiente architecto nostrum perspiciatis animi libero tenetur mollitia
-                    dignissimos! Nulla deserunt doloremque consequatur quis ducimus labore rerum vitae similique
-                    excepturi dignissimos.</div>
+                  <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo sapiente architecto nostrum perspiciatis animi libero tenetur mollitia dignissimos! Nulla deserunt doloremque consequatur quis ducimus labore rerum vitae similique excepturi dignissimos.</div>
                 </div>
                 <div class="media-foot">
-                  <label class="check check-info"> <input type="checkbox" /></label>
+                  <label class="check check-info">
+                    <input type="checkbox" class="shipping-checkbox" />
+                  </label>
                 </div>
               </div>
             </div>
@@ -453,15 +467,32 @@ font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" 
   </script>
 <!-- select payments -->
 <script>
-  function togglePaymentFields(paymentType) {
-    var creditCardFields = document.getElementById("credit-card-fields");
+function togglePaymentFields(paymentType) {
+  var creditCardFields = document.getElementById("credit-card-fields");
+  var walletFields = document.getElementById("wallet");
 
-    if (paymentType === 'credit') {
-      creditCardFields.style.display = 'block';
-    } else {
-      creditCardFields.style.display = 'none';
-    }
+  // Show credit card fields if "credit" is selected, hide wallet fields
+  if (paymentType === 'credit') {
+    creditCardFields.style.display = 'block';
+    walletFields.style.display = 'none';
   }
+  // Show wallet fields if "stripe" is selected, hide credit card fields
+  else if (paymentType === 'wallet') {
+    creditCardFields.style.display = 'none';
+    walletFields.style.display = 'block';
+  }
+  // Hide both fields if "cash" is selected
+  else {
+    creditCardFields.style.display = 'none';
+    walletFields.style.display = 'none';
+  }
+}
+
+// Set "Cash on Delivery" as the default selected and hide other fields initially
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector('input[name="payment"][value="cash"]').checked = true;
+  togglePaymentFields('none'); // Hide both fields initially
+});
 </script>
   <!-- nitofication dropdown -->
   <script>
@@ -494,6 +525,23 @@ font-family: sans-serif;" type="text" class="field-text" placeholder="ZIP Code" 
 
     // Set "New" tab content visible on page load
     document.getElementById("new").style.display = "block";
+  </script>
+  <!-- select one address at a time -->
+  <script>
+    // Select all checkboxes with the 'shipping-checkbox' class
+    const checkboxes = document.querySelectorAll('.shipping-checkbox');
+  
+    // Add an event listener to each checkbox
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', function() {
+        if (this.checked) {
+          // Uncheck all other checkboxes
+          checkboxes.forEach(cb => {
+            if (cb !== this) cb.checked = false;
+          });
+        }
+      });
+    });
   </script>
 </body>
 
