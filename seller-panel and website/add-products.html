@@ -9,22 +9,145 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
     <link rel="stylesheet" href="assets/libs/quill/quill.snow.css">
-
     <!-- App css -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
 </head>
 <style>
+/* varients add style */
+.variants{
+    .added-variants{
+        border-radius:10px;
+        background-color:#f4f6f9;
+        padding:10px 20px;
+        .variant{
+            display: flex;
+            height:100px;
+            align-items: center;
+            .variant-img-container {
+            position: relative;
+            width: 150px;
+            height: 83px;
+            margin: 10px 0px 10px 35px;
+            
+                    .variant-img {
+                        width: 50%;
+                        height: 80px; /* Adjust card height as needed */
+                        border-radius: 8px;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        transition: transform 0.3s ease;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                        background-size: cover;
+                        background-position: center;
+                    }
+            
+                    .variant-img:nth-child(1) {
+                        z-index: 3;
+                    }
+            
+                    .variant-img:nth-child(2) {
+                        z-index: 2;
+                        height: 67px;
+                transform: translate(-20px, 6px) rotate(-14deg);
+                    }
+            
+                    .variant-img:nth-child(3) {
+                        height: 67px;
+                        transform: translate(20px, 6px) rotate(14deg);
+                        z-index: 1;
+                    }
+        }
+        }
+    }
+}
 
+     .upload-container {
+        .progress-container {
+      display: none;
+      width: 100%;
+      padding: 0px;
+      background-color: #d4d4d4;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      width: 0;
+      height: 8px;
+      border-radius: 4px;
+      background-color: #20bb59;
+      transition: width 0.4s;
+    }
+    .file-preview {
+        background: transparent;
+        height: 79px;
+        margin-top: -38px;
+        display: none;
+        align-items: center;
+        padding: 10px;
+        border-radius: 8px;
+        position: relative;
+    }
+    .thumbnail {
+      width: 70px;
+      height: 50px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+    .file-info {
+      margin-left: 10px;
+      font-size: 0.9em;
+      color: #555;
+      flex-grow: 1;
+    }
+    .status {
+      display: inline-block;
+      padding: 4px 8px;
+      background-color: #ff9800;
+      color: white;
+      border-radius: 4px;
+      font-size: 0.8em;
+      margin-top: 4px;
+    }
+    .delete-btn {
+      color: #dc3545;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .delete-btn:hover {
+      color: #ff6f6f;
+    }
+    }
+.tag {
+  display: inline-block;
+  background-color: #20bb59;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  margin: 5px;
+  position: relative;
+}
 
+.close-btn {
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  padding:0px 4px;
+  font-weight: bold;
+  color: #20bb59;
+  background-color: white;
+  border-radius: 50%;
+}
 
-
-
+.close-btn:hover {
+  color: #333;
+}
 
 .product-video-section{
     .video-section {
@@ -243,6 +366,165 @@
     }
 </style>
 <body>
+    
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="modal-title m-0" id="exampleModalScrollableTitle">Select Categories For your Product </h6>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div><!--end modal-header-->
+                <div class="modal-body">
+                    <div class="d-flex" style="justify-content: end;">
+                        <div class="col-5">
+                            <label for="" class="form-label">Filter</label>
+                            <input type="text" class="form-control" placeholder="Search..">
+                        </div>
+                    </div>
+                    <div class="accordion accordion-flush mt-4" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h5 class="accordion-header m-0" id="flush-headingOne">
+                                <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                                    Technology
+                                </button>
+                            </h5>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample" style="">
+                                <div class="accordion-body">
+                                   <input type="text" class="form-control" placeholder="Search in Technlogy">
+                                
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="smartphone">
+                                    <label class="form-check-label" for="smartphone">
+                                        Smartphones
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="tablet">
+                                    <label class="form-check-label" for="tablet">
+                                        Tablets
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="waerables">
+                                    <label class="form-check-label" for="waerables">
+                                        Wearables
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="laptop">
+                                    <label class="form-check-label" for="laptop">
+                                        Laptops
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="desktop">
+                                    <label class="form-check-label" for="desktop">
+                                        Desktops
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="all-in-one">
+                                    <label class="form-check-label" for="all-in-one">
+                                        All-in-One PCs
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="security-system">
+                                    <label class="form-check-label" for="security-system">
+                                        Security Systems
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="smart-lights">
+                                    <label class="form-check-label" for="smart-lights">
+                                        Smart Lights
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3 col-12">
+                                    <input class="form-check-input" type="checkbox" value="" id="voice-assistant">
+                                    <label class="form-check-label" for="voice-assistant">
+                                        Voice Assistants
+                                    </label>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h5 class="accordion-header m-0" id="flush-headingTwo">
+                                <button class="accordion-button fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                                    Fashion
+                                </button>
+                            </h5>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample" style="">
+                                <div class="accordion-body">
+                                    <input type="text" class="form-control" placeholder="Search in Fashion">
+                                 
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="shirts">
+                                     <label class="form-check-label" for="shirts">
+                                         Shirts
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="pants">
+                                     <label class="form-check-label" for="pants">
+                                         Pants
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="jackets">
+                                     <label class="form-check-label" for="jackets">
+                                         Jackets
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="dresses">
+                                     <label class="form-check-label" for="dresses">
+                                         Dresses
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="bags">
+                                     <label class="form-check-label" for="bags">
+                                         Bags
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="sun-glasses">
+                                     <label class="form-check-label" for="sun-glasses">
+                                         Sunglasses
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="watches">
+                                     <label class="form-check-label" for="watches">
+                                         Watches
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="rings">
+                                     <label class="form-check-label" for="rings">
+                                         Rings
+                                     </label>
+                                 </div>
+                                 <div class="form-check mt-3 col-12">
+                                     <input class="form-check-input" type="checkbox" value="" id="bracelets">
+                                     <label class="form-check-label" for="bracelets">
+                                        Bracelets
+                                     </label>
+                                 </div>
+                                 </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div><!--end modal-body-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-sm">Save</button>
+                </div><!--end modal-footer-->
+            </div><!--end modal-content-->
+        </div><!--end modal-dialog-->
+    </div><!--end modal-->
     <!-- Top Bar Start -->
     <div class="topbar d-print-none">
         <div class="container-xxl">
@@ -821,7 +1103,7 @@
                             <!--end card-header-->
                             <div class="card-body pt-0">
                                 <form>
-                                    <div class="row d-flex">
+                                    <div class="row align-items-center">
                                         <div class="col-3">
                                             <div class="mb-3">
                                                 <label for="exampleInputEmail1" class="form-label">Product Name</label>
@@ -830,17 +1112,25 @@
                                                 <small id="emailHelp" class="form-text text-muted">Please enter at least 10 characters</small>
                                             </div>
                                         </div>
-                                        <div class="col-3">
-                                            <div class="mb-3">
-                                                <label for="exampleInputPassword1" class="form-label">Categories</label>
-                                                <select class="form-select" id="inputGroupSelect04"
-                                                    aria-label="Example select with button addon">
-                                                    <option selected="">Choose Categories of your product...</option>
-                                                    <option value="1">One</option>
-                                                    <option value="2">Two</option>
-                                                    <option value="3">Three</option>
-                                                </select>
-                                            </div>
+                                        <div class="col-3 d-flex" style="flex-direction: column;margin-top:-20px;">
+                                            <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModalScrollable">
+                                                Choose Category
+                                            </button>
+                                        </div>
+                                        <div class="selected-categories">
+                                            <label for="" class="form-label col-12">Selected Categories</label>
+                                            <div class="tag">
+                                                Technology
+                                                <span class="close-btn" onclick="removeTag(this)">×</span>
+                                              </div>
+                                              <div class="tag">
+                                                Mobiles
+                                                <span class="close-btn" onclick="removeTag(this)">×</span>
+                                              </div>
+                                              <div class="tag">
+                                                Smart Phones
+                                                <span class="close-btn" onclick="removeTag(this)">×</span>
+                                              </div>
                                         </div>
                                         <div class="col-12 product-images-section mt-2 mb-2">
                                             <div class="product-images">
@@ -884,22 +1174,56 @@
                                             
                                                 <!-- Upload Video Section -->
                                                 <div id="uploadSection" class="video-upload-section">
-                                                    <div class="row d-flex gap-3">
+                                                    <div class="upload-container row d-flex gap-3">
                                                         <div class="col-1">
-                                                            <label class="upload-box" for="videoInput">
-                                                                <span class="plus-icon">+</span>
-                                                                <input type="file" id="videoInput" accept="video/mp4" onchange="validateVideo()" hidden>
-                                                            </label>
+                                                          <label for="fileInput" id="uploadButton" class="upload-box">
+                                                            <span class="plus-icon">+</span>
+                                                            <input type="file" id="fileInput" accept="video/mp4" hidden onchange="validateVideo()">
+                                                          </label>
                                                         </div>
                                                         <div class="col-7">
-                                                            <ul class="upload-instructions">
-                                                                <li class="text-secondary">Min size: 480 x 480 px, max video length: 60 seconds, max file size: 100MB.</li>
-                                                                <li class="text-secondary">Supported Format: mp4</li>
-                                                                <li class="text-secondary">New video might take up to 36 hrs to be approved</li>
-                                                            </ul>
+                                                          <ul class="upload-instructions" id="uploadInstructions">
+                                                            <li class="text-secondary">Min size: 480 x 480 px, max video length: 60 seconds, max file size: 100MB.</li>
+                                                            <li class="text-secondary">Supported Format: mp4</li>
+                                                            <li class="text-secondary">New video might take up to 36 hrs to be approved</li>
+                                                          </ul>
                                                         </div>
-                                                    </div>
+                                                      <div class="col-12" style="padding:0px 20px;">
+                                                          <div class="progress-container" id="progressContainer">
+                                                              <div class="text-center text-secondary" style="background-color: #f5f9ff;">File is Uploading ! Just a moment...</div>
+                                                            <div class="progress-bar" id="progressBar"></div>
+                                                          </div>
+                                                      </div>
+                                                      
+                                                        <div id="preview" class="file-preview">
+                                                          <img id="thumbnail" class="thumbnail" alt="Video Thumbnail">
+                                                          <div class="file-info">
+                                                            <div id="fileName">File name</div>
+                                                            <div class="status">Under Review</div>
+                                                          </div>
+                                                          <i class="fas fa-trash delete-btn" id="deleteBtn" title="Delete Video"></i>
+                                                        </div>
+                                                      </div>
                                                     <p id="error-message" class="error-message" style="display: none; color: red;">Please upload a video that meets the requirements.</p>
+                                                    <!-- <div class="upload-container">
+                                                        <input type="file" id="fileInput" accept="video/*" hidden>
+                                                        <label for="fileInput" class="btn btn-primary upload-button" id="uploadButton">
+                                                          <i class="fas fa-upload"></i> Choose Video
+                                                        </label>
+                                                      
+                                                        <div class="progress-container" id="progressContainer">
+                                                          <div class="progress-bar" id="progressBar"></div>
+                                                        </div>
+                                                        
+                                                        <div id="preview" class="file-preview">
+                                                          <img id="thumbnail" class="thumbnail" alt="Video Thumbnail">
+                                                          <div class="file-info">
+                                                            <div id="fileName">File name</div>
+                                                            <div class="status">Under Review</div>
+                                                          </div>
+                                                          <i class="fas fa-trash delete-btn" id="deleteBtn" title="Delete Video"></i>
+                                                        </div>
+                                                      </div> -->
                                                 </div>
                                             
                                                 <!-- YouTube Link Section -->
@@ -914,80 +1238,6 @@
                                             </div>
 
 
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-check mb-3">
-                                        <input class="form-check-input" type="checkbox" value=""
-                                            id="flexCheckDefaultdemo" onclick="toggleContentShow('contentShow')"/>
-                                        <label class="form-check-label" for="flexCheckDefaultdemo">
-                                            Add More Information
-                                        </label>
-                                    </div>
-                                    <div class="more-checkbox" id="contentShow" style="display: none;" >
-                                        <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Password</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" placeholder="Password" />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="exampleInputEmail1" class="form-label">Confirm Password</label>
-                                            <input type="text" class="form-control" id="exampleInputEmail1"
-                                                aria-describedby="emailHelp" placeholder="Confirm Password" />
-                                        </div>
-
-                                        <div class="col d-flex mb-3"  id="radioOptions">
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                    id="inlineRadio1" value="option1"
-                                                    onclick="showContent('content1')" />
-                                                <label class="form-check-label" for="inlineRadio1">First Check</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                    id="inlineRadio2" value="option2"
-                                                    onclick="showContent('content2')" />
-                                                <label class="form-check-label" for="inlineRadio2">Second Check</label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row d-block">
-                                        <!-- Radio Buttons -->
-                                        
-
-                                        <!-- Content for First Check -->
-                                        <div id="content1" class="col" style="display: none">
-                                            <div class="mb-3">
-                                                <label for="exampleInputEmail1" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1"
-                                                    aria-describedby="emailHelp" placeholder="Password" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleInputPassword1" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputPassword1"
-                                                    placeholder="Confirm Password" />
-                                            </div>
-                                        </div>
-
-                                        <!-- Content for Second Check -->
-                                        <div id="content2" class="col" style="display: none">
-                                            <div class="mb-3">
-                                                <label for="exampleInputNewUsername" class="form-label">New
-                                                    Username</label>
-                                                <input type="text" class="form-control" id="exampleInputNewUsername"
-                                                    placeholder="Password" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleInputNewPassword" class="form-label">Password</label>
-                                                <input type="password" class="form-control" id="exampleInputNewPassword"
-                                                    placeholder="Confirm Password" />
-                                            </div>
-                                            <div class="mb-3">
-                                                <label for="exampleInputConfirmPassword" class="form-label">Confirm
-                                                    Password</label>
-                                                <input type="password" class="form-control"
-                                                    id="exampleInputConfirmPassword" placeholder="Confirm Password" />
-                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -1046,7 +1296,59 @@
                                 <!--end row-->
                             </div>
                             <div class="card-body pt-0">
-                                <div class="card-body pt-0">
+                                    <div class="variants">
+                                        <div class="heading-model d-flex justify-content-between">
+                                            <label for="" class="form-label">Variants</label>
+                                            <a style="cursor:pointer;" class="">+ Add Variant</a>
+                                        </div>
+                                        <div class="added-variants">
+                                                <h4 class="text-center text-secondary mt-3 mb-3 no-variation-message">No Variation Added for this Product</h4>
+                                                <div class="variant col-12">
+                                                    <div class="col-2">
+                                                        <div class="variant-img-container">
+                                                            <img class="variant-img" src="./assets/images/products/01.png">
+                                                            <img class="variant-img" src="./assets/images/products/02.png">
+                                                            <img class="variant-img" src="./assets/images/products/03.png">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <div class="d-flex justify-content-between description">
+                                                            <div class="variant-text">
+                                                                <h4 style="font-weight:900;">T-shirt</h4>
+                                                                <h6><strong>Color : </strong>Yellow</h6>
+                                                                <h6 class="card-subtitle"><strong>Size : </strong>L</h6>
+                                                            </div>
+                                                            <div class="variant-del">
+                                                                <i style="cursor:pointer;" class="fas fa-trash delete-btn" id="variant-del"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                                <div class="variant col-12">
+                                                    <div class="col-2">
+                                                        <div class="variant-img-container">
+                                                            <img class="variant-img" src="./assets/images/products/01.png">
+                                                            <img class="variant-img" src="./assets/images/products/02.png">
+                                                            <img class="variant-img" src="./assets/images/products/03.png">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-10">
+                                                        <div class="d-flex justify-content-between description">
+                                                            <div class="variant-text">
+                                                                <h4 style="font-weight:900;">T-shirt</h4>
+                                                                <h6><strong>Color : </strong>Yellow</h6>
+                                                                <h6 class="card-subtitle"><strong>Size : </strong>L</h6>
+                                                            </div>
+                                                            <div class="variant-del">
+                                                                <i style="cursor:pointer;" class="fas fa-trash delete-btn" id="variant-del"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr>
+                                        </div>
+                                    </div>
                                     <label for="" class="form-label">Price & Stock</label>
                                     <div class="table-responsive">
                                         <table class="table table-striped mb-0">
@@ -1098,7 +1400,6 @@
                                             </tbody>
                                         </table><!--end /table-->
                                     </div><!--end /tableresponsive-->          
-                                </div>
                             </div>
                         </div>
                         <div class="card">
@@ -1554,6 +1855,118 @@ function selectBrand(brand) {
 }
 
     </script>
+    <!-- remove selected category -->
+     <script>
+        function removeTag(element) {
+  element.parentElement.style.display = "none";
+}
+
+     </script>
+     
+     <script>
+        const fileInput = document.getElementById('fileInput');
+        const progressContainer = document.getElementById('progressContainer');
+        const progressBar = document.getElementById('progressBar');
+        const preview = document.getElementById('preview');
+        const thumbnail = document.getElementById('thumbnail');
+        const fileName = document.getElementById('fileName');
+        const deleteBtn = document.getElementById('deleteBtn');
+        const uploadButton = document.getElementById('uploadButton');
+        const uploadInstructions = document.getElementById('uploadInstructions');
+      
+        fileInput.addEventListener('change', (event) => {
+          const file = event.target.files[0];
+          
+          if (file) {
+            // Hide the upload button and instructions
+            uploadButton.style.display = 'none';
+            uploadInstructions.style.display = 'none';
+      
+            // Reset and show progress bar
+            preview.style.display = 'none';
+            progressContainer.style.display = 'block';
+            progressBar.style.width = '0%';
+      
+            // Simulate file upload progress
+            let progress = 0;
+            const uploadInterval = setInterval(() => {
+              progress += 5;
+              progressBar.style.width = `${progress}%`;
+      
+              if (progress >= 100) {
+                clearInterval(uploadInterval);
+                progressContainer.style.display = 'none';
+      
+                // Display file information
+                preview.style.display = 'flex';
+                fileName.textContent = file.name;
+      
+                // Generate video thumbnail
+                generateThumbnail(file);
+              }
+            }, 300); // Adjust this value to control the speed of progress simulation
+          }
+        });
+      
+        function generateThumbnail(file) {
+          const video = document.createElement('video');
+          video.src = URL.createObjectURL(file);
+          video.currentTime = 1; // Set the time to capture a thumbnail frame
+      
+          video.addEventListener('loadeddata', () => {
+            // Draw the thumbnail on a canvas
+            const canvas = document.createElement('canvas');
+            canvas.width = 60;
+            canvas.height = 40;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+            
+            // Convert the canvas to an image URL and display it
+            thumbnail.src = canvas.toDataURL();
+          });
+        }
+      
+        deleteBtn.addEventListener('click', () => {
+          // Hide preview, reset thumbnail and file name
+          preview.style.display = 'none';
+          thumbnail.src = '';
+          fileName.textContent = '';
+      
+          // Show the upload button and instructions again
+          uploadButton.style.display = 'flex';
+          uploadInstructions.style.display = 'block';
+      
+          // Clear file input to allow re-uploading
+          fileInput.value = '';
+        });
+      </script>
+      <!-- delete variant -->
+       <script>
+       // JavaScript to handle delete functionality and show/hide message
+    const noVariationMessage = document.querySelector('.no-variation-message');
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+
+    function checkVariants() {
+        const variants = document.querySelectorAll('.variant');
+        if (variants.length === 0) {
+            noVariationMessage.style.display = 'block'; // Show message
+        } else {
+            noVariationMessage.style.display = 'none'; // Hide message
+        }
+    }
+
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const variant = this.closest('.variant');
+            variant.nextElementSibling.remove(); // Remove the <hr> element after the variant
+            variant.remove(); // Remove the variant itself
+            checkVariants(); // Check if variants are remaining
+        });
+    });
+
+    // Initial check to see if the message should be shown
+    checkVariants();
+       </script>
 </body>
 <!--end body-->
 
