@@ -21,12 +21,164 @@
          <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
          <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
          <link href="assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
 
     </head>
 
-    
+    <style>
+        .hidden {
+            display: none;
+        }
+        .input-group {
+    position: relative;
+}
+
+.input-group-text {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border:none;
+    cursor: pointer;
+}
+
+
+    </style>
     <!-- Top Bar Start -->
     <body>
+        <div class="modal fade" id="filters-review" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h6 class="modal-title m-0" id="exampleModalScrollableTitle">Search by Filter</h6>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div><!--end modal-header-->
+                    <div class="modal-body">
+                        <div class="mb-3 mt-3">
+                            <label class="col-md-3 mb-2 control-label">Status</label>
+                            <div class="col-md-9">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="replied" value="option1">
+                                    <label class="form-check-label" for="replied">Replied</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="no-reply" value="option2">
+                                    <label class="form-check-label" for="no-reply">No Reply</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label class="col-md-3 mb-2 control-label">Content</label>
+                            <div class="col-md-9">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="content" value="option1">
+                                    <label class="form-check-label" for="content">With Content</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="image-video" value="option2">
+                                    <label class="form-check-label" for="image-video">Width Image or Video</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 mt-3">
+                            <label class="col-md-3 mb-2 control-label">Overall Rating</label>
+                            <div class="col-md-12">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="1star" value="option1">
+                                    <label class="form-check-label" for="1star">1 star</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="2star" value="option1">
+                                    <label class="form-check-label" for="2star">2 star</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="3star" value="option1">
+                                    <label class="form-check-label" for="3star">3 star</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="4star" value="option1">
+                                    <label class="form-check-label" for="4star">4 star</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="5star" value="option2">
+                                    <label class="form-check-label" for="5star">5 star</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="col-sm-12">
+                                <label for="" class="form-label">Product Quality</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected="">SELECT</option>
+                                    <option value="1">All</option>
+                                    <option value="2">1 Star</option>
+                                    <option value="3">2 Star</option>
+                                    <option value="4">3 Star</option>
+                                    <option value="5">4 Star</option>
+                                    <option value="6">5 Star</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="col-sm-12">
+                                <label for="" class="form-label">Product Quality</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected="">SELECT</option>
+                                    <option value="1">All</option>
+                                    <option value="2">1 Star</option>
+                                    <option value="3">2 Star</option>
+                                    <option value="4">3 Star</option>
+                                    <option value="5">4 Star</option>
+                                    <option value="6">5 Star</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="col-sm-12">
+                                <label for="" class="form-label">Product Quality</label>
+                                <select class="form-select" aria-label="Default select example">
+                                    <option selected="">SELECT</option>
+                                    <option value="1">All</option>
+                                    <option value="2">1 Star</option>
+                                    <option value="3">2 Star</option>
+                                    <option value="4">3 Star</option>
+                                    <option value="5">4 Star</option>
+                                    <option value="6">5 Star</option>
+                                  </select>
+                            </div>
+                        </div>
+                        <div class="col-12 model-field hidden" id="modelField1" >
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <input type="text" style="border-radius: 5px;" class="form-control" name="daterange" placeholder="Start Date - End Date" />
+                                    <span class="input-group-text"><i class="far fa-calendar-alt text-secondary"></i></span>
+                                </div>
+                            </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Product ID</label>
+                            <input type="text" class="form-control" placeholder="Enter Product Id" name="" id="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Order ID</label>
+                            <input type="text" class="form-control" placeholder="Enter Order Id" name="" id="">
+                        </div>
+                        <div class="mb-3">
+                                <label for="model" class="form-label">Buyer Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Buyer Name">
+                            </div>
+                        </div>
+                    <a href="#"  class="toggle-link" data-target="modelField1">Show More</a>
+                    </div><!--end modal-body-->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary btn-sm">Apply</button>
+                    </div><!--end modal-footer-->
+                </div><!--end modal-content-->
+            </div><!--end modal-dialog-->
+        </div>
+        
         <!-- Top Bar Start -->
         <div class="topbar d-print-none">
             <div class="container-xxl">
@@ -364,14 +516,12 @@
                                         <li class="nav-item">
                                             <a class="nav-link" href="./ecommerce-products.html">Manage Products</a>
                                         </li><!--end nav-item-->
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="./add-products.html">Add Products</a>
-                                        </li><!--end nav-item-->
+                                        <!--end nav-item-->
                                         <li class="nav-item">
                                             <a class="nav-link" href="./media-center.html">Media Center</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./ecommerce-refunds.html">Fulfilment by 
+                                            <a class="nav-link" href="./auth-404.html">Fulfilment by 
                                                 Name
                                             </a>
                                         </li>
@@ -398,7 +548,7 @@
                                             <a class="nav-link" href="./ecommerce-order-details.html">Order Details</a>
                                         </li><!--end nav-item-->
                                         <li class="nav-item">
-                                            <a class="nav-link" href="./ecommerce-refunds.html">Refunds</a>
+                                            <a class="nav-link" href="./ecommerce-refunds.html">Reviews</a>
                                         </li><!--end nav-item-->
                                     </ul><!--end nav-->
                                 </div><!--end startbarDashboards-->
@@ -588,159 +738,148 @@
             <!-- Page Content-->
             <div class="page-content">
                 <div class="container-xxl"> 
-                    <div class="row">
-                        <div class="col-lg-8">
-                            
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="row align-items-center">
-                                        <div class="col">                      
-                                            <h4 class="card-title">Refund Request</h4>  
-                                            <p class="mb-0 text-muted mt-1">Orders #234755</p>                    
-                                        </div><!--end col-->
-                                        <div class="col-auto">
-                                            <a href="ecommerce-order-details.html" class="text-secondary"><i class="fa-solid fa-circle-info me-1"></i> Order Detail</a>  
-                                        </div><!--end col-->
-                                    </div>  <!--end row-->                                  
-                                </div><!--end card-header-->
-                                <div class="card-body pt-0">
+                    <h3>Reviews Management</h3>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header"></div>
+                            <div class="card-body pt-0">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab" aria-selected="true">Product's Review Detail</a>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <a class="nav-link" data-bs-toggle="tab" href="#profile" role="tab" aria-selected="false" tabindex="-1">To be Reviewed</a>
+                                    </li>                                                
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div class="tab-pane p-3 active" id="home" role="tabpanel">
+                                        <div class="d-flex gap-2" style="justify-content: end;">
+                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#filters-review"><i class="fas fa-filter"></i> Filters</button>
+                                            <button type="button" class="btn btn-primary">Reset</button>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                <div class="col mb-3">
                                     <div class="table-responsive">
-                                        <table class="table mb-0">
+                                        <table class="table  mb-0 table-centered">
                                             <thead class="table-light">
-                                              <tr>
-                                                <th>Item</th>
-                                                <th class="text-end">Price</th>
-                                                <th class="text-end">Quantity</th>
-                                                <th class="text-end">Total</th>
-                                              </tr>
+                                            <tr>
+                                                <th>Content</th>
+                                                <th>Rating</th>
+                                                <th>Product Quality</th>
+                                                <th>Action</th>
+                                            </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        <img src="assets/images/products/03.png" alt="" height="40">
-                                                        <p class="d-inline-block align-middle mb-0">
-                                                            <span class="d-block align-middle mb-0 product-name text-body">Royal Purse</span>
-                                                            <span class="text-muted font-13">Pure Lether 100%</span> 
-                                                        </p>
-                                                    </td>
-                                                    <td class="text-end">$80</td>
-                                                    <td class="text-end">3</td>                                                    
-                                                    <td class="text-end">$240</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="assets/images/products/04.png" alt="" height="40">
-                                                        <p class="d-inline-block align-middle mb-0">
-                                                            <span class="d-block align-middle mb-0 product-name text-body">Apple Watch</span>
-                                                            <span class="text-muted font-13">Size-05 (Model 2021)</span> 
-                                                        </p>
-                                                    </td>
-                                                    <td class="text-end">$100</td>
-                                                    <td class="text-end">1</td>                                                    
-                                                    <td class="text-end">$100</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="assets/images/products/06.png" alt="" height="40">
-                                                        <p class="d-inline-block align-middle mb-0">
-                                                            <span class="d-block align-middle mb-0 product-name text-body">Cosco Vollyboll</span>
-                                                            <span class="text-muted font-13">size-04 (Model 2021)</span> 
-                                                        </p>
-                                                    </td>
-                                                    <td class="text-end">$20</td>
-                                                    <td class="text-end">4</td>                                                    
-                                                    <td class="text-end">$80</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="assets/images/products/05.png" alt="" height="40">
-                                                        <p class="d-inline-block align-middle mb-0">
-                                                            <span class="d-block align-middle mb-0 product-name text-body">Reebok Shoes</span>
-                                                            <span class="text-muted font-13">size-08 (Model 2021)</span> 
-                                                        </p>
-                                                    </td>
-                                                    <td class="text-end">$50</td>
-                                                    <td class="text-end">10</td>                                                    
-                                                    <td class="text-end">$500</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <img src="assets/images/products/01.png" alt="" height="40">
-                                                        <p class="d-inline-block align-middle mb-0">
-                                                            <span class="d-block align-middle mb-0 product-name text-body">Morden Chair</span>
-                                                            <span class="text-muted font-13">Size-Mediam (Model 2021)</span> 
-                                                        </p>
-                                                    </td>
-                                                    <td class="text-end">$70</td>
-                                                    <td class="text-end">2</td>                                                    
-                                                    <td class="text-end">$140</td>
-                                                </tr>
-                                            </tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>300</td>
+                                                <td>10/11/2090</td>
+                                                <td>10/11/2090</td>
+                                            </tr>
+                                             </tbody>
                                         </table>
                                     </div>
-                                </div><!--card-body-->
-                            </div><!--end card-->
-                        </div> <!-- end col -->
-                        <div class="col-lg-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <div class="row align-items-center">
-                                        <div class="col">                      
-                                            <h4 class="card-title">Order Summary</h4>                      
-                                        </div><!--end col-->
-                                        <div class="col-auto">                      
-                                            <span class="badge rounded text-success bg-success-subtle fs-12 p-1">Payment Completed</span>                  
-                                        </div><!--end col-->
-                                    </div>  <!--end row-->                                  
-                                </div><!--end card-header-->
-                                <div class="card-body pt-0">
-                                    <div>
-                                        <div class="d-flex justify-content-between">
-                                          <p class="text-body fw-semibold">Items subtotal :</p>
-                                          <p class="text-body-emphasis fw-semibold">$1060</p>
-                                        </div>
-                                        <div class="d-flex justify-content-between">
-                                          <p class="text-body fw-semibold">Discount :</p>
-                                          <p class="text-danger fw-semibold">-$80</p>
-                                        </div>
-                                        <div class="d-flex justify-content-between">
-                                          <p class="text-body fw-semibold">Tax :</p>
-                                          <p class="text-body-emphasis fw-semibold">$180.70</p>
-                                        </div>
-                                        <div class="d-flex justify-content-between">
-                                          <p class="text-body fw-semibold">Subtotal :</p>
-                                          <p class="text-body-emphasis fw-semibold">$1160.70</p>
-                                        </div>
-                                        <div class="d-flex justify-content-between">
-                                          <p class="text-body fw-semibold mb-0">Shipping Cost :</p>
-                                          <p class="text-body-emphasis fw-semibold mb-0">$20</p>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                <div class="col-6 d-flex align-items-center">
+                                    <div class="pagination">
+                                        <nav aria-label="...">
+                                            <ul class="pagination mb-0">
+                                                <li class="page-item disabled">
+                                                    <span class="page-link">Previous</span>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item ">
+                                                    <span class="page-link">
+                                                        2
+                                                        <span class="sr-only">(current)</span>
+                                                    </span>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul><!--end pagination-->
+                                        </nav>
+                                    </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <hr class="hr-dashed">
-                                    <div class="d-flex justify-content-between">
-                                        <h4 class="mb-0">Total :</h4>
-                                        <h4 class="mb-0">$1180.70</h4>
-                                      </div>
-                                </div><!--card-body-->
-                            </div><!--end card-->
-                            <div class="card">                                
-                                <div class="card-body">
-                                    <form>
-                                        <div class="form-groupmb-3">
-                                            <label for="amount" class="form-label">Amount</label>
-                                            <input type="text" class="form-control" id="amount" placeholder="Amount">
-                                        </div><!--end form-group-->
-                                        <div class="form-group mb-3">
-                                            <label class="form-label mt-2" for="customer-message">Message</label>
-                                            <textarea class="form-control" rows="3" id="customer-message"  placeholder="writing here.."></textarea>
-                                        </div><!--end form-group-->
-                                        <button type="submit" class="btn btn-primary">Refund</button>
-                                        <button type="button" class="btn btn-danger">Decline</button>
-                                    </form><!--end form-->
-                                </div><!--card-body-->
-                            </div><!--end card-->
-                        </div> <!-- end col -->
-                    </div> <!-- end row -->                                       
+                                    <div class="tab-pane p-2" id="profile" role="tabpanel">
+                                        <div class="col-12 d-flex align-items-center justify-content-between">
+                                            <div class="filters d-flex gap-2">
+                                                <div class="col-4">
+                                                        <input type="text" class="form-control" placeholder="Product ID" />
+                                                </div>
+                                                <div class="col-4">
+                                                        <input type="text" class="form-control" placeholder="Order ID" />
+                                                </div>
+                                                <div class="col-5">
+                                                    <div class="input-group">
+                                                        <input type="text" style="border-radius: 5px;" class="form-control" name="daterange" placeholder="Start Date - End Date" />
+                                                        <span class="input-group-text"><i class="far fa-calendar-alt text-secondary"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <button class="btn btn-primary">Reset</button>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body">
+                                <div class="col mb-3">
+                                    <div class="table-responsive">
+                                        <table class="table  mb-0 table-centered">
+                                            <thead class="table-light">
+                                            <tr>
+                                                <th>Product Quality</th>
+                                                <th>Product Quality Score</th>
+                                                <th>Expiration Date</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>300</td>
+                                                <td>10/11/2090</td>
+                                            </tr>
+                                             </tbody>
+                                        </table>
+                                    </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                <div class="col-6 d-flex align-items-center">
+                                    <div class="pagination">
+                                        <nav aria-label="...">
+                                            <ul class="pagination mb-0">
+                                                <li class="page-item disabled">
+                                                    <span class="page-link">Previous</span>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item active">
+                                                    <span class="page-link">
+                                                        2
+                                                        <span class="sr-only">(current)</span>
+                                                    </span>
+                                                </li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul><!--end pagination-->
+                                        </nav>
+                                    </div>
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                                            </div>
+                                        </div>
+                                    </div>                                                
+                                </div>              
+                            </div><!--end card-body--> 
+                        </div><!--end card--> 
+                    </div>
+                    <!-- end row -->                                       
                 </div><!-- container -->
                 
                 <!--Start Rightbar-->
@@ -822,6 +961,52 @@
         <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
         <script src="assets/libs/simplebar/simplebar.min.js"></script>
         <script src="assets/js/app.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script>
+      $(function() {
+        // Initialize the date range picker
+        $('input[name="daterange"]').daterangepicker({
+            opens: 'left',
+            autoUpdateInput: false,  // Disable automatic filling of the input
+            locale: {
+                cancelLabel: 'Clear'  // Add a clear button to reset the date range
+            }
+        });
+
+        // When a date range is selected
+        $('input[name="daterange"]').on('apply.daterangepicker', function(ev, picker) {
+            // Set the value to the selected date range
+            $(this).val(picker.startDate.format('YYYY-MM-DD') + ' - ' + picker.endDate.format('YYYY-MM-DD'));
+        });
+
+        // When the cancel button is clicked
+        $('input[name="daterange"]').on('cancel.daterangepicker', function(ev, picker) {
+            // Clear the input value to show the placeholder
+            $(this).val('');
+        });
+    });
+    </script>
+     <script>
+        document.querySelectorAll('.toggle-link').forEach(toggleLink => {
+toggleLink.addEventListener('click', (e) => {
+e.preventDefault(); // Prevent default link behavior
+
+const targetId = toggleLink.getAttribute('data-target'); // Get the target ID
+const modelField = document.getElementById(targetId);
+const isExpanded = !modelField.classList.contains('hidden');
+
+if (isExpanded) {
+modelField.classList.add('hidden'); // Hide the model field
+toggleLink.textContent = 'Show More'; // Change link text to "Show More"
+} else {
+modelField.classList.remove('hidden'); // Show the model field
+toggleLink.textContent = 'Show Less'; // Change link text to "Show Less"
+}
+});
+});
+</script>
     </body>
     <!--end body-->
 
