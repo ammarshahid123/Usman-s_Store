@@ -3,12 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
+    <title>Button Group with Toggle Active State</title>
+    <style>
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
 
-</style>
+        .selection-button {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button.active {
+            background-color: #22c55e;
+            color: white;
+        }
+
+        .custom-date-picker {
+            display: none;
+            margin-left: 20px;
+            align-items: center;
+        }
+
+       
+    </style>
+</head>
 <body>
-    
+
+<div class="button-group">
+    <button class="button" onclick="toggleActive(this)">Today</button>
+    <button class="button" onclick="toggleActive(this)">Yesterday</button>
+    <button class="button" onclick="toggleActive(this)">Last 7 days</button>
+    <button class="button" onclick="toggleActive(this)">Last 30 days</button>
+    <button class="button" onclick="toggleActive(this, true)">Custom</button>
+    <div class="custom-date-picker" id="customDatePicker">
+        <input type="text" placeholder="Start Date">
+        <span>-</span>
+        <input type="text" placeholder="End Date">
+        <span class="calendar-icon">📅</span>
+    </div>
+</div>
+
+
+<script>
+    function toggleActive(button, isCustom = false) {
+        const isActive = button.classList.contains('active');
+        
+        // Remove 'active' class from all buttons
+        document.querySelectorAll('.button').forEach(btn => btn.classList.remove('active'));
+
+        // If the button was not already active, make it active
+        if (!isActive) {
+            button.classList.add('active');
+        }
+
+        // Toggle the custom date picker display based on the 'Custom' button and active status
+        const customDatePicker = document.getElementById('customDatePicker');
+        if (isCustom && !isActive) {
+            customDatePicker.style.display = 'flex';
+        } else {
+            customDatePicker.style.display = 'none';
+        }
+    }
+</script>
+
 </body>
 </html>
