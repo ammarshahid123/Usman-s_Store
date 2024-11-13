@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewp2ort" content="width=device-width, initial-scale=1.0">
+    <title>Sliding Forms: Login, Signup, Registration, and Forgot Password</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
+    <link rel="stylesheet" href="./web-assets/assets/css/style.css">
+<style>
+
+.message-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff; /* Button color */
+    color: white;
+    padding: 15px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(100px);
+    border: 2px solid transparent; /* Start with no visible border */
+    animation: slideIn 2s ease forwards, borderPulse 3s infinite ease-in-out; /* Added border animation */
+}
+
+/* Icon inside the button */
+.message-btn .icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+/* Text inside the button */
+.message-btn .message-text {
+    font-weight: 600;
+}
+
+/* Slide in animation */
+@keyframes slideIn {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    50% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10px);
+        opacity: 1;
+    }
+}
+
+/* Border pulse animation */
+@keyframes borderPulse {
+    0%, 100% {
+        border-color: transparent; /* Start and end with no visible border */
+    }
+    50% {
+        border-color: #ffffff; /* The border appears at 50% of the animation */
+        border-width: 2px; /* Set the border thickness */
+    }
+}
+
+/* Hover effect */
+.message-btn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.limited-offer{
+    display: flex;
+    border-radius: 10px;
+    margin: 50px auto;
+    background-color: black;
+    .limited-banner{
+        border-radius: 10px 0px 0px 10px;
+        width: 45%;
+        height: 321px;
+    }
+    .text{
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        span{
+        color:#9ba3ad;
+        font-weight:600;
+        }
+        h2{
+            color: #fcfcfc;
+            font-size: 47px;
+        }
+        .grab-btn{
+            button{
+                background-color: #fcfcfc;
+                color:#546171;
+                border: none;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                justify-content: center;
+                padding: 10px 20px;
+                border-radius: 5px;
+                i{
+                    color:#546171;
+                }
+            }
+        }
+    }
+}
+.news-letter{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin: 50px auto;
+    gap: 10px;
+    justify-content: center;
+    .sub-heading{
+        color: #99a5b3;
+    }
+    .input{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        .subscribe{
+            border-radius: 5px;
+            border: none;
+            background-color: #f4f4f4;
+            padding: 10px 30px 10px 40px;
+            margin: 0px;
+            &::placeholder {
+                color: #b9c1cb;
+            }
+        }
+        i{
+        color: #b9c1cb;
+    font-size: 21px;
+    position: relative;
+    left: 37px;
+}
+    }
+    .sub-desc{
+        color: #c1c8d1;
+        font-weight: 400;
+        a{
+            color:black;
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;   
+            }
+        }
+    }
+}
+.filter-and-products{
+  display: flex;
+  margin: 150px auto;
+  border: 1px solid blue;
+.filter-sidebar {
+      width: 20%;
+      font-family: "Inter", sans-serif;
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+      border-radius: 8px;
+      padding: 10px;
+      background-color: #fff;
+    hr{
+        margin: 0;
+    border: none;
+    background-color: #edf0f3;
+    height: 1px;
+    }
+    
+        /* Section header */
+    
+        /* Header for clickable sections */
+        .filter-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          cursor: pointer;
+          color: #687482;
+          padding: 10px;
+          font-size: 14px;
+          border-radius: 5px;
+          font-weight: 500;
+        }
+    
+        /* Active header color */
+        .filter-header.active {
+          background-color: #f5f7f9;
+        }
+    
+        /* Subsection content */
+        .filter-content {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease;
+          padding-left: 10px;
+        }
+        .filter-content.open {
+          max-height: 376px; /* Arbitrary height; adjust as needed */
+        }
+    
+        /* Checkbox and label styling */
+        .filter-content label {
+          display: flex;
+          align-items: center;
+          font-family: "Inter", sans-serif;
+          padding: 4px 0px;
+          cursor: pointer;
+          margin: 10px 10px 0px 3px;
+          font-size: 13px;
+          color: #333;
+          position: relative;
+        }
+    
+        /* Custom Checkbox styling */
+        .filter-content label input[type="checkbox"] {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 15px;
+          height: 15px;
+          border: 1px solid #363c44;
+          border-radius: 4px;
+          margin-right: 10px;
+          position: relative;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+    
+        /* Checkbox checked state */
+        .filter-content label input[type="checkbox"]:checked {
+          background-color: black;
+          border-color: black;
+        }
+    
+        /* Checkbox checkmark icon */
+        .filter-content label input[type="checkbox"]:checked::before {
+            content: "✔";
+          color: white;
+          font-weight: bold;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 8px;
+        }
+    
+        .filter-subsection {
+          margin-top: 5px;
+        }
+    
+        /* Count styling */
+        .filter-content label span {
+          background-color: #f2f4f8;
+          color: #425063;
+          font-size: 11px;
+          font-family: system-ui;
+          margin: 0px 20px;
+          padding: 2px 6px;
+          border-radius: 50%;
+        }
+    
+        /* Arrow icon styling */
+        .arrow {
+          font-size: 1em;
+          transition: transform 0.3s ease;
+          color: #687482;
+          font-size: 20px;
+        }
+    
+        .arrow.down {
+          transform: rotate(90deg);
+        }
+}
+.filtered-products{
+  width: 80%;
+  padding: 30px 20px;
+  .applied-filters{
+      font-family: "Inter", sans-serif;
+      display: flex;
+      margin: 10px 0px;
+      align-items: center;
+      gap: 10px;
+      span{
+          color: #687482;
+      }
+      .filter-badge{
+          border: 2px solid #f0f2f6;
+          border-radius: 50px;
+          display: flex;
+          gap: 10px;
+          padding: 6px 15px;
+          color: #384659;
+          align-items: center;
+          justify-content: space-between;
+          i{
+              cursor: pointer;
+          }
+      }
+}
+  .result-sorting{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .showing-result{
+          font-family: "Inter", sans-serif;
+          p{
+              font-size: 13px;
+              font-weight: 600;
+              color:#5a5a5a;
+              b{
+                  color: black;
+              }
+          }
+      }
+  .sorting-dropdown{
+      min-width: 15em;
+      position: relative;
+      margin: 0px 10px;
+      font-size: 14px;
+      font-family: "Inter", sans-serif;
+  .dropdown * {
+    box-sizing: border-box;
+  }
+  
+  .select {
+  
+    color: #4c5a6b;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px #f5f6f8 solid;
+    border-radius: 0.5em;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  
+  .caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid #4c5a6b;
+    transition: 0.3s;
+  }
+  
+  
+  .caret-rotate {
+    transform: rotate(180deg);
+  }
+  
+  .menu {
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: white;
+    border: 1px #edf0f3 solid;
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    border-radius: 0.5em;
+    color: #687482;
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+  }
+  
+  .menu li {
+    padding: 0.7em 0.5em;
+    margin: 0.3em 0;
+    border-radius: 0.5em;
+    cursor: pointer;
+  }
+  
+  .menu li:hover {
+    background: #f5f6f8;
+  }
+  
+  
+  .active {
+    background: #f5f6f8;
+  }
+  
+  
+  .menu-open {
+    display: block;
+    opacity: 1;
+  }
+  
+  }
+  .sorting{
+      display: flex;
+      align-items: center;
+      font-family: "Inter", sans-serif;
+      label{
+          font-size: 14px;
+      }
+  }
+}
+.filtered-cards{
+  margin:50px auto;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  a{
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            &:hover .card-desc{
+                text-decoration: underline;
+            }
+            .Product-card {
+                --card-w: 250px;
+                box-shadow: none;
+                border:none;
+                .card-head{
+                --card-head-p: 0px;
+                --card-image-br:10px;
+                --card-image-h:250px;
+            }
+            .card-body{
+                --card-body-p:0.8rem;
+                .brand-and-ratings{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    .brand{
+                    color: #8a929e;
+                    }
+                    .rating-and-sold{
+                        display: flex;
+                        align-items: center;
+                        gap: 5px;
+                            .rating{
+                                font-weight: 450;
+                                i{
+                                    color: gold;
+                                }
+                            }
+                            .sold{
+                                color: #b5bac1;
+                                font-size: 14px;
+                            }
+                    }
+                }
+                .prices{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    .original-price{
+                        color:#f25a76;
+                        font-size: 20px;
+                    }
+                }
+                .discounted-price{
+                    font-size:15px;
+                    del{
+                        color: #b5bac1;
+                        margin: 0px 10px 0px 5px;
+                    }
+                }
+            }
+            }
+           
+        }
+}
+}
+}
+</style>
+</head>
+<body>
+  <!-- header -->
+  <nav class="navbar">
+    <div class="first-half">
+        <div class="logo">
+          <a href="./web-index.html">
+            <img src="./web-assets/assets/images/demo-logo.png" class="logo-image" alt="">
+          </a>
+        </div>
+        <div class="links">
+            <ul class="d-flex">
+                <li><a href="">Become a Seller</a></li>
+                <li><a href="">Help & Support</a></li>
+                <li class="dropdown">
+                  <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
+                  <ul class="dropdown-menu">
+                      <li class="sub-dropdown">
+                          <a href="#" class="subdropdowns">Category 1<i class="bx bx-chevron-left"></i></a>
+                          <ul class="sub-menu">
+                              <li><a href="#">Sub Category 1</a></li>
+                              <li><a href="#">Sub Category 2</a></li>
+                          </ul>
+                      </li>
+                      <li class="sub-dropdown">
+                          <a href="#" class="subdropdowns">Category 2 <i class="bx bx-chevron-left"></i></a>
+                          <ul class="sub-menu">
+                              <li><a href="#">Sub Category 3</a></li>
+                              <li><a href="#">Sub Category 4</a></li>
+                          </ul>
+                      </li>
+                      <li class="sub-dropdown">
+                        <a href="#">Category 1</a>
+                    </li>
+                    <li class="sub-dropdown">
+                      <a href="#">Category 1</a>
+                  </li>
+                  <li class="sub-dropdown">
+                    <a href="#">Category 1</a>
+                </li>
+                  </ul>
+              </li>
+            </ul>
+        </div>
+    </div>
+    <div class="second-half">
+        <ul class="d-flex">
+            <li>
+                <div class="search-box">
+                    <input type="text" class="search-box-input" placeholder="What are you looking for ?">
+                    <button class="search-box-btn">
+                        <i class="search-box-icon material-icons bx bx-search"></i>
+                    </button>
+                </div>
+            </li>
+            <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>                
+            <li>
+              <div class="dropdown-noti">
+                <i class="bx bx-bell fs-4 dropdown-toggle" onclick="toggleDropdownnoti()"></i>
+                <div id="dropdownMenu" class="dropdown-menu">
+                  <!-- Dropdown Header -->
+                  <div class="dropdown-header">
+                    <h3>Notifications</h3>
+                  </div>
+            
+                  <!-- Tabs -->
+                  <div class="tabs">
+                    <button class="tab-link-noti active" onclick="openTabnoti(event, 'new')">New (2)</button>
+                    <button class="tab-link-noti" onclick="openTabnoti(event, 'seen')">Seen (3)</button>
+                  </div>
+            
+                  <!-- New Notifications -->
+                  <div id="new" class="tab-content-noti">
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>You have a new message from John.</p>
+                      </div>
+                    </div>
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>Meeting scheduled with the marketing team tomorrow.</p>
+                      </div>
+                    </div>
+                  </div>
+            
+                  <!-- Seen Notifications -->
+                  <div id="seen" class="tab-content-noti">
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>Project update received from the development team.</p>
+                      </div>
+                    </div>
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>New design mockups have been seen and approved.</p>
+                      </div>
+                    </div>
+                    <div class="notification">
+                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
+                      <div class="notification-text">
+                        <p>New design are seen and approved.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="./web-chats.html" style="text-decoration: none;">
+                    <button class="btn-noti-view">View All</button>
+                  </a>
+                </div>
+              </div>
+            </li>
+            <li class="noti-counter">
+                <span>5</span>
+            </li>
+            <li>
+                <div class="dropdown" tab-index="0">
+                    <button id="dropdown-btn"></button>
+                    <ul class="dropdown-content" id="dropdown-content"></ul>
+                  </div>
+            </li>
+            <li>
+              <div class="drop-profile">
+                <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Avatar" width="50px" height="50px" style="border-radius: 50%;" onclick="toggleDropdown()">
+                <i class='bx bxs-down-arrow' style="font-size: 8px;color: white;" onclick="toggleDropdown()"></i>
+                <div class="drop-profile-content">
+                  <a href="./web-account-manage.html">Manage My Account</a>
+                  <a href="./web-my-orders.html">My Orders</a>
+                  <a href="./web-wishlist.html">My Wishlist & Followed Stores</a>
+                  <a href="./web-my-reviews.html">My Reviews</a>
+                  <a href="./web-login.html">Logout</a>
+                </div>
+              </div>
+            </li>              
+            <li>
+              <a href="./web-login.html">
+                <button class="btn btn-pill btn-login">Log In</button>
+              </a>
+            </li>
+            <li>
+              <a href="./web-login.html">
+                <button class="btn btn-pill btn-signUp">Sign Up</button>
+              </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+    <!-- /header -->
+    <!-- content -->
+<div class="content-area">
+    <div class="breadcrumbs-container">
+        <h4>Products</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./web-index.html" class="breadcrumb-link">Home</a></li>
+            <li class="breadcrumb-item active">Browse Products</li>
+          </ol>
+    </div>
+<div class="container filter-and-products">
+  <div class="filter-sidebar">
+    <!-- Category Section -->
+    <div class="filter-section">
+      <div class="filter-header" onclick="toggleFilter(this)">
+        Category
+        <i class='bx bx-chevron-right arrow'></i>
+      </div>
+      <div class="filter-content">
+        <!-- Woman Subsection -->
+        <div class="filter-subsection">
+          <div class="filter-header" onclick="toggleFilter(this)">
+            Woman
+            <i class='bx bx-chevron-right arrow'></i>
+          </div>
+          <div class="filter-content">
+            <label>
+              <input type="checkbox"> Tops 
+              <span>37</span>
+            </label>
+            <label>
+              <input type="checkbox"> Jackets 
+              <span>22</span>
+            </label>
+            <label>
+              <input type="checkbox"> Sweaters 
+              <span>31</span>
+            </label>
+          </div>
+        </div>
+        <div class="filter-subsection">
+          <div class="filter-header">Men <i class='bx bx-chevron-right arrow'></i></div>
+        </div>
+        <div class="filter-subsection">
+          <div class="filter-header">Kids <i class='bx bx-chevron-right arrow'></i></div>
+        </div>
+        <div class="filter-subsection">
+          <div class="filter-header">Sporty <i class='bx bx-chevron-right arrow'></i></div>
+        </div>
+        <div class="filter-subsection">
+          <div class="filter-header">Casual <i class='bx bx-chevron-right arrow'></i></div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <!-- Other Sections -->
+    <div class="filter-section">
+      <div class="filter-header">Brands <i class='bx bx-chevron-right arrow'></i></div>
+    </div>
+    <hr>
+    <div class="filter-section">
+      <div class="filter-header">Price <i class='bx bx-chevron-right arrow'></i></div>
+    </div>
+    <hr>
+    <div class="filter-section">
+      <div class="filter-header">Size <i class='bx bx-chevron-right arrow'></i></div>
+    </div>
+  </div>
+  <div class="filtered-products">
+    <div class="container result-sorting">
+      <div class="showing-result">
+          <p>Showing <b>9</b> results from total <b>37</b> for <b>"tops"</b></p>
+      </div>
+      <div class="sorting">
+          <label for="">Sort by</label>
+          <div class="dropdown sorting-dropdown">
+              <div class="select">
+                <span class="selected">Popularity</span>
+                <div class="caret"></div>
+              </div>
+              <ul class="menu">
+                <li class="active">Popularity</li>
+                <li>Sketch</li>
+                <li>Invision Studio</li>
+              </ul>
+            </div>
+      </div>
+      </div>
+      <div class="applied-filters">
+          <span>Applied Filters :</span>
+          <div class="filter-badge">
+              <span>Tops</span>
+              <i class="bx bx-x"></i>
+          </div>
+          <div class="filter-badge">
+              <span>Medium</span>
+              <i class="bx bx-x"></i>
+          </div>
+      </div>
+      <div class="filtered-cards">       
+          <a href="./web-Product-details.html">
+            <div class="card Product-card">
+              <div class="card-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+              </div>
+              <div class="card-body">
+                <div class="brand-and-ratings">
+                  <div class="brand">H&M</div>
+                  <div class="rating-and-sold">
+                    <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                    <div class="sold">(13.8k) sold</div>
+                  </div>
+                </div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                <div class="prices">
+                  <div class="card-subtitle original-price">Rs 295.00</div>
+                </div>
+                <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+              </div>
+            </div>
+          </a>
+          <a href="./web-Product-details.html">
+            <div class="card Product-card">
+              <div class="card-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+              </div>
+              <div class="card-body">
+                <div class="brand-and-ratings">
+                  <div class="brand">H&M</div>
+                  <div class="rating-and-sold">
+                    <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                    <div class="sold">(13.8k) sold</div>
+                  </div>
+                </div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                <div class="prices">
+                  <div class="card-subtitle original-price">Rs 295.00</div>
+                </div>
+                <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+              </div>
+            </div>
+          </a>
+          <a href="./web-Product-details.html">
+            <div class="card Product-card">
+              <div class="card-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+              </div>
+              <div class="card-body">
+                <div class="brand-and-ratings">
+                  <div class="brand">H&M</div>
+                  <div class="rating-and-sold">
+                    <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                    <div class="sold">(13.8k) sold</div>
+                  </div>
+                </div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                <div class="prices">
+                  <div class="card-subtitle original-price">Rs 295.00</div>
+                </div>
+                <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+              </div>
+            </div>
+          </a>
+          <a href="./web-Product-details.html">
+            <div class="card Product-card">
+              <div class="card-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+              </div>
+              <div class="card-body">
+                <div class="brand-and-ratings">
+                  <div class="brand">H&M</div>
+                  <div class="rating-and-sold">
+                    <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                    <div class="sold">(13.8k) sold</div>
+                  </div>
+                </div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                <div class="prices">
+                  <div class="card-subtitle original-price">Rs 295.00</div>
+                </div>
+                <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+              </div>
+            </div>
+          </a>
+          <a href="./web-Product-details.html">
+            <div class="card Product-card">
+              <div class="card-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+              </div>
+              <div class="card-body">
+                <div class="brand-and-ratings">
+                  <div class="brand">H&M</div>
+                  <div class="rating-and-sold">
+                    <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                    <div class="sold">(13.8k) sold</div>
+                  </div>
+                </div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                <div class="prices">
+                  <div class="card-subtitle original-price">Rs 295.00</div>
+                </div>
+                <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+              </div>
+            </div>
+          </a>
+          <a href="./web-Product-details.html">
+            <div class="card Product-card">
+              <div class="card-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+              </div>
+              <div class="card-body">
+                <div class="brand-and-ratings">
+                  <div class="brand">H&M</div>
+                  <div class="rating-and-sold">
+                    <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                    <div class="sold">(13.8k) sold</div>
+                  </div>
+                </div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                <div class="prices">
+                  <div class="card-subtitle original-price">Rs 295.00</div>
+                </div>
+                <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+              </div>
+            </div>
+          </a>
+          <a href="./web-Product-details.html">
+            <div class="card Product-card">
+              <div class="card-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+              </div>
+              <div class="card-body">
+                <div class="brand-and-ratings">
+                  <div class="brand">H&M</div>
+                  <div class="rating-and-sold">
+                    <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                    <div class="sold">(13.8k) sold</div>
+                  </div>
+                </div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                <div class="prices">
+                  <div class="card-subtitle original-price">Rs 295.00</div>
+                </div>
+                <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+              </div>
+            </div>
+          </a>
+          <a href="./web-Product-details.html">
+            <div class="card Product-card">
+              <div class="card-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+              </div>
+              <div class="card-body">
+                <div class="brand-and-ratings">
+                  <div class="brand">H&M</div>
+                  <div class="rating-and-sold">
+                    <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                    <div class="sold">(13.8k) sold</div>
+                  </div>
+                </div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                <div class="prices">
+                  <div class="card-subtitle original-price">Rs 295.00</div>
+                </div>
+                <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+              </div>
+            </div>
+          </a>
+          <a href="./web-Product-details.html">
+            <div class="card Product-card">
+              <div class="card-head">
+                <img src="./web-assets/assets/images/t-shirt_product.jpg" class="card-image">
+              </div>
+              <div class="card-body">
+                <div class="brand-and-ratings">
+                  <div class="brand">H&M</div>
+                  <div class="rating-and-sold">
+                    <div class="rating"><i class="bx bxs-star"></i> 4.9</div>
+                    <div class="sold">(13.8k) sold</div>
+                  </div>
+                </div>
+                <div class="card-desc text-ellipsis text-ellipsis-2">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum aliquam nisi iste itaque voluptate amet ea iusto quisquam ipsum ut, non ad similique ducimus veritatis distinctio nobis, rerum, aut et!</div>
+                <div class="prices">
+                  <div class="card-subtitle original-price">Rs 295.00</div>
+                </div>
+                <div class="card-subtitle discounted-price"><del>Rs 295.00</del>-66%</div>
+              </div>
+            </div>
+          </a>
+     </div>
+</div>
+</div>
+
+
+
+
+<div class="container limited-offer">
+        <img class="limited-banner" src="./web-assets/assets/images/limited-offer-banner.jpg" alt="">
+    <div class="text">
+        <span>LIMITED OFFER</span>
+        <h2>35% off only this friday and get special gift</h2>
+        <div class="grab-btn">
+            <button class="btn btn-light">Grab it now <i class='bx bx-arrow-back bx-rotate-180' ></i> </button>
+        </div>
+    </div>
+</div>
+<div class="container">
+<hr>
+</div>
+<div class="container news-letter">
+    <h1>Subscribe to our newsletter to get updates<br>to our latest collections</h1>
+    <p class="sub-heading">Get 20% off on your first order just by subscribing to our newsletter</p>
+    <div class="input">
+        <i class='bx bx-envelope' ></i>
+        <input type="email" class="subscribe" placeholder="Enter your email">
+        <button class="btn btn-dark">Subscribe</button>
+    </div>
+    <p class="sub-desc">You will be able to unsubscribe at any time.<br>Read our Privacy Policy <a href="">here</a></p>
+</div>
+<div class="message-btn">
+  <i class="icon">&#9993;</i> <!-- This is the envelope icon -->
+  <span class="message-text">Message</span>
+</div>
+<!-- /content -->
+ <!-- footer -->
+<footer>
+    <div class="foot-logo">
+        <img src="./web-assets/assets/images/demo-logo.png">
+    </div>
+    <div class="info d-flex">
+        <div class="links">
+            <h6 class="text-c-white fw-700">Quick Links</h6>
+            <ul>
+                <a href="./web-index.html"><li>Home</li></a>
+                <a href="./web-about-us.html"><li>About Us</li></a>
+                <a href=""><li>Contact Us</li></a>
+                <a href=""><li>Story</li></a>
+                <a href=""><li>Blogs</li></a>
+            </ul>
+        </div>
+        <div class="links">
+            <h6 class="text-c-white fw-700">Getting Started</h6>
+            <ul>
+                <a href=""><li>Home</li></a>
+                <a href=""><li>About Us</li></a>
+                <a href=""><li>Contact Us</li></a>
+                <a href=""><li>Story</li></a>
+                <a href=""><li>Blogs</li></a>
+            </ul>
+        </div>
+        <div class="links">
+            <h6 class="text-c-white fw-700">Policies</h6>
+            <ul>
+                <a href="./web-terms.html"><li>Terms & Condition</li></a>
+                <a href="./web-privacy-policy.html"><li>Privacy Policy</li></a>
+                <a href="./web-refund&exchange.html"><li>Exchange & Return</li></a>
+                <a href="./web-refund-policy.html"><li>Refund Policy</li></a>
+                <a href="./web-shipment-policy.html"><li>Shipment Policy</li></a>
+            </ul>
+        </div>
+        <div class="social-desc">
+            <div class="social-media">
+                <h6 class="text-c-white fw-800">FOLLOW Us On</h6>
+                <ul class="d-flex">
+                    <li><a href=""><i class='bx bxl-facebook'></i></a></li>
+                    <li><a href=""><i class='bx bxl-instagram'></i></a></li>
+                    <li><a href=""><i class='bx bxl-youtube'></i></a></li>
+                    <li><a href=""><i class='bx bxl-twitter' ></i></a></li>
+                    <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
+                </ul>
+            </div>
+            <div class="payment-methods">
+                <h6 class="text-c-white fw-800">Payment Methods</h6>
+                <img class="payment-method-img" src="./web-assets/assets/images/payment-methods.png" alt="">
+                <img src="./web-assets/assets/images/payment-method-2.png" alt="" width="60px" height="30px" style="margin-left: 3px;">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="terms-section">
+    <p>&copy; 2006 Company Name All Rights Reserved</p>
+</div>
+</footer>
+<!-- /footer -->
+
+ <!-- THIRD PARTY JS -->
+ <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+ <script src="./web-assets/assets/js/script.js"></script>
+
+<!-- scripts -->
+ <script>
+    const locales = ["en-GB","ar-SA","zh-CN","de-DE","es-ES","fr-FR","hi-IN","it-IT","in-ID","ja-JP","ko-KR","nl-NL","no-NO","pl-PL","pt-BR","sv-SE","fi-FI","th-TH","tr-TR","uk-UA","vi-VN","ru-RU","he-IL"];
+
+function getFlagSrc(countryCode) {
+  return /^[A-Z]{2}$/.test(countryCode)
+       ? `https://flagsapi.com/${countryCode.toUpperCase()}/shiny/64.png`
+    : "";
+}
+
+const dropdownBtn = document.getElementById("dropdown-btn");
+const dropdownContent = document.getElementById("dropdown-content");
+
+function setSelectedLocale(locale) {
+  const intlLocale = new Intl.Locale(locale);
+  const langName = new Intl.DisplayNames([locale], {
+    type: "language",
+  }).of(intlLocale.language);
+
+  dropdownContent.innerHTML = "";
+
+  const otherLocales = locales.filter((loc) => loc !== locale);
+  otherLocales.forEach((otherLocale) => {
+    const otherIntlLocale = new Intl.Locale(otherLocale);
+    const otherLangName = new Intl.DisplayNames([otherLocale], {
+      type: "language",
+    }).of(otherIntlLocale.language);
+
+    const listEl = document.createElement("li");
+    listEl.innerHTML = `${otherLangName}<img src="${getFlagSrc(
+      otherIntlLocale.region
+    )}" />`;
+    listEl.value = otherLocale;
+    listEl.addEventListener("mousedown", function () {
+      setSelectedLocale(otherLocale);
+    });
+    dropdownContent.appendChild(listEl);
+  });
+
+  dropdownBtn.innerHTML = `<img src="${getFlagSrc(
+    intlLocale.region
+  )}" />${langName}<span class="arrow-down"></span>`;
+}
+
+setSelectedLocale(locales[0]);
+const browserLang = new Intl.Locale(navigator.language).language;
+for (const locale of locales) {
+  const localeLang = new Intl.Locale(locale).language;
+  if (localeLang === browserLang) {
+    setSelectedLocale(locale);
+  }
+}
+ </script>
+  <!-- nitofication dropdown -->
+  <script>
+    function toggleDropdownnoti() {
+      const dropdownMenu = document.getElementById("dropdownMenu");
+      if (dropdownMenu.style.display === "block") {
+        dropdownMenu.style.display = "none";
+      } else {
+        dropdownMenu.style.display = "block";
+      }
+    }
+
+    function openTabnoti(evt, tabName) {
+      // Hide all tab contents
+      var tabContent = document.getElementsByClassName("tab-content-noti");
+      for (var i = 0; i < tabContent.length; i++) {
+        tabContent[i].style.display = "none";
+      }
+
+      // Remove active state from all tab links
+      var tabLinks = document.getElementsByClassName("tab-link-noti");
+      for (var i = 0; i < tabLinks.length; i++) {
+        tabLinks[i].classList.remove("active");
+      }
+
+      // Show the clicked tab's content and set the clicked tab link as active
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.classList.add("active");
+    }
+
+    // Set "New" tab content visible on page load
+    document.getElementById("new").style.display = "block";
+  </script>
+  <!--  -->
+  <script>
+    function toggleFilter(element) {
+      const content = element.nextElementSibling;
+      const arrow = element.querySelector('.arrow');
+      
+      if (content) {
+        // Toggle open class and rotate arrow
+        content.classList.toggle('open');
+        element.classList.toggle('active');
+        arrow.classList.toggle('down');
+      }
+    }
+  </script>
+  <script>
+      const dropdowns = document.querySelectorAll('.sorting-dropdown');
+  
+  dropdowns.forEach(dropdown => {
+      const select = dropdown.querySelector('.select');
+      const caret = dropdown.querySelector('.caret');
+      const menu = dropdown.querySelector('.menu');
+      const options = dropdown.querySelectorAll('.menu li');
+      const selected = dropdown.querySelector('.selected');
+  
+    
+  select.addEventListener('click', () => {
+    select.classList.toggle('select-clicked');
+    caret.classList.toggle('caret-rotate');
+    menu.classList.toggle('menu-open');
+  });
+  
+  options.forEach(option => {
+    option.addEventListener('click', () => {
+        selected.innerText = option.innerText;
+        select.classList.remove('select-clicked');
+        caret.classList.remove('caret-rotate');
+        menu.classList.remove('menu-open');
+      
+        options.forEach(option => {
+          option.classList.remove('active');
+          });
+            option.classList.add('active');
+    });
+  });
+  });
+  
+  </script>
+</body>
+</html>
