@@ -3,455 +3,116 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Filter Sidebar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-  <!-- Boxicons CSS Link -->
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <style>
-    /* Sidebar container */
-    .filter-sidebar {
-      width: 200px;
-      font-family: "Inter", sans-serif;
-      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-      border-radius: 8px;
-      padding: 10px;
-      background-color: #fff;
-    hr{
-        margin: 0;
-    border: none;
-    background-color: #edf0f3;
-    height: 1px;
-    }
-    
-        /* Section header */
-    
-        /* Header for clickable sections */
-        .filter-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          cursor: pointer;
-          color: #687482;
-          padding: 10px;
-          font-size: 14px;
-          border-radius: 5px;
-          font-weight: 500;
-        }
-    
-        /* Active header color */
-        .filter-header.active {
-          background-color: #f5f7f9;
-        }
-    
-        /* Subsection content */
-        .filter-content {
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.3s ease;
-          padding-left: 10px;
-        }
-        .filter-content.open {
-          max-height: 376px; /* Arbitrary height; adjust as needed */
-        }
-    
-        /* Checkbox and label styling */
-        .filter-content label {
-          display: flex;
-          align-items: center;
-          font-family: "Inter", sans-serif;
-          padding: 4px 0px;
-          cursor: pointer;
-          margin: 10px 10px 0px 3px;
-          font-size: 13px;
-          color: #333;
-          position: relative;
-        }
-    
-        /* Custom Checkbox styling */
-        .filter-content label input[type="checkbox"] {
-          appearance: none;
-          -webkit-appearance: none;
-          width: 15px;
-          height: 15px;
-          border: 1px solid #363c44;
-          border-radius: 4px;
-          margin-right: 10px;
-          position: relative;
-          cursor: pointer;
-          transition: all 0.3s ease;
-        }
-    
-        /* Checkbox checked state */
-        .filter-content label input[type="checkbox"]:checked {
-          background-color: black;
-          border-color: black;
-        }
-    
-        /* Checkbox checkmark icon */
-        .filter-content label input[type="checkbox"]:checked::before {
-            content: "✔";
-          color: white;
-          font-weight: bold;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 8px;
-        }
-    
-        .filter-subsection {
-          margin-top: 5px;
-        }
-    
-        /* Count styling */
-        .filter-content label span {
-          background-color: #f2f4f8;
-          color: #425063;
-          font-size: 11px;
-          font-family: system-ui;
-          margin: 0px 20px;
-          padding: 2px 6px;
-          border-radius: 50%;
-        }
-    
-        /* Arrow icon styling */
-        .arrow {
-          font-size: 1em;
-          transition: transform 0.3s ease;
-          color: #687482;
-          font-size: 20px;
-        }
-    
-        .arrow.down {
-          transform: rotate(90deg);
-        }
-    }
-    .applied-filters{
-        font-family: "Inter", sans-serif;
-        display: flex;
-        margin: 10px 0px;
-        align-items: center;
-        gap: 10px;
-        span{
-            color: #687482;
-        }
-        .filter-badge{
-            border: 2px solid #f0f2f6;
-            border-radius: 50px;
-            display: flex;
-            gap: 10px;
-            padding: 6px 15px;
-            color: #384659;
-            align-items: center;
-            justify-content: space-between;
-            i{
-                cursor: pointer;
-            }
-        }
-    }
-    .result-sorting{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .showing-result{
-            font-family: "Inter", sans-serif;
-            p{
-                font-size: 13px;
-                font-weight: 600;
-                color:#5a5a5a;
-                b{
-                    color: black;
-                }
-            }
-        }
-    .sorting-dropdown{
-        min-width: 15em;
-        position: relative;
-        margin: 0px 10px;
-        font-size: 14px;
-        font-family: "Inter", sans-serif;
-    .dropdown * {
-      box-sizing: border-box;
-    }
-    
-    .select {
-    
-      color: #4c5a6b;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border: 2px #f5f6f8 solid;
-      border-radius: 0.5em;
-      padding: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    
-    
-    .caret {
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 6px solid #4c5a6b;
-      transition: 0.3s;
-    }
-    
-    
-    .caret-rotate {
-      transform: rotate(180deg);
-    }
-    
-    .menu {
-      list-style: none;
-      padding: 0.2em 0.5em;
-      background: white;
-      border: 1px #edf0f3 solid;
-      box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
-      border-radius: 0.5em;
-      color: #687482;
-      position: absolute;
-      top: 3em;
-      left: 50%;
-      width: 100%;
-      transform: translateX(-50%);
-      opacity: 0;
-      display: none;
-      transition: 0.2s;
-      z-index: 1;
-    }
-    
-    .menu li {
-      padding: 0.7em 0.5em;
-      margin: 0.3em 0;
-      border-radius: 0.5em;
-      cursor: pointer;
-    }
-    
-    .menu li:hover {
-      background: #f5f6f8;
-    }
-    
-    
-    .active {
-      background: #f5f6f8;
-    }
-    
-    
-    .menu-open {
-      display: block;
-      opacity: 1;
-    }
-    
-    }
-    .sorting{
-        display: flex;
-        align-items: center;
-        font-family: "Inter", sans-serif;
-        label{
-            font-size: 14px;
-        }
-    }
-    }
-    .pagination{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-family: Arial, sans-serif;
-        font-size: 14px;
-
-.page-button,
-.page-number {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #fff;
-    color: #888;
-    cursor: pointer;
-}
-
-.page-button:disabled,
-.page-number.active {
-    background-color: #f2f2f2;
-    color: #333;
-    cursor: default;
-}
-
-.page-button:disabled {
-    border-color: transparent;
-    cursor: not-allowed;
-}
-
-.page-button:hover:not(:disabled),
-.page-number:hover {
-    background-color: #e0e0e0;
-}
-
-.dots {
-    color: #888;
-}
-
-    }
-  </style>
+  <title>Document</title>
 </head>
+<style>
+
+.click-btn {
+  display: flex;
+  width: 120px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  line-height: 35px;
+  border: 1px solid;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+  text-decoration: none;
+  transition: all 0.35s;
+  box-sizing: border-box;
+}
+
+
+
+
+.btn-style700 {
+  position: relative;
+  border-color: #979695;
+  color: #979695;
+}
+.btn-style700::before, .btn-style700::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-color: #dd6395;
+  border-radius: 5px;
+  border-style: solid;
+  transition: all 0.35s;
+  content: "";
+  z-index: 1;
+}
+.btn-style700::before {
+  width: 0;
+  height: 100%;
+  border-width: 1px 0 1px 0;
+}
+.btn-style700::after {
+  width: 100%;
+  height: 0;
+  border-width: 0 1px 0 1px;
+}
+.btn-style700:hover {
+  border-color: #dd6395;
+  color: #dd6395;
+}
+.btn-style700:hover::before {
+  width: 100%;
+  border-width: 1px 0 1px 0;
+}
+.btn-style700:hover::after {
+  height: 100%;
+  border-width: 0 1px 0 1px;
+}
+
+.btn-style702 {
+  position: relative;
+  border-color: transparent;
+  color: #fff;
+}
+.btn-style702::before, .btn-style702::after {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s;
+  content: "";
+}
+.btn-style702::before {
+  width: 100%;
+  left: 0;
+  border-radius: 5px;
+  background-color: #716eef;
+  z-index: -1;
+}
+.btn-style702::after {
+  width: 0;
+  left: 50%;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  transform: translate(-50%, 0);
+  z-index: 1;
+}
+.btn-style702:hover {
+  color: #716eef;
+}
+.btn-style702:hover::before {
+  transform: scale(0, 1);
+}
+.btn-style702:hover::after {
+  width: 100%;
+  border-color: #716eef;
+  transition-delay: 0.2s;
+}
+
+
+</style>
 <body>
-
-<div class="filter-sidebar">
-  <!-- Category Section -->
-  <div class="filter-section">
-    <div class="filter-header" onclick="toggleFilter(this)">
-      Category
-      <i class='bx bx-chevron-right arrow'></i>
-    </div>
-    <div class="filter-content">
-      <!-- Woman Subsection -->
-      <div class="filter-subsection">
-        <div class="filter-header" onclick="toggleFilter(this)">
-          Woman
-          <i class='bx bx-chevron-right arrow'></i>
-        </div>
-        <div class="filter-content">
-          <label>
-            <input type="checkbox"> Tops 
-            <span>37</span>
-          </label>
-          <label>
-            <input type="checkbox"> Jackets 
-            <span>22</span>
-          </label>
-          <label>
-            <input type="checkbox"> Sweaters 
-            <span>31</span>
-          </label>
-        </div>
-      </div>
-      <div class="filter-subsection">
-        <div class="filter-header">Men <i class='bx bx-chevron-right arrow'></i></div>
-      </div>
-      <div class="filter-subsection">
-        <div class="filter-header">Kids <i class='bx bx-chevron-right arrow'></i></div>
-      </div>
-      <div class="filter-subsection">
-        <div class="filter-header">Sporty <i class='bx bx-chevron-right arrow'></i></div>
-      </div>
-      <div class="filter-subsection">
-        <div class="filter-header">Casual <i class='bx bx-chevron-right arrow'></i></div>
-      </div>
-    </div>
-  </div>
-  <hr>
-  <!-- Other Sections -->
-  <div class="filter-section">
-    <div class="filter-header">Brands <i class='bx bx-chevron-right arrow'></i></div>
-  </div>
-  <hr>
-  <div class="filter-section">
-    <div class="filter-header">Price <i class='bx bx-chevron-right arrow'></i></div>
-  </div>
-  <hr>
-  <div class="filter-section">
-    <div class="filter-header">Size <i class='bx bx-chevron-right arrow'></i></div>
-  </div>
-</div>
-<div class="container result-sorting">
-<div class="showing-result">
-    <p>Showing <b>9</b> results from total <b>37</b> for <b>"tops"</b></p>
-</div>
-<div class="sorting">
-    <label for="">Sort by</label>
-    <div class="dropdown sorting-dropdown">
-        <div class="select">
-          <span class="selected">Popularity</span>
-          <div class="caret"></div>
-        </div>
-        <ul class="menu">
-          <li class="active">Popularity</li>
-          <li>Sketch</li>
-          <li>Invision Studio</li>
-        </ul>
-      </div>
-</div>
-</div>
-<div class="applied-filters">
-    <span>Applied Filters :</span>
-    <div class="filter-badge">
-        <span>Tops</span>
-        <i class="bx bx-x"></i>
-    </div>
-    <div class="filter-badge">
-        <span>Medium</span>
-        <i class="bx bx-x"></i>
-    </div>
-</div>
-
-
-
-
-<div class="pagination">
-    <button class="page-button" disabled>Previous</button>
-    <button class="page-number active">1</button>
-    <button class="page-number">2</button>
-    <button class="page-number">3</button>
-    <span class="dots">...</span>
-    <button class="page-number">8</button>
-    <button class="page-number">9</button>
-    <button class="page-number">10</button>
-    <button class="page-button">Next</button>
-</div>
-
-
-
-<script>
-  function toggleFilter(element) {
-    const content = element.nextElementSibling;
-    const arrow = element.querySelector('.arrow');
-    
-    if (content) {
-      // Toggle open class and rotate arrow
-      content.classList.toggle('open');
-      element.classList.toggle('active');
-      arrow.classList.toggle('down');
-    }
-  }
-</script>
-<script>
-    const dropdowns = document.querySelectorAll('.sorting-dropdown');
-
-dropdowns.forEach(dropdown => {
-    const select = dropdown.querySelector('.select');
-    const caret = dropdown.querySelector('.caret');
-    const menu = dropdown.querySelector('.menu');
-    const options = dropdown.querySelectorAll('.menu li');
-    const selected = dropdown.querySelector('.selected');
-
   
-select.addEventListener('click', () => {
-  select.classList.toggle('select-clicked');
-  caret.classList.toggle('caret-rotate');
-  menu.classList.toggle('menu-open');
-});
+  
+      <div><a class="click-btn btn-style700" href="#">Login</a></div>
+      <div><a class="click-btn btn-style702" href="#">Sign up</a></div>
 
-options.forEach(option => {
-  option.addEventListener('click', () => {
-      selected.innerText = option.innerText;
-      select.classList.remove('select-clicked');
-      caret.classList.remove('caret-rotate');
-      menu.classList.remove('menu-open');
-    
-      options.forEach(option => {
-        option.classList.remove('active');
-        });
-          option.classList.add('active');
-  });
-});
-});
-
-</script>
 </body>
 </html>

@@ -161,8 +161,7 @@
 }
 .filter-and-products{
   display: flex;
-  margin: 150px auto;
-  border: 1px solid blue;
+  margin: 100px auto;
 .filter-sidebar {
       width: 20%;
       font-family: "Inter", sans-serif;
@@ -479,6 +478,46 @@
            
         }
 }
+.pagination{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+
+.page-button,
+.page-number {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #888;
+    cursor: pointer;
+}
+
+.page-button:disabled,
+.page-number.active {
+    background-color: #f2f2f2;
+    color: #333;
+    cursor: default;
+}
+
+.page-button:disabled {
+    border-color: transparent;
+    cursor: not-allowed;
+}
+
+.page-button:hover:not(:disabled),
+.page-number:hover {
+    background-color: #e0e0e0;
+}
+
+.dots {
+    color: #888;
+}
+
+    }
 }
 }
 </style>
@@ -718,8 +757,8 @@
               </ul>
             </div>
       </div>
-      </div>
-      <div class="applied-filters">
+    </div>
+    <div class="applied-filters">
           <span>Applied Filters :</span>
           <div class="filter-badge">
               <span>Tops</span>
@@ -729,8 +768,8 @@
               <span>Medium</span>
               <i class="bx bx-x"></i>
           </div>
-      </div>
-      <div class="filtered-cards">       
+    </div>
+    <div class="filtered-cards">       
           <a href="./web-Product-details.html">
             <div class="card Product-card">
               <div class="card-head">
@@ -920,12 +959,20 @@
               </div>
             </div>
           </a>
-     </div>
+    </div>   
+    <div class="pagination">
+  <button class="page-button" disabled>Previous</button>
+  <button class="page-number active">1</button>
+  <button class="page-number">2</button>
+  <button class="page-number">3</button>
+  <span class="dots">...</span>
+  <button class="page-number">8</button>
+  <button class="page-number">9</button>
+  <button class="page-number">10</button>
+  <button class="page-button">Next</button>
+    </div>
+  </div>
 </div>
-</div>
-
-
-
 
 <div class="container limited-offer">
         <img class="limited-banner" src="./web-assets/assets/images/limited-offer-banner.jpg" alt="">
