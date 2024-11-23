@@ -18,6 +18,9 @@
   <!-- header -->
   <div id="header"></div>
 <!-- /header -->
+ <!-- preloader -->
+ <div id="preloader"></div>
+ <!-- /preloader -->
     <!-- content -->
 <div class="content-area">
     <div class="breadcrumbs-container">
@@ -145,64 +148,7 @@
 <!-- /content -->
  <!-- footer -->
  <!-- footer -->
- <footer>
-  <div class="foot-logo">
-      <img src="./web-assets/assets/images/demo-logo.png">
-  </div>
-  <div class="info d-flex">
-      <div class="links">
-          <h6 class="text-c-white fw-700">Quick Links</h6>
-          <ul>
-              <a href="./web-index.html"><li>Home</li></a>
-              <a href="./web-about-us.html"><li>About Us</li></a>
-              <a href=""><li>Contact Us</li></a>
-              <a href=""><li>Story</li></a>
-              <a href=""><li>Blogs</li></a>
-          </ul>
-      </div>
-      <div class="links">
-          <h6 class="text-c-white fw-700">Getting Started</h6>
-          <ul>
-              <a href=""><li>Home</li></a>
-              <a href=""><li>About Us</li></a>
-              <a href=""><li>Contact Us</li></a>
-              <a href=""><li>Story</li></a>
-              <a href=""><li>Blogs</li></a>
-          </ul>
-      </div>
-      <div class="links">
-          <h6 class="text-c-white fw-700">Featured</h6>
-          <ul>
-              <a href="./web-terms.html"><li>Terms & Condition</li></a>
-              <a href="./web-privacy-policy.html"><li>Privacy Policy</li></a>
-              <a href="./web-refund&exchange.html"><li>Exchange & Return</li></a>
-              <a href="./web-refund-policy.html"><li>Refund Policy</li></a>
-              <a href="./web-shipment-policy.html"><li>Shipment Policy</li></a>
-          </ul>
-      </div>
-      <div class="social-desc">
-          <div class="social-media">
-              <h6 class="text-c-white fw-800">FOLLOW Us On</h6>
-              <ul class="d-flex">
-                  <li><a href=""><i class='bx bxl-facebook'></i></a></li>
-                  <li><a href=""><i class='bx bxl-instagram'></i></a></li>
-                  <li><a href=""><i class='bx bxl-youtube'></i></a></li>
-                  <li><a href=""><i class='bx bxl-twitter' ></i></a></li>
-                  <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
-              </ul>
-          </div>
-          <div class="payment-methods">
-              <h6 class="text-c-white fw-800">Payment Methods</h6>
-              <img class="payment-method-img" src="./web-assets/assets/images/payment-methods.png" alt="">
-              <img src="./web-assets/assets/images/payment-method-2.png" alt="" width="60px" height="30px" style="margin-left: 3px;">
-          </div>
-      </div>
-  </div>
-  <hr>
-  <div class="terms-section">
-  <p>&copy; 2006 Company Name All Rights Reserved</p>
-</div>
-</footer>
+<div id="footer"></div>
 <!-- /footer -->
 
  <!-- THIRD PARTY JS -->
@@ -210,50 +156,25 @@
  <script src="./web-assets/assets/js/script.js"></script>
 
 <!-- scripts -->
-
-   <!-- nitofication dropdown -->
-   <script>
-    function toggleDropdownnoti() {
-      const dropdownMenu = document.getElementById("dropdownMenu");
-      if (dropdownMenu.style.display === "block") {
-        dropdownMenu.style.display = "none";
-      } else {
-        dropdownMenu.style.display = "block";
-      }
-    }
-
-    function openTabnoti(evt, tabName) {
-      // Hide all tab contents
-      var tabContent = document.getElementsByClassName("tab-content-noti");
-      for (var i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
-      }
-
-      // Remove active state from all tab links
-      var tabLinks = document.getElementsByClassName("tab-link-noti");
-      for (var i = 0; i < tabLinks.length; i++) {
-        tabLinks[i].classList.remove("active");
-      }
-
-      // Show the clicked tab's content and set the clicked tab link as active
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.classList.add("active");
-    }
-
-    // Set "New" tab content visible on page load
-    document.getElementById("new").style.display = "block";
-  </script>
-
-
-
-
-
 <script>
-    document.getElementById("header").innerHTML = fetch('./web-header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("header").innerHTML = data;
-        });
+  // Load the header dynamically
+   document.getElementById("header").innerHTML = fetch('./web-header.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("header").innerHTML = data;
+  });
+
+
+  document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("footer").innerHTML = data;
+  });
+  document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("preloader").innerHTML = data;
+  });
 </script>
 </body>
 </html>

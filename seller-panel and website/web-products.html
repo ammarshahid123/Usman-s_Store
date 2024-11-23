@@ -10,70 +10,6 @@
     <link rel="stylesheet" href="./web-assets/assets/css/style.css">
 <style>
 
-.message-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #007bff; /* Button color */
-    color: white;
-    padding: 15px 20px;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    font-size: 16px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transform: translateY(100px);
-    border: 2px solid transparent; /* Start with no visible border */
-    animation: slideIn 2s ease forwards, borderPulse 3s infinite ease-in-out; /* Added border animation */
-}
-
-/* Icon inside the button */
-.message-btn .icon {
-    font-size: 20px;
-    margin-right: 10px;
-}
-
-/* Text inside the button */
-.message-btn .message-text {
-    font-weight: 600;
-}
-
-/* Slide in animation */
-@keyframes slideIn {
-    0% {
-        transform: translateY(100px);
-        opacity: 0;
-    }
-    50% {
-        transform: translateY(-10px);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-10px);
-        opacity: 1;
-    }
-}
-
-/* Border pulse animation */
-@keyframes borderPulse {
-    0%, 100% {
-        border-color: transparent; /* Start and end with no visible border */
-    }
-    50% {
-        border-color: #ffffff; /* The border appears at 50% of the animation */
-        border-width: 2px; /* Set the border thickness */
-    }
-}
-
-/* Hover effect */
-.message-btn:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-}
-
 .limited-offer{
     display: flex;
     border-radius: 10px;
@@ -524,153 +460,11 @@
 </head>
 <body>
   <!-- header -->
-  <nav class="navbar">
-    <div class="first-half">
-        <div class="logo">
-          <a href="./web-index.html">
-            <img src="./web-assets/assets/images/demo-logo.png" class="logo-image" alt="">
-          </a>
-        </div>
-        <div class="links">
-            <ul class="d-flex">
-                <li><a href="">Become a Seller</a></li>
-                <li><a href="">Help & Support</a></li>
-                <li class="dropdown">
-                  <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
-                  <ul class="dropdown-menu">
-                      <li class="sub-dropdown">
-                          <a href="#" class="subdropdowns">Category 1<i class="bx bx-chevron-left"></i></a>
-                          <ul class="sub-menu">
-                              <li><a href="#">Sub Category 1</a></li>
-                              <li><a href="#">Sub Category 2</a></li>
-                          </ul>
-                      </li>
-                      <li class="sub-dropdown">
-                          <a href="#" class="subdropdowns">Category 2 <i class="bx bx-chevron-left"></i></a>
-                          <ul class="sub-menu">
-                              <li><a href="#">Sub Category 3</a></li>
-                              <li><a href="#">Sub Category 4</a></li>
-                          </ul>
-                      </li>
-                      <li class="sub-dropdown">
-                        <a href="#">Category 1</a>
-                    </li>
-                    <li class="sub-dropdown">
-                      <a href="#">Category 1</a>
-                  </li>
-                  <li class="sub-dropdown">
-                    <a href="#">Category 1</a>
-                </li>
-                  </ul>
-              </li>
-            </ul>
-        </div>
-    </div>
-    <div class="second-half">
-        <ul class="d-flex">
-            <li>
-                <div class="search-box">
-                    <input type="text" class="search-box-input" placeholder="What are you looking for ?">
-                    <button class="search-box-btn">
-                        <i class="search-box-icon material-icons bx bx-search"></i>
-                    </button>
-                </div>
-            </li>
-            <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>                
-            <li>
-              <div class="dropdown-noti">
-                <i class="bx bx-bell fs-4 dropdown-toggle" onclick="toggleDropdownnoti()"></i>
-                <div id="dropdownMenu" class="dropdown-menu">
-                  <!-- Dropdown Header -->
-                  <div class="dropdown-header">
-                    <h3>Notifications</h3>
-                  </div>
-            
-                  <!-- Tabs -->
-                  <div class="tabs">
-                    <button class="tab-link-noti active" onclick="openTabnoti(event, 'new')">New (2)</button>
-                    <button class="tab-link-noti" onclick="openTabnoti(event, 'seen')">Seen (3)</button>
-                  </div>
-            
-                  <!-- New Notifications -->
-                  <div id="new" class="tab-content-noti">
-                    <div class="notification">
-                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
-                      <div class="notification-text">
-                        <p>You have a new message from John.</p>
-                      </div>
-                    </div>
-                    <div class="notification">
-                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
-                      <div class="notification-text">
-                        <p>Meeting scheduled with the marketing team tomorrow.</p>
-                      </div>
-                    </div>
-                  </div>
-            
-                  <!-- Seen Notifications -->
-                  <div id="seen" class="tab-content-noti">
-                    <div class="notification">
-                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
-                      <div class="notification-text">
-                        <p>Project update received from the development team.</p>
-                      </div>
-                    </div>
-                    <div class="notification">
-                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
-                      <div class="notification-text">
-                        <p>New design mockups have been seen and approved.</p>
-                      </div>
-                    </div>
-                    <div class="notification">
-                      <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
-                      <div class="notification-text">
-                        <p>New design are seen and approved.</p>
-                      </div>
-                    </div>
-                  </div>
-                  <a href="./web-chats.html" style="text-decoration: none;">
-                    <button class="btn-noti-view">View All</button>
-                  </a>
-                </div>
-              </div>
-            </li>
-            <li class="noti-counter">
-                <span>5</span>
-            </li>
-            <li>
-                <div class="dropdown" tab-index="0">
-                    <button id="dropdown-btn"></button>
-                    <ul class="dropdown-content" id="dropdown-content"></ul>
-                  </div>
-            </li>
-            <li>
-              <div class="drop-profile">
-                <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Avatar" width="50px" height="50px" style="border-radius: 50%;" onclick="toggleDropdown()">
-                <i class='bx bxs-down-arrow' style="font-size: 8px;color: white;" onclick="toggleDropdown()"></i>
-                <div class="drop-profile-content">
-                  <a href="./web-account-manage.html">Manage My Account</a>
-                  <a href="./web-my-orders.html">My Orders</a>
-                  <a href="./web-wishlist.html">My Wishlist & Followed Stores</a>
-                  <a href="./web-my-reviews.html">My Reviews</a>
-                  <a href="./web-login.html">Logout</a>
-                </div>
-              </div>
-            </li>              
-            <li>
-              <a href="./web-login.html">
-                <button class="btn btn-pill btn-login">Log In</button>
-              </a>
-            </li>
-            <li>
-              <a href="./web-login.html">
-                <button class="btn btn-pill btn-signUp">Sign Up</button>
-              </a>
-            </li>
-        </ul>
-    </div>
-</nav>
-    <!-- /header -->
+ <div id="header"></div>
+ <!-- /header -->
+ <!-- preloader -->
+ <div id="preloader"></div>
+    <!-- /preloader -->
     <!-- content -->
 <div class="content-area">
     <div class="breadcrumbs-container">
@@ -680,7 +474,7 @@
             <li class="breadcrumb-item active">Browse Products</li>
           </ol>
     </div>
-<div class="container filter-and-products">
+    <div class="container filter-and-products">
   <div class="filter-sidebar">
     <!-- Category Section -->
     <div class="filter-section">
@@ -972,30 +766,30 @@
   <button class="page-button">Next</button>
     </div>
   </div>
-</div>
-
-<div class="container limited-offer">
-        <img class="limited-banner" src="./web-assets/assets/images/limited-offer-banner.jpg" alt="">
-    <div class="text">
-        <span>LIMITED OFFER</span>
-        <h2>35% off only this friday and get special gift</h2>
-        <div class="grab-btn">
-            <button class="btn btn-light">Grab it now <i class='bx bx-arrow-back bx-rotate-180' ></i> </button>
+    </div>
+    <div class="container limited-offer">
+            <img class="limited-banner" src="./web-assets/assets/images/limited-offer-banner.jpg" alt="">
+        <div class="text">
+            <span>LIMITED OFFER</span>
+            <h2>35% off only this friday and get special gift</h2>
+            <div class="grab-btn">
+                <button class="btn btn-light">Grab it now <i class='bx bx-arrow-back bx-rotate-180' ></i> </button>
+            </div>
         </div>
     </div>
-</div>
-<div class="container">
-<hr>
-</div>
-<div class="container news-letter">
-    <h1>Subscribe to our newsletter to get updates<br>to our latest collections</h1>
-    <p class="sub-heading">Get 20% off on your first order just by subscribing to our newsletter</p>
-    <div class="input">
-        <i class='bx bx-envelope' ></i>
-        <input type="email" class="subscribe" placeholder="Enter your email">
-        <button class="btn btn-dark">Subscribe</button>
+    <div class="container">
+    <hr>
     </div>
-    <p class="sub-desc">You will be able to unsubscribe at any time.<br>Read our Privacy Policy <a href="">here</a></p>
+    <div class="container news-letter">
+        <h1>Subscribe to our newsletter to get updates<br>to our latest collections</h1>
+        <p class="sub-heading">Get 20% off on your first order just by subscribing to our newsletter</p>
+        <div class="input">
+            <i class='bx bx-envelope' ></i>
+            <input type="email" class="subscribe" placeholder="Enter your email">
+            <button class="btn btn-dark">Subscribe</button>
+        </div>
+        <p class="sub-desc">You will be able to unsubscribe at any time.<br>Read our Privacy Policy <a href="">here</a></p>
+    </div>
 </div>
 <div class="message-btn">
   <i class="icon">&#9993;</i> <!-- This is the envelope icon -->
@@ -1003,64 +797,7 @@
 </div>
 <!-- /content -->
  <!-- footer -->
-<footer>
-    <div class="foot-logo">
-        <img src="./web-assets/assets/images/demo-logo.png">
-    </div>
-    <div class="info d-flex">
-        <div class="links">
-            <h6 class="text-c-white fw-700">Quick Links</h6>
-            <ul>
-                <a href="./web-index.html"><li>Home</li></a>
-                <a href="./web-about-us.html"><li>About Us</li></a>
-                <a href=""><li>Contact Us</li></a>
-                <a href=""><li>Story</li></a>
-                <a href=""><li>Blogs</li></a>
-            </ul>
-        </div>
-        <div class="links">
-            <h6 class="text-c-white fw-700">Getting Started</h6>
-            <ul>
-                <a href=""><li>Home</li></a>
-                <a href=""><li>About Us</li></a>
-                <a href=""><li>Contact Us</li></a>
-                <a href=""><li>Story</li></a>
-                <a href=""><li>Blogs</li></a>
-            </ul>
-        </div>
-        <div class="links">
-            <h6 class="text-c-white fw-700">Policies</h6>
-            <ul>
-                <a href="./web-terms.html"><li>Terms & Condition</li></a>
-                <a href="./web-privacy-policy.html"><li>Privacy Policy</li></a>
-                <a href="./web-refund&exchange.html"><li>Exchange & Return</li></a>
-                <a href="./web-refund-policy.html"><li>Refund Policy</li></a>
-                <a href="./web-shipment-policy.html"><li>Shipment Policy</li></a>
-            </ul>
-        </div>
-        <div class="social-desc">
-            <div class="social-media">
-                <h6 class="text-c-white fw-800">FOLLOW Us On</h6>
-                <ul class="d-flex">
-                    <li><a href=""><i class='bx bxl-facebook'></i></a></li>
-                    <li><a href=""><i class='bx bxl-instagram'></i></a></li>
-                    <li><a href=""><i class='bx bxl-youtube'></i></a></li>
-                    <li><a href=""><i class='bx bxl-twitter' ></i></a></li>
-                    <li><a href=""><i class='bx bxl-pinterest-alt'></i></a></li>
-                </ul>
-            </div>
-            <div class="payment-methods">
-                <h6 class="text-c-white fw-800">Payment Methods</h6>
-                <img class="payment-method-img" src="./web-assets/assets/images/payment-methods.png" alt="">
-                <img src="./web-assets/assets/images/payment-method-2.png" alt="" width="60px" height="30px" style="margin-left: 3px;">
-            </div>
-        </div>
-    </div>
-    <hr>
-    <div class="terms-section">
-    <p>&copy; 2006 Company Name All Rights Reserved</p>
-</div>
-</footer>
+<div id="footer"></div>
 <!-- /footer -->
 
  <!-- THIRD PARTY JS -->
@@ -1068,91 +805,27 @@
  <script src="./web-assets/assets/js/script.js"></script>
 
 <!-- scripts -->
- <script>
-    const locales = ["en-GB","ar-SA","zh-CN","de-DE","es-ES","fr-FR","hi-IN","it-IT","in-ID","ja-JP","ko-KR","nl-NL","no-NO","pl-PL","pt-BR","sv-SE","fi-FI","th-TH","tr-TR","uk-UA","vi-VN","ru-RU","he-IL"];
-
-function getFlagSrc(countryCode) {
-  return /^[A-Z]{2}$/.test(countryCode)
-       ? `https://flagsapi.com/${countryCode.toUpperCase()}/shiny/64.png`
-    : "";
-}
-
-const dropdownBtn = document.getElementById("dropdown-btn");
-const dropdownContent = document.getElementById("dropdown-content");
-
-function setSelectedLocale(locale) {
-  const intlLocale = new Intl.Locale(locale);
-  const langName = new Intl.DisplayNames([locale], {
-    type: "language",
-  }).of(intlLocale.language);
-
-  dropdownContent.innerHTML = "";
-
-  const otherLocales = locales.filter((loc) => loc !== locale);
-  otherLocales.forEach((otherLocale) => {
-    const otherIntlLocale = new Intl.Locale(otherLocale);
-    const otherLangName = new Intl.DisplayNames([otherLocale], {
-      type: "language",
-    }).of(otherIntlLocale.language);
-
-    const listEl = document.createElement("li");
-    listEl.innerHTML = `${otherLangName}<img src="${getFlagSrc(
-      otherIntlLocale.region
-    )}" />`;
-    listEl.value = otherLocale;
-    listEl.addEventListener("mousedown", function () {
-      setSelectedLocale(otherLocale);
-    });
-    dropdownContent.appendChild(listEl);
+<script>
+  // Load the header dynamically
+   document.getElementById("header").innerHTML = fetch('./web-header.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("header").innerHTML = data;
   });
 
-  dropdownBtn.innerHTML = `<img src="${getFlagSrc(
-    intlLocale.region
-  )}" />${langName}<span class="arrow-down"></span>`;
-}
 
-setSelectedLocale(locales[0]);
-const browserLang = new Intl.Locale(navigator.language).language;
-for (const locale of locales) {
-  const localeLang = new Intl.Locale(locale).language;
-  if (localeLang === browserLang) {
-    setSelectedLocale(locale);
-  }
-}
- </script>
-  <!-- nitofication dropdown -->
-  <script>
-    function toggleDropdownnoti() {
-      const dropdownMenu = document.getElementById("dropdownMenu");
-      if (dropdownMenu.style.display === "block") {
-        dropdownMenu.style.display = "none";
-      } else {
-        dropdownMenu.style.display = "block";
-      }
-    }
-
-    function openTabnoti(evt, tabName) {
-      // Hide all tab contents
-      var tabContent = document.getElementsByClassName("tab-content-noti");
-      for (var i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
-      }
-
-      // Remove active state from all tab links
-      var tabLinks = document.getElementsByClassName("tab-link-noti");
-      for (var i = 0; i < tabLinks.length; i++) {
-        tabLinks[i].classList.remove("active");
-      }
-
-      // Show the clicked tab's content and set the clicked tab link as active
-      document.getElementById(tabName).style.display = "block";
-      evt.currentTarget.classList.add("active");
-    }
-
-    // Set "New" tab content visible on page load
-    document.getElementById("new").style.display = "block";
-  </script>
-  <!--  -->
+  document.getElementById("footer").innerHTML = fetch('./web-footer.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("footer").innerHTML = data;
+  });
+  document.getElementById("preloader").innerHTML = fetch('./web-preloader.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("preloader").innerHTML = data;
+  });
+</script>
+  <!-- others -->
   <script>
     function toggleFilter(element) {
       const content = element.nextElementSibling;
