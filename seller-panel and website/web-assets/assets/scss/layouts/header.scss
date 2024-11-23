@@ -176,7 +176,7 @@
                     border-radius: 50%;
                     width: 40px;
                     height: 40px;
-                    background-color: rgb(0, 0, 0);
+                    background-color:#ff7f00;
                     transition: .3s;
                 }
 
@@ -226,7 +226,7 @@
                     position: absolute;
                     top: 0;
                     left: 0;
-                    border-color: #dd6395;
+                    border-color: #ff7f00;
                     border-radius: 5px;
                     border-style: solid;
                     transition: all 0.35s;
@@ -286,7 +286,7 @@
                     z-index: 1;
                   }
                   .btn-style702:hover {
-                    color: #716eef;
+                    color: #ff7f00;
                     background-color: transparent;
                   }
                   .btn-style702:hover::before {
@@ -294,7 +294,7 @@
                   }
                   .btn-style702:hover::after {
                     width: 100%;
-                    border-color: #716eef;
+                    border-color: #ff7f00;
                     transition-delay: 0.2s;
                   }
                   
@@ -306,12 +306,8 @@
     height: 40px;
     z-index: 10;
     background: #FFFFFF;
-    // top: 50px; 
-    // left: 50%;
     transform: translateX(-50%);
     border-radius: 10px;
-    border: 0.5px solid rgba(202, 219, 226, 0.40);
-    box-shadow: 0px 3px 6px rgba(79, 104, 113, 0.20);
     overflow: hidden;
     overflow-y: scroll;
     transition: height 0.2s ease-in-out, border-radius 0.2s ease-in-out, box-shadow 0.2s ease-in-out;

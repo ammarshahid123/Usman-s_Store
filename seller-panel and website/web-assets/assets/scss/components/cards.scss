@@ -1,0 +1,63 @@
+.card-product{
+        text-decoration: none;
+        text-align: left;
+        transition: all 0.2s ease-in-out;
+        &:hover .card-desc{
+            text-decoration: underline;
+        }
+        .Product-card {
+            --card-w: 250px;
+            box-shadow: none;
+            display: none; 
+            border:none;
+            .card-head{
+            --card-head-p: 0px;
+            --card-image-br:10px;
+            --card-image-h:250px;
+        }
+        .card-body{
+            --card-body-p:0.8rem;
+            .brand-and-ratings{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .brand{
+                color: #8a929e;
+                }
+                .rating-and-sold{
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                        .rating{
+                            font-weight: 450;
+                            color: black;
+                            i{
+                                color: gold;
+                            }
+                        }
+                        .sold{
+                            color: #b5bac1;
+                            font-size: 14px;
+                        }
+                }
+            }
+            .prices{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .original-price{
+                    color:#f25a76;
+                    font-size: 20px;
+                }
+            }
+            .discounted-price{
+                font-size:15px;
+                text-align: left;
+                del{
+                    color: #b5bac1;
+                    margin: 0px 10px 0px 5px;
+                }
+            }
+        }
+    }
+}
