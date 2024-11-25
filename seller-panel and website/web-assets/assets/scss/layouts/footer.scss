@@ -1,12 +1,12 @@
 footer{
-    background-color: #10182f;
+    background-color: #000000;
     padding: 50px 20px 5px 20px;
-    color: #596280;
+    color: #ffffff;
     .foot-logo{
         margin-left: 2%;
         img{
             width: auto;
-            height: 70px;
+            height: 120px;
             margin-bottom: 25px;
         }
     }
@@ -28,7 +28,7 @@ footer{
                         transition: all 0.1s ease-in-out;
                         &:hover{
                             text-decoration: underline;
-                            color: rgb(163, 171, 196);
+                            color: #ff7f00;
                         }
                         li{
                             list-style: none;
@@ -53,7 +53,7 @@ footer{
                         align-items: center;
                         &:hover{
                             color:#10182f ;
-                            background-color: rgb(127, 133, 153);
+                            background-color: #ff7f00;
                         }
                         a{
                             i{

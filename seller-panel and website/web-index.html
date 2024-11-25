@@ -11,21 +11,23 @@
 </head>
 <body>
   <!-- modal for the App -->
-  <div id="page-modal" class="modal-box">
+<div id="page-modal" class="modal-box">
     <div class="modal-content">
         <!-- <span class="close-button" onclick="closeModal()">&times;</span> -->
-        <h2>Intall Our App For Better Experience</h2>
-        <p>This is a message for your visitors.</p>
+        <!-- <h2>Don't Miss Your Chance</h2> -->
+        <!-- <p>This is a message for your visitors.</p> -->
+        <img src="./web-assets/assets/images/sale-modal.png" width="300px"
+        height="220px" alt=""><br>
         <button id="close-modal-button">Close</button>
     </div>
 </div>
 <!-- modal for the App -->
-<!-- Preloader -->
- <div id="preloader"></div>
-<!-- Preloader -->
 <!-- header -->
   <div id="header"></div>
 <!-- /header -->
+<!-- Preloader -->
+ <div id="preloader"></div>
+<!-- Preloader -->
 <!-- content -->
 <div class="content-area">
   <div class="product-banner-slider d-flex">
@@ -848,8 +850,6 @@
   .then(data => {
       document.getElementById("header").innerHTML = data;
   });
-
-
   document.getElementById("footer").innerHTML = fetch('./web-footer.html')
   .then(response => response.text())
   .then(data => {

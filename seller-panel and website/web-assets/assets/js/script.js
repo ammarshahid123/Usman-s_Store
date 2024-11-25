@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("Container found:", container);
     }
 
-    
     let items = container.querySelectorAll("ul > li");
     if (items.length === 0) {
         console.error("No list items found in the container.");
@@ -17,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("List items found:", items);
     }
 
+    
     let selectedItem = items[0];
     console.log("Initial selected item:", selectedItem);
 
