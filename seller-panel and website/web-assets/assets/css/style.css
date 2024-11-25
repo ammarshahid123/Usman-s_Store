@@ -107,8 +107,8 @@
   opacity: 1;
 }
 .navbar .first-half .links .first-ul li.dropdown i {
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .navbar .first-half .links .first-ul li.dropdown .dropdown-menu {
   display: none;
@@ -123,8 +123,8 @@
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   padding: 10px 0;
   z-index: 10;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 .navbar .first-half .links .first-ul li.dropdown .dropdown-menu li {
   white-space: nowrap;
@@ -208,6 +208,64 @@
       -ms-flex-align: center;
           align-items: center;
   cursor: pointer;
+  /* Tooltip container */
+  /* Tooltip arrow */
+  /* Tooltip text box */
+  /* Show tooltip on hover */
+}
+.navbar .second-half ul li .tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.navbar .second-half ul li .tooltip-bottom {
+  position: relative;
+  text-decoration: none;
+}
+.navbar .second-half ul li .tooltip-bottom::before {
+  content: "";
+  position: absolute;
+  top: 100%; /* Place the arrow below the element */
+  left: 40%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: black; /* Arrow color */
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+.navbar .second-half ul li .tooltip-bottom::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 10px); /* Position tooltip below the arrow */
+  left: -67%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 9;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+.navbar .second-half ul li .tooltip-bottom:hover::before,
+.navbar .second-half ul li .tooltip-bottom:hover::after {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: translateY(4px);
+          transform: translateY(4px); /* Slide effect on show */
 }
 .navbar .second-half ul li input,
 .navbar .second-half ul li button {
@@ -4099,7 +4157,10 @@ footer .terms-section .terms ul li a {
   display: none;
   padding: 10px;
   height: 172px;
-  overflow: scroll;
+  overflow-x: hidden;
+}
+.dropdown-noti .tab-content-noti::-webkit-scrollbar {
+  width: 0px;
 }
 .dropdown-noti .notification {
   display: -webkit-box;
@@ -4181,24 +4242,59 @@ body::-webkit-scrollbar-thumb {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #007bff; /* Button color */
-  color: white;
-  padding: 15px 20px;
   z-index: 10;
-  border-radius: 50px;
+  opacity: 0;
+  -webkit-transform: translateY(100px);
+          transform: translateY(100px);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  width: 60px;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #ff7f00; /* Blue circle */
+  border-radius: 50%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.2) 0px 1px 3px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.2) 0px 1px 3px;
+  /* Notification badge */
+}
+.message-btn i {
+  font-size: 36px;
+  color: white;
+}
+.message-btn .notification-badge {
+  position: absolute;
+  top: -4px;
+  right: 3px;
+  width: 20px;
+  height: 20px;
+  background-color: #e00; /* Red for badge */
+  color: #fff;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 16px;
-  cursor: pointer;
-  -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  -webkit-transform: translateY(100px);
-          transform: translateY(100px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
+}
+
+.message-btn {
   border: 2px solid transparent; /* Start with no visible border */
   -webkit-animation: slideIn 2s ease forwards, borderPulse 3s infinite ease-in-out;
           animation: slideIn 2s ease forwards, borderPulse 3s infinite ease-in-out; /* Added border animation */
@@ -4271,7 +4367,7 @@ body::-webkit-scrollbar-thumb {
 }
 /* Hover effect */
 .message-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #dd6f00; /* Darker blue on hover */
   -webkit-transform: translateY(-5px);
           transform: translateY(-5px);
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);

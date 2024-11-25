@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
     <link rel="stylesheet" href="./web-assets/assets/css/style.css">
 </head>
+<style>
+</style>
 <body>
     <header id="header">
         <nav class="navbar">
@@ -62,8 +64,17 @@
                           </button>
                       </div>
                   </li>
-                  <li><a href=""></a><img src="./web-assets/assets/images/help-center.png" width="40px" height="40px" alt=""></li>
-                  <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li>                
+                  <li>
+                    <div class="tooltip-wrapper">
+                      <a href="#" class="tooltip-bottom" data-tooltip="Help Center!">
+                        <img src="./web-assets/assets/images/help-center.png" width="40px" height="40px" alt="">
+                      </a>
+                    </div>
+                  </li>
+                  <li><a href="./web-cart.html"><i class="bx bx-cart fs-4"></i></a></li> 
+                  <li class="noti-counter">
+                    <span>3</span>
+                </li>               
                   <li>
                     <div class="dropdown-noti">
                       <i class="bx bx-bell fs-4 dropdown-toggle" onclick="toggleDropdownnoti()"></i>
@@ -80,7 +91,7 @@
                         </div>
                   
                         <!-- New Notifications -->
-                        <div id="new" class="tab-content-noti">
+                        <div id="new" class="tab-content-noti" style="display: block;">
                           <div class="notification">
                             <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Notification Image" class="notification-img">
                             <div class="notification-text">
@@ -176,6 +187,5 @@
           </div>
       </nav>
     </header>
-
 </body>
 </html>

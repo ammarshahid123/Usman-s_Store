@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // **Swiper Slider Initialization for Sale Slider**
 document.addEventListener("DOMContentLoaded", function () {
-    var swiper = new Swiper(".sale-slider", {
+    var swiper = new Swiper(".swiper-products", {
         slidesPerView: 4,
         spaceBetween: 10,
         loop: true,
@@ -146,13 +146,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
-// **Notification Dropdown**
 function toggleDropdownnoti() {
     const dropdownMenu = document.getElementById("dropdownMenu");
     dropdownMenu.style.display = (dropdownMenu.style.display === "block") ? "none" : "block";
 }
-
 function openTabnoti(evt, tabName) {
     var tabContent = document.getElementsByClassName("tab-content-noti");
     for (var i = 0; i < tabContent.length; i++) {
@@ -167,6 +164,7 @@ function openTabnoti(evt, tabName) {
     document.getElementById(tabName).style.display = "block"; // Show clicked tab content
     evt.currentTarget.classList.add("active"); // Set active state for clicked tab
 }
+// **Notification Dropdown**
 
 // **Load More Functionality**
 const productCards = document.querySelectorAll('.Product-card');

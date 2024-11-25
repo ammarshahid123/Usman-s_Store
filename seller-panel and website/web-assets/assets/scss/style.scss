@@ -82,7 +82,10 @@
     display: none;
     padding: 10px;
     height: 172px;
-    overflow:scroll;
+    overflow-x:hidden;
+    &::-webkit-scrollbar{
+      width: 0px;
+    }
   }
 
   .notification {
@@ -157,22 +160,48 @@ body::-webkit-scrollbar-thumb {
     border-radius: 8px;
     background: #c2c9d2;
 }
-.message-btn {
+.message-btn{
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #007bff; /* Button color */
-  color: white;
-  padding: 15px 20px;
   z-index: 10;
-  border-radius: 50px;
-  display: flex;
-  align-items: center;
-  font-size: 16px;
-  cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   opacity: 0;
   transform: translateY(100px);
+  transition: all .3s ease-in-out;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff7f00; /* Blue circle */
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.2) 0px 1px 3px;
+  i{
+    font-size: 36px;
+    color: white;
+  }
+  
+  /* Notification badge */
+  .notification-badge {
+    position: absolute;
+    top: -4px;
+    right: 3px;
+    width: 20px;
+    height: 20px;
+    background-color: #e00; /* Red for badge */
+    color: #fff;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
+  }
+}
+
+.message-btn {
   border: 2px solid transparent; /* Start with no visible border */
   animation: slideIn 2s ease forwards, borderPulse 3s infinite ease-in-out; /* Added border animation */
 }
@@ -217,7 +246,7 @@ body::-webkit-scrollbar-thumb {
 
 /* Hover effect */
 .message-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #dd6f00; /* Darker blue on hover */
   transform: translateY(-5px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }

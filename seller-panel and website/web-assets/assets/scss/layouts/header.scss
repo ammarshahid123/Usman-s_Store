@@ -85,7 +85,7 @@
             }
             &.dropdown {
                 i{
-                    transition: all 0.2s ease-in-out;
+                    transition: all 0.5s ease-in-out;
                 }
                 .dropdown-menu {
                     display: none;
@@ -99,7 +99,7 @@
                     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
                     padding: 10px 0;
                     z-index: 10;
-                    transition: all 0.3s ease;
+                    transition:.5s ;
                     
                     li {
                         white-space: nowrap;
@@ -176,6 +176,59 @@
                 display: flex;
                 align-items: center;
                 cursor: pointer;
+              /* Tooltip container */
+.tooltip-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip-bottom {
+  position: relative;
+  text-decoration: none;
+}
+
+/* Tooltip arrow */
+.tooltip-bottom::before {
+  content: "";
+  position: absolute;
+  top: 100%; /* Place the arrow below the element */
+  left: 40%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-bottom-color: black; /* Arrow color */
+  z-index: 10;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Tooltip text box */
+.tooltip-bottom::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 10px); /* Position tooltip below the arrow */
+  left: -67%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 9;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Show tooltip on hover */
+.tooltip-bottom:hover::before,
+.tooltip-bottom:hover::after {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(4px); /* Slide effect on show */
+}
 
 
                 input,
