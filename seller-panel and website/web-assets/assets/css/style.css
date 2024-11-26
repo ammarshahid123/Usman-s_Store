@@ -139,8 +139,8 @@
   text-decoration: none;
 }
 .navbar .first-half .links .first-ul li.dropdown .dropdown-menu li:hover {
-  color: rgb(163, 171, 196);
-  background: #10182f;
+  color: white;
+  background: #ff7f00;
 }
 .navbar .first-half .links .first-ul li.dropdown .dropdown-menu .sub-dropdown {
   position: relative;

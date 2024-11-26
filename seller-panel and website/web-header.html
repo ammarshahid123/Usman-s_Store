@@ -9,8 +9,6 @@
     <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
     <link rel="stylesheet" href="./web-assets/assets/css/style.css">
 </head>
-<style>
-</style>
 <body>
     <header id="header">
         <nav class="navbar">
@@ -26,27 +24,27 @@
                       <a href="#">Categories <i class='bx bx-chevron-down'></i></a>
                       <ul class="dropdown-menu">
                           <li class="sub-dropdown">
-                              <a href="#" class="subdropdowns">Category 1<i class="bx bx-chevron-left"></i></a>
+                              <a href="#" class="subdropdowns">Electronics<i class="bx bx-chevron-left"></i></a>
                               <ul class="sub-menu">
-                                  <li><a href="#">Sub Category 1</a></li>
-                                  <li><a href="#">Sub Category 2</a></li>
+                                  <li><a href="#">Mobile Phones</a></li>
+                                  <li><a href="#">Laptops & Computers</a></li>
                               </ul>
                           </li>
                           <li class="sub-dropdown">
-                              <a href="#" class="subdropdowns">Category 2 <i class="bx bx-chevron-left"></i></a>
+                              <a href="#" class="subdropdowns">Fashion<i class="bx bx-chevron-left"></i></a>
                               <ul class="sub-menu">
-                                  <li><a href="#">Sub Category 3</a></li>
-                                  <li><a href="#">Sub Category 4</a></li>
+                                  <li><a href="#">Men's Clothing</a></li>
+                                  <li><a href="#">Wpmen's Clothing</a></li>
                               </ul>
                           </li>
                           <li class="sub-dropdown">
-                            <a href="#">Category 1</a>
+                            <a href="#">Home & Kitchen</a>
                         </li>
                         <li class="sub-dropdown">
-                          <a href="#">Category 1</a>
+                          <a href="#">Sports & Outdoors</a>
                       </li>
                       <li class="sub-dropdown">
-                        <a href="#">Category 1</a>
+                        <a href="#">Beauty & Health</a>
                     </li>
                       </ul>
                     </li>
@@ -135,36 +133,39 @@
                   </li>
                   <li class="noti-counter">
                       <span>5</span>
-                  </li>
+                  </li> 
                   <div class="language" style="margin: 6px 19px;">
                     <div id="select-container">
                         <ul>
-                            <li lang-selection="default-globe" flow="down">
-                                <img src="https://png.pngtree.com/png-vector/20190118/ourmid/pngtree-vector-globe-icon-png-image_323859.jpg" alt="Default">
+                            <li lang-selection="default-globe" flow="down" data-target="globe">
+                                <img src="./web-assets/assets/images/globe.jpg" alt="Default">
                             </li>
                 
-                            <li lang-selection="EN" tooltip="EN" flow="down">
-                                <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-800.png" alt="English">
+                            <li lang-selection="EN" tooltip="EN" flow="down" data-target="EN">
+                                <img src="./web-assets/assets/images/america.png" alt="English">
+                            </li>
+                            <li lang-selection="PK" tooltip="PK" flow="down" data-target="PK">
+                              <img src="./web-assets/assets/images/pakistan.png" alt="Pakistan">
+                          </li>
+                
+                            <li lang-selection="ES" tooltip="ES" flow="down" data-target="ES">
+                                <img src="./web-assets/assets/images/spain.png" alt="Spanish">
                             </li>
                 
-                            <li lang-selection="ES" tooltip="ES" flow="down">
-                                <img src="https://cdn.countryflags.com/thumbs/spain/flag-800.png" alt="Spanish">
+                            <li lang-selection="PT" tooltip="PT" flow="down" data-target="PT">
+                                <img src="./web-assets/assets/images/potugal.png" alt="Portuguese">
                             </li>
                 
-                            <li lang-selection="PT" tooltip="PT" flow="down">
-                                <img src="https://cdn.countryflags.com/thumbs/portugal/flag-800.png" alt="Portuguese">
+                            <li lang-selection="FR" tooltip="FR" flow="up" data-target="FR">
+                                <img src="./web-assets/assets/images/france.png" alt="French">
                             </li>
                 
-                            <li lang-selection="FR" tooltip="FR" flow="up">
-                                <img src="https://cdn.countryflags.com/thumbs/france/flag-800.png" alt="French">
-                            </li>
-                
-                            <li lang-selection="DE" tooltip="DE" flow="up">
-                                <img src="https://cdn.countryflags.com/thumbs/germany/flag-800.png" alt="German">
+                            <li lang-selection="DE" tooltip="DE" flow="up" data-target="DE">
+                                <img src="./web-assets/assets/images/germany.png" alt="German">
                             </li>
                         </ul>
                     </div>
-                  </div>              
+                </div>                              
                   <li>
                     <div class="drop-profile">
                       <img src="./web-assets/assets/images/avatar-web.jpeg" alt="Avatar" width="50px" height="50px" style="border-radius: 50%;" onclick="toggleDropdown()">
@@ -187,8 +188,6 @@
           </div>
       </nav>
     </header>
-    <script>
- 
-    </script>
+    <!-- <script src="./web-assets/assets/js/language.js"></script> -->
 </body>
 </html>
