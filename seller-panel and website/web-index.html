@@ -879,10 +879,7 @@
     </div>
   </div>
 </div>
-<div class="notification-wrapper message-btn">
-  <i class='bx bxs-message-rounded'></i>
-  <div class="notification-badge">1</div>
-</div>
+<div id="msg-btn-chat"></div>
 <!-- /content -->
  <!-- footer -->
   <div id="footer"></div>
@@ -897,6 +894,11 @@
   .then(data => {
       document.getElementById("header").innerHTML = data;
   });
+  document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
   document.getElementById("footer").innerHTML = fetch('./web-footer.html')
   .then(response => response.text())
   .then(data => {
@@ -910,5 +912,8 @@
 </script>
 <script src="./web-assets/assets/js/script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<script>
+ 
+</script>
 </body>
 </html>

@@ -1,63 +1,38 @@
 // **Swiper Sliders Initialization**
 document.addEventListener("DOMContentLoaded", function () {
-    let container = document.getElementById("select-container");
-    if (!container) {
-        console.error("Container with id 'select-container' not found.");
-        return;
-    } else {
-        console.log("Container found:", container);
-    }
-
-    let items = container.querySelectorAll("ul > li");
-    if (items.length === 0) {
-        console.error("No list items found in the container.");
-        return;
-    } else {
-        console.log("List items found:", items);
-    }
-
-    
-    let selectedItem = items[0];
-    console.log("Initial selected item:", selectedItem);
-
-    function onSelect(item) {
-        console.log("Item clicked:", item);
-        selectedItem.innerHTML = item.innerHTML;
-        selectedItem.setAttribute("lang-selection", item.getAttribute("lang-selection"));
-        selectedItem.setAttribute("tooltip", item.getAttribute("tooltip"));
-        console.log("Updated selected item:", selectedItem);
-        hideSelected();
-        item.style.display = "block";
-        item.style.opacity = "1";
-    }
-
-    function hideSelected() {
-        let selectedLangCode = selectedItem.getAttribute("lang-selection");
-        console.log("Hiding items with lang-selection:", selectedLangCode);
-        items.forEach((item) => {
-            if (item.getAttribute("lang-selection") === selectedLangCode && item !== selectedItem) {
-                console.log("Hiding item:", item);
-                item.style.opacity = "0";
-                setTimeout(() => (item.style.display = "none"), 200);
-            } else {
-                item.style.opacity = "1";
-                item.style.display = "";
-            }
+    // Find all select-container elements across the page
+    const selectContainers = document.querySelectorAll("#select-container");
+  
+    selectContainers.forEach((selectContainer) => {
+      const languageItems = selectContainer.querySelectorAll("li");
+  
+      // Get the default image (first child)
+      const defaultImage = selectContainer.querySelector("li[lang-selection='default-globe'] img");
+  
+      languageItems.forEach((item) => {
+        item.addEventListener("click", () => {
+          // Remove "active" class from all items
+          languageItems.forEach((lang) => lang.classList.remove("active"));
+  
+          // Add "active" class to the clicked item
+          item.classList.add("active");
+  
+          // Get the image of the selected language
+          const selectedImage = item.querySelector("img").src;
+  
+          // Update the default image to the selected image
+          defaultImage.src = selectedImage;
+  
+          // Log the selected language
+          const selectedLanguage = item.getAttribute("lang-selection");
+          console.log(`Language selected: ${selectedLanguage}`);
         });
-    }
-
-    items.forEach((item, index) => {
-        if (index !== 0) {
-            console.log("Attaching click event to item:", item);
-            item.addEventListener("click", function () {
-                onSelect(item);
-            });
-        }
+      });
     });
-
-    console.log("Initial setup: hiding selected item.");
-    hideSelected();
-});
+  });
+  
+  
+  
 
 // **Swiper Slider Initialization for Sale Slider**
 document.addEventListener("DOMContentLoaded", function () {
@@ -170,6 +145,7 @@ function openTabnoti(evt, tabName) {
 const productCards = document.querySelectorAll('.Product-card');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
 const loader = document.querySelector('.loader');
+
 let visibleCards = 25; // Initially visible cards
 
 function loadMoreCards() {
@@ -190,6 +166,5 @@ function loadMoreCards() {
 for (let i = 0; i < visibleCards; i++) {
     productCards[i].style.display = 'inline-block';
 }
-
 // Attach event listener to Load More button
 loadMoreBtn.addEventListener('click', loadMoreCards);

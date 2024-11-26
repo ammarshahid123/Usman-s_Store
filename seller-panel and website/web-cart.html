@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
     <link rel="stylesheet" href="./web-assets/assets/css/style.css">
-
 </head>
 <body>
     <!-- header -->
@@ -189,7 +188,7 @@
       <h3>You might also like</h3>
     </div>
     <hr>
-    <div class="swiper mySwiper sale-slider">
+    <div class="swiper mySwiper swiper-products">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
               <a class="card-product" href="./web-Product-details.html">
@@ -383,21 +382,23 @@
     </div>
   </div>
 </div>
-<div class="message-btn">
-  <i class="icon">&#9993;</i> <!-- This is the envelope icon -->
-  <span class="message-text">Message</span>
-</div>
+<div id="msg-btn-chat"></div>
 <!-- /content -->
  <!-- footer -->
 <div id="footer"></div>
 <!-- /footer -->
 
 <!-- THIRD PARTY JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="./web-assets/assets/js/script.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <!-- scripts -->
 <script>
+    document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
   // Load the header dynamically
    document.getElementById("header").innerHTML = fetch('./web-header.html')
   .then(response => response.text())

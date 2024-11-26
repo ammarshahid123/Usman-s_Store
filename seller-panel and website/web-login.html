@@ -273,7 +273,11 @@
         .then(data => {
             document.getElementById("header").innerHTML = data;
         });
-      
+        document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
       
         document.getElementById("footer").innerHTML = fetch('./web-footer.html')
         .then(response => response.text())

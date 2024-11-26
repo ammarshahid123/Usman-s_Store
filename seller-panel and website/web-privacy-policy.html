@@ -100,10 +100,7 @@ content. You can manage cookies in your browser settings
       </main>
       <!-- CONTENT -->
 </div>
-<div class="message-btn">
-  <i class="icon">&#9993;</i> <!-- This is the envelope icon -->
-  <span class="message-text">Message</span>
-</div>
+<div id="msg-btn-chat"></div>
 <!-- /content -->
 <!-- footer -->
 <div id="footer"></div>
@@ -115,6 +112,11 @@ content. You can manage cookies in your browser settings
 
 <!-- scripts -->
 <script>
+    document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
   // Load the header dynamically
    document.getElementById("header").innerHTML = fetch('./web-header.html')
   .then(response => response.text())

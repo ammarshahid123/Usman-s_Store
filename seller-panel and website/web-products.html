@@ -791,10 +791,7 @@
         <p class="sub-desc">You will be able to unsubscribe at any time.<br>Read our Privacy Policy <a href="">here</a></p>
     </div>
 </div>
-<div class="message-btn">
-  <i class="icon">&#9993;</i> <!-- This is the envelope icon -->
-  <span class="message-text">Message</span>
-</div>
+<div id="msg-btn-chat"></div>
 <!-- /content -->
  <!-- footer -->
 <div id="footer"></div>
@@ -812,7 +809,11 @@
   .then(data => {
       document.getElementById("header").innerHTML = data;
   });
-
+  document.getElementById("msg-btn-chat").innerHTML = fetch('./web-msg-btn.html')
+  .then(response => response.text())
+  .then(data => {
+      document.getElementById("msg-btn-chat").innerHTML = data;
+  });
 
   document.getElementById("footer").innerHTML = fetch('./web-footer.html')
   .then(response => response.text())

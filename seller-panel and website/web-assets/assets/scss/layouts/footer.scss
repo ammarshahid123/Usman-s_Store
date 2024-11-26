@@ -1,7 +1,6 @@
 footer{
-    background-color: #000000;
+    background-color: rgb(245 245 245);
     padding: 50px 20px 5px 20px;
-    color: #ffffff;
     .foot-logo{
         margin-left: 2%;
         img{
@@ -76,7 +75,7 @@ footer{
     }
     hr{
         margin: 20px 0px;
-        background:  rgb(163, 171, 196);
+        background:  rgb(0, 0, 0);
     }
     .terms-section{
         justify-content: space-between;
@@ -101,7 +100,7 @@ footer{
     }
 }
 .text-c-white{
-color: white;
+color: rgb(0, 0, 0);
 }
 .fw-800{
     font-weight: 800;
