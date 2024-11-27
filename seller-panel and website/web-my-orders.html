@@ -665,8 +665,10 @@
 <!-- /footer -->
 
  <!-- THIRD PARTY JS -->
- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
- <script src="./web-assets/assets/js/script.js"></script>
+
+ <script src="./web-assets/assets/js/preloader.js"></script>
+ <script src="./web-assets/assets/js/dropdowns.js"></script>
+ <script src="./web-assets/assets/js/language.js"></script>
 
 <!-- scripts -->
 <script>
@@ -692,37 +694,6 @@
   .then(data => {
       document.getElementById("preloader").innerHTML = data;
   });
-</script>
-<!-- lode More -->
-<script>
-  const productCards = document.querySelectorAll('.Product-card');
-  const loadMoreBtn = document.getElementById('loadMoreBtn');
-  const loader = document.querySelector('.loader');
-  let visibleCards = 25; // Initially visible cards
-
-  // Function to show the next set of cards
-  function loadMoreCards() {
-      loader.style.display = 'block'; // Show loader
-      setTimeout(() => {
-          loader.style.display = 'none'; // Hide loader after 2 seconds
-          for (let i = visibleCards; i < visibleCards + 25 && i < productCards.length; i++) {
-              productCards[i].style.display = 'inline-block'; // Show next 25 cards
-          }
-          visibleCards += 25; // Increase the count of visible cards
-          // Hide the button if all cards are displayed
-          if (visibleCards >= productCards.length) {
-              loadMoreBtn.style.display = 'none';
-          }
-      }, 2000); // Simulate loading time
-  }
-
-  // Show the initial 25 cards
-  for (let i = 0; i < visibleCards; i++) {
-      productCards[i].style.display = 'inline-block';
-  }
-
-  // Event listener for Load More button
-  loadMoreBtn.addEventListener('click', loadMoreCards);
 </script>
 <!-- model -->
 <script>

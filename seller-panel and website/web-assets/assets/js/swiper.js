@@ -13,6 +13,25 @@ document.addEventListener("DOMContentLoaded", function () {
         },
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    var swiper = new Swiper(".likely-products", {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        loop: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+    });
+});
+
+
+
+
 
 // **Swiper Slider Initialization for Vertical Banner**
 document.addEventListener("DOMContentLoaded", function () {
