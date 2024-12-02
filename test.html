@@ -4,51 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
 </head>
 <style>
-  /* Wrapper for the notification */
-.message-btn{
-  position: relative;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #007bff; /* Blue circle */
-  border-radius: 50%;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px, rgba(0, 0, 0, 0.2) 0px 1px 3px;
-  i{
-    font-size: 36px;
-    color: white;
-  }
-  
-  /* Notification badge */
-  .notification-badge {
-    position: absolute;
-    top: -4px;
-    right: 3px;
-    width: 20px;
-    height: 20px;
-    background-color: #e00; /* Red for badge */
-    color: #fff;
-    font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
-  }
-}
 
 
 </style>
 <body>
-
-<div class="notification-wrapper message-btn">
-  <i class='bx bxs-message-rounded'></i>
-  <div class="notification-badge">1</div>
+  
+<div class="range-slider">
+  <span>
+    <div class="from">
+      Min
+    <input type="number" value="0" min="0" max="10000000"/> 
+    </div>
+    <div class="to">
+      Max
+    <input type="number" value="50000" min="0" max="10000000"/>
+    </div>
+  </span>
+<input value="0" min="0" max="10000000" step="500" type="range"/>
+<input value="50000" min="0" max="10000000" step="500" type="range"/>
+<svg width="100%" height="24">
+  <line x1="4" y1="0" x2="300" y2="0" stroke="#444" stroke-width="12" stroke-dasharray="1 28"></line>
+</svg>
 </div>
+<script>
+  (function() {
+
+var parent = document.querySelector(".range-slider");
+if(!parent) return;
+
+var
+  rangeS = parent.querySelectorAll("input[type=range]"),
+  numberS = parent.querySelectorAll("input[type=number]");
+
+rangeS.forEach(function(el) {
+  el.oninput = function() {
+    var slide1 = parseFloat(rangeS[0].value),
+        slide2 = parseFloat(rangeS[1].value);
+
+    if (slide1 > slide2) {
+      [slide1, slide2] = [slide2, slide1];
+      // var tmp = slide2;
+      // slide2 = slide1;
+      // slide1 = tmp;
+    }
+
+    numberS[0].value = slide1;
+    numberS[1].value = slide2;
+  }
+});
+
+numberS.forEach(function(el) {
+  el.oninput = function() {
+    var number1 = parseFloat(numberS[0].value),
+        number2 = parseFloat(numberS[1].value);
+    
+    if (number1 > number2) {
+      var tmp = number1;
+      numberS[0].value = number2;
+      numberS[1].value = tmp;
+    }
+
+    rangeS[0].value = number1;
+    rangeS[1].value = number2;
+
+  }
+});
+
+})();
+</script>
 </body>
 </html>

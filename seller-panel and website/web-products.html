@@ -9,7 +9,134 @@
     <link rel="stylesheet" href="./web-assets/assets/css/kit.css">
     <link rel="stylesheet" href="./web-assets/assets/css/style.css">
 <style>
+/* range price */
+.range-slider {
+  width: 230px;
+    text-align: center;
+    position: relative;
+    margin: 30px 0px;
+    height: 4em;
+    span{
+      display: flex;
+    }
+    input {
+      box-shadow: 0;
+      outline: 0;
+    }
+    .to, .from{
+      display: flex;
+        gap: 10px;
+        font-size: 14px;
+        position: relative;
+    }
+}
+.range-slider svg,
+.range-slider input[type=range] {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+input[type=number] {
+  border: none;
+  font-size: 0.9em;
+}
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type=number]:invalid,
+input[type=number]:out-of-range {
+  border: 2px solid #ff6347;
+}
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ff7f00;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #ff7f00;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #ff7f00;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #ff7f00;
+  border-radius: 1px;
+  box-shadow: none;
+  border: 0;
+}
+input[type=range]::-webkit-slider-thumb {
+  z-index: 2;
+  position: relative;
+  box-shadow: 0px 0px 0px #000;
+  border: 1px solid #ffffff;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #ff6347;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7px;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #2497e3;
+  border-radius: 1px;
+  box-shadow: none;
+  border: 0;
+}
+input[type=range]::-moz-range-thumb {
+  z-index: 2;
+  position: relative;
+  box-shadow: 0px 0px 0px #000;
+  border: 1px solid #2497e3;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #a1d0ff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower,
+input[type=range]::-ms-fill-upper {
+  background: #ffa319;
+  border-radius: 1px;
+  box-shadow: none;
+  border: 0;
+}
+input[type=range]::-ms-thumb {
+  z-index: 2;
+  position: relative;
+  box-shadow: 0px 0px 0px #000;
+  border: 1px solid #ffffff;
+  height: 18px;
+  width: 18px;
+  border-radius: 25px;
+  background: #000000;
+  cursor: pointer;
+}
 
+/* price range */
 .limited-offer{
     display: flex;
     border-radius: 10px;
@@ -108,7 +235,7 @@
     hr{
         margin: 0;
     border: none;
-    background-color: #edf0f3;
+    background-color: #bdbdbd;
     height: 1px;
     }
     
@@ -525,7 +652,29 @@
     </div>
     <hr>
     <div class="filter-section">
-      <div class="filter-header">Price <i class='bx bx-chevron-right arrow'></i></div>
+      <div class="filter-header" onclick="toggleFilter(this)">
+        Price
+        <i class='bx bx-chevron-right arrow'></i>
+      </div>
+      <div class="filter-content">
+        <div class="range-slider">
+          <span>
+            <div class="from">
+              Min
+            <input type="number" value="0" min="0" max="10000000"/> 
+            </div>
+            <div class="to">
+              Max
+            <input type="number" value="5000000" min="0" max="10000000"/>
+            </div>
+          </span>
+        <input value="0" min="0" max="10000000" step="500" type="range"/>
+        <input value="5000000" min="0" max="10000000" step="500" type="range"/>
+        <svg width="100%" height="24">
+          <line x1="4" y1="0" x2="300" y2="0" stroke="#444" stroke-width="12" stroke-dasharray="1 28"></line>
+        </svg>
+        </div>
+      </div>
     </div>
     <hr>
     <div class="filter-section">
@@ -874,5 +1023,6 @@
   });
   
   </script>
+  <script src="./web-assets/assets/js/price-range.js"></script>
 </body>
 </html>
